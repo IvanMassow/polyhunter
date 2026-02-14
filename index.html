@@ -99,6 +99,23 @@
   .cl-member-name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 500; }
   .cl-member-pnl { font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
 
+  /* THEME EXPOSURE */
+  .themes-section { padding: 2.5rem 0; }
+  .theme-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; }
+  .theme-card { background: var(--white); border: 1px solid var(--grey-200); border-radius: 4px; padding: 1.2rem; }
+  .theme-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.4rem; }
+  .theme-name { font-weight: 700; font-size: 1rem; }
+  .theme-exposure { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.04em; padding: 0.15rem 0.5rem; border-radius: 3px; }
+  .theme-desc { font-size: 0.78rem; color: var(--ink-subtle); margin-bottom: 0.8rem; }
+  .theme-stats { display: flex; gap: 1.2rem; margin-bottom: 0.8rem; }
+  .theme-stat { text-align: center; }
+  .theme-stat-val { display: block; font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; }
+  .theme-stat-lbl { display: block; font-size: 0.6rem; color: var(--ink-subtle); text-transform: uppercase; letter-spacing: 0.04em; }
+  .theme-members { border-top: 1px solid var(--grey-200); padding-top: 0.5rem; }
+  .theme-member { display: flex; align-items: center; justify-content: space-between; padding: 0.2rem 0; font-size: 0.72rem; }
+  .theme-member-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; font-weight: 500; }
+  .theme-member-pnl { font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; margin-left: 0.5rem; }
+
   /* LEGEND */
   .legend { display: flex; gap: 2rem; flex-wrap: wrap; padding: 1rem 0; font-size: 0.78rem; color: var(--ink-mid); }
   .legend-item { display: flex; align-items: center; gap: 0.4rem; }
@@ -131,7 +148,8 @@
   <span class="logo-text">NOAH</span>
   <nav class="header-nav">
     <a href="#sheet">Trading Sheet</a>
-    <a href="#clusters">Rating Clusters</a>
+    <a href="#clusters">Ratings</a>
+    <a href="#themes">Themes</a>
   </nav>
 </header>
 
@@ -140,7 +158,7 @@
     <div class="section-label">PolyHunter Performance Report</div>
     <h1>22 Predictions Tracked</h1>
     <div class="subtitle">18 green, 0 orange, 4 red. The question is which ratings produce edge.</div>
-    <div class="hero-meta">Report generated: 2026-02-14 21:16 UTC &middot; Prices update every ~60 min</div>
+    <div class="hero-meta">Report generated: 2026-02-14 21:23 UTC &middot; Prices update every ~60 min</div>
     <div class="stat-grid">
       <div class="stat-box">
         <div class="stat-num">22</div>
@@ -585,7 +603,7 @@
 <section class="clusters-section" id="clusters">
   <div class="container">
     <div class="section-title">Performance by Rating</div>
-    <div class="section-intro">How each confidence band is performing. A-rated trades carry the highest confidence from the original report. The question: does high confidence from the model translate to real market edge?</div>
+    <div class="section-intro">How each confidence band is performing. The question: does high confidence from the model translate to real market edge?</div>
     <div class="cluster-grid">
       <div class="cluster-card" style="border-left:4px solid #92400e">
         <div class="cluster-header">
@@ -686,11 +704,162 @@
   </div>
 </section>
 
+<section class="themes-section" id="themes">
+  <div class="container">
+    <div class="section-title">Theme Exposure</div>
+    <div class="section-intro">Many positions are bets on the same underlying question. This shows your actual risk concentration &mdash; 9 Fed rate cut positions is really one big bet, not nine independent ones.</div>
+    <div class="theme-grid">
+      <div class="theme-card" style="border-left:4px solid #cc0000">
+        <div class="theme-header">
+            <span class="theme-name">Fed Rate Cuts &uarr;</span>
+            <span class="theme-exposure" style="background:#fef2f2;color:#cc0000">HIGH: 9 positions</span>
+        </div>
+        <div class="theme-desc">All positions on whether/when the Fed cuts rates</div>
+        <div class="theme-stats">
+            <div class="theme-stat">
+                <span class="theme-stat-val" style="color:#16a34a">+0.7%</span>
+                <span class="theme-stat-lbl">Avg P&amp;L</span>
+            </div>
+            <div class="theme-stat">
+                <span class="theme-stat-val" style="color:#16a34a">+6.0%</span>
+                <span class="theme-stat-lbl">Total P&amp;L</span>
+            </div>
+            <div class="theme-stat">
+                <span class="theme-stat-val">9</span>
+                <span class="theme-stat-lbl">Active</span>
+            </div>
+            <div class="theme-stat">
+                <span class="theme-stat-val" style="color:#7c3aed">0</span>
+                <span class="theme-stat-lbl">Killed</span>
+            </div>
+        </div>
+        <div class="theme-members"><div class="theme-member"><span class="theme-member-name" style="color:#16a34a">Will the Fed decrease interest rates by 25 bps aft</span><span class="theme-member-pnl" style="color:#16a34a">0.0%</span></div>
+<div class="theme-member"><span class="theme-member-name" style="color:#16a34a">Will 2 Fed rate cuts happen in 2026?</span><span class="theme-member-pnl" style="color:#16a34a">+3.5%</span></div>
+<div class="theme-member"><span class="theme-member-name" style="color:#16a34a">Will the Fed decrease interest rates by 25 bps aft</span><span class="theme-member-pnl" style="color:#16a34a">0.0%</span></div>
+<div class="theme-member"><span class="theme-member-name" style="color:#16a34a">Fed rate cut by April 2026 meeting?</span><span class="theme-member-pnl" style="color:#16a34a">0.0%</span></div>
+<div class="theme-member"><span class="theme-member-name" style="color:#16a34a">Fed rate cut by June 2026 meeting?</span><span class="theme-member-pnl" style="color:#16a34a">0.0%</span></div>
+<div class="theme-member"><span class="theme-member-name" style="color:#cc0000">Will the Fed decrease interest rates by 50+ bps af</span><span class="theme-member-pnl" style="color:#cc0000">-1.0%</span></div>
+<div class="theme-member"><span class="theme-member-name" style="color:#16a34a">Fed emergency rate cut before 2027?</span><span class="theme-member-pnl" style="color:#16a34a">0.0%</span></div>
+<div class="theme-member"><span class="theme-member-name" style="color:#16a34a">Fed rate hike in 2026?</span><span class="theme-member-pnl" style="color:#16a34a">0.0%</span></div>
+<div class="theme-member"><span class="theme-member-name" style="color:#16a34a">Will no Fed rate cuts happen in 2026?</span><span class="theme-member-pnl" style="color:#16a34a">+3.5%</span></div></div>
+    </div><div class="theme-card" style="border-left:4px solid #92400e">
+        <div class="theme-header">
+            <span class="theme-name">Trump Tariffs &uarr;</span>
+            <span class="theme-exposure" style="background:#fef3c7;color:#92400e">MEDIUM: 3 positions</span>
+        </div>
+        <div class="theme-desc">Trade policy and tariff positions</div>
+        <div class="theme-stats">
+            <div class="theme-stat">
+                <span class="theme-stat-val" style="color:#73788a">+0.0%</span>
+                <span class="theme-stat-lbl">Avg P&amp;L</span>
+            </div>
+            <div class="theme-stat">
+                <span class="theme-stat-val" style="color:#73788a">+0.0%</span>
+                <span class="theme-stat-lbl">Total P&amp;L</span>
+            </div>
+            <div class="theme-stat">
+                <span class="theme-stat-val">3</span>
+                <span class="theme-stat-lbl">Active</span>
+            </div>
+            <div class="theme-stat">
+                <span class="theme-stat-val" style="color:#7c3aed">2</span>
+                <span class="theme-stat-lbl">Killed</span>
+            </div>
+        </div>
+        <div class="theme-members"><div class="theme-member"><span class="theme-member-name" style="color:#16a34a">Will Trump create a tariff dividend by March 31? ●</span><span class="theme-member-pnl" style="color:#16a34a">0.0%</span></div>
+<div class="theme-member"><span class="theme-member-name" style="color:#7c3aed">Tariff increase on Canada in effect by June 30? ●◐ <span style="font-size:0.5rem;background:#7c3aed;color:white;padding:0 3px;border-radius:2px">K</span></span><span class="theme-member-pnl" style="color:#7c3aed">0.0%</span></div>
+<div class="theme-member"><span class="theme-member-name" style="color:#7c3aed">Tariff increase on Canada in effect by June 30? <span style="font-size:0.5rem;background:#7c3aed;color:white;padding:0 3px;border-radius:2px">K</span></span><span class="theme-member-pnl" style="color:#7c3aed">0.0%</span></div>
+<div class="theme-member"><span class="theme-member-name" style="color:#16a34a">Will Trump create a tariff dividend by March 31?</span><span class="theme-member-pnl" style="color:#16a34a">0.0%</span></div>
+<div class="theme-member"><span class="theme-member-name" style="color:#16a34a">100% tariff on Canada in effect by June 30?</span><span class="theme-member-pnl" style="color:#16a34a">0.0%</span></div></div>
+    </div><div class="theme-card" style="border-left:4px solid #92400e">
+        <div class="theme-header">
+            <span class="theme-name">Fed Personnel &uarr;</span>
+            <span class="theme-exposure" style="background:#fef3c7;color:#92400e">MEDIUM: 3 positions</span>
+        </div>
+        <div class="theme-desc">Fed leadership changes</div>
+        <div class="theme-stats">
+            <div class="theme-stat">
+                <span class="theme-stat-val" style="color:#cc0000">-0.2%</span>
+                <span class="theme-stat-lbl">Avg P&amp;L</span>
+            </div>
+            <div class="theme-stat">
+                <span class="theme-stat-val" style="color:#cc0000">-0.6%</span>
+                <span class="theme-stat-lbl">Total P&amp;L</span>
+            </div>
+            <div class="theme-stat">
+                <span class="theme-stat-val">3</span>
+                <span class="theme-stat-lbl">Active</span>
+            </div>
+            <div class="theme-stat">
+                <span class="theme-stat-val" style="color:#7c3aed">0</span>
+                <span class="theme-stat-lbl">Killed</span>
+            </div>
+        </div>
+        <div class="theme-members"><div class="theme-member"><span class="theme-member-name" style="color:#cc0000">Jerome Powell out as Fed Chair by May 14, 2026?</span><span class="theme-member-pnl" style="color:#cc0000">-0.6%</span></div>
+<div class="theme-member"><span class="theme-member-name" style="color:#16a34a">Kevin Warsh confirmed as Fed Chair by May 1?</span><span class="theme-member-pnl" style="color:#16a34a">0.0%</span></div>
+<div class="theme-member"><span class="theme-member-name" style="color:#16a34a">Jerome Powell out from Fed Board by May 30?</span><span class="theme-member-pnl" style="color:#16a34a">0.0%</span></div></div>
+    </div><div class="theme-card" style="border-left:4px solid #166534">
+        <div class="theme-header">
+            <span class="theme-name">Inflation &uarr;</span>
+            <span class="theme-exposure" style="background:#dcfce7;color:#166534">LOW: 2 positions</span>
+        </div>
+        <div class="theme-desc">Bets on inflation levels</div>
+        <div class="theme-stats">
+            <div class="theme-stat">
+                <span class="theme-stat-val" style="color:#cc0000">-4.8%</span>
+                <span class="theme-stat-lbl">Avg P&amp;L</span>
+            </div>
+            <div class="theme-stat">
+                <span class="theme-stat-val" style="color:#cc0000">-9.6%</span>
+                <span class="theme-stat-lbl">Total P&amp;L</span>
+            </div>
+            <div class="theme-stat">
+                <span class="theme-stat-val">2</span>
+                <span class="theme-stat-lbl">Active</span>
+            </div>
+            <div class="theme-stat">
+                <span class="theme-stat-val" style="color:#7c3aed">0</span>
+                <span class="theme-stat-lbl">Killed</span>
+            </div>
+        </div>
+        <div class="theme-members"><div class="theme-member"><span class="theme-member-name" style="color:#cc0000">Will inflation reach more than 3% in 2026?</span><span class="theme-member-pnl" style="color:#cc0000">-4.8%</span></div>
+<div class="theme-member"><span class="theme-member-name" style="color:#cc0000">Will inflation reach more than 4% in 2026?</span><span class="theme-member-pnl" style="color:#cc0000">-4.8%</span></div></div>
+    </div><div class="theme-card" style="border-left:4px solid #166534">
+        <div class="theme-header">
+            <span class="theme-name">Recession ?</span>
+            <span class="theme-exposure" style="background:#dcfce7;color:#166534">LOW: 0 positions</span>
+        </div>
+        <div class="theme-desc">US recession probability</div>
+        <div class="theme-stats">
+            <div class="theme-stat">
+                <span class="theme-stat-val" style="color:#73788a">+0.0%</span>
+                <span class="theme-stat-lbl">Avg P&amp;L</span>
+            </div>
+            <div class="theme-stat">
+                <span class="theme-stat-val" style="color:#73788a">+0.0%</span>
+                <span class="theme-stat-lbl">Total P&amp;L</span>
+            </div>
+            <div class="theme-stat">
+                <span class="theme-stat-val">0</span>
+                <span class="theme-stat-lbl">Active</span>
+            </div>
+            <div class="theme-stat">
+                <span class="theme-stat-val" style="color:#7c3aed">2</span>
+                <span class="theme-stat-lbl">Killed</span>
+            </div>
+        </div>
+        <div class="theme-members"><div class="theme-member"><span class="theme-member-name" style="color:#7c3aed">US recession by end of 2026? ●●◯◯◯ <span style="font-size:0.5rem;background:#7c3aed;color:white;padding:0 3px;border-radius:2px">K</span></span><span class="theme-member-pnl" style="color:#7c3aed">0.0%</span></div>
+<div class="theme-member"><span class="theme-member-name" style="color:#7c3aed">US recession by end of 2026? <span style="font-size:0.5rem;background:#7c3aed;color:white;padding:0 3px;border-radius:2px">K</span></span><span class="theme-member-pnl" style="color:#7c3aed">0.0%</span></div></div>
+    </div>
+    </div>
+  </div>
+</section>
+
 <footer class="report-footer">
   <div class="footer-inner">
     <span class="logo-text" style="font-size:1rem">NOAH</span>
     <p class="footer-strapline">Narrative Signal to Prediction Market Edge Tracker</p>
-    <div class="footer-legal">Auto-generated 2026-02-14 21:16 UTC &middot; Data updates hourly</div>
+    <div class="footer-legal">Auto-generated 2026-02-14 21:23 UTC &middot; Data updates hourly</div>
   </div>
 </footer>
 
