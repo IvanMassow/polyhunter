@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PolyHunter Performance Report --- 2026-02-14</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Georgia', 'Times New Roman', serif; background: #0d1117; color: #e6edf3; line-height: 1.6; }
+
+    .header { background: linear-gradient(135deg, #161b22 0%, #0d1117 100%); padding: 60px 40px; border-bottom: 1px solid #21262d; }
+    .header-inner { max-width: 1100px; margin: 0 auto; }
+    .header .label { color: #e74c3c; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; font-family: sans-serif; margin-bottom: 12px; }
+    .header h1 { font-size: 42px; font-weight: 700; line-height: 1.15; margin-bottom: 16px; color: #fff; }
+    .header .subtitle { color: #8b949e; font-size: 18px; max-width: 700px; }
+    .header .date { color: #484f58; font-size: 14px; font-family: sans-serif; margin-top: 20px; }
+
+    .hero-stats { display: flex; gap: 60px; padding: 50px 40px; max-width: 1100px; margin: 0 auto; }
+    .hero-stat { text-align: center; }
+    .hero-stat .value { font-size: 52px; font-weight: 700; color: #fff; font-family: 'Georgia', serif; }
+    .hero-stat .value.positive { color: #2ecc71; }
+    .hero-stat .value.negative { color: #e74c3c; }
+    .hero-stat .label { font-size: 14px; color: #8b949e; font-family: sans-serif; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+
+    .section { max-width: 1100px; margin: 0 auto; padding: 40px; }
+    .section-title { font-size: 13px; color: #8b949e; letter-spacing: 2px; text-transform: uppercase; font-family: sans-serif; text-align: center; margin-bottom: 30px; padding-bottom: 15px; border-bottom: 1px solid #21262d; }
+
+    .breakdown-table { width: 100%; border-collapse: collapse; font-family: sans-serif; font-size: 14px; }
+    .breakdown-table th { text-align: left; padding: 12px 16px; color: #8b949e; font-weight: 500; border-bottom: 1px solid #21262d; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
+    .breakdown-table td { padding: 12px 16px; border-bottom: 1px solid #161b22; }
+    .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; }
+
+    .candidate-card { background: #161b22; border: 1px solid #21262d; border-radius: 8px; padding: 28px; margin-bottom: 20px; }
+    .card-header { margin-bottom: 20px; }
+    .card-header h3 { font-size: 20px; color: #fff; margin: 8px 0 4px; }
+    .card-header .meta { font-size: 13px; color: #8b949e; font-family: sans-serif; }
+
+    .badges { display: flex; gap: 8px; flex-wrap: wrap; }
+    .badge { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 11px; font-weight: 600; font-family: sans-serif; text-transform: uppercase; letter-spacing: 0.5px; }
+    .badge.win { background: #1a4731; color: #2ecc71; }
+    .badge.loss { background: #4a1a1a; color: #e74c3c; }
+    .badge.flat { background: #2d333b; color: #8b949e; }
+    .badge.edge-type { color: #fff; }
+    .badge.conviction-high { background: #1a4731; color: #2ecc71; }
+    .badge.conviction-low { background: #2d333b; color: #d4a574; }
+    .badge.conservative-hit { background: #1a3a4a; color: #3498db; }
+
+    .card-stats { display: flex; gap: 32px; flex-wrap: wrap; margin-bottom: 16px; }
+    .stat { text-align: center; min-width: 80px; }
+    .stat-value { font-size: 28px; font-weight: 700; color: #fff; font-family: 'Georgia', serif; }
+    .stat-value.positive { color: #2ecc71; }
+    .stat-value.negative { color: #e74c3c; }
+    .stat-label { font-size: 12px; color: #8b949e; font-family: sans-serif; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    .sparkline-row { display: flex; align-items: center; gap: 20px; margin-top: 12px; }
+    .house-target { font-size: 13px; color: #8b949e; font-family: sans-serif; }
+    .confirm-time { margin-top: 12px; padding: 8px 12px; background: #1a3a4a; border-radius: 4px; font-size: 13px; color: #3498db; font-family: sans-serif; display: inline-block; }
+
+    .strategy-box { background: #161b22; border: 1px solid #21262d; border-radius: 8px; padding: 28px; margin-top: 20px; }
+    .strategy-box h3 { font-size: 18px; color: #fff; margin-bottom: 12px; }
+    .strategy-box p { color: #8b949e; font-size: 15px; font-family: sans-serif; }
+
+    .footer { text-align: center; padding: 40px; color: #484f58; font-size: 13px; font-family: sans-serif; border-top: 1px solid #21262d; margin-top: 40px; }
+
+    @media (max-width: 768px) {
+        .hero-stats { flex-direction: column; gap: 24px; padding: 30px 20px; }
+        .hero-stat .value { font-size: 36px; }
+        .header { padding: 30px 20px; }
+        .header h1 { font-size: 28px; }
+        .section { padding: 20px; }
+        .card-stats { gap: 16px; }
+        .stat-value { font-size: 22px; }
+    }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <div class="header-inner">
+        <div class="label">PolyHunter Performance Report</div>
+        <h1>Tracking 25 Predictions --- Building the Edge</h1>
+        <div class="subtitle">Across 25 candidates, 11 have moved in the predicted direction. Here is where the edge is --- and is not.</div>
+        <div class="date">2026-02-14 &middot; 13:08 UTC &middot; Auto-generated by PolyHunter</div>
+    </div>
+</div>
+
+<div class="hero-stats">
+    <div class="hero-stat">
+        <div class="value">25</div>
+        <div class="label">Candidates Tracked</div>
+    </div>
+    <div class="hero-stat">
+        <div class="value negative">44%</div>
+        <div class="label">Win Rate</div>
+    </div>
+    <div class="hero-stat">
+        <div class="value positive">+1.397</div>
+        <div class="label">Total P&amp;L</div>
+    </div>
+    <div class="hero-stat">
+        <div class="value">28%</div>
+        <div class="label">Conservative Hit Rate</div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title">Performance by Signal Type</div>
+    <table class="breakdown-table">
+        <thead>
+            <tr>
+                <th>Edge Type</th>
+                <th>Count</th>
+                <th>Win Rate</th>
+                <th>Avg Edge Captured</th>
+                <th>Avg Hours to Confirm</th>
+                <th>Avg P&amp;L</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        <tr>
+            <td><span class="dot" style="background:#9b59b6"></span> DISCOVERY</td>
+            <td>2</td>
+            <td>50.0%</td>
+            <td>282.1%</td>
+            <td>---</td>
+            <td class="positive">0.0975</td>
+        </tr>
+
+        <tr>
+            <td><span class="dot" style="background:#95a5a6"></span> UNKNOWN</td>
+            <td>7</td>
+            <td>28.6%</td>
+            <td>124.4%</td>
+            <td>---</td>
+            <td class="negative">-0.1286</td>
+        </tr>
+
+        <tr>
+            <td><span class="dot" style="background:#3498db"></span> FRONTIER</td>
+            <td>2</td>
+            <td>50.0%</td>
+            <td>1282.3%</td>
+            <td>---</td>
+            <td class="positive">0.0830</td>
+        </tr>
+
+        <tr>
+            <td><span class="dot" style="background:#2ecc71"></span> CONSENSUS</td>
+            <td>14</td>
+            <td>50.0%</td>
+            <td>335.5%</td>
+            <td>---</td>
+            <td class="positive">0.1383</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="strategy-box">
+        <h3>Conservative Strategy: Sell at 80% of Target</h3>
+        <p>If you entered every trade and exited at 80% of the house target:
+           <strong>7</strong> of <strong>25</strong> trades would have hit the target
+           for a net P&amp;L of <strong>-2.9640</strong> per contract.</p>
+        <p style="margin-top:8px; color:#484f58;">This is the "sell 20% short of the target" number.
+           Over time this will show whether systematic conservative exits produce aggregate profit.</p>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title">Individual Predictions</div>
+    
+        <div class="candidate-card">
+            <div class="card-header">
+                <div class="badges">
+                    <span class="badge win">WINNING</span>
+                    <span class="badge edge-type" style="background:#2ecc71">CONSENSUS</span>
+                    
+                    <span class="badge conservative-hit">80% TARGET HIT</span>
+                </div>
+                <h3>Will the Fed decrease interest rates by 25 bps after the April 2026 meeting?</h3>
+                <div class="meta">Tracked 0h &middot; 1 snapshots &middot; Direction: higher</div>
+            </div>
+            <div class="card-stats">
+                <div class="stat">
+                    <div class="stat-value" style="color:#2ecc71">6 pts</div>
+                    <div class="stat-label">Predicted Edge</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">21&cent;</div>
+                    <div class="stat-label">Entry Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">100&cent;</div>
+                    <div class="stat-label">Current Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value positive">+376.2%</div>
+                    <div class="stat-label">P&amp;L</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">1317%</div>
+                    <div class="stat-label">Edge Captured</div>
+                </div>
+            </div>
+            <div class="sparkline-row">
+                <div class="sparkline"></div>
+                <div class="price-range">
+                    <span class="house-target">House target: 27&cent;</span>
+                </div>
+            </div>
+            <div class="confirm-time">Confirmed after <strong>0.0h</strong></div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="card-header">
+                <div class="badges">
+                    <span class="badge win">WINNING</span>
+                    <span class="badge edge-type" style="background:#3498db">FRONTIER</span>
+                    
+                    <span class="badge conservative-hit">80% TARGET HIT</span>
+                </div>
+                <h3>Fed emergency rate cut before 2027?</h3>
+                <div class="meta">Tracked 0h &middot; 1 snapshots &middot; Direction: higher</div>
+            </div>
+            <div class="card-stats">
+                <div class="stat">
+                    <div class="stat-value" style="color:#3498db">6 pts</div>
+                    <div class="stat-label">Predicted Edge</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">21&cent;</div>
+                    <div class="stat-label">Entry Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">100&cent;</div>
+                    <div class="stat-label">Current Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value positive">+376.2%</div>
+                    <div class="stat-label">P&amp;L</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">1317%</div>
+                    <div class="stat-label">Edge Captured</div>
+                </div>
+            </div>
+            <div class="sparkline-row">
+                <div class="sparkline"></div>
+                <div class="price-range">
+                    <span class="house-target">House target: 27&cent;</span>
+                </div>
+            </div>
+            <div class="confirm-time">Confirmed after <strong>0.0h</strong></div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="card-header">
+                <div class="badges">
+                    <span class="badge loss">LOSING</span>
+                    <span class="badge edge-type" style="background:#3498db">FRONTIER</span>
+                    
+                    
+                </div>
+                <h3>Will Venezuelan crude oil production reach 1m barrels per day in 2026? ●●◐◌◌</h3>
+                <div class="meta">Tracked 0h &middot; 1 snapshots &middot; Direction: higher</div>
+            </div>
+            <div class="card-stats">
+                <div class="stat">
+                    <div class="stat-value" style="color:#3498db">5 pts</div>
+                    <div class="stat-label">Predicted Edge</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">69&cent;</div>
+                    <div class="stat-label">Entry Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">7&cent;</div>
+                    <div class="stat-label">Current Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value negative">-90.4%</div>
+                    <div class="stat-label">P&amp;L</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">1248%</div>
+                    <div class="stat-label">Edge Captured</div>
+                </div>
+            </div>
+            <div class="sparkline-row">
+                <div class="sparkline"></div>
+                <div class="price-range">
+                    <span class="house-target">House target: 74&cent;</span>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="candidate-card">
+            <div class="card-header">
+                <div class="badges">
+                    <span class="badge win">WINNING</span>
+                    <span class="badge edge-type" style="background:#2ecc71">CONSENSUS</span>
+                    
+                    <span class="badge conservative-hit">80% TARGET HIT</span>
+                </div>
+                <h3>Will the Fed decrease interest rates by 25 bps after the March 2026 meeting?</h3>
+                <div class="meta">Tracked 0h &middot; 1 snapshots &middot; Direction: higher</div>
+            </div>
+            <div class="card-stats">
+                <div class="stat">
+                    <div class="stat-value" style="color:#2ecc71">6 pts</div>
+                    <div class="stat-label">Predicted Edge</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">6&cent;</div>
+                    <div class="stat-label">Entry Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">76&cent;</div>
+                    <div class="stat-label">Current Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value positive">+1158.3%</div>
+                    <div class="stat-label">P&amp;L</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">1158%</div>
+                    <div class="stat-label">Edge Captured</div>
+                </div>
+            </div>
+            <div class="sparkline-row">
+                <div class="sparkline"></div>
+                <div class="price-range">
+                    <span class="house-target">House target: 12&cent;</span>
+                </div>
+            </div>
+            <div class="confirm-time">Confirmed after <strong>0.0h</strong></div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="card-header">
+                <div class="badges">
+                    <span class="badge win">WINNING</span>
+                    <span class="badge edge-type" style="background:#2ecc71">CONSENSUS</span>
+                    
+                    <span class="badge conservative-hit">80% TARGET HIT</span>
+                </div>
+                <h3>Will the 10-year Treasury yield hit 4.6% before 2027?</h3>
+                <div class="meta">Tracked 0h &middot; 1 snapshots &middot; Direction: higher</div>
+            </div>
+            <div class="card-stats">
+                <div class="stat">
+                    <div class="stat-value" style="color:#2ecc71">8 pts</div>
+                    <div class="stat-label">Predicted Edge</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">23&cent;</div>
+                    <div class="stat-label">Entry Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">76&cent;</div>
+                    <div class="stat-label">Current Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value positive">+228.3%</div>
+                    <div class="stat-label">P&amp;L</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">656%</div>
+                    <div class="stat-label">Edge Captured</div>
+                </div>
+            </div>
+            <div class="sparkline-row">
+                <div class="sparkline"></div>
+                <div class="price-range">
+                    <span class="house-target">House target: 31&cent;</span>
+                </div>
+            </div>
+            <div class="confirm-time">Confirmed after <strong>0.0h</strong></div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="card-header">
+                <div class="badges">
+                    <span class="badge loss">LOSING</span>
+                    <span class="badge edge-type" style="background:#2ecc71">CONSENSUS</span>
+                    
+                    
+                </div>
+                <h3>Fed rate cut by April 2026 meeting?</h3>
+                <div class="meta">Tracked 0h &middot; 1 snapshots &middot; Direction: higher</div>
+            </div>
+            <div class="card-stats">
+                <div class="stat">
+                    <div class="stat-value" style="color:#2ecc71">5 pts</div>
+                    <div class="stat-label">Predicted Edge</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">29&cent;</div>
+                    <div class="stat-label">Entry Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">6&cent;</div>
+                    <div class="stat-label">Current Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value negative">-78.8%</div>
+                    <div class="stat-label">P&amp;L</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">457%</div>
+                    <div class="stat-label">Edge Captured</div>
+                </div>
+            </div>
+            <div class="sparkline-row">
+                <div class="sparkline"></div>
+                <div class="price-range">
+                    <span class="house-target">House target: 34&cent;</span>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="candidate-card">
+            <div class="card-header">
+                <div class="badges">
+                    <span class="badge win">WINNING</span>
+                    <span class="badge edge-type" style="background:#9b59b6">DISCOVERY</span>
+                    
+                    <span class="badge conservative-hit">80% TARGET HIT</span>
+                </div>
+                <h3>Will the US 10Y Treasury yield be above 5% on February 28? ●●◐◌◌</h3>
+                <div class="meta">Tracked 0h &middot; 1 snapshots &middot; Direction: higher</div>
+            </div>
+            <div class="card-stats">
+                <div class="stat">
+                    <div class="stat-value" style="color:#9b59b6">7 pts</div>
+                    <div class="stat-label">Predicted Edge</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">12&cent;</div>
+                    <div class="stat-label">Entry Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">42&cent;</div>
+                    <div class="stat-label">Current Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value positive">+245.8%</div>
+                    <div class="stat-label">P&amp;L</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">421%</div>
+                    <div class="stat-label">Edge Captured</div>
+                </div>
+            </div>
+            <div class="sparkline-row">
+                <div class="sparkline"></div>
+                <div class="price-range">
+                    <span class="house-target">House target: 19&cent;</span>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="candidate-card">
+            <div class="card-header">
+                <div class="badges">
+                    <span class="badge loss">LOSING</span>
+                    <span class="badge edge-type" style="background:#95a5a6">None</span>
+                    
+                    
+                </div>
+                <h3>Will the median home value in Washington, D.C. be above $700k on Apr 1? ●●◐◌◌</h3>
+                <div class="meta">Tracked 0h &middot; 1 snapshots &middot; Direction: higher</div>
+            </div>
+            <div class="card-stats">
+                <div class="stat">
+                    <div class="stat-value" style="color:#95a5a6">14 pts</div>
+                    <div class="stat-label">Predicted Edge</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">65&cent;</div>
+                    <div class="stat-label">Entry Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">6&cent;</div>
+                    <div class="stat-label">Current Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value negative">-90.8%</div>
+                    <div class="stat-label">P&amp;L</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">421%</div>
+                    <div class="stat-label">Edge Captured</div>
+                </div>
+            </div>
+            <div class="sparkline-row">
+                <div class="sparkline"></div>
+                <div class="price-range">
+                    <span class="house-target">House target: 79&cent;</span>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="candidate-card">
+            <div class="card-header">
+                <div class="badges">
+                    <span class="badge win">WINNING</span>
+                    <span class="badge edge-type" style="background:#2ecc71">CONSENSUS</span>
+                    
+                    <span class="badge conservative-hit">80% TARGET HIT</span>
+                </div>
+                <h3>Tariff increase on Canada in effect by June 30?</h3>
+                <div class="meta">Tracked 0h &middot; 1 snapshots &middot; Direction: higher</div>
+            </div>
+            <div class="card-stats">
+                <div class="stat">
+                    <div class="stat-value" style="color:#2ecc71">12 pts</div>
+                    <div class="stat-label">Predicted Edge</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">17&cent;</div>
+                    <div class="stat-label">Entry Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">52&cent;</div>
+                    <div class="stat-label">Current Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value positive">+205.9%</div>
+                    <div class="stat-label">P&amp;L</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">292%</div>
+                    <div class="stat-label">Edge Captured</div>
+                </div>
+            </div>
+            <div class="sparkline-row">
+                <div class="sparkline"></div>
+                <div class="price-range">
+                    <span class="house-target">House target: 29&cent;</span>
+                </div>
+            </div>
+            <div class="confirm-time">Confirmed after <strong>0.0h</strong></div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="card-header">
+                <div class="badges">
+                    <span class="badge loss">LOSING</span>
+                    <span class="badge edge-type" style="background:#2ecc71">CONSENSUS</span>
+                    
+                    
+                </div>
+                <h3>Will the 10-year Treasury yield hit 5.0% before 2027?</h3>
+                <div class="meta">Tracked 0h &middot; 1 snapshots &middot; Direction: higher</div>
+            </div>
+            <div class="card-stats">
+                <div class="stat">
+                    <div class="stat-value" style="color:#2ecc71">5 pts</div>
+                    <div class="stat-label">Predicted Edge</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">13&cent;</div>
+                    <div class="stat-label">Entry Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">1&cent;</div>
+                    <div class="stat-label">Current Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value negative">-95.0%</div>
+                    <div class="stat-label">P&amp;L</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">247%</div>
+                    <div class="stat-label">Edge Captured</div>
+                </div>
+            </div>
+            <div class="sparkline-row">
+                <div class="sparkline"></div>
+                <div class="price-range">
+                    <span class="house-target">House target: 18&cent;</span>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="candidate-card">
+            <div class="card-header">
+                <div class="badges">
+                    <span class="badge win">WINNING</span>
+                    <span class="badge edge-type" style="background:#2ecc71">CONSENSUS</span>
+                    
+                    <span class="badge conservative-hit">80% TARGET HIT</span>
+                </div>
+                <h3>Will the Fed decrease interest rates by 50+ bps after the June 2026 meeting?</h3>
+                <div class="meta">Tracked 0h &middot; 1 snapshots &middot; Direction: higher</div>
+            </div>
+            <div class="card-stats">
+                <div class="stat">
+                    <div class="stat-value" style="color:#2ecc71">7 pts</div>
+                    <div class="stat-label">Predicted Edge</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">10&cent;</div>
+                    <div class="stat-label">Entry Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">24&cent;</div>
+                    <div class="stat-label">Current Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value positive">+140.0%</div>
+                    <div class="stat-label">P&amp;L</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">200%</div>
+                    <div class="stat-label">Edge Captured</div>
+                </div>
+            </div>
+            <div class="sparkline-row">
+                <div class="sparkline"></div>
+                <div class="price-range">
+                    <span class="house-target">House target: 17&cent;</span>
+                </div>
+            </div>
+            <div class="confirm-time">Confirmed after <strong>0.0h</strong></div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="card-header">
+                <div class="badges">
+                    <span class="badge loss">LOSING</span>
+                    <span class="badge edge-type" style="background:#2ecc71">CONSENSUS</span>
+                    
+                    
+                </div>
+                <h3>Fed rate hike in 2026?</h3>
+                <div class="meta">Tracked 0h &middot; 1 snapshots &middot; Direction: higher</div>
+            </div>
+            <div class="card-stats">
+                <div class="stat">
+                    <div class="stat-value" style="color:#2ecc71">6 pts</div>
+                    <div class="stat-label">Predicted Edge</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">13&cent;</div>
+                    <div class="stat-label">Entry Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">2&cent;</div>
+                    <div class="stat-label">Current Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value negative">-80.8%</div>
+                    <div class="stat-label">P&amp;L</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">175%</div>
+                    <div class="stat-label">Edge Captured</div>
+                </div>
+            </div>
+            <div class="sparkline-row">
+                <div class="sparkline"></div>
+                <div class="price-range">
+                    <span class="house-target">House target: 19&cent;</span>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="candidate-card">
+            <div class="card-header">
+                <div class="badges">
+                    <span class="badge loss">LOSING</span>
+                    <span class="badge edge-type" style="background:#9b59b6">DISCOVERY</span>
+                    
+                    
+                </div>
+                <h3>Negative GDP growth in 2026?</h3>
+                <div class="meta">Tracked 0h &middot; 1 snapshots &middot; Direction: higher</div>
+            </div>
+            <div class="card-stats">
+                <div class="stat">
+                    <div class="stat-value" style="color:#9b59b6">7 pts</div>
+                    <div class="stat-label">Predicted Edge</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">11&cent;</div>
+                    <div class="stat-label">Entry Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">1&cent;</div>
+                    <div class="stat-label">Current Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value negative">-90.9%</div>
+                    <div class="stat-label">P&amp;L</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">143%</div>
+                    <div class="stat-label">Edge Captured</div>
+                </div>
+            </div>
+            <div class="sparkline-row">
+                <div class="sparkline"></div>
+                <div class="price-range">
+                    <span class="house-target">House target: 18&cent;</span>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="candidate-card">
+            <div class="card-header">
+                <div class="badges">
+                    <span class="badge loss">LOSING</span>
+                    <span class="badge edge-type" style="background:#95a5a6">None</span>
+                    
+                    
+                </div>
+                <h3>Will 2 Fed rate cuts happen in 2026?</h3>
+                <div class="meta">Tracked 0h &middot; 1 snapshots &middot; Direction: higher</div>
+            </div>
+            <div class="card-stats">
+                <div class="stat">
+                    <div class="stat-value" style="color:#95a5a6">14 pts</div>
+                    <div class="stat-label">Predicted Edge</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">27&cent;</div>
+                    <div class="stat-label">Entry Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">10&cent;</div>
+                    <div class="stat-label">Current Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value negative">-64.8%</div>
+                    <div class="stat-label">P&amp;L</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">125%</div>
+                    <div class="stat-label">Edge Captured</div>
+                </div>
+            </div>
+            <div class="sparkline-row">
+                <div class="sparkline"></div>
+                <div class="price-range">
+                    <span class="house-target">House target: 41&cent;</span>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="candidate-card">
+            <div class="card-header">
+                <div class="badges">
+                    <span class="badge loss">LOSING</span>
+                    <span class="badge edge-type" style="background:#95a5a6">None</span>
+                    
+                    
+                </div>
+                <h3>Will the 10-year treasury yield hit 4.4% by March 31?</h3>
+                <div class="meta">Tracked 0h &middot; 1 snapshots &middot; Direction: higher</div>
+            </div>
+            <div class="card-stats">
+                <div class="stat">
+                    <div class="stat-value" style="color:#95a5a6">9 pts</div>
+                    <div class="stat-label">Predicted Edge</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">13&cent;</div>
+                    <div class="stat-label">Entry Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">2&cent;</div>
+                    <div class="stat-label">Current Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value negative">-80.8%</div>
+                    <div class="stat-label">P&amp;L</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">117%</div>
+                    <div class="stat-label">Edge Captured</div>
+                </div>
+            </div>
+            <div class="sparkline-row">
+                <div class="sparkline"></div>
+                <div class="price-range">
+                    <span class="house-target">House target: 22&cent;</span>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="candidate-card">
+            <div class="card-header">
+                <div class="badges">
+                    <span class="badge loss">LOSING</span>
+                    <span class="badge edge-type" style="background:#2ecc71">CONSENSUS</span>
+                    
+                    
+                </div>
+                <h3>Will inflation reach more than 3% in 2026?</h3>
+                <div class="meta">Tracked 0h &middot; 1 snapshots &middot; Direction: higher</div>
+            </div>
+            <div class="card-stats">
+                <div class="stat">
+                    <div class="stat-value" style="color:#2ecc71">19 pts</div>
+                    <div class="stat-label">Predicted Edge</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">28&cent;</div>
+                    <div class="stat-label">Entry Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">12&cent;</div>
+                    <div class="stat-label">Current Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value negative">-55.4%</div>
+                    <div class="stat-label">P&amp;L</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">82%</div>
+                    <div class="stat-label">Edge Captured</div>
+                </div>
+            </div>
+            <div class="sparkline-row">
+                <div class="sparkline"></div>
+                <div class="price-range">
+                    <span class="house-target">House target: 47&cent;</span>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="candidate-card">
+            <div class="card-header">
+                <div class="badges">
+                    <span class="badge win">WINNING</span>
+                    <span class="badge edge-type" style="background:#2ecc71">CONSENSUS</span>
+                    
+                    
+                </div>
+                <h3>Fed rate cut by March 2026 meeting?</h3>
+                <div class="meta">Tracked 0h &middot; 1 snapshots &middot; Direction: higher</div>
+            </div>
+            <div class="card-stats">
+                <div class="stat">
+                    <div class="stat-value" style="color:#2ecc71">7 pts</div>
+                    <div class="stat-label">Predicted Edge</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">7&cent;</div>
+                    <div class="stat-label">Entry Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">11&cent;</div>
+                    <div class="stat-label">Current Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value positive">+62.1%</div>
+                    <div class="stat-label">P&amp;L</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">62%</div>
+                    <div class="stat-label">Edge Captured</div>
+                </div>
+            </div>
+            <div class="sparkline-row">
+                <div class="sparkline"></div>
+                <div class="price-range">
+                    <span class="house-target">House target: 14&cent;</span>
+                </div>
+            </div>
+            <div class="confirm-time">Confirmed after <strong>0.0h</strong></div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="card-header">
+                <div class="badges">
+                    <span class="badge win">WINNING</span>
+                    <span class="badge edge-type" style="background:#95a5a6">None</span>
+                    
+                    
+                </div>
+                <h3>Will the 10-year treasury yield hit 4.5% by March 31?</h3>
+                <div class="meta">Tracked 0h &middot; 1 snapshots &middot; Direction: higher</div>
+            </div>
+            <div class="card-stats">
+                <div class="stat">
+                    <div class="stat-value" style="color:#95a5a6">9 pts</div>
+                    <div class="stat-label">Predicted Edge</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">7&cent;</div>
+                    <div class="stat-label">Entry Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">12&cent;</div>
+                    <div class="stat-label">Current Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value positive">+78.6%</div>
+                    <div class="stat-label">P&amp;L</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">61%</div>
+                    <div class="stat-label">Edge Captured</div>
+                </div>
+            </div>
+            <div class="sparkline-row">
+                <div class="sparkline"></div>
+                <div class="price-range">
+                    <span class="house-target">House target: 16&cent;</span>
+                </div>
+            </div>
+            <div class="confirm-time">Confirmed after <strong>0.0h</strong></div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="card-header">
+                <div class="badges">
+                    <span class="badge loss">LOSING</span>
+                    <span class="badge edge-type" style="background:#95a5a6">None</span>
+                    
+                    
+                </div>
+                <h3>Will 1 Fed rate cut happen in 2026?</h3>
+                <div class="meta">Tracked 0h &middot; 1 snapshots &middot; Direction: higher</div>
+            </div>
+            <div class="card-stats">
+                <div class="stat">
+                    <div class="stat-value" style="color:#95a5a6">16 pts</div>
+                    <div class="stat-label">Predicted Edge</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">17&cent;</div>
+                    <div class="stat-label">Entry Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">8&cent;</div>
+                    <div class="stat-label">Current Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value negative">-55.9%</div>
+                    <div class="stat-label">P&amp;L</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">59%</div>
+                    <div class="stat-label">Edge Captured</div>
+                </div>
+            </div>
+            <div class="sparkline-row">
+                <div class="sparkline"></div>
+                <div class="price-range">
+                    <span class="house-target">House target: 33&cent;</span>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="candidate-card">
+            <div class="card-header">
+                <div class="badges">
+                    <span class="badge loss">LOSING</span>
+                    <span class="badge edge-type" style="background:#95a5a6">None</span>
+                    
+                    
+                </div>
+                <h3>US recession by end of 2026?</h3>
+                <div class="meta">Tracked 0h &middot; 1 snapshots &middot; Direction: higher</div>
+            </div>
+            <div class="card-stats">
+                <div class="stat">
+                    <div class="stat-value" style="color:#95a5a6">7 pts</div>
+                    <div class="stat-label">Predicted Edge</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">24&cent;</div>
+                    <div class="stat-label">Entry Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">20&cent;</div>
+                    <div class="stat-label">Current Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value negative">-14.6%</div>
+                    <div class="stat-label">P&amp;L</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">50%</div>
+                    <div class="stat-label">Edge Captured</div>
+                </div>
+            </div>
+            <div class="sparkline-row">
+                <div class="sparkline"></div>
+                <div class="price-range">
+                    <span class="house-target">House target: 31&cent;</span>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="candidate-card">
+            <div class="card-header">
+                <div class="badges">
+                    <span class="badge win">WINNING</span>
+                    <span class="badge edge-type" style="background:#95a5a6">None</span>
+                    
+                    
+                </div>
+                <h3>Will no Fed rate cuts happen in 2026?</h3>
+                <div class="meta">Tracked 0h &middot; 1 snapshots &middot; Direction: higher</div>
+            </div>
+            <div class="card-stats">
+                <div class="stat">
+                    <div class="stat-value" style="color:#95a5a6">12 pts</div>
+                    <div class="stat-label">Predicted Edge</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">6&cent;</div>
+                    <div class="stat-label">Entry Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">10&cent;</div>
+                    <div class="stat-label">Current Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value positive">+75.0%</div>
+                    <div class="stat-label">P&amp;L</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">38%</div>
+                    <div class="stat-label">Edge Captured</div>
+                </div>
+            </div>
+            <div class="sparkline-row">
+                <div class="sparkline"></div>
+                <div class="price-range">
+                    <span class="house-target">House target: 18&cent;</span>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="candidate-card">
+            <div class="card-header">
+                <div class="badges">
+                    <span class="badge win">WINNING</span>
+                    <span class="badge edge-type" style="background:#2ecc71">CONSENSUS</span>
+                    
+                    
+                </div>
+                <h3>Will the 10-year Treasury yield hit 4.8% before 2027?</h3>
+                <div class="meta">Tracked 0h &middot; 1 snapshots &middot; Direction: higher</div>
+            </div>
+            <div class="card-stats">
+                <div class="stat">
+                    <div class="stat-value" style="color:#2ecc71">6 pts</div>
+                    <div class="stat-label">Predicted Edge</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">15&cent;</div>
+                    <div class="stat-label">Entry Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">17&cent;</div>
+                    <div class="stat-label">Current Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value positive">+13.3%</div>
+                    <div class="stat-label">P&amp;L</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">33%</div>
+                    <div class="stat-label">Edge Captured</div>
+                </div>
+            </div>
+            <div class="sparkline-row">
+                <div class="sparkline"></div>
+                <div class="price-range">
+                    <span class="house-target">House target: 21&cent;</span>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="candidate-card">
+            <div class="card-header">
+                <div class="badges">
+                    <span class="badge loss">LOSING</span>
+                    <span class="badge edge-type" style="background:#2ecc71">CONSENSUS</span>
+                    
+                    
+                </div>
+                <h3>100% tariff on Canada in effect by June 30?</h3>
+                <div class="meta">Tracked 0h &middot; 1 snapshots &middot; Direction: higher</div>
+            </div>
+            <div class="card-stats">
+                <div class="stat">
+                    <div class="stat-value" style="color:#2ecc71">7 pts</div>
+                    <div class="stat-label">Predicted Edge</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">10&cent;</div>
+                    <div class="stat-label">Entry Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">10&cent;</div>
+                    <div class="stat-label">Current Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value negative">-5.0%</div>
+                    <div class="stat-label">P&amp;L</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">7%</div>
+                    <div class="stat-label">Edge Captured</div>
+                </div>
+            </div>
+            <div class="sparkline-row">
+                <div class="sparkline"></div>
+                <div class="price-range">
+                    <span class="house-target">House target: 17&cent;</span>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="candidate-card">
+            <div class="card-header">
+                <div class="badges">
+                    <span class="badge loss">LOSING</span>
+                    <span class="badge edge-type" style="background:#2ecc71">CONSENSUS</span>
+                    
+                    
+                </div>
+                <h3>Will inflation reach more than 4% in 2026?</h3>
+                <div class="meta">Tracked 0h &middot; 1 snapshots &middot; Direction: higher</div>
+            </div>
+            <div class="card-stats">
+                <div class="stat">
+                    <div class="stat-value" style="color:#2ecc71">8 pts</div>
+                    <div class="stat-label">Predicted Edge</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">11&cent;</div>
+                    <div class="stat-label">Entry Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">10&cent;</div>
+                    <div class="stat-label">Current Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value negative">-4.5%</div>
+                    <div class="stat-label">P&amp;L</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">6%</div>
+                    <div class="stat-label">Edge Captured</div>
+                </div>
+            </div>
+            <div class="sparkline-row">
+                <div class="sparkline"></div>
+                <div class="price-range">
+                    <span class="house-target">House target: 19&cent;</span>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="candidate-card">
+            <div class="card-header">
+                <div class="badges">
+                    <span class="badge loss">LOSING</span>
+                    <span class="badge edge-type" style="background:#2ecc71">CONSENSUS</span>
+                    
+                    
+                </div>
+                <h3>Will Trump create a tariff dividend by March 31?</h3>
+                <div class="meta">Tracked 0h &middot; 1 snapshots &middot; Direction: higher</div>
+            </div>
+            <div class="card-stats">
+                <div class="stat">
+                    <div class="stat-value" style="color:#2ecc71">10 pts</div>
+                    <div class="stat-label">Predicted Edge</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">8&cent;</div>
+                    <div class="stat-label">Entry Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">8&cent;</div>
+                    <div class="stat-label">Current Price</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value negative">-6.3%</div>
+                    <div class="stat-label">P&amp;L</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">5%</div>
+                    <div class="stat-label">Edge Captured</div>
+                </div>
+            </div>
+            <div class="sparkline-row">
+                <div class="sparkline"></div>
+                <div class="price-range">
+                    <span class="house-target">House target: 18&cent;</span>
+                </div>
+            </div>
+            
+        </div>
+</div>
+
+<div class="footer">
+    PolyHunter &middot; Narrative Signal &rarr; Prediction Market Edge Tracker<br>
+    Auto-generated 2026-02-14 13:08 UTC &middot; Data updates hourly
+</div>
+
+</body>
+</html>
