@@ -52,6 +52,7 @@
   .td-num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
   .td-lift { text-align: right; white-space: nowrap; }
   .td-kill { text-align: center; width: 30px; }
+  .td-date { font-size: 0.72rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
   .td-timeline { white-space: nowrap; font-size: 0.76rem; font-variant-numeric: tabular-nums; max-width: 350px; overflow-x: auto; }
 
   .candidate-name { font-weight: 600; color: var(--ink); font-size: 0.84rem; line-height: 1.3; }
@@ -89,6 +90,13 @@
   .cl-val { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--ink); }
   .cl-lbl { font-size: 0.65rem; color: var(--ink-subtle); text-transform: uppercase; letter-spacing: 0.04em; }
 
+  .cluster-members { margin-top: 1rem; border-top: 1px solid var(--grey-200); padding-top: 0.6rem; }
+  .cl-member { display: flex; align-items: center; gap: 0.4rem; padding: 0.25rem 0; border-bottom: 1px solid var(--grey-100); font-size: 0.75rem; }
+  .cl-member:last-child { border-bottom: none; }
+  .cl-member-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .cl-member-name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 500; }
+  .cl-member-pnl { font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
   /* LEGEND */
   .legend { display: flex; gap: 2rem; flex-wrap: wrap; padding: 1rem 0; font-size: 0.78rem; color: var(--ink-mid); }
   .legend-item { display: flex; align-items: center; gap: 0.4rem; }
@@ -106,6 +114,7 @@
     .sheet-table { font-size: 0.76rem; }
     .td-name { min-width: 160px; }
     .td-timeline { display: none; }
+    .td-date { display: none; }
     .cluster-grid { grid-template-columns: 1fr; }
   }
   @media print {
@@ -129,7 +138,7 @@
     <div class="section-label">PolyHunter Performance Report</div>
     <h1>Awaiting Data</h1>
     <div class="subtitle">The tracker is waiting for new report candidates.</div>
-    <div class="hero-meta">2026-02-14 &middot; 14:39 UTC &middot; Auto-generated</div>
+    <div class="hero-meta">2026-02-14 &middot; 15:11 UTC &middot; Auto-generated</div>
     <div class="stat-grid">
       <div class="stat-box">
         <div class="stat-num">0</div>
@@ -166,11 +175,13 @@
       <div class="legend-item"><span class="legend-dot" style="background:#f59e0b"></span> Orange = recovering from red</div>
       <div class="legend-item"><span class="legend-dot" style="background:#cc0000"></span> Red = losing</div>
       <div class="legend-item"><span class="kill-marker" style="font-size:0.65rem;width:14px;height:14px;line-height:14px">K</span> Kill = sentiment reversed</div>
+      <div class="legend-item">Name colour = P&amp;L status &middot; <span style="color:#7c3aed;font-weight:600">Purple date</span> = killed</div>
     </div>
     <div style="overflow-x:auto">
     <table class="sheet-table">
       <thead>
         <tr>
+          <th>Discovered</th>
           <th>Rating</th>
           <th>Candidate</th>
           <th style="text-align:right">Poly Price</th>
@@ -204,7 +215,7 @@
   <div class="footer-inner">
     <span class="logo-text" style="font-size:1rem">NOAH</span>
     <p class="footer-strapline">Narrative Signal to Prediction Market Edge Tracker</p>
-    <div class="footer-legal">Auto-generated 2026-02-14 14:39 UTC &middot; Data updates hourly</div>
+    <div class="footer-legal">Auto-generated 2026-02-14 15:11 UTC &middot; Data updates hourly</div>
   </div>
 </footer>
 
