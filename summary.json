@@ -1,8 +1,8 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-02-15T23:42:57.654593+00:00",
-  "total_candidates": 36,
+  "updated_at": "2026-02-15T23:44:37.343689+00:00",
+  "total_candidates": 37,
   "winners": 10,
   "losers": 9,
   "win_rate": 52.6,
@@ -11,6 +11,23 @@
   "best_trade": 477.8,
   "worst_trade": -3.9,
   "recent_positions": [
+    {
+      "event": "Will Trump create a tariff dividend by March 31? \u25cf\u25cf\u25cf\u25cf\u25d0 [B]",
+      "edge_type": "CONSENSUS",
+      "direction": "higher",
+      "rating": "B",
+      "conviction": null,
+      "entry_price": 0.08,
+      "current_price": 0.08,
+      "pnl_pct": 0.0,
+      "edge_points": 4.0,
+      "status": "green",
+      "state": "WATCHING",
+      "house_prob": 0,
+      "market_price": 0,
+      "kill_reason": "",
+      "tail_type": "long"
+    },
     {
       "event": "Will inflation reach more than 4% in 2026? \u25cf\u25cf\u25cf\u25cf\u25d0 [A]",
       "edge_type": "CONSENSUS",
@@ -333,23 +350,6 @@
       "market_price": 0,
       "kill_reason": "",
       "tail_type": "short"
-    },
-    {
-      "event": "Will 2 Fed rate cuts happen in 2026?",
-      "edge_type": "UNCLASSIFIED",
-      "direction": "higher",
-      "rating": "B",
-      "conviction": null,
-      "entry_price": 0.0565,
-      "current_price": 0.0635,
-      "pnl_pct": 12.4,
-      "edge_points": 6.0,
-      "status": "green",
-      "state": "ACTIVE",
-      "house_prob": 0,
-      "market_price": 0,
-      "kill_reason": "",
-      "tail_type": "short"
     }
   ],
   "report_url": "https://ivanmassow.github.io/polyhunter/",
@@ -361,7 +361,7 @@
     "best_trade": 477.8
   },
   "long_tail": {
-    "total": 6,
+    "total": 7,
     "winners": 1,
     "losers": 1,
     "win_rate": 50.0,
