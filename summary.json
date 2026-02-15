@@ -1,7 +1,7 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-02-15T10:52:41.445497+00:00",
+  "updated_at": "2026-02-15T10:54:34.493133+00:00",
   "total_candidates": 28,
   "winners": 7,
   "losers": 10,
@@ -15,7 +15,7 @@
       "event": "Will the US enter a recession by the end of 2026? \u25cf\u25d0\u25cc\u25cc\u25cc [D]",
       "edge_type": "FRONTIER",
       "direction": "higher",
-      "rating": "E",
+      "rating": "D",
       "conviction": null,
       "entry_price": 0.23,
       "current_price": 0.23,
