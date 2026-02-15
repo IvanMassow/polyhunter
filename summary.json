@@ -1,0 +1,15 @@
+{
+  "system": "polyhunter",
+  "title": "PolyHunter Edge Tracker",
+  "updated_at": "2026-02-15T00:53:59.346111+00:00",
+  "total_candidates": 25,
+  "winners": 7,
+  "losers": 8,
+  "win_rate": 46.7,
+  "total_pnl": 0.0085,
+  "avg_pnl": 0.0003,
+  "best_trade": 20.4,
+  "worst_trade": -11.5,
+  "active_trades": [],
+  "report_url": "https://ivanmassow.github.io/polyhunter/"
+}
