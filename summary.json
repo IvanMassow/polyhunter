@@ -1,15 +1,15 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-02-15T20:41:25.296435+00:00",
+  "updated_at": "2026-02-15T21:41:15.808406+00:00",
   "total_candidates": 36,
   "winners": 8,
-  "losers": 8,
-  "win_rate": 50.0,
-  "total_pnl": 0.004,
-  "avg_pnl": 0.0001,
+  "losers": 9,
+  "win_rate": 47.1,
+  "total_pnl": 0.021,
+  "avg_pnl": 0.0006,
   "best_trade": 477.8,
-  "worst_trade": -4.9,
+  "worst_trade": -3.9,
   "recent_positions": [
     {
       "event": "Will inflation reach more than 4% in 2026? \u25cf\u25cf\u25cf\u25cf\u25d0 [A]",
@@ -239,8 +239,8 @@
       "rating": "E",
       "conviction": null,
       "entry_price": 0.0245,
-      "current_price": 0.024,
-      "pnl_pct": 2.0,
+      "current_price": 0.0235,
+      "pnl_pct": 4.1,
       "edge_points": 15.0,
       "status": "green",
       "state": "ACTIVE",
@@ -341,8 +341,8 @@
       "rating": "B",
       "conviction": null,
       "entry_price": 0.0565,
-      "current_price": 0.0625,
-      "pnl_pct": 10.6,
+      "current_price": 0.0685,
+      "pnl_pct": 21.2,
       "edge_points": 6.0,
       "status": "green",
       "state": "ACTIVE",
@@ -356,8 +356,8 @@
   "short_tail": {
     "total": 30,
     "winners": 7,
-    "losers": 8,
-    "win_rate": 46.7,
+    "losers": 9,
+    "win_rate": 43.8,
     "best_trade": 477.8
   },
   "long_tail": {
@@ -365,6 +365,6 @@
     "winners": 1,
     "losers": 0,
     "win_rate": 100.0,
-    "best_trade": 2.0
+    "best_trade": 4.1
   }
 }
