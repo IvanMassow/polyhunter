@@ -3,17 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Poly Market - 2026-02-15</title>
-<!-- Open Graph / Social sharing preview -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="NOAH Poly Market - Prediction Market Edge Tracker">
-<meta property="og:description" content="Narrative signal to prediction market edge tracking. Live paper trading performance.">
-<meta property="og:image" content="https://ivanmassow.github.io/polyhunter/og-image.png?v=2">
-<meta property="og:url" content="https://ivanmassow.github.io/polyhunter/">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="NOAH Poly Market - Prediction Market Edge Tracker">
-<meta name="twitter:description" content="Narrative signal to prediction market edge tracking. Live paper trading performance.">
-<meta name="twitter:image" content="https://ivanmassow.github.io/polyhunter/og-image.png?v=2">
+<title>PolyHunter - 2026-02-15</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -29,15 +19,14 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: var(--font-body); color: var(--ink); background: var(--paper); line-height: 1.6; font-size: 15px; -webkit-font-smoothing: antialiased; padding-top: var(--header-height); }
 
-  .report-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--ink); height: var(--header-height); display: flex; align-items: center; padding: 0 2rem; }
-  .logo-text { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.3rem; letter-spacing: 0.08em; color: var(--white); text-transform: uppercase; }
-  .header-nav { display: flex; gap: 1.5rem; margin-left: 3rem; }
-  .header-nav a { color: var(--grey-400); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.04em; transition: color 0.2s; }
+  .report-header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--ink); height: var(--header-height); display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; }
+  .logo-text { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.2rem; letter-spacing: 0.22em; color: var(--white); text-transform: uppercase; }
+  .header-nav { display: flex; gap: 1.5rem; }
+  .header-nav a { color: var(--grey-400); text-decoration: none; font-size: 0.8rem; }
   .header-nav a:hover { color: var(--white); }
-  .header-meta { margin-left: auto; color: var(--grey-400); font-size: 0.78rem; letter-spacing: 0.02em; }
 
   /* TAIL DIVIDER */
-  .tail-divider { border-top: 3px solid var(--teal); margin-top: 1rem; scroll-margin-top: 72px; }
+  .tail-divider { border-top: 3px solid var(--teal); margin-top: 1rem; }
   .tail-summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1rem; }
   .tail-summary-box { background: rgba(255,255,255,0.08); border-radius: 4px; padding: 1rem 1.2rem; }
   .tail-summary-box h3 { font-family: var(--font-display); font-size: 1rem; margin-bottom: 0.5rem; color: var(--white); }
@@ -92,11 +81,7 @@
 
   .kill-marker { display: inline-block; background: #7c3aed; color: white; font-weight: 700; font-size: 0.7rem; width: 18px; height: 18px; line-height: 18px; text-align: center; border-radius: 3px; }
   .confirm-marker { display: inline-block; background: var(--teal); color: white; font-weight: 700; font-size: 0.7rem; width: 18px; height: 18px; line-height: 18px; text-align: center; border-radius: 3px; }
-  .wave-entry-marker { display: inline-block; background: #f59e0b; color: white; font-weight: 700; font-size: 0.7rem; width: 18px; height: 18px; line-height: 18px; text-align: center; border-radius: 3px; }
-  .wave-exit-marker { display: inline-block; background: #1e40af; color: white; font-weight: 700; font-size: 0.7rem; width: 18px; height: 18px; line-height: 18px; text-align: center; border-radius: 3px; }
   .kill-note { display: block; font-size: 0.68rem; font-style: italic; color: #7c3aed; margin-top: 2px; line-height: 1.3; opacity: 0.85; }
-  .exit-note { display: block; font-size: 0.68rem; font-style: italic; color: #1e40af; margin-top: 2px; line-height: 1.3; opacity: 0.85; }
-  .watching-badge { display: inline-block; background: #fef3c7; color: #92400e; font-size: 0.6rem; font-weight: 600; padding: 1px 5px; border-radius: 3px; letter-spacing: 0.04em; margin-left: 6px; vertical-align: middle; }
 
   .killed-row td { opacity: 0.75; }
 
@@ -161,9 +146,6 @@
     .td-timeline { display: none; }
     .td-date { display: none; }
     .cluster-grid { grid-template-columns: 1fr; }
-    .report-header { padding: 0 1rem; }
-    .header-nav { margin-left: 1.5rem; gap: 0.8rem; }
-    .header-meta { display: none; }
   }
   @media print {
     .report-header { position: static; }
@@ -176,22 +158,20 @@
 <header class="report-header">
   <a href="https://ivanmassow.github.io/noah-dashboard/" style="text-decoration:none"><span class="logo-text">NOAH</span></a>
   <nav class="header-nav">
-    <a href="https://ivanmassow.github.io/polyhunter/" style="color:#fff">Poly Market</a>
-    <a href="https://ivanmassow.github.io/hedgefund-tracker/">Hedge Fund</a>
-    <a href="https://ivanmassow.github.io/company-watch/">Company Watch</a>
-    <span style="color:rgba(255,255,255,0.15)">|</span>
     <a href="#short-tail">Short Tail</a>
     <a href="#long-tail">Long Tail</a>
+    <span style="color:rgba(255,255,255,0.15)">|</span>
+    <a href="https://ivanmassow.github.io/noah-dashboard/">Dashboard</a>
+    <a href="https://ivanmassow.github.io/hedgefund-tracker/">Hedge Fund</a>
   </nav>
-  <div class="header-meta">Poly Market &middot; Edge Tracker &middot; 2026-02-15</div>
 </header>
 
 <section class="hero">
   <div class="container">
-    <div class="section-label">Poly Market Performance Report</div>
+    <div class="section-label">PolyHunter Performance Report</div>
     <h1>28 Predictions Tracked</h1>
     <div class="subtitle">18 green, 1 orange, 9 red across both signal windows.</div>
-    <div class="hero-meta">Report generated: 2026-02-15 15:53 UTC &middot; Prices update every ~60 min</div>
+    <div class="hero-meta">Report generated: 2026-02-15 16:53 UTC &middot; Prices update every ~60 min</div>
     <div class="stat-grid">
       <div class="stat-box">
         <div class="stat-num">28</div>
@@ -245,12 +225,8 @@
     <div class="legend-item"><span class="legend-dot" style="background:#f59e0b"></span> Orange = recovering from red</div>
     <div class="legend-item"><span class="legend-dot" style="background:#cc0000"></span> Red = losing</div>
     <div class="legend-item"><span class="confirm-marker" style="font-size:0.65rem;width:14px;height:14px;line-height:14px">C</span> Confirmed = position renewed</div>
-    <div class="legend-item"><span class="wave-entry-marker" style="font-size:0.65rem;width:14px;height:14px;line-height:14px">W</span> Wave entry = position entered</div>
-    <div class="legend-item"><span class="wave-exit-marker" style="font-size:0.65rem;width:14px;height:14px;line-height:14px">X</span> Wave exit = position closed</div>
     <div class="legend-item"><span class="kill-marker" style="font-size:0.65rem;width:14px;height:14px;line-height:14px">K</span> Kill = sentiment reversed</div>
     <div class="legend-item"><span style="color:#7c3aed;font-weight:600">Purple</span> = killed (P&amp;L crystallised at kill &#x2713;)</div>
-    <div class="legend-item"><span style="color:#9ca3af;font-weight:600">Grey</span> = post-exit (tracking continues)</div>
-    <div class="legend-item"><span class="watching-badge" style="font-size:0.55rem">WATCHING</span> = monitoring, not yet entered</div>
     <div class="legend-item">Vol = 24h trading volume &middot; &empty; = dead market</div>
   </div>
 </div>
@@ -1282,20 +1258,9 @@
 
 <footer class="report-footer">
   <div class="footer-inner">
-    <a href="https://ivanmassow.github.io/noah-dashboard/" style="text-decoration:none"><span class="logo-text" style="font-size:1rem">NOAH</span></a>
+    <span class="logo-text" style="font-size:1rem">NOAH</span>
     <p class="footer-strapline">Narrative Signal to Prediction Market Edge Tracker</p>
-    <p style="font-size:0.72rem;color:rgba(255,241,229,0.5);margin-bottom:8px">
-        <a href="https://ivanmassow.github.io/polyhunter/" style="color:rgba(255,241,229,0.5);text-decoration:none">Poly Market</a> &middot;
-        <a href="https://ivanmassow.github.io/hedgefund-tracker/" style="color:rgba(255,241,229,0.5);text-decoration:none">Hedge Fund</a> &middot;
-        <a href="https://ivanmassow.github.io/company-watch/" style="color:rgba(255,241,229,0.5);text-decoration:none">Company Watch</a>
-    </p>
-    <div class="footer-legal">Auto-generated 2026-02-15 15:53 UTC &middot; Data updates hourly.</div>
-    <div style="margin-top:1.2rem;max-width:560px;margin-left:auto;margin-right:auto;padding:0.8rem 1rem;border-top:1px solid rgba(255,241,229,0.12)">
-        <p style="font-size:0.7rem;color:rgba(255,241,229,0.55);line-height:1.7;text-align:center;margin:0">
-            <strong style="color:rgba(255,241,229,0.7);letter-spacing:0.08em;text-transform:uppercase;font-size:0.65rem">Disclaimer</strong><br>
-            You are welcome to view these pages. The trading algorithms and analysis presented here are experimental and under active development. Nothing on this site constitutes financial advice. We accept no responsibility for any losses incurred from acting on information found here. These pages are intended for internal research purposes. You are strongly advised to conduct your own due diligence before making any investment decisions.
-        </p>
-    </div>
+    <div class="footer-legal">Auto-generated 2026-02-15 16:53 UTC &middot; Data updates hourly</div>
   </div>
 </footer>
 
