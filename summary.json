@@ -1,15 +1,15 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-02-16T01:44:54.104151+00:00",
+  "updated_at": "2026-02-16T02:45:03.233067+00:00",
   "total_candidates": 37,
   "winners": 7,
   "losers": 11,
   "win_rate": 38.9,
-  "total_pnl": -0.036,
-  "avg_pnl": -0.001,
-  "best_trade": 477.8,
-  "worst_trade": -6.9,
+  "total_pnl": -0.026,
+  "avg_pnl": -0.0007,
+  "best_trade": 466.7,
+  "worst_trade": -5.9,
   "recent_positions": [
     {
       "event": "Will Trump create a tariff dividend by March 31? \u25cf\u25cf\u25cf\u25cf\u25d0 [B]",
@@ -256,8 +256,8 @@
       "rating": "E",
       "conviction": null,
       "entry_price": 0.0245,
-      "current_price": 0.0265,
-      "pnl_pct": -8.2,
+      "current_price": 0.027,
+      "pnl_pct": -10.2,
       "edge_points": 15.0,
       "status": "red",
       "state": "ACTIVE",
@@ -324,8 +324,8 @@
       "rating": "C",
       "conviction": null,
       "entry_price": 0.0045,
-      "current_price": 0.026,
-      "pnl_pct": 477.8,
+      "current_price": 0.0255,
+      "pnl_pct": 466.7,
       "edge_points": 4.0,
       "status": "green",
       "state": "ACTIVE",
@@ -358,7 +358,7 @@
     "winners": 6,
     "losers": 9,
     "win_rate": 40.0,
-    "best_trade": 477.8
+    "best_trade": 466.7
   },
   "long_tail": {
     "total": 7,
