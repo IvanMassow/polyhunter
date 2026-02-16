@@ -1,13 +1,13 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-02-16T22:06:24.308382+00:00",
+  "updated_at": "2026-02-16T23:06:51.982486+00:00",
   "total_candidates": 17,
-  "winners": 6,
-  "losers": 1,
-  "win_rate": 85.7,
-  "total_pnl": 0.1235,
-  "avg_pnl": 0.0073,
+  "winners": 5,
+  "losers": 2,
+  "win_rate": 71.4,
+  "total_pnl": 0.1145,
+  "avg_pnl": 0.0067,
   "best_trade": 7.8,
   "worst_trade": -4.4,
   "recent_positions": [
@@ -256,10 +256,10 @@
       "rating": "C",
       "conviction": null,
       "entry_price": 0.078,
-      "current_price": 0.081,
-      "pnl_pct": 3.8,
+      "current_price": 0.072,
+      "pnl_pct": -7.7,
       "edge_points": 6.0,
-      "status": "green",
+      "status": "orange",
       "state": "ACTIVE",
       "house_prob": 0,
       "market_price": 0,
@@ -311,9 +311,9 @@
   },
   "long_tail": {
     "total": 11,
-    "winners": 5,
-    "losers": 1,
-    "win_rate": 83.3,
+    "winners": 4,
+    "losers": 2,
+    "win_rate": 66.7,
     "best_trade": 7.8
   }
 }
