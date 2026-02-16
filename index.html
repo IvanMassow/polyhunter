@@ -1,78 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Poly Market — Awaiting First Report</title>
-<meta property="og:title" content="PolyHunter Edge Tracker">
-<meta property="og:description" content="Clean slate. Awaiting first report.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poly Market - 2026-02-16</title>
+<!-- Open Graph / Social sharing preview -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="NOAH Poly Market - Prediction Market Edge Tracker">
+<meta property="og:description" content="Narrative signal to prediction market edge tracking. Live paper trading performance.">
+<meta property="og:image" content="https://ivanmassow.github.io/polyhunter/og-image.png?v=2">
+<meta property="og:url" content="https://ivanmassow.github.io/polyhunter/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NOAH Poly Market - Prediction Market Edge Tracker">
+<meta name="twitter:description" content="Narrative signal to prediction market edge tracking. Live paper trading performance.">
+<meta name="twitter:image" content="https://ivanmassow.github.io/polyhunter/og-image.png?v=2">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet">
 <style>
-:root {
-  --ink: #262a33;
-  --ink-light: #3d424d;
-  --ink-subtle: #73788a;
-  --paper: #FFF1E5;
-  --paper-light: #FFF7F0;
-  --accent: #0d7680;
-  --grey-200: #dfe1e6;
-  --grey-300: #c4c7d0;
-  --header-height: 56px;
-  --max-width: 1300px;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--paper); color: var(--ink); }
+  :root {
+    --ink: #262a33; --ink-light: #3d424d; --ink-mid: #55596a; --ink-subtle: #73788a;
+    --grey-400: #9ea2b0; --grey-300: #c4c7d0; --grey-200: #dfe1e6; --grey-100: #eef0f3;
+    --paper: #FFF1E5; --paper-light: #FFF7F0; --white: #ffffff;
+    --accent: #0d7680; --teal: #0d7680; --salmon: #FFA089;
+    --green: #16a34a; --orange: #f59e0b; --red: #cc0000;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+    --max-width: 1300px; --header-height: 56px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: var(--font-body); color: var(--ink); background: var(--paper); line-height: 1.6; font-size: 15px; -webkit-font-smoothing: antialiased; padding-top: var(--header-height); }
 
-.report-header {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  height: var(--header-height); background: var(--ink);
-  display: flex; align-items: center; padding: 0 32px;
-}
-.logo-text { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.3rem; color: #fff; letter-spacing: 2px; text-transform: uppercase; }
-.header-nav { display: flex; gap: 20px; margin-left: 40px; }
-.header-nav a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; transition: color 0.2s; }
-.header-nav a:hover { color: #fff; }
-.header-nav a.active { color: #fff; }
-.header-meta { margin-left: auto; color: rgba(255,255,255,0.35); font-size: 0.78rem; letter-spacing: 0.3px; }
+  .report-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--ink); height: var(--header-height); display: flex; align-items: center; padding: 0 2rem; }
+  .logo-text { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.3rem; letter-spacing: 0.08em; color: var(--white); text-transform: uppercase; }
+  .header-nav { display: flex; gap: 1.5rem; margin-left: 3rem; }
+  .header-nav a { color: var(--grey-400); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.04em; transition: color 0.2s; }
+  .header-nav a:hover { color: var(--white); }
+  .header-meta { margin-left: auto; color: var(--grey-400); font-size: 0.78rem; letter-spacing: 0.02em; }
 
-.hero {
-  margin-top: var(--header-height);
-  background: var(--ink);
-  padding: 80px 32px 60px;
-  text-align: center;
-}
-.hero-label { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
-.hero h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 600; color: #fff; line-height: 1.2; margin-bottom: 16px; }
-.hero p { font-size: 1.1rem; color: rgba(255,255,255,0.5); max-width: 600px; margin: 0 auto; line-height: 1.6; }
+  /* TAIL DIVIDER */
+  .tail-divider { border-top: 3px solid var(--teal); margin-top: 1rem; scroll-margin-top: 72px; }
+  .tail-summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1rem; }
+  .tail-summary-box { background: rgba(255,255,255,0.08); border-radius: 4px; padding: 1rem 1.2rem; }
+  .tail-summary-box h3 { font-family: var(--font-display); font-size: 1rem; margin-bottom: 0.5rem; color: var(--white); }
+  .tail-mini-stats { display: flex; gap: 1.5rem; }
+  .tail-mini-stat { text-align: center; }
+  .tail-mini-num { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--white); }
+  .tail-mini-lbl { font-size: 0.65rem; color: var(--grey-400); }
 
-.empty-state {
-  max-width: 700px; margin: 60px auto; padding: 60px 40px;
-  background: var(--paper-light); border: 1px solid var(--grey-200);
-  border-radius: 12px; text-align: center;
-}
-.empty-state h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--ink); margin-bottom: 12px; }
-.empty-state p { color: var(--ink-subtle); font-size: 1rem; line-height: 1.7; }
-.empty-state .icon { font-size: 3rem; margin-bottom: 20px; opacity: 0.4; }
+  .container { max-width: var(--max-width); margin: 0 auto; padding: 0 2rem; }
+  h1, h2, h3 { font-family: var(--font-display); }
+  a { color: var(--accent); text-decoration: none; }
 
-.stat-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
-  max-width: 500px; margin: 40px auto 0;
-}
-.stat-box {
-  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 8px; padding: 20px 12px; text-align: center;
-}
-.stat-box .val { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; font-weight: 700; color: var(--accent); }
-.stat-box .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.35); margin-top: 4px; }
+  /* HERO */
+  .hero { background: var(--ink); color: var(--white); padding: 3rem 0 2.5rem; }
+  .hero .section-label { color: var(--salmon); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .hero h1 { color: var(--white); font-size: clamp(1.6rem, 3.5vw, 2.4rem); margin-bottom: 0.6rem; }
+  .hero .subtitle { color: var(--grey-300); font-size: 1rem; font-weight: 300; }
+  .hero .hero-meta { color: var(--grey-400); font-size: 0.8rem; margin-top: 1rem; }
+  .stat-grid { display: flex; gap: 2.5rem; margin-top: 1.5rem; flex-wrap: wrap; }
+  .stat-box { text-align: center; }
+  .stat-box .stat-num { font-family: var(--font-display); font-size: 2.2rem; font-weight: 700; color: var(--white); line-height: 1; }
+  .stat-box .stat-lbl { font-size: 0.72rem; color: var(--grey-400); margin-top: 0.2rem; }
 
-.report-footer {
-  background: var(--ink); padding: 40px 32px; text-align: center; margin-top: 80px;
-}
-.footer-logo { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1rem; color: rgba(255,255,255,0.6); letter-spacing: 2px; text-transform: uppercase; }
-.footer-strapline { font-family: 'Playfair Display', serif; font-style: italic; color: rgba(255,255,255,0.25); font-size: 0.85rem; margin-top: 8px; }
-.footer-links { margin-top: 16px; }
-.footer-links a { color: rgba(255,255,255,0.35); text-decoration: none; font-size: 0.8rem; margin: 0 12px; }
-.footer-links a:hover { color: #fff; }
+  /* TRADING SHEET */
+  .sheet-section { background: var(--white); padding: 2rem 0; }
+  .sheet-table { width: 100%; border-collapse: collapse; font-size: 0.84rem; }
+  .sheet-table th { text-align: left; font-weight: 700; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-subtle); padding: 0.6rem 0.6rem; border-bottom: 2px solid var(--grey-200); background: var(--paper-light); position: sticky; top: var(--header-height); z-index: 10; }
+  .sheet-table td { padding: 0.5rem 0.6rem; border-bottom: 1px solid var(--grey-100); vertical-align: middle; }
+  .sheet-table tr:hover td { background: rgba(13,118,128,0.03); }
+
+  .td-rating { width: 36px; text-align: center; }
+  .td-name { min-width: 220px; max-width: 300px; white-space: normal; }
+  .td-num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .td-lift { text-align: right; white-space: nowrap; }
+  .td-kill { text-align: center; width: 30px; }
+  .td-date { font-size: 0.72rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .td-timeline { white-space: nowrap; font-size: 0.76rem; font-variant-numeric: tabular-nums; max-width: 350px; overflow-x: auto; }
+
+  .candidate-name { font-weight: 600; color: var(--ink); font-size: 0.84rem; line-height: 1.3; }
+  a.candidate-name:hover { text-decoration: underline !important; }
+  .candidate-meta { display: block; font-size: 0.68rem; color: var(--ink-subtle); margin-top: 1px; }
+
+  .rating-badge { display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 0.1rem 0.45rem; border-radius: 3px; }
+  .type-badge { display: inline-block; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.1rem 0.35rem; border-radius: 2px; color: var(--white); }
+  .pm-link { font-size: 0.7rem; color: var(--accent); }
+
+  .tl-point { font-size: 0.76rem; font-weight: 600; }
+  .tl-point sub { font-size: 0.6rem; font-weight: 400; opacity: 0.8; }
+  .tl-time { font-size: 0.55rem; font-weight: 400; color: var(--ink-subtle); margin-right: 1px; vertical-align: top; }
+  .tl-arrow { color: var(--grey-300); font-size: 0.65rem; margin: 0 2px; }
+  .timeline-empty { color: var(--grey-300); font-style: italic; font-size: 0.72rem; }
+
+  .kill-marker { display: inline-block; background: #7c3aed; color: white; font-weight: 700; font-size: 0.7rem; width: 18px; height: 18px; line-height: 18px; text-align: center; border-radius: 3px; }
+  .confirm-marker { display: inline-block; background: var(--teal); color: white; font-weight: 700; font-size: 0.7rem; width: 18px; height: 18px; line-height: 18px; text-align: center; border-radius: 3px; }
+  .wave-entry-marker { display: inline-block; background: #f59e0b; color: white; font-weight: 700; font-size: 0.7rem; width: 18px; height: 18px; line-height: 18px; text-align: center; border-radius: 3px; }
+  .wave-exit-marker { display: inline-block; background: #1e40af; color: white; font-weight: 700; font-size: 0.7rem; width: 18px; height: 18px; line-height: 18px; text-align: center; border-radius: 3px; }
+  .kill-note { display: block; font-size: 0.68rem; font-style: italic; color: #7c3aed; margin-top: 2px; line-height: 1.3; opacity: 0.85; }
+  .exit-note { display: block; font-size: 0.68rem; font-style: italic; color: #1e40af; margin-top: 2px; line-height: 1.3; opacity: 0.85; }
+  .watching-badge { display: inline-block; background: #fef3c7; color: #92400e; font-size: 0.6rem; font-weight: 600; padding: 1px 5px; border-radius: 3px; letter-spacing: 0.04em; margin-left: 6px; vertical-align: middle; }
+
+  .killed-row td { opacity: 0.75; }
+
+  .group-divider td { background: var(--paper); padding: 0.8rem 0.6rem 0.3rem; border-bottom: 1px solid var(--grey-200); }
+  .group-label { font-weight: 700; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; margin-right: 0.5rem; }
+
+  /* RATING CLUSTERS */
+  .clusters-section { padding: 2.5rem 0; }
+  .section-title { font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; margin-bottom: 0.5rem; }
+  .section-intro { font-size: 0.95rem; color: var(--ink-mid); max-width: 700px; margin-bottom: 1.5rem; }
+  .cluster-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+  .cluster-card { background: var(--white); border: 1px solid var(--grey-200); border-radius: 4px; padding: 1.4rem; }
+  .cluster-header { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; }
+  .rating-badge-lg { font-size: 1rem; font-weight: 700; padding: 0.15rem 0.6rem; border-radius: 4px; }
+  .cluster-label { font-weight: 700; font-size: 0.9rem; }
+  .cluster-count { font-size: 0.78rem; color: var(--ink-subtle); margin-left: auto; }
+  .cluster-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+  .cl-stat { text-align: center; }
+  .cl-val { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--ink); }
+  .cl-lbl { font-size: 0.65rem; color: var(--ink-subtle); text-transform: uppercase; letter-spacing: 0.04em; }
+
+  .cluster-members { margin-top: 1rem; border-top: 1px solid var(--grey-200); padding-top: 0.6rem; }
+  .cl-member { display: flex; align-items: center; gap: 0.4rem; padding: 0.25rem 0; border-bottom: 1px solid var(--grey-100); font-size: 0.75rem; }
+  .cl-member:last-child { border-bottom: none; }
+  .cl-member-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .cl-member-name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 500; }
+  .cl-member-pnl { font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  /* THEME EXPOSURE */
+  .themes-section { padding: 2.5rem 0; }
+  .theme-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; }
+  .theme-card { background: var(--white); border: 1px solid var(--grey-200); border-radius: 4px; padding: 1.2rem; }
+  .theme-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.4rem; }
+  .theme-name { font-weight: 700; font-size: 1rem; }
+  .theme-exposure { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.04em; padding: 0.15rem 0.5rem; border-radius: 3px; }
+  .theme-desc { font-size: 0.78rem; color: var(--ink-subtle); margin-bottom: 0.8rem; }
+  .theme-stats { display: flex; gap: 1.2rem; margin-bottom: 0.8rem; }
+  .theme-stat { text-align: center; }
+  .theme-stat-val { display: block; font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; }
+  .theme-stat-lbl { display: block; font-size: 0.6rem; color: var(--ink-subtle); text-transform: uppercase; letter-spacing: 0.04em; }
+  .theme-members { border-top: 1px solid var(--grey-200); padding-top: 0.5rem; }
+  .theme-member { display: flex; align-items: center; justify-content: space-between; padding: 0.2rem 0; font-size: 0.72rem; }
+  .theme-member-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; font-weight: 500; }
+  .theme-member-pnl { font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; margin-left: 0.5rem; }
+
+  /* LEGEND */
+  .legend { display: flex; gap: 2rem; flex-wrap: wrap; padding: 1rem 0; font-size: 0.78rem; color: var(--ink-mid); }
+  .legend-item { display: flex; align-items: center; gap: 0.4rem; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+
+  /* FOOTER */
+  .report-footer { background: var(--ink); color: var(--grey-300); padding: 2.5rem 2rem 1.5rem; margin-top: 2rem; }
+  .footer-inner { max-width: var(--max-width); margin: 0 auto; text-align: center; }
+  .footer-strapline { color: rgba(255,255,255,0.6); font-size: 0.82rem; margin-bottom: 1rem; }
+  .footer-legal { font-size: 0.72rem; color: rgba(255,255,255,0.4); }
+
+  @media (max-width: 768px) {
+    .container { padding: 0 1rem; }
+    .stat-grid { gap: 1.5rem; }
+    .sheet-table { font-size: 0.76rem; }
+    .td-name { min-width: 160px; }
+    .td-timeline { display: none; }
+    .td-date { display: none; }
+    .cluster-grid { grid-template-columns: 1fr; }
+    .report-header { padding: 0 1rem; }
+    .header-nav { margin-left: 1.5rem; gap: 0.8rem; }
+    .header-meta { display: none; }
+  }
+  @media print {
+    .report-header { position: static; }
+    body { padding-top: 0; background: white; }
+  }
 </style>
 </head>
 <body>
@@ -80,39 +176,105 @@ body { font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif; backg
 <header class="report-header">
   <a href="https://ivanmassow.github.io/noah-dashboard/" style="text-decoration:none"><span class="logo-text">NOAH</span></a>
   <nav class="header-nav">
-    <a href="https://ivanmassow.github.io/polyhunter/" class="active">Poly Market</a>
+    <a href="https://ivanmassow.github.io/polyhunter/" style="color:#fff">Poly Market</a>
     <a href="https://ivanmassow.github.io/hedgefund-tracker/">Hedge Fund</a>
     <a href="https://ivanmassow.github.io/company-watch/">Company Watch</a>
+    <span style="color:rgba(255,255,255,0.15)">|</span>
+    <a href="#short-tail">Short Tail</a>
+    <a href="#long-tail">Long Tail</a>
   </nav>
-  <div class="header-meta">Poly Market &middot; Edge Tracker</div>
+  <div class="header-meta">Poly Market &middot; Edge Tracker &middot; 2026-02-16</div>
 </header>
 
 <section class="hero">
-  <div class="hero-label">Poly Market Performance Report</div>
-  <h1>Clean Slate</h1>
-  <p>All previous data has been cleared. The system is ready and waiting for the next report from the Bionic Ear.</p>
-  <div class="stat-grid">
-    <div class="stat-box"><div class="val">0</div><div class="label">Candidates</div></div>
-    <div class="stat-box"><div class="val">0</div><div class="label">Winners</div></div>
-    <div class="stat-box"><div class="val">0</div><div class="label">Losers</div></div>
+  <div class="container">
+    <div class="section-label">Poly Market Performance Report</div>
+    <h1>Awaiting Data</h1>
+    <div class="subtitle">The tracker is waiting for new report candidates.</div>
+    <div class="hero-meta">Report generated: 2026-02-16 08:56 UTC &middot; Prices update every ~60 min</div>
+    <div class="stat-grid">
+      <div class="stat-box">
+        <div class="stat-num">0</div>
+        <div class="stat-lbl">Total Candidates</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num" style="color:#cc0000">0%</div>
+        <div class="stat-lbl">Direction Correct</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num" style="color:#73788a">+0.000</div>
+        <div class="stat-lbl">Combined P&amp;L</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num" style="color:#16a34a">0</div>
+        <div class="stat-lbl">Green</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num" style="color:#f59e0b">0</div>
+        <div class="stat-lbl">Orange</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num" style="color:#cc0000">0</div>
+        <div class="stat-lbl">Red</div>
+      </div>
+    </div>
+    <div class="tail-summary-grid">
+      <div class="tail-summary-box">
+        <h3>Short Tail <span style="font-size:0.7rem;font-weight:400;color:var(--grey-400)">&mdash; 16h window, ~400 articles</span></h3>
+        <div class="tail-mini-stats">
+          <div class="tail-mini-stat"><div class="tail-mini-num">0</div><div class="tail-mini-lbl">Candidates</div></div>
+          <div class="tail-mini-stat"><div class="tail-mini-num" style="color:#cc0000">0%</div><div class="tail-mini-lbl">Win Rate</div></div>
+          <div class="tail-mini-stat"><div class="tail-mini-num" style="color:#73788a">+0.000</div><div class="tail-mini-lbl">P&amp;L</div></div>
+        </div>
+      </div>
+      <div class="tail-summary-box">
+        <h3>Long Tail <span style="font-size:0.7rem;font-weight:400;color:var(--grey-400)">&mdash; 8-day window, ~35 curated articles</span></h3>
+        <div class="tail-mini-stats">
+          <div class="tail-mini-stat"><div class="tail-mini-num">0</div><div class="tail-mini-lbl">Candidates</div></div>
+          <div class="tail-mini-stat"><div class="tail-mini-num" style="color:#cc0000">0%</div><div class="tail-mini-lbl">Win Rate</div></div>
+          <div class="tail-mini-stat"><div class="tail-mini-num" style="color:#73788a">+0.000</div><div class="tail-mini-lbl">P&amp;L</div></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<div class="empty-state">
-  <div class="icon">&#9201;</div>
-  <h2>Awaiting First Report</h2>
-  <p>When the next Poly Hunter report arrives via RSS, the system will automatically scan for candidates, resolve Polymarket tokens, begin hourly price tracking, and generate the full trading sheet.</p>
-  <p style="margin-top:16px; font-size:0.85rem; color:#9ea2b0;">The Wave Rider entry/exit strategy, kill rules, and momentum confirmation logic are all active and ready.</p>
+<div class="container" style="padding-top:1rem">
+  <div class="legend">
+    <div class="legend-item"><span class="legend-dot" style="background:#16a34a"></span> Green = profitable</div>
+    <div class="legend-item"><span class="legend-dot" style="background:#f59e0b"></span> Orange = recovering from red</div>
+    <div class="legend-item"><span class="legend-dot" style="background:#cc0000"></span> Red = losing</div>
+    <div class="legend-item"><span class="confirm-marker" style="font-size:0.65rem;width:14px;height:14px;line-height:14px">C</span> Confirmed = position renewed</div>
+    <div class="legend-item"><span class="wave-entry-marker" style="font-size:0.65rem;width:14px;height:14px;line-height:14px">W</span> Wave entry = position entered</div>
+    <div class="legend-item"><span class="wave-exit-marker" style="font-size:0.65rem;width:14px;height:14px;line-height:14px">X</span> Wave exit = position closed</div>
+    <div class="legend-item"><span class="kill-marker" style="font-size:0.65rem;width:14px;height:14px;line-height:14px">K</span> Kill = sentiment reversed</div>
+    <div class="legend-item"><span style="color:#7c3aed;font-weight:600">Purple</span> = killed (P&amp;L crystallised at kill &#x2713;)</div>
+    <div class="legend-item"><span style="color:#9ca3af;font-weight:600">Grey</span> = post-exit (tracking continues)</div>
+    <div class="legend-item"><span class="watching-badge" style="font-size:0.55rem">WATCHING</span> = monitoring, not yet entered</div>
+    <div class="legend-item">Vol = 24h trading volume &middot; &empty; = dead market</div>
+  </div>
 </div>
 
+
+
+
+
 <footer class="report-footer">
-  <div class="footer-logo">NOAH</div>
-  <div class="footer-strapline">Narrative Signal to Prediction Market Edge Tracker</div>
-  <div class="footer-links">
-    <a href="https://ivanmassow.github.io/noah-dashboard/">Dashboard</a> &middot;
-    <a href="https://ivanmassow.github.io/polyhunter/">Poly Market</a> &middot;
-    <a href="https://ivanmassow.github.io/hedgefund-tracker/">Hedge Fund</a> &middot;
-    <a href="https://ivanmassow.github.io/company-watch/">Company Watch</a>
+  <div class="footer-inner">
+    <a href="https://ivanmassow.github.io/noah-dashboard/" style="text-decoration:none"><span class="logo-text" style="font-size:1rem">NOAH</span></a>
+    <p class="footer-strapline">Narrative Signal to Prediction Market Edge Tracker</p>
+    <p style="font-size:0.72rem;color:rgba(255,241,229,0.5);margin-bottom:8px">
+        <a href="https://ivanmassow.github.io/polyhunter/" style="color:rgba(255,241,229,0.5);text-decoration:none">Poly Market</a> &middot;
+        <a href="https://ivanmassow.github.io/hedgefund-tracker/" style="color:rgba(255,241,229,0.5);text-decoration:none">Hedge Fund</a> &middot;
+        <a href="https://ivanmassow.github.io/company-watch/" style="color:rgba(255,241,229,0.5);text-decoration:none">Company Watch</a>
+    </p>
+    <div class="footer-legal">Auto-generated 2026-02-16 08:56 UTC &middot; Data updates hourly.</div>
+    <div style="margin-top:1.2rem;max-width:560px;margin-left:auto;margin-right:auto;padding:0.8rem 1rem;border-top:1px solid rgba(255,241,229,0.12)">
+        <p style="font-size:0.7rem;color:rgba(255,241,229,0.55);line-height:1.7;text-align:center;margin:0">
+            <strong style="color:rgba(255,241,229,0.7);letter-spacing:0.08em;text-transform:uppercase;font-size:0.65rem">Disclaimer</strong><br>
+            You are welcome to view these pages. The trading algorithms and analysis presented here are experimental and under active development. Nothing on this site constitutes financial advice. We accept no responsibility for any losses incurred from acting on information found here. These pages are intended for internal research purposes. You are strongly advised to conduct your own due diligence before making any investment decisions.
+        </p>
+    </div>
   </div>
 </footer>
 
