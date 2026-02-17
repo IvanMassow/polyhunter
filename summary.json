@@ -1,15 +1,15 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-02-17T12:27:23.613245+00:00",
+  "updated_at": "2026-02-17T13:28:05.787628+00:00",
   "total_candidates": 26,
   "winners": 3,
-  "losers": 0,
-  "win_rate": 100.0,
-  "total_pnl": 0.09,
-  "avg_pnl": 0.0035,
-  "best_trade": 5.8,
-  "worst_trade": 0,
+  "losers": 1,
+  "win_rate": 75.0,
+  "total_pnl": 0.1045,
+  "avg_pnl": 0.004,
+  "best_trade": 6.8,
+  "worst_trade": -2.0,
   "recent_positions": [
     {
       "event": "Will inflation reach more than 3% in 2026? \u25cf\u25cf\u25cf\u25cf\u25ef [B] DISCOVE",
@@ -69,7 +69,7 @@
       "rating": "D",
       "conviction": null,
       "entry_price": 0.0725,
-      "current_price": 0.068,
+      "current_price": 0.067,
       "pnl_pct": 0,
       "edge_points": 8.0,
       "status": "grey",
@@ -103,7 +103,7 @@
       "rating": "E",
       "conviction": null,
       "entry_price": 0.0725,
-      "current_price": 0.068,
+      "current_price": 0.067,
       "pnl_pct": 0,
       "edge_points": 10.0,
       "status": "grey",
@@ -137,7 +137,7 @@
       "rating": "E",
       "conviction": null,
       "entry_price": 0.0725,
-      "current_price": 0.068,
+      "current_price": 0.067,
       "pnl_pct": 0,
       "edge_points": 5.0,
       "status": "grey",
@@ -307,8 +307,8 @@
       "rating": "A",
       "conviction": null,
       "entry_price": 0.515,
-      "current_price": 0.545,
-      "pnl_pct": 5.8,
+      "current_price": 0.55,
+      "pnl_pct": 6.8,
       "edge_points": 8.0,
       "status": "green",
       "state": "EXITED",
@@ -363,8 +363,8 @@
   "long_tail": {
     "total": 11,
     "winners": 3,
-    "losers": 0,
-    "win_rate": 100.0,
-    "best_trade": 5.8
+    "losers": 1,
+    "win_rate": 75.0,
+    "best_trade": 6.8
   }
 }
