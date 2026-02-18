@@ -1,14 +1,14 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-02-18T00:34:36.130723+00:00",
+  "updated_at": "2026-02-18T01:35:17.000317+00:00",
   "total_candidates": 26,
   "winners": 3,
   "losers": 1,
   "win_rate": 75.0,
-  "total_pnl": 0.0745,
-  "avg_pnl": 0.0029,
-  "best_trade": 4.9,
+  "total_pnl": 0.0445,
+  "avg_pnl": 0.0017,
+  "best_trade": 2.9,
   "worst_trade": -2.0,
   "recent_positions": [
     {
@@ -86,7 +86,7 @@
       "rating": "D",
       "conviction": null,
       "entry_price": 0.225,
-      "current_price": 0.23,
+      "current_price": 0.235,
       "pnl_pct": 0,
       "edge_points": 8.0,
       "status": "grey",
@@ -222,7 +222,7 @@
       "rating": "B",
       "conviction": null,
       "entry_price": 0.23,
-      "current_price": 0.23,
+      "current_price": 0.235,
       "pnl_pct": 0,
       "edge_points": 5.0,
       "status": "grey",
@@ -307,8 +307,8 @@
       "rating": "A",
       "conviction": null,
       "entry_price": 0.515,
-      "current_price": 0.54,
-      "pnl_pct": 4.9,
+      "current_price": 0.53,
+      "pnl_pct": 2.9,
       "edge_points": 8.0,
       "status": "green",
       "state": "EXITED",
@@ -324,10 +324,10 @@
       "rating": "B",
       "conviction": null,
       "entry_price": 0.34,
-      "current_price": 0.335,
+      "current_price": 0.33,
       "pnl_pct": 0,
       "edge_points": 7.0,
-      "status": "orange",
+      "status": "red",
       "state": "KILLED",
       "house_prob": 0,
       "market_price": 0,
@@ -365,6 +365,6 @@
     "winners": 3,
     "losers": 1,
     "win_rate": 75.0,
-    "best_trade": 4.9
+    "best_trade": 2.9
   }
 }
