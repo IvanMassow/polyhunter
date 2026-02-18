@@ -1,14 +1,14 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-02-18T14:55:53.425059+00:00",
+  "updated_at": "2026-02-18T15:56:41.425586+00:00",
   "total_candidates": 37,
   "winners": 9,
   "losers": 1,
   "win_rate": 90.0,
-  "total_pnl": 0.0995,
-  "avg_pnl": 0.0027,
-  "best_trade": 14.3,
+  "total_pnl": 0.1245,
+  "avg_pnl": 0.0034,
+  "best_trade": 19.0,
   "worst_trade": -2.0,
   "recent_positions": [
     {
@@ -86,7 +86,7 @@
       "rating": "D",
       "conviction": null,
       "entry_price": 0.745,
-      "current_price": 0.34,
+      "current_price": 0.335,
       "pnl_pct": 0,
       "edge_points": 11.0,
       "status": "grey",
@@ -154,7 +154,7 @@
       "rating": "B",
       "conviction": null,
       "entry_price": 0.1,
-      "current_price": 0.12,
+      "current_price": 0.125,
       "pnl_pct": 0,
       "edge_points": 13.0,
       "status": "grey",
@@ -171,7 +171,7 @@
       "rating": "D",
       "conviction": null,
       "entry_price": 0.1,
-      "current_price": 0.12,
+      "current_price": 0.125,
       "pnl_pct": 0,
       "edge_points": 13.0,
       "status": "grey",
@@ -358,13 +358,13 @@
     "winners": 2,
     "losers": 0,
     "win_rate": 100.0,
-    "best_trade": 14.3
+    "best_trade": 19.0
   },
   "long_tail": {
     "total": 22,
     "winners": 7,
     "losers": 1,
     "win_rate": 87.5,
-    "best_trade": 14.3
+    "best_trade": 19.0
   }
 }
