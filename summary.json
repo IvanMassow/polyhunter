@@ -1,15 +1,15 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-02-18T07:51:56.406402+00:00",
+  "updated_at": "2026-02-18T08:52:15.907082+00:00",
   "total_candidates": 37,
   "winners": 3,
-  "losers": 6,
-  "win_rate": 33.3,
-  "total_pnl": 0.0195,
-  "avg_pnl": 0.0005,
+  "losers": 1,
+  "win_rate": 75.0,
+  "total_pnl": 0.0445,
+  "avg_pnl": 0.0012,
   "best_trade": 2.9,
-  "worst_trade": -4.8,
+  "worst_trade": -2.0,
   "recent_positions": [
     {
       "event": "Will 1 Fed rate cut happen in 2026? \u25cf\u25cf\u25cf\u25cf\u25cf [A]",
@@ -86,7 +86,7 @@
       "rating": "D",
       "conviction": null,
       "entry_price": 0.745,
-      "current_price": 0.74,
+      "current_price": 0.71,
       "pnl_pct": 0,
       "edge_points": 11.0,
       "status": "grey",
@@ -154,7 +154,7 @@
       "rating": "B",
       "conviction": null,
       "entry_price": 0.1,
-      "current_price": 0.1,
+      "current_price": 0.105,
       "pnl_pct": 0,
       "edge_points": 13.0,
       "status": "grey",
@@ -171,7 +171,7 @@
       "rating": "D",
       "conviction": null,
       "entry_price": 0.1,
-      "current_price": 0.1,
+      "current_price": 0.105,
       "pnl_pct": 0,
       "edge_points": 13.0,
       "status": "grey",
@@ -356,15 +356,15 @@
   "short_tail": {
     "total": 15,
     "winners": 0,
-    "losers": 2,
-    "win_rate": 0.0,
+    "losers": 0,
+    "win_rate": 0,
     "best_trade": 0
   },
   "long_tail": {
     "total": 22,
     "winners": 3,
-    "losers": 4,
-    "win_rate": 42.9,
+    "losers": 1,
+    "win_rate": 75.0,
     "best_trade": 2.9
   }
 }
