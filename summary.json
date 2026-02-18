@@ -1,8 +1,8 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-02-18T18:32:42.876424+00:00",
-  "total_candidates": 62,
+  "updated_at": "2026-02-18T19:03:29.013128+00:00",
+  "total_candidates": 63,
   "winners": 9,
   "losers": 2,
   "win_rate": 81.8,
@@ -11,6 +11,23 @@
   "best_trade": 19.0,
   "worst_trade": -26.0,
   "recent_positions": [
+    {
+      "event": "Will the median home value in Chicago be between $315,000 an",
+      "edge_type": "FRONTIER",
+      "direction": "lower",
+      "rating": "E",
+      "conviction": "LOW",
+      "entry_price": 0.032,
+      "current_price": 0.032,
+      "pnl_pct": 0,
+      "edge_points": 6.0,
+      "status": "grey",
+      "state": "WATCHING",
+      "house_prob": 0,
+      "market_price": 0,
+      "kill_reason": "",
+      "tail_type": "long"
+    },
     {
       "event": "Israel strikes Iran by March 31, 2026? \u25cf\u25cf\u25cf\u25cf\u25cf [B]",
       "edge_type": "CONSENSUS",
@@ -333,23 +350,6 @@
       "market_price": 0,
       "kill_reason": "",
       "tail_type": "short"
-    },
-    {
-      "event": "Trump invokes War Powers against Iran by March 31, 2026? \u25cf\u25cf\u25cf",
-      "edge_type": "CONSENSUS",
-      "direction": "lower",
-      "rating": "B",
-      "conviction": null,
-      "entry_price": 0.31,
-      "current_price": 0.46,
-      "pnl_pct": 0,
-      "edge_points": 7.0,
-      "status": "grey",
-      "state": "WATCHING",
-      "house_prob": 0,
-      "market_price": 0,
-      "kill_reason": "",
-      "tail_type": "short"
     }
   ],
   "report_url": "https://ivanmassow.github.io/polyhunter/",
@@ -361,7 +361,7 @@
     "best_trade": 19.0
   },
   "long_tail": {
-    "total": 37,
+    "total": 38,
     "winners": 7,
     "losers": 1,
     "win_rate": 87.5,
