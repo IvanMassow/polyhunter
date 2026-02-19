@@ -1,15 +1,18 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-02-19T15:23:46.362448+00:00",
-  "total_candidates": 90,
-  "winners": 26,
-  "losers": 9,
-  "win_rate": 74.3,
-  "total_pnl": 1.3155,
-  "avg_pnl": 0.0146,
-  "best_trade": 181.0,
-  "worst_trade": -85.4,
+  "updated_at": "2026-02-19T15:28:17.029779+00:00",
+  "total_candidates": 61,
+  "winners": 17,
+  "losers": 4,
+  "win_rate": 81.0,
+  "total_pnl": 0.465,
+  "avg_pnl": 0.0076,
+  "total_dollar_pnl": 10786.91,
+  "total_invested": 138000.0,
+  "portfolio_return_pct": 7.8,
+  "best_trade": 44.3,
+  "worst_trade": -11.5,
   "recent_positions": [
     {
       "event": "Fed rate cut by June 2026 meeting? \u25cf\u25cf\u25cf\u25cf\u25cf [B]",
@@ -274,7 +277,7 @@
       "conviction": null,
       "entry_price": 0.0245,
       "current_price": 0.19,
-      "pnl_pct": 675.5,
+      "pnl_pct": 0.0,
       "edge_points": 5.0,
       "status": "green",
       "state": "EXITED",
@@ -325,7 +328,7 @@
       "conviction": null,
       "entry_price": 0.26,
       "current_price": 0.255,
-      "pnl_pct": 1.9,
+      "pnl_pct": -11.5,
       "edge_points": 11.0,
       "status": "green",
       "state": "EXITED",
@@ -342,7 +345,7 @@
       "conviction": null,
       "entry_price": 0.575,
       "current_price": 0.555,
-      "pnl_pct": 3.5,
+      "pnl_pct": 12.2,
       "edge_points": 10.0,
       "status": "green",
       "state": "EXITED",
@@ -354,17 +357,17 @@
   ],
   "report_url": "https://ivanmassow.github.io/polyhunter/",
   "short_tail": {
-    "total": 29,
-    "winners": 8,
-    "losers": 3,
-    "win_rate": 72.7,
-    "best_trade": 181.0
+    "total": 0,
+    "winners": 0,
+    "losers": 0,
+    "win_rate": 0,
+    "best_trade": 0
   },
   "long_tail": {
     "total": 61,
-    "winners": 18,
-    "losers": 6,
-    "win_rate": 75.0,
-    "best_trade": 181.0
+    "winners": 17,
+    "losers": 4,
+    "win_rate": 81.0,
+    "best_trade": 44.3
   }
 }
