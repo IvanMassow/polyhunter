@@ -1,14 +1,14 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-02-19T03:09:05.417217+00:00",
+  "updated_at": "2026-02-19T04:09:08.490798+00:00",
   "total_candidates": 63,
   "winners": 21,
   "losers": 4,
   "win_rate": 84.0,
-  "total_pnl": 0.501,
-  "avg_pnl": 0.008,
-  "best_trade": 24.3,
+  "total_pnl": 0.5155,
+  "avg_pnl": 0.0082,
+  "best_trade": 21.4,
   "worst_trade": -1.7,
   "recent_positions": [
     {
@@ -171,7 +171,7 @@
       "rating": "B",
       "conviction": null,
       "entry_price": 0.335,
-      "current_price": 0.215,
+      "current_price": 0.175,
       "pnl_pct": 0,
       "edge_points": 11.0,
       "status": "grey",
@@ -205,7 +205,7 @@
       "rating": "D",
       "conviction": null,
       "entry_price": 0.15,
-      "current_price": 0.135,
+      "current_price": 0.115,
       "pnl_pct": 0,
       "edge_points": 5.0,
       "status": "grey",
@@ -273,8 +273,8 @@
       "rating": "B",
       "conviction": null,
       "entry_price": 0.575,
-      "current_price": 0.52,
-      "pnl_pct": 9.6,
+      "current_price": 0.53,
+      "pnl_pct": 7.8,
       "edge_points": 10.0,
       "status": "green",
       "state": "EXITED",
@@ -324,8 +324,8 @@
       "rating": "A",
       "conviction": null,
       "entry_price": 0.35,
-      "current_price": 0.265,
-      "pnl_pct": 24.3,
+      "current_price": 0.275,
+      "pnl_pct": 21.4,
       "edge_points": 18.0,
       "status": "green",
       "state": "EXITED",
@@ -341,8 +341,8 @@
       "rating": "B",
       "conviction": null,
       "entry_price": 0.575,
-      "current_price": 0.52,
-      "pnl_pct": 9.6,
+      "current_price": 0.53,
+      "pnl_pct": 7.8,
       "edge_points": 8.0,
       "status": "green",
       "state": "EXITED",
@@ -358,13 +358,13 @@
     "winners": 10,
     "losers": 1,
     "win_rate": 90.9,
-    "best_trade": 9.6
+    "best_trade": 28.0
   },
   "long_tail": {
     "total": 38,
     "winners": 11,
     "losers": 3,
     "win_rate": 78.6,
-    "best_trade": 24.3
+    "best_trade": 21.4
   }
 }
