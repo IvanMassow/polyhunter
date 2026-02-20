@@ -1,0 +1,260 @@
+POLYHUNTER TRADING AUDIT — STRATEGY CONTEXT
+=============================================
+This document describes what the PolyHunter system is, how it trades,
+and what rules govern its behaviour. It is intended to accompany the
+CSV audit sheets so that any downstream model or analyst loading them
+cold has full context for what they are looking at.
+
+No optimisation. No interpretation. Just a factual description of the
+system as it operates.
+
+
+1. WHAT IS POLYHUNTER
+---------------------
+PolyHunter is a prediction-market edge tracker. It is part of the NOAH
+system (Narrative Signal tracking suite). It monitors Polymarket — a
+platform where contracts trade between 0 and 1.00, representing the
+probability of a real-world event occurring.
+
+The system identifies narrative-driven edges in prediction markets,
+tracks them as candidates, and paper-trades them using mechanical
+rules. No real capital is deployed. All positions are simulated.
+
+As of 2026-02-20:
+  - 62 long-tail candidates tracked (8-day observation window)
+  - 19 winners, 6 losers (76% win rate on crystallised trades)
+  - $140,000 virtual capital deployed across all positions
+  - +$11,384 total dollar P&L (+8.1% portfolio return)
+  - Best trade: +44.3%, Worst trade: -52.3%
+
+
+2. WHAT WE ARE BUYING
+----------------------
+Polymarket contracts. Each contract prices between 0.00 and 1.00 (or
+equivalently 0c to 100c). The price represents the market's implied
+probability of an event occurring.
+
+We are buying contracts where we believe the market misprices the
+probability. The "edge" is the gap between our assessed probability
+and the market price.
+
+Direction:
+  - HIGHER = we are buying YES contracts (we think the event is more
+    likely than the market implies, so the price should go up)
+  - LOWER = we are buying NO contracts (we think the event is less
+    likely than the market implies, so the price should go down)
+
+All prices in the CSVs are decimals: 0.67 means 67 cents, representing
+a 67% implied probability.
+
+
+3. EDGE DISCOVERY THEORY
+--------------------------
+The system identifies edges through narrative analysis. An edge exists
+when a real-world narrative signal (news, policy, geopolitics) creates
+a probability shift that the prediction market has not yet priced in.
+
+Three edge types:
+
+  CONSENSUS  — Broad market agreement supports this view but the
+               contract is mispriced. Highest confidence. Most common.
+  DISCOVERY  — A novel or underrecognised signal that the market has
+               not yet incorporated. Tracked with a separate "discovery
+               price" (marked as "d:XX.Xc" in the data).
+  FRONTIER   — Emerging/speculative signal with thin evidence.
+               Asymmetric payoff but low conviction.
+
+Edge strength is scored as "edge points" (range: 4 to 15). Higher =
+stronger predicted edge. This is NOT the same as the rating.
+
+
+4. RATING SYSTEM
+-----------------
+Each candidate is assigned a rating from A to E:
+
+  A — BLUE CHIP
+      High confidence, consensus, act on these.
+      21 candidates. 68.8% win rate. +7.4% avg P&L.
+      Average confirmation time: 24h.
+
+  B — BREAD & BUTTER
+      Moderate confidence, standard opportunities.
+      21 candidates. 50.0% win rate. -0.2% avg P&L.
+      Average confirmation time: 12h.
+
+  C — CONTESTED
+      Evidence vs counter-signals. Mixed conviction.
+      7 candidates. 0% win rate (small sample).
+      Average confirmation time: 21h.
+
+  D — DARK HORSE
+      Emerging signal, interesting asymmetry. Lower data.
+      11 candidates.
+
+  E — FRONTIER SCOUT
+      Thin evidence, cheap entry, speculative.
+      2 candidates.
+
+Some positions have a "system rating" that differs from the "report
+rating" (shown as a subscript in the HTML, e.g., A with subscript B).
+The report rating is what governs the position; the system rating
+reflects an automated assessment.
+
+
+5. POSITION SIZING
+-------------------
+Positions are sized by risk level:
+
+  HIGH risk  =  $2,000 per position (most A/B rated)
+  MEDIUM risk = $5,000 per position
+  LOW risk   = $10,000 per position
+
+"Risk" here is inversely labelled — LOW risk positions get the largest
+size because the edge is most confident. HIGH risk = smaller allocation
+because the outcome is more uncertain.
+
+Total deployed: $140,000 across 62 candidates.
+
+
+6. ENTRY RULES
+---------------
+A candidate starts in WATCHING state. It does not trade immediately.
+
+Entry trigger: First uptick in price after the edge is identified.
+The system watches the contract price and buys on the first positive
+price tick. This confirms that the market is beginning to move in the
+predicted direction before capital is committed.
+
+In the timeline data, the entry is marked with a "B" (Buy) marker.
+
+Until the first uptick occurs, the candidate remains WATCHING. Some
+candidates never trigger and are labelled "Never entered."
+
+
+7. EXIT RULES
+--------------
+Positions are exited mechanically. The rules are:
+
+  a) TRAILING STOP — 0.5c from peak (10 occurrences in data)
+     If the price retraces 0.5 cents from the highest price reached
+     during the trade, the position is closed. Protects profits.
+
+  b) PLATEAU — 4h no improvement (8 occurrences)
+     If the price shows no improvement for 4 consecutive hours, exit.
+     Prevents capital lockup in dead trades.
+
+  c) MAX HOLD TIME — 12 hours (6 occurrences)
+     Hard cap. No position is held longer than 12 hours regardless
+     of performance. Forces capital recycling.
+
+  d) TARGET REACHED (3 occurrences)
+     If a specific price target is hit, exit with profit.
+
+  e) TOKEN CORRECTION (2 occurrences)
+     Minor price correction triggers an exit.
+
+
+8. KILL RULES
+--------------
+A position is KILLED (hard stopped) when the thesis breaks:
+
+  a) SENTIMENT REVERSED (8 occurrences)
+     The fundamental thesis has reversed. Example: "Direction reversed:
+     was lower, now higher." P&L is crystallised at the kill point.
+
+  b) DUPLICATE SLUG RATIONALISATION (6 occurrences)
+     The same Polymarket event was tracked under two entries. The
+     duplicate is killed; the master is kept. P&L consolidated.
+
+  c) LOTTERY TICKET / SPREAD EATS EDGE (2 occurrences)
+     If the entry spread is >= 4c, the edge is consumed by market
+     friction. Auto-killed: "4c entry = lottery ticket, spread eats
+     edge."
+
+
+9. THEMES AND CONCENTRATION
+-----------------------------
+Candidates are grouped by macro theme. The system tracks concentration
+to avoid overexposure:
+
+  Fed Rate Cuts     — HIGH exposure (11 positions)
+                       +5.5% avg P&L, +61.0% total P&L
+  Inflation         — MEDIUM exposure (4 positions)
+                       +8.3% avg P&L, +33.3% total P&L
+  Trump Tariffs     — MEDIUM exposure (4 positions)
+                       +4.6% avg P&L, +18.4% total P&L
+  Geopolitical/Iran — Multiple positions (US strikes, Iran strikes,
+                       nuclear deal, Strait of Hormuz, meetings, etc.)
+  Fed Personnel     — 2 positions (Fed chair nomination)
+  Commodities       — 2-3 positions (Crude oil)
+  Real Estate       — 1 position (Chicago home values)
+
+
+10. MARKET QUALITY FILTERS
+----------------------------
+The system tracks market quality for each contract:
+
+  Volume:  Ranges from $113 (thin) to $2.0m+ (liquid)
+  Spread:  Ranges from 0c (tight) to 3c+ (wide)
+  Dead:    Marked with null symbol when no volume
+
+Positions are killed if the spread eats the edge (see kill rule c).
+The data includes volume and spread per position in the HTML extract.
+
+
+11. HOLD DURATION BACKTESTING
+-------------------------------
+The system tracks "if held longer" scenarios:
+
+  Hold 1h  — +0.6% avg P&L, 29% win rate
+  Hold 6h  — +4.3% avg P&L, 54% win rate
+  Hold 12h — +8.1% avg P&L, 74% win rate  (current max hold rule)
+  Hold 24h — +12.9% avg P&L, 79% win rate
+  Hold 48h — +133.4% avg P&L, 83% win rate (only 6 trades reached)
+
+This suggests the 12h hold cap may leave money on the table. The
+48h data is from a very small sample (6 trades) and skewed by one
++640% outlier. The 24h data is more statistically meaningful.
+
+
+12. RE-ENTRY BEHAVIOUR
+------------------------
+If the system exits a position and the edge later re-emerges, it may
+re-enter the same event. In the data:
+
+  - Re-entries get a new signal_id (same event_id)
+  - The HTML table shows the same event as separate rows
+  - Each row has its own entry price, exit price, and P&L
+  - The KILLED-then-re-entered pattern exists (e.g., Tariff on Canada:
+    first position killed when direction reversed, later re-entered
+    with the correct direction)
+
+
+13. WHAT THE CSV SHEETS CONTAIN
+---------------------------------
+  SIGNAL_LOG.csv         — Every signal change with timestamps
+  PRICE_SERIES.csv       — Hourly price observations per event
+  EXECUTED_TRADES_HISTORY — Entry/exit for every trade leg
+  POSITION_STATE_OVER_TIME — Hourly position state snapshots
+  SUMMARY_STATS_PER_EVENT — Aggregate stats per event
+  STATIC_POSITIONS_FROM_HTML — Full position detail from the report
+  DATA_COMPLETENESS_REPORT — Documents blank fields and limitations
+
+
+14. WHAT THIS DATASET IS FOR
+-------------------------------
+This audit file exists to:
+
+  - Apply strict mechanical execution rules to historical data
+  - Simulate passive bid ladders
+  - Model slippage
+  - Evaluate missed fills
+  - Analyse distribution of price movement after signal
+  - Rationalise re-entry behaviour
+  - Determine whether the 20% holds are statistically robust or noise
+  - Measure how much edge survives after spread/slippage
+  - Determine optimal bid ladder spacing from historical volatility
+  - Quantify how often re-entries helped vs hurt
+
+Accuracy and structure are more important than performance.
+No optimisation has been applied.
