@@ -1,0 +1,50 @@
+POLYHUNTER TRADING AUDIT - DATA COMPLETENESS REPORT
+=======================================================
+Generated: 2026-02-20T08:28:23.458011+00:00
+
+DATA SOURCES
+----------------------------------------
+  Git commits analysed: 50
+  Time series range: 2026-02-19T09:19:50.422263+00:00 to 2026-02-20T06:36:22.913738+00:00
+  HTML positions parsed: 62
+  Unique base events with git time-series: 21
+  Position instances with git time-series: 25
+  Position instances with HTML-only data (no time-series): 37
+
+KNOWN DATA LIMITATIONS
+----------------------------------------
+  1. PRICE_SERIES: bid/ask not available. Only last_traded_price from snapshots.
+  2. PRICE_SERIES: ~hourly granularity only (from git commit frequency).
+  3. PRICE_SERIES: 24h_volume, cumulative_volume, volatility not available per-snapshot.
+  4. SIGNAL_LOG: model_fair_value and calculated_edge not stored in source data.
+  5. EXECUTED_TRADES: position sizes only available for events in HTML table.
+  6. EXECUTED_TRADES: max adverse/favourable excursion limited to hourly resolution.
+  7. Only 21 unique events (25 position instances) have git time series.
+     The remaining 37 position instances exist only in the HTML snapshot.
+  8. summary.json tracks only ~20 'recent_positions' per snapshot.
+     Events not in recent_positions have no historical price series.
+  9. Git history spans ~21 hours. Positions may have been active before first commit.
+ 10. No tick-level or order-book data available.
+
+BLANK FIELDS
+----------------------------------------
+  Fields left blank where data is unavailable (per instructions: do not interpolate):
+  - best_bid, best_ask: Not stored in source data
+  - 24h_volume_at_time, cumulative_volume: Not stored per-snapshot
+  - volatility_estimate_last_6h: Not computed in source
+  - model_fair_value_at_signal: Not stored
+  - calculated_edge_at_signal: Not stored
+
+SHEETS PRODUCED
+----------------------------------------
+  1. SIGNAL_LOG.csv: 97 signal change records
+  2. PRICE_SERIES.csv: Time-series from git + HTML timelines
+  3. EXECUTED_TRADES_HISTORY.csv: 22 trade records
+  4. POSITION_STATE_OVER_TIME.csv: Hourly position states from git
+  5. SUMMARY_STATS_PER_EVENT.csv: 62 event summaries
+  +  STATIC_POSITIONS_FROM_HTML.csv: All 62 events with HTML data
+
+ALL TIMESTAMPS ARE UTC.
+ALL PRICES ARE DECIMALS (e.g. 0.67 not 67).
+NO OPTIMISATION APPLIED.
+NO HISTORY REWRITTEN.

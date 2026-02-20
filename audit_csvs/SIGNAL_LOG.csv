@@ -1,0 +1,98 @@
+event_id,event_name,signal_id,signal_start_timestamp,signal_end_timestamp,signal_strength_score,model_fair_value_at_signal,market_price_at_signal,calculated_edge_at_signal,signal_direction,signal_status,reason_for_signal_change
+EVT_A10667,Fed rate cut by June 2026 meeting?,SIG_0001,2026-02-19T09:19:50.422263+00:00,,9,,0.75,,NO,grey,Initial observation
+EVT_BB4052,,SIG_0002,2026-02-19T09:19:50.422263+00:00,2026-02-19T15:23:46.362448+00:00,,,0.51,,YES,grey,Initial observation
+EVT_BB4052,,SIG_0003,2026-02-19T15:23:46.362448+00:00,2026-02-19T16:47:04.983141+00:00,,,0.515,,YES,green,First entry after watching
+EVT_BB4052,,SIG_0004,2026-02-19T16:47:04.983141+00:00,2026-02-19T22:50:06.630212+00:00,,,0.51,,YES,orange,Status changed: green -> orange
+EVT_BB4052,,SIG_0005,2026-02-19T22:50:06.630212+00:00,2026-02-20T00:51:00.568393+00:00,,,0.515,,YES,green,Status changed: orange -> green
+EVT_BB4052,,SIG_0006,2026-02-20T00:51:00.568393+00:00,2026-02-20T03:52:22.950322+00:00,,,0.505,,YES,red,Status changed: green -> red
+EVT_BB4052,,SIG_0007,2026-02-20T03:52:22.950322+00:00,,,,0.505,,YES,red,Exited
+EVT_04CD6A,,SIG_0008,2026-02-19T09:19:50.422263+00:00,2026-02-19T11:20:28.146452+00:00,,,0.023,,YES,red,
+EVT_04CD6A,,SIG_0009,2026-02-19T11:20:28.146452+00:00,2026-02-19T12:21:03.994166+00:00,,,0.0245,,YES,green,Status changed: red -> green
+EVT_04CD6A,,SIG_0010,2026-02-19T12:21:03.994166+00:00,2026-02-19T14:03:38.311539+00:00,,,0.0225,,YES,red,Status changed: green -> red
+EVT_04CD6A,,SIG_0011,2026-02-19T14:03:38.311539+00:00,2026-02-19T14:22:44.914252+00:00,,,0.022,,YES,red,Exited
+EVT_04CD6A,,SIG_0012,2026-02-19T14:22:44.914252+00:00,,,,0.19,,YES,green,Exited
+EVT_01697E,,SIG_0013,2026-02-19T09:19:50.422263+00:00,,,,0.235,,YES,grey,Initial observation
+EVT_EA827A,Will Trump nominate Kevin Warsh as the next Fed chair?,SIG_0014,2026-02-19T09:19:50.422263+00:00,2026-02-19T20:49:10.612509+00:00,7,,0.946,,NO,green,
+EVT_EA827A,Will Trump nominate Kevin Warsh as the next Fed chair?,SIG_0015,2026-02-19T20:49:10.612509+00:00,,7,,0.943,,NO,green,Exited: max hold time (12h)
+EVT_051E45,,SIG_0016,2026-02-19T09:19:50.422263+00:00,2026-02-19T23:50:33.585099+00:00,,,0.0075,,NO,grey,Initial observation
+EVT_051E45,,SIG_0017,2026-02-19T23:50:33.585099+00:00,2026-02-20T01:51:22.110646+00:00,,,0.9265,,NO,green,First entry after watching
+EVT_051E45,,SIG_0018,2026-02-20T01:51:22.110646+00:00,2026-02-20T05:53:39.677051+00:00,,,0.9275,,NO,orange,Status changed: green -> orange
+EVT_051E45,,SIG_0019,2026-02-20T05:53:39.677051+00:00,,,,0.9285,,NO,red,Status changed: orange -> red
+EVT_386D34,Will no Fed rate cuts happen in 2026?,SIG_0020,2026-02-19T09:19:50.422263+00:00,2026-02-19T15:23:46.362448+00:00,4,,0.11,,YES,green,
+EVT_386D34,Will no Fed rate cuts happen in 2026?,SIG_0021,2026-02-19T15:23:46.362448+00:00,2026-02-19T16:47:04.983141+00:00,4,,0.107,,YES,green,Exited: plateau (4h no improvement)
+EVT_386D34,Will no Fed rate cuts happen in 2026?,SIG_0022,2026-02-19T16:47:04.983141+00:00,2026-02-19T19:48:39.615668+00:00,4,,0.0925,,YES,red,Exited: plateau (4h no improvement)
+EVT_386D34,Will no Fed rate cuts happen in 2026?,SIG_0023,2026-02-19T19:48:39.615668+00:00,,4,,0.113,,YES,green,Exited: plateau (4h no improvement)
+EVT_10FFEE,,SIG_0024,2026-02-19T09:19:50.422263+00:00,,,,0.115,,YES,grey,Initial observation
+EVT_9EEDC0,,SIG_0025,2026-02-19T09:19:50.422263+00:00,2026-02-19T10:00:31.791256+00:00,,,0.275,,NO,green,
+EVT_9EEDC0,,SIG_0026,2026-02-19T10:00:31.791256+00:00,2026-02-19T11:01:16.791355+00:00,,,0.29,,NO,red,Status changed: green -> red
+EVT_9EEDC0,,SIG_0027,2026-02-19T11:01:16.791355+00:00,2026-02-19T12:02:07.266014+00:00,,,0.285,,NO,orange,Status changed: red -> orange
+EVT_9EEDC0,,SIG_0028,2026-02-19T12:02:07.266014+00:00,2026-02-19T14:03:38.311539+00:00,,,0.275,,NO,green,Status changed: orange -> green
+EVT_9EEDC0,,SIG_0029,2026-02-19T14:03:38.311539+00:00,2026-02-19T15:04:26.268217+00:00,,,0.285,,NO,orange,Status changed: green -> orange
+EVT_9EEDC0,,SIG_0030,2026-02-19T15:04:26.268217+00:00,2026-02-19T17:47:36.682403+00:00,,,0.235,,NO,green,Status changed: orange -> green
+EVT_9EEDC0,,SIG_0031,2026-02-19T17:47:36.682403+00:00,,,,0.225,,NO,green,Exited
+EVT_606C42,Iran Strike on Israel by February 28?,SIG_0032,2026-02-19T09:19:50.422263+00:00,2026-02-19T10:00:31.791256+00:00,11,,0.25,,NO,green,
+EVT_606C42,Iran Strike on Israel by February 28?,SIG_0033,2026-02-19T10:00:31.791256+00:00,2026-02-19T11:01:16.791355+00:00,11,,0.29,,NO,red,Status changed: green -> red
+EVT_606C42,Iran Strike on Israel by February 28?,SIG_0034,2026-02-19T11:01:16.791355+00:00,2026-02-19T13:47:21.613838+00:00,11,,0.285,,NO,orange,Status changed: red -> orange
+EVT_606C42,Iran Strike on Israel by February 28?,SIG_0035,2026-02-19T13:47:21.613838+00:00,2026-02-19T14:03:38.311539+00:00,11,,0.285,,NO,orange,Exited: trailing stop (0.5c from peak)
+EVT_606C42,Iran Strike on Israel by February 28?,SIG_0036,2026-02-19T14:03:38.311539+00:00,,11,,0.235,,NO,green,Exited: trailing stop (0.5c from peak)
+EVT_130A64,,SIG_0037,2026-02-19T09:19:50.422263+00:00,2026-02-19T17:47:36.682403+00:00,,,0.345,,YES,green,
+EVT_130A64,,SIG_0038,2026-02-19T17:47:36.682403+00:00,2026-02-19T19:48:39.615668+00:00,,,0.35,,YES,green,Exited
+EVT_130A64,,SIG_0039,2026-02-19T19:48:39.615668+00:00,2026-02-19T23:50:33.585099+00:00,,,0.335,,YES,red,Exited
+EVT_130A64,,SIG_0040,2026-02-19T23:50:33.585099+00:00,,,,0.345,,YES,green,Exited
+EVT_201A28,,SIG_0041,2026-02-19T09:19:50.422263+00:00,2026-02-19T14:03:38.311539+00:00,,,0.34,,NO,grey,Initial observation
+EVT_201A28,,SIG_0042,2026-02-19T14:03:38.311539+00:00,2026-02-20T02:51:52.579078+00:00,,,0.175,,NO,green,First entry after watching
+EVT_201A28,,SIG_0043,2026-02-20T02:51:52.579078+00:00,2026-02-20T03:52:22.950322+00:00,,,0.175,,NO,green,Exited
+EVT_201A28,,SIG_0044,2026-02-20T03:52:22.950322+00:00,,,,0.18,,NO,orange,Exited
+EVT_C86737,,SIG_0045,2026-02-19T09:19:50.422263+00:00,2026-02-19T14:03:38.311539+00:00,,,0.0205,,YES,grey,Initial observation
+EVT_C86737,,SIG_0046,2026-02-19T14:03:38.311539+00:00,2026-02-19T17:47:36.682403+00:00,,,0.13,,YES,green,First entry after watching
+EVT_C86737,,SIG_0047,2026-02-19T17:47:36.682403+00:00,2026-02-19T22:50:06.630212+00:00,,,0.115,,YES,orange,Status changed: green -> orange
+EVT_C86737,,SIG_0048,2026-02-19T22:50:06.630212+00:00,2026-02-20T01:51:22.110646+00:00,,,0.14,,YES,green,Status changed: orange -> green
+EVT_C86737,,SIG_0049,2026-02-20T01:51:22.110646+00:00,,,,0.145,,YES,green,Exited
+EVT_9C28F9,,SIG_0050,2026-02-19T09:19:50.422263+00:00,,,,0.445,,NO,grey,Initial observation
+EVT_090914,,SIG_0051,2026-02-19T09:19:50.422263+00:00,2026-02-20T04:52:57.573707+00:00,,,0.22,,NO,grey,Initial observation
+EVT_090914,,SIG_0052,2026-02-20T04:52:57.573707+00:00,2026-02-20T05:53:39.677051+00:00,,,0.225,,NO,green,Killed
+EVT_090914,,SIG_0053,2026-02-20T05:53:39.677051+00:00,2026-02-20T05:53:39.677051+00:00,,,0.225,,YES,grey,Initial observation
+EVT_090914,,SIG_0054,2026-02-20T05:53:39.677051+00:00,2026-02-20T06:00:27.937762+00:00,,,0.225,,NO,green,Killed
+EVT_090914,,SIG_0055,2026-02-20T06:00:27.937762+00:00,2026-02-20T06:00:27.937762+00:00,,,0.225,,YES,grey,Initial observation
+EVT_090914,,SIG_0056,2026-02-20T06:00:27.937762+00:00,2026-02-20T06:23:40.446551+00:00,,,0.225,,NO,green,Killed
+EVT_090914,,SIG_0057,2026-02-20T06:23:40.446551+00:00,2026-02-20T06:23:40.446551+00:00,,,0.225,,YES,grey,Initial observation
+EVT_090914,,SIG_0058,2026-02-20T06:23:40.446551+00:00,2026-02-20T06:36:22.913738+00:00,,,0.225,,NO,green,Killed
+EVT_090914,,SIG_0059,2026-02-20T06:36:22.913738+00:00,2026-02-20T06:36:22.913738+00:00,,,0.225,,YES,grey,Initial observation
+EVT_090914,,SIG_0060,2026-02-20T06:36:22.913738+00:00,,,,0.225,,NO,green,Killed
+EVT_6C9F93,100% tariff on Canada in effect by June 30?,SIG_0061,2026-02-19T09:19:50.422263+00:00,,5,,0.09,,NO,grey,Initial observation
+EVT_C7CDE4,,SIG_0062,2026-02-19T09:19:50.422263+00:00,,,,0.042,,NO,grey,Initial observation
+EVT_D3D364,"U.S. x Iran Military Engagement by March 31, 2026?",SIG_0063,2026-02-19T09:19:50.422263+00:00,2026-02-19T10:20:24.946989+00:00,13,,0.595,,NO,orange,
+EVT_D3D364,"U.S. x Iran Military Engagement by March 31, 2026?",SIG_0064,2026-02-19T10:20:24.946989+00:00,2026-02-19T11:20:28.146452+00:00,13,,0.58,,NO,green,Status changed: orange -> green
+EVT_D3D364,"U.S. x Iran Military Engagement by March 31, 2026?",SIG_0065,2026-02-19T11:20:28.146452+00:00,2026-02-19T13:21:57.883990+00:00,13,,0.585,,NO,orange,Status changed: green -> orange
+EVT_D3D364,"U.S. x Iran Military Engagement by March 31, 2026?",SIG_0066,2026-02-19T13:21:57.883990+00:00,2026-02-19T13:47:21.613838+00:00,13,,0.635,,NO,red,Status changed: orange -> red
+EVT_D3D364,"U.S. x Iran Military Engagement by March 31, 2026?",SIG_0067,2026-02-19T13:47:21.613838+00:00,,13,,0.635,,NO,red,Exited: trailing stop (0.5c from peak)
+EVT_7162C1,"Trump invokes War Powers against Iran by March 31, 2026?",SIG_0068,2026-02-19T09:19:50.422263+00:00,2026-02-19T12:02:07.266014+00:00,8,,0.44,,NO,red,Exited: merged with duplicate
+EVT_7162C1,"Trump invokes War Powers against Iran by March 31, 2026?",SIG_0069,2026-02-19T12:02:07.266014+00:00,2026-02-19T13:02:54.057543+00:00,8,,0.44,,NO,orange,Exited: merged with duplicate
+EVT_7162C1,"Trump invokes War Powers against Iran by March 31, 2026?",SIG_0070,2026-02-19T13:02:54.057543+00:00,2026-02-19T16:47:04.983141+00:00,8,,0.445,,NO,red,Exited: merged with duplicate
+EVT_7162C1,"Trump invokes War Powers against Iran by March 31, 2026?",SIG_0071,2026-02-19T16:47:04.983141+00:00,2026-02-19T17:47:36.682403+00:00,8,,0.43,,NO,green,Exited: merged with duplicate
+EVT_7162C1,"Trump invokes War Powers against Iran by March 31, 2026?",SIG_0072,2026-02-19T17:47:36.682403+00:00,2026-02-19T20:49:10.612509+00:00,8,,0.44,,NO,orange,Exited: merged with duplicate
+EVT_7162C1,"Trump invokes War Powers against Iran by March 31, 2026?",SIG_0073,2026-02-19T20:49:10.612509+00:00,2026-02-20T00:51:00.568393+00:00,8,,0.515,,NO,red,Exited: merged with duplicate
+EVT_7162C1,"Trump invokes War Powers against Iran by March 31, 2026?",SIG_0074,2026-02-20T00:51:00.568393+00:00,2026-02-20T03:52:22.950322+00:00,8,,0.59,,NO,orange,Exited: merged with duplicate
+EVT_7162C1,"Trump invokes War Powers against Iran by March 31, 2026?",SIG_0075,2026-02-20T03:52:22.950322+00:00,2026-02-20T05:53:39.677051+00:00,8,,0.64,,NO,red,Exited: merged with duplicate
+EVT_7162C1,"Trump invokes War Powers against Iran by March 31, 2026?",SIG_0076,2026-02-20T05:53:39.677051+00:00,,8,,0.655,,NO,orange,Exited: merged with duplicate
+EVT_3581C1,"Israel strikes Iran by March 31, 2026?",SIG_0077,2026-02-19T09:19:50.422263+00:00,,10,,0.525,,NO,green,Exited: trailing stop (0.5c from peak)
+EVT_700D39,"US strikes Iran by February 28, 2026?",SIG_0078,2026-02-19T14:03:38.311539+00:00,,10,,0.28,,NO,grey,Initial observation
+EVT_5334C6,Will there be no change in Fed interest rates after the March 2026 meeting?,SIG_0079,HTML_snapshot_19 Feb 06:16,,5,,0.928,,,red,Active position
+EVT_44BCEB,Will 1 Fed rate cut happen in 2026?,SIG_0080,HTML_snapshot_18 Feb 06:50,,15,,0.165,,,,Exited: max hold time (12h)
+EVT_BCBBC3,Will the Fed decrease interest rates by 25 bps after the April 2026 meeting?,SIG_0081,HTML_snapshot_18 Feb 06:50,,6,,0.2,,,,Exited: token correction
+EVT_4B6645,Will inflation reach more than 3% in 2026?,SIG_0082,HTML_snapshot_16 Feb 08:56,,13,,0.29,,,,Exited: trailing stop (0.5c from peak)
+EVT_10D9DA,Will the Fed decrease interest rates by 25 bps after the June 2026 meeting?,SIG_0083,HTML_snapshot_16 Feb 08:56,,8,,0.505,,,,Exited: trailing stop (0.5c from peak)
+EVT_BCBBC3,Will the Fed decrease interest rates by 25 bps after the April 2026 meeting?,SIG_0084,HTML_snapshot_16 Feb 08:56,,6,,0.2,,,,Exited: never entered
+EVT_10D9DA,Will the Fed decrease interest rates by 25 bps after the June 2026 meeting?,SIG_0085,HTML_snapshot_19 Feb 06:16,,6,,0.505,,,,Exited: max hold time (12h)
+EVT_BCBBC3,Will the Fed decrease interest rates by 25 bps after the April 2026 meeting?,SIG_0086,HTML_snapshot_19 Feb 06:16,,5,,0.2,,,,Exited: token correction
+EVT_9752C4,Iran agrees to end enrichment of uranium by March 31?,SIG_0087,HTML_snapshot_18 Feb 18:31,,5,,0.14,,,,Exited: plateau (4h no improvement)
+EVT_204BA6,Will the Fed decrease interest rates by 50 bps after the June 2026 meeting? [B],SIG_0088,HTML_snapshot_18 Feb 06:50,,4,,,,,,"4c entry = lottery ticket, spread eats edge"
+EVT_2DC5A4,Will inflation reach more than 4% in 2026? [B],SIG_0089,HTML_snapshot_16 Feb 08:56,,5,,0.11,,,,Exited: merged with duplicate
+EVT_4FA1A6,Will inflation reach more than 5% in 2026? [B],SIG_0090,HTML_snapshot_16 Feb 08:56,,4,,0.085,,,,Exited: target reached
+EVT_F39487,Will there be no change in Fed interest rates after the June 2026 meeting? [B],SIG_0091,HTML_snapshot_16 Feb 08:56,,6,,0.395,,,,Exited: trailing stop (0.5c from peak)
+EVT_5A5194,Will the Fed decrease interest rates by 25 bps after the March 2026 meeting?,SIG_0092,HTML_snapshot_16 Feb 08:56,,4,,0.052,,,,Exited: max hold time (12h)
+EVT_2A9521,Will the Fed decrease interest rates by 50+ bps after the June 2026 meeting? [B],SIG_0093,HTML_snapshot_16 Feb 08:56,,4,,0.085,,,,Exited: trailing stop (0.5c from peak)
+EVT_15D87D,Will Crude Oil (CL) settle over $63 on the final trading day of June 2026?,SIG_0094,HTML_snapshot_18 Feb 06:50,,10,,,,,,71c spread (illiquid)
+EVT_B1585E,Will Crude Oil (CL) settle over $70 on the final trading day of June 2026?,SIG_0095,HTML_snapshot_18 Feb 06:50,,5,,,,,,71c spread (illiquid)
+EVT_DA73A0,Will there be no change in Fed interest rates after the June 2026 meeting?,SIG_0096,HTML_snapshot_18 Feb 06:50,,28,,,,,,"Rationalisation: duplicate slug, keeping master"
+EVT_97FE3A,Will Trump create a tariff dividend by March 31?,SIG_0097,HTML_snapshot_18 Feb 06:50,,5,,,,,,"Rationalisation: duplicate slug, keeping master"

@@ -1,0 +1,63 @@
+event_id,event_name,rating,edge_type,direction,entry_price,current_price,state,total_number_of_signals,total_number_of_trade_legs,total_gross_pnl,total_net_pnl,maximum_drawdown,average_hold_time_hours,total_time_signal_green_hours
+EVT_01697E_1,US recession by end of 2026?,B,DISCOVERY,higher,0.235,0.225,WATCHING,1,1,0,0,0,0.0,0
+EVT_01697E_2,US recession by end of 2026?,B,,,0.235,,KILLED,1,1,0,0,0,0.0,0
+EVT_01697E_3,US recession by end of 2026?,B,,,0.23,0.225,WATCHING,1,1,0,0,0,0.0,0
+EVT_090914_1,Tariff increase on Canada in effect by June 30?,A,FRONTIER,higher,0.225,0.225,WATCHING,10,1,0,0,0,0.0,0
+EVT_090914_2,Tariff increase on Canada in effect by June 30?,A,CONSENSUS,,,0.225,EXITED,10,1,0,0,0,0.0,0
+EVT_090914_3,Tariff increase on Canada in effect by June 30?,D,FRONTIER,,0.225,,KILLED,10,1,0,0,0,0.0,0
+EVT_10D9DA_1,Will the Fed decrease interest rates by 25 bps after the June 2026 meeting?,A,CONSENSUS,,1.0,1.0,WATCHING,2,0,0,0,0,,0
+EVT_10D9DA_2,Will the Fed decrease interest rates by 25 bps after the June 2026 meeting?,A,CONSENSUS,,,0.505,EXITED,2,0,0,0,0,,0
+EVT_10D9DA_3,Will the Fed decrease interest rates by 25 bps after the June 2026 meeting?,B,CONSENSUS,,,0.505,EXITED,2,0,0,0,0,,0
+EVT_130A64_1,US-Iran nuclear deal by June 30?,A,CONSENSUS,higher,,0.345,EXITED,4,1,0.005,0.005,1.5,8.46,17.24
+EVT_130A64_2,US-Iran nuclear deal by June 30?,A,CONSENSUS,,,0.345,EXITED,4,1,0.005,0.005,1.5,8.46,17.24
+EVT_130A64_3,US-Iran nuclear deal by June 30?,A,CONSENSUS,,,0.345,EXITED,4,1,0.005,0.005,1.5,8.46,17.24
+EVT_15D87D,Will Crude Oil (CL) settle over $63 on the final trading day of June 2026?,D,FRONTIER,,0.545,,KILLED,1,1,0,0,0,0.0,0
+EVT_1FE9AE,Will Iran close the Strait of Hormuz before 2027? [C],C,CONSENSUS,,0.385,0.345,WATCHING,0,0,0,0,0,,0
+EVT_201A28_1,Will Iran close the Strait of Hormuz by March 31?,A,CONSENSUS,lower,,0.18,EXITED,4,1,0,0,0,12.8,14.0
+EVT_201A28_2,Will Iran close the Strait of Hormuz by March 31?,A,,,0.385,0.18,WATCHING,4,1,0,0,0,12.8,14.0
+EVT_201A28_3,Will Iran close the Strait of Hormuz by March 31?,B,CONSENSUS,,,0.18,EXITED,4,1,0,0,0,12.8,14.0
+EVT_204BA6,Will the Fed decrease interest rates by 50 bps after the June 2026 meeting? [B],B,CONSENSUS,,1.0,,KILLED,1,1,0,0,0,0.0,0
+EVT_2A9521,Will the Fed decrease interest rates by 50+ bps after the June 2026 meeting? [B],B,CONSENSUS,,,0.085,EXITED,1,0,0,0,0,,0
+EVT_2DC5A4,Will inflation reach more than 4% in 2026? [B],B,CONSENSUS,,0.105,0.11,EXITED,1,1,0,0,0,0.0,0
+EVT_3581C1,"Israel strikes Iran by March 31, 2026?",B,CONSENSUS,,,0.535,EXITED,1,0,0,0,9.6,,18.54
+EVT_386D34,Will no Fed rate cuts happen in 2026?,B,CONSENSUS,higher,,0.102,EXITED,4,1,0.007,0.007,4.0,6.07,18.24
+EVT_4276BB,"US strikes Iran by February 28, 2026? [D]",D,DISCOVERY,,0.275,0.265,WATCHING,0,0,0,0,0,,0
+EVT_42B1A5,Iran strike on US military by February 28?,B,DISCOVERY,,0.335,0.17,WATCHING,0,0,0,0,0,,0
+EVT_44BCEB,Will 1 Fed rate cut happen in 2026?,A,CONSENSUS,,,0.165,EXITED,1,0,0,0,0,,0
+EVT_4B6645,Will inflation reach more than 3% in 2026?,A,CONSENSUS,,0.105,0.29,EXITED,1,1,0.015015,0.015015,0,0.0,0
+EVT_4FA1A6,Will inflation reach more than 5% in 2026? [B],B,CONSENSUS,,0.105,0.085,EXITED,1,1,0.01995,0.01995,0,0.0,0
+EVT_505E9B,"US strikes Iran by February 21, 2026? [C]",C,CONSENSUS,,0.12,0.065,WATCHING,0,0,0,0,0,,0
+EVT_5334C6,Will there be no change in Fed interest rates after the March 2026 meeting?,A,CONSENSUS,,,0.928,ACTIVE,1,0,0,0,0,,0
+EVT_5A5194,Will the Fed decrease interest rates by 25 bps after the March 2026 meeting?,B,CONSENSUS,,,0.052,EXITED,1,0,0,0,0,,0
+EVT_606C42,Iran Strike on Israel by February 28?,B,CONSENSUS,lower,,0.165,EXITED,5,1,0.025,-0.025,21.1,4.46,16.82
+EVT_6C9F93,100% tariff on Canada in effect by June 30?,D,FRONTIER,lower,0.09,0.095,WATCHING,1,0,0,0,0,,0
+EVT_700D39,"US strikes Iran by February 28, 2026?",A,CONSENSUS,lower,0.28,0.265,WATCHING,1,0,0,0,0,,0
+EVT_7162C1,"Trump invokes War Powers against Iran by March 31, 2026?",B,CONSENSUS,lower,,0.655,EXITED,9,0,0,0,53.5,,1.02
+EVT_737A11,Will Iran close the Strait of Hormuz by June 30? [C],C,CONSENSUS,,0.385,0.265,WATCHING,0,0,0,0,0,,0
+EVT_7EB1ED,US seizes an Iran-linked oil tanker by Feb 28?,D,FRONTIER,,0.745,0.445,WATCHING,0,0,0,0,0,,0
+EVT_7F9EF0,Will Iran close the Strait of Hormuz by June 30? [D],D,DISCOVERY,,0.385,0.265,WATCHING,0,0,0,0,0,,0
+EVT_857696,US seizes an Iran-linked oil tanker by Feb 28? [D],D,DISCOVERY,,0.435,0.445,WATCHING,0,0,0,0,0,,0
+EVT_9752C4,Iran agrees to end enrichment of uranium by March 31?,B,CONSENSUS,,,0.14,EXITED,1,0,0,0,0,,0
+EVT_97FE3A,Will Trump create a tariff dividend by March 31?,E,DISCOVERY,,0.065,,KILLED,1,1,0,0,0,0.0,0
+EVT_9EEDC0_1,"Israel strikes Iran by February 28, 2026?",A,CONSENSUS,lower,,0.18,EXITED,7,1,0.05,-0.05,5.5,8.46,18.66
+EVT_9EEDC0_2,"Israel strikes Iran by February 28, 2026?",A,CONSENSUS,,,0.18,EXITED,7,1,0.05,-0.05,5.5,8.46,18.66
+EVT_A10667,Fed rate cut by June 2026 meeting?,B,,lower,0.775,0.725,WATCHING,1,0,0,0,0,,0
+EVT_A6A8FF,"Will the median home value in Chicago be between $315,000 and $320,000 by March 1? [E]",E,FRONTIER,,0.032,0.865,WATCHING,0,0,0,0,0,,0
+EVT_A8B237,US-Iran nuclear deal before 2027? [C],C,CONSENSUS,,0.44,0.48,WATCHING,0,0,0,0,0,,0
+EVT_B1585E,Will Crude Oil (CL) settle over $70 on the final trading day of June 2026?,D,FRONTIER,,0.545,,KILLED,1,1,0,0,0,0.0,0
+EVT_BCBBC3_1,Will the Fed decrease interest rates by 25 bps after the April 2026 meeting?,A,CONSENSUS,,,0.2,EXITED,3,1,0.0005,0.0005,0,0.0,0
+EVT_BCBBC3_2,Will the Fed decrease interest rates by 25 bps after the April 2026 meeting?,A,CONSENSUS,,0.025,0.2,EXITED,3,1,0.0005,0.0005,0,0.0,0
+EVT_BCBBC3_3,Will the Fed decrease interest rates by 25 bps after the April 2026 meeting?,B,CONSENSUS,,,0.2,EXITED,3,1,0.0005,0.0005,0,0.0,0
+EVT_C54A31,Houthi strike on Israel by February 28? [D],D,DISCOVERY,,0.15,0.11,WATCHING,0,0,0,0,0,,0
+EVT_C86737_1,"US x Iran meeting by February 28, 2026?",A,CONSENSUS,higher,,0.145,EXITED,5,1,0.015,0.015,11.5,11.8,11.77
+EVT_C86737_2,"US x Iran meeting by February 28, 2026?",A,CONSENSUS,,,0.145,EXITED,5,1,0.015,0.015,11.5,11.8,11.77
+EVT_C93ADE,"US strikes Iran by February 28, 2026? [C]",C,CONSENSUS,,0.275,0.265,WATCHING,0,0,0,0,0,,0
+EVT_C93D44,Jerome Powell out as Fed Chair by the end of 2026? [C],C,DISCOVERY,,0.072,0.022,WATCHING,0,0,0,0,0,,0
+EVT_D210FB,Will inflation reach more than 3% in 2026? [C],C,DISCOVERY,,0.115,0.29,WATCHING,0,0,0,0,0,,0
+EVT_D3D364,"U.S. x Iran Military Engagement by March 31, 2026?",B,CONSENSUS,,,0.615,EXITED,5,1,0.055,0.055,9.5,4.46,1.01
+EVT_DA73A0,Will there be no change in Fed interest rates after the June 2026 meeting?,D,,,1.0,,KILLED,1,1,0,0,0,0.0,0
+EVT_EA827A,Will Trump nominate Kevin Warsh as the next Fed chair?,A,CONSENSUS,lower,0.947,0.942,EXITED,2,1,0.0035,0.0035,0.3,11.49,21.28
+EVT_F39487,Will there be no change in Fed interest rates after the June 2026 meeting? [B],B,CONSENSUS,,,0.395,EXITED,1,0,0,0,0,,0
+EVT_FC0BF2_1,"US strikes Iran by February 20, 2026?",A,CONSENSUS,,0.063,0.027,WATCHING,0,0,0,0,0,,0
+EVT_FC0BF2_2,"US strikes Iran by February 20, 2026?",B,CONSENSUS,,0.063,0.027,WATCHING,0,0,0,0,0,,0
+EVT_FF47EE,Will Trump create a tariff dividend by June 30?,D,DISCOVERY,,0.18,0.18,WATCHING,0,0,0,0,0,,0
