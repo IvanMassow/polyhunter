@@ -1,0 +1,188 @@
+READ THIS FIRST — CONTEXT FOR THE AUDIT DATA
+================================================
+
+You are looking at a structured trading audit dataset from a system
+called PolyHunter. This document tells you what you are looking at,
+how the system works, and what every field means. Read this before
+touching the CSVs.
+
+
+WHAT THIS IS
+------------
+PolyHunter is a paper-trading system that bets on prediction markets
+(Polymarket). Contracts trade between 0.00 and 1.00, where the price
+represents the market's implied probability of a real-world event
+happening. We buy contracts where we believe the market has the
+probability wrong.
+
+This is NOT live trading. All positions are simulated with virtual
+capital ($140,000 total across 62 candidates).
+
+The dataset covers 62 prediction market candidates tracked over an
+8-day observation window as of 2026-02-20.
+
+
+WHAT WE BUY AND WHY
+--------------------
+We buy mispriced probability. The edge is the gap between what we
+think the probability is and what the market is pricing.
+
+Direction tells you which side we are on:
+  HIGHER = we bought YES (we think price goes up, event more likely)
+  LOWER  = we bought NO  (we think price goes down, event less likely)
+
+All prices are decimals. 0.67 = 67 cents = 67% implied probability.
+
+
+HOW WE FIND EDGES
+-----------------
+Edges come from narrative analysis — real-world signals (news, policy
+shifts, geopolitical events) that the prediction market hasn't priced
+in yet. Three categories:
+
+  CONSENSUS  = broad agreement supports this view, market is just slow
+  DISCOVERY  = we spotted something the market hasn't noticed yet
+  FRONTIER   = speculative, thin evidence, but cheap entry
+
+
+HOW WE RATE CANDIDATES
+-----------------------
+Every candidate gets a letter rating:
+
+  A = BLUE CHIP     — highest confidence, act on these (21 candidates)
+  B = BREAD & BUTTER — moderate confidence, standard trades (21 candidates)
+  C = CONTESTED     — mixed signals, evidence vs counter-evidence (7 candidates)
+  D = DARK HORSE    — emerging signal, interesting asymmetry (11 candidates)
+  E = FRONTIER SCOUT — thin evidence, cheap, speculative (2 candidates)
+
+Edge strength is also scored numerically as "edge_points" (4 to 15).
+Higher = stronger predicted edge. This is independent of the letter.
+
+
+HOW WE SIZE POSITIONS
+---------------------
+Three tiers (the labels are counterintuitive):
+
+  HIGH risk   = $2,000  per position  (uncertain outcome, small bet)
+  MEDIUM risk = $5,000  per position
+  LOW risk    = $10,000 per position  (high conviction, larger bet)
+
+LOW risk gets the biggest size because the edge is most confident.
+
+
+HOW WE ENTER
+------------
+We do NOT buy immediately. A candidate starts in WATCHING state.
+
+Entry rule: buy on the FIRST UPTICK after the edge is identified.
+This confirms the market is starting to move our way before we
+commit capital. Until that uptick happens, the position stays
+WATCHING and no trade is recorded.
+
+In the timeline data, entry is marked with a "B" (Buy) marker.
+
+
+HOW WE EXIT
+-----------
+Five mechanical exit rules, applied in order of priority:
+
+  1. TRAILING STOP — exit if price retraces 0.5 cents from peak
+  2. PLATEAU       — exit if no price improvement for 4 hours
+  3. MAX HOLD      — hard exit after 12 hours regardless
+  4. TARGET        — exit when specific price target is hit
+  5. TOKEN CORRECTION — exit on minor price correction
+
+No discretionary exits. These rules are applied mechanically.
+
+
+HOW WE KILL POSITIONS
+---------------------
+A KILL is different from an exit. Kills happen when the thesis breaks:
+
+  SENTIMENT REVERSED  — the fundamental reason for the trade flipped
+  DUPLICATE SLUG      — same event tracked twice, duplicate removed
+  SPREAD EATS EDGE    — entry spread >= 4c, friction kills the edge
+
+
+RE-ENTRIES
+----------
+If we exit a position and the edge later re-emerges on the same
+event, we can re-enter. In the data:
+  - Same event_id, but new signal_id and new trade_id
+  - Appears as separate rows — do NOT merge them
+  - Each instance has its own entry price, exit, and P&L
+
+
+THEMES
+------
+Candidates cluster into macro themes. The system tracks concentration:
+
+  Fed Rate Cuts   — HIGH exposure  (11 positions)
+  Inflation       — MEDIUM exposure (4 positions)
+  Trump Tariffs   — MEDIUM exposure (4 positions)
+  Geopolitical/Iran — multiple positions
+  Fed Personnel   — 2 positions
+  Commodities     — 2-3 positions
+  Real Estate     — 1 position
+
+
+HOLD DURATION BACKTESTING
+--------------------------
+The system tracks what would have happened if positions were held
+longer than the 12h max hold rule:
+
+  Hold  1h  →  +0.6% avg,  29% win rate
+  Hold  6h  →  +4.3% avg,  54% win rate
+  Hold 12h  →  +8.1% avg,  74% win rate  ← current rule
+  Hold 24h  → +12.9% avg,  79% win rate
+  Hold 48h  → +133.4% avg, 83% win rate  (6 trades only, skewed)
+
+This suggests the 12h cap may be leaving money on the table, but
+the 48h number is from a tiny sample with one +640% outlier.
+
+
+WHAT THE CSV FILES CONTAIN
+---------------------------
+  SIGNAL_LOG.csv             — every signal change with UTC timestamps
+  PRICE_SERIES.csv           — hourly price observations per event
+  EXECUTED_TRADES_HISTORY.csv — entry/exit for every trade leg
+  POSITION_STATE_OVER_TIME.csv — hourly snapshots of position state
+  SUMMARY_STATS_PER_EVENT.csv — aggregate stats per event
+  STATIC_POSITIONS_FROM_HTML.csv — full detail on all 62 positions
+
+
+DATA LIMITATIONS YOU NEED TO KNOW
+----------------------------------
+  - Only 21 of 62 events have hourly time-series data (from git).
+    The other 41 have current-state snapshots only.
+  - No bid/ask data. Only last_traded_price. Those columns are blank.
+  - No volume or volatility per timestamp. Blank where unavailable.
+  - Time series covers ~21 hours. Positions may predate this window.
+  - Hourly granularity at best. No tick-level data.
+  - Blank fields mean data unavailable. Nothing has been interpolated.
+
+
+WHAT YOU SHOULD DO WITH THIS DATA
+-----------------------------------
+  - Apply strict mechanical execution rules
+  - Simulate passive bid ladders
+  - Model slippage from available spread data
+  - Evaluate missed fills
+  - Analyse price movement distribution after signal
+  - Rationalise re-entry behaviour (helped or hurt?)
+  - Test whether the 12h hold rule is optimal
+  - Measure how much edge survives after spread/slippage
+  - Determine bid ladder spacing from historical volatility
+
+Do not optimise. Do not smooth. Do not reinterpret history.
+Accuracy and structure matter more than performance.
+
+
+CURRENT PERFORMANCE (as of 2026-02-20)
+----------------------------------------
+  62 candidates tracked
+  19 winners / 6 losers / 76% win rate
+  +$11,384 total P&L on $140,000 virtual capital
+  +8.1% portfolio return
+  Best trade: +44.3%
+  Worst trade: -52.3%
