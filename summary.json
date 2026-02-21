@@ -1,18 +1,18 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-02-21T23:26:29.282745+00:00",
+  "updated_at": "2026-02-21T23:39:20.994520+00:00",
   "total_candidates": 97,
-  "winners": 19,
-  "losers": 11,
-  "win_rate": 63.3,
-  "total_pnl": 0.395,
-  "avg_pnl": 0.0041,
-  "total_dollar_pnl": 14284.0,
+  "winners": 20,
+  "losers": 10,
+  "win_rate": 66.7,
+  "total_pnl": 0.4095,
+  "avg_pnl": 0.0042,
+  "total_dollar_pnl": 14715.94,
   "total_invested": 161000.0,
-  "portfolio_return_pct": 8.9,
+  "portfolio_return_pct": 9.1,
   "best_trade": 44.3,
-  "worst_trade": -19.4,
+  "worst_trade": -16.7,
   "recent_positions": [
     {
       "event": "Will the DHS shutdown last 21 days or more? \u25cf\u25cf\u25cf\u25cf\u25d0 [A]",
@@ -38,7 +38,7 @@
       "rating": "C",
       "conviction": null,
       "entry_price": 0.62,
-      "current_price": 0.615,
+      "current_price": 0.605,
       "pnl_pct": 0,
       "edge_points": 8.0,
       "status": "grey",
@@ -365,9 +365,9 @@
   },
   "long_tail": {
     "total": 97,
-    "winners": 19,
-    "losers": 11,
-    "win_rate": 63.3,
+    "winners": 20,
+    "losers": 10,
+    "win_rate": 66.7,
     "best_trade": 44.3
   }
 }
