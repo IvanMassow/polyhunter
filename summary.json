@@ -1,8 +1,8 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-02-21T01:53:07.184162+00:00",
-  "total_candidates": 83,
+  "updated_at": "2026-02-21T01:58:22.583003+00:00",
+  "total_candidates": 84,
   "winners": 19,
   "losers": 5,
   "win_rate": 79.2,
@@ -219,20 +219,20 @@
       "tail_type": "long"
     },
     {
-      "event": "US strikes Iran by March 1, 2026? \u25cf\u25cf\u25cf\u25cf\u25cf [C] DISCOVERY",
-      "edge_type": "CONSENSUS",
+      "event": "Fed rate cut by June 2026 meeting? \u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u0090\u00e2\u0097\u008b [C] DISCO",
+      "edge_type": "DISCOVERY",
       "direction": "lower",
       "rating": "C",
       "conviction": null,
-      "entry_price": 0.285,
-      "current_price": 0.28,
+      "entry_price": 0.675,
+      "current_price": 0.675,
       "pnl_pct": 0,
-      "edge_points": null,
+      "edge_points": 9.0,
       "status": "grey",
-      "state": "WATCHING",
+      "state": "KILLED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": "",
+      "kill_reason": "Auto-killed: 13c spread (illiquid)",
       "tail_type": "long"
     },
     {
@@ -364,7 +364,7 @@
     "best_trade": 0
   },
   "long_tail": {
-    "total": 83,
+    "total": 84,
     "winners": 19,
     "losers": 5,
     "win_rate": 79.2,
