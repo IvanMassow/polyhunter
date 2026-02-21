@@ -1,13 +1,13 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-02-21T00:21:47.886457+00:00",
-  "total_candidates": 77,
+  "updated_at": "2026-02-21T00:26:41.469461+00:00",
+  "total_candidates": 78,
   "winners": 19,
   "losers": 5,
   "win_rate": 79.2,
   "total_pnl": 0.4915,
-  "avg_pnl": 0.0064,
+  "avg_pnl": 0.0063,
   "total_dollar_pnl": 15945.03,
   "total_invested": 140000.0,
   "portfolio_return_pct": 11.4,
@@ -287,23 +287,6 @@
       "tail_type": "long"
     },
     {
-      "event": "US recession by end of 2026? \u25cf\u25cf\u25cf\u25cf\u25cb [B]",
-      "edge_type": "DISCOVERY",
-      "direction": "higher",
-      "rating": "B",
-      "conviction": null,
-      "entry_price": 0.235,
-      "current_price": 0.235,
-      "pnl_pct": 0,
-      "edge_points": 5.0,
-      "status": "grey",
-      "state": "WATCHING",
-      "house_prob": 0,
-      "market_price": 0,
-      "kill_reason": "",
-      "tail_type": "long"
-    },
-    {
       "event": "Will the Fed decrease interest rates by 25 bps after the Jun",
       "edge_type": "CONSENSUS",
       "direction": "higher",
@@ -353,6 +336,23 @@
       "market_price": 0,
       "kill_reason": "Auto-killed: 14c spread (illiquid)",
       "tail_type": "long"
+    },
+    {
+      "event": "Fed rate cut by June 2026 meeting? \u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u0090\u00e2\u0097\u008b [C] DISCO",
+      "edge_type": "DISCOVERY",
+      "direction": "lower",
+      "rating": "C",
+      "conviction": null,
+      "entry_price": 0.68,
+      "current_price": 0.68,
+      "pnl_pct": 0,
+      "edge_points": 9.0,
+      "status": "grey",
+      "state": "KILLED",
+      "house_prob": 0,
+      "market_price": 0,
+      "kill_reason": "Auto-killed: 14c spread (illiquid)",
+      "tail_type": "long"
     }
   ],
   "report_url": "https://ivanmassow.github.io/polyhunter/",
@@ -364,7 +364,7 @@
     "best_trade": 0
   },
   "long_tail": {
-    "total": 77,
+    "total": 78,
     "winners": 19,
     "losers": 5,
     "win_rate": 79.2,
