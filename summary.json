@@ -1,7 +1,7 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-02-21T16:48:42.415644+00:00",
+  "updated_at": "2026-02-21T17:05:06.133754+00:00",
   "total_candidates": 97,
   "winners": 19,
   "losers": 11,
@@ -140,7 +140,7 @@
       "rating": "B",
       "conviction": null,
       "entry_price": 0.945,
-      "current_price": 0.935,
+      "current_price": 0.93,
       "pnl_pct": 0,
       "edge_points": 8.0,
       "status": "grey",
