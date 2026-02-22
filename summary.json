@@ -1,18 +1,18 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-02-22T06:12:51.118714+00:00",
+  "updated_at": "2026-02-22T06:35:39.448887+00:00",
   "total_candidates": 117,
   "winners": 18,
   "losers": 9,
   "win_rate": 66.7,
-  "total_pnl": 0.365,
+  "total_pnl": 0.3655,
   "avg_pnl": 0.0031,
-  "total_dollar_pnl": 17252.7,
+  "total_dollar_pnl": 17145.36,
   "total_invested": 161000.0,
-  "portfolio_return_pct": 10.7,
+  "portfolio_return_pct": 10.6,
   "best_trade": 44.3,
-  "worst_trade": -16.7,
+  "worst_trade": -19.4,
   "recent_positions": [
     {
       "event": "Will Iran close the Strait of Hormuz by March 31? \u25cf\u25cf\u25cf\u25cf\u25cf [A]",
