@@ -1,18 +1,18 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-02-23T23:14:50.219439+00:00",
+  "updated_at": "2026-02-23T23:19:05.546771+00:00",
   "total_candidates": 133,
-  "winners": 27,
-  "losers": 17,
-  "win_rate": 61.4,
-  "total_pnl": 1.1135,
-  "avg_pnl": 0.0084,
-  "total_dollar_pnl": 45159.8,
+  "winners": 19,
+  "losers": 8,
+  "win_rate": 70.4,
+  "total_pnl": 0.8885,
+  "avg_pnl": 0.0067,
+  "total_dollar_pnl": 41028.67,
   "total_invested": 240000.0,
-  "portfolio_return_pct": 18.8,
+  "portfolio_return_pct": 17.1,
   "best_trade": 176.2,
-  "worst_trade": -21.4,
+  "worst_trade": -22.1,
   "recent_positions": [
     {
       "event": "Will Iran close the Strait of Hormuz by March 31? \u25cf\u25cf\u25cf\u25cf\u25cf [A]",
@@ -326,9 +326,9 @@
       "direction": "higher",
       "rating": "A",
       "conviction": null,
-      "entry_price": 0.185,
+      "entry_price": 0.195,
       "current_price": 0.205,
-      "pnl_pct": 10.8,
+      "pnl_pct": 5.1,
       "edge_points": null,
       "status": "green",
       "state": "KILLED",
@@ -365,9 +365,9 @@
   },
   "long_tail": {
     "total": 133,
-    "winners": 27,
-    "losers": 17,
-    "win_rate": 61.4,
+    "winners": 19,
+    "losers": 8,
+    "win_rate": 70.4,
     "best_trade": 176.2
   }
 }
