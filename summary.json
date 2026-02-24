@@ -1,8 +1,8 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-02-24T07:33:46.566140+00:00",
-  "total_candidates": 138,
+  "updated_at": "2026-02-24T07:35:43.746432+00:00",
+  "total_candidates": 139,
   "winners": 19,
   "losers": 9,
   "win_rate": 67.9,
@@ -219,23 +219,6 @@
       "tail_type": "long"
     },
     {
-      "event": "Will the U.S. tariff rate on China be between 15% and 25% on",
-      "edge_type": "DISCOVERY",
-      "direction": "lower",
-      "rating": "D",
-      "conviction": null,
-      "entry_price": 0.705,
-      "current_price": 0.735,
-      "pnl_pct": 0,
-      "edge_points": 10.0,
-      "status": "grey",
-      "state": "WATCHING",
-      "house_prob": 0,
-      "market_price": 0,
-      "kill_reason": "",
-      "tail_type": "long"
-    },
-    {
       "event": "Fed rate cut by April 2026 meeting? \u25cf\u25cf\u25cf\u25cf\u25d0 [B]",
       "edge_type": "CONSENSUS",
       "direction": "lower",
@@ -250,6 +233,23 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
+      "tail_type": "long"
+    },
+    {
+      "event": "Will the median home value in Chicago be between $315,000 an",
+      "edge_type": "UNCLASSIFIED",
+      "direction": "lower",
+      "rating": "C",
+      "conviction": null,
+      "entry_price": 0.8,
+      "current_price": 0.8,
+      "pnl_pct": 0,
+      "edge_points": 8.0,
+      "status": "grey",
+      "state": "KILLED",
+      "house_prob": 0,
+      "market_price": 0,
+      "kill_reason": "Auto-killed: 24c spread (illiquid)",
       "tail_type": "long"
     },
     {
@@ -364,7 +364,7 @@
     "best_trade": 0
   },
   "long_tail": {
-    "total": 138,
+    "total": 139,
     "winners": 19,
     "losers": 9,
     "win_rate": 67.9,
