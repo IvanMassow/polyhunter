@@ -1,8 +1,8 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-02-24T06:31:54.367537+00:00",
-  "total_candidates": 134,
+  "updated_at": "2026-02-24T06:34:16.620850+00:00",
+  "total_candidates": 135,
   "winners": 19,
   "losers": 8,
   "win_rate": 70.4,
@@ -292,6 +292,23 @@
       "direction": "lower",
       "rating": "C",
       "conviction": null,
+      "entry_price": 0.8,
+      "current_price": 0.8,
+      "pnl_pct": 0,
+      "edge_points": 8.0,
+      "status": "grey",
+      "state": "KILLED",
+      "house_prob": 0,
+      "market_price": 0,
+      "kill_reason": "Auto-killed: 23c spread (illiquid)",
+      "tail_type": "long"
+    },
+    {
+      "event": "Will the median home value in Chicago be between $315,000 an",
+      "edge_type": "UNCLASSIFIED",
+      "direction": "lower",
+      "rating": "C",
+      "conviction": null,
       "entry_price": 0.805,
       "current_price": 0.805,
       "pnl_pct": 0,
@@ -336,23 +353,6 @@
       "market_price": 0,
       "kill_reason": "Direction reversed: was higher, now lower (report 7G2K)",
       "tail_type": "long"
-    },
-    {
-      "event": "Will Iran close the Strait of Hormuz by March 31? \u25cf\u25cf\u25cf\u25cf\u25cf [A]",
-      "edge_type": "CONSENSUS",
-      "direction": "lower",
-      "rating": "A",
-      "conviction": null,
-      "entry_price": 0.185,
-      "current_price": 0.205,
-      "pnl_pct": 0,
-      "edge_points": 11.0,
-      "status": "orange",
-      "state": "KILLED",
-      "house_prob": 0,
-      "market_price": 0,
-      "kill_reason": "Direction reversed: was lower, now higher (report X7K2)",
-      "tail_type": "long"
     }
   ],
   "report_url": "https://ivanmassow.github.io/polyhunter/",
@@ -364,7 +364,7 @@
     "best_trade": 0
   },
   "long_tail": {
-    "total": 134,
+    "total": 135,
     "winners": 19,
     "losers": 8,
     "win_rate": 70.4,
