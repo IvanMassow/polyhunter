@@ -1,8 +1,8 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-02-24T07:01:51.608071+00:00",
-  "total_candidates": 135,
+  "updated_at": "2026-02-24T07:03:46.561363+00:00",
+  "total_candidates": 136,
   "winners": 19,
   "losers": 8,
   "win_rate": 70.4,
@@ -253,23 +253,6 @@
       "tail_type": "long"
     },
     {
-      "event": "US strikes Iran by March 15, 2026? \u25cf\u25cf\u25cf\u25cf\u25cf [A]",
-      "edge_type": "CONSENSUS",
-      "direction": "lower",
-      "rating": "A",
-      "conviction": null,
-      "entry_price": 0.42,
-      "current_price": 0.515,
-      "pnl_pct": -22.6,
-      "edge_points": 8.0,
-      "status": "orange",
-      "state": "ACTIVE",
-      "house_prob": 0,
-      "market_price": 0,
-      "kill_reason": "",
-      "tail_type": "long"
-    },
-    {
       "event": "Fed rate cut by April 2026 meeting? \u25cf\u25cf\u25cf\u25cf\u25d0 [B]",
       "edge_type": "CONSENSUS",
       "direction": "lower",
@@ -284,6 +267,23 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
+      "tail_type": "long"
+    },
+    {
+      "event": "Will the median home value in Chicago be between $315,000 an",
+      "edge_type": "UNCLASSIFIED",
+      "direction": "lower",
+      "rating": "C",
+      "conviction": null,
+      "entry_price": 0.805,
+      "current_price": 0.805,
+      "pnl_pct": 0,
+      "edge_points": 8.0,
+      "status": "grey",
+      "state": "KILLED",
+      "house_prob": 0,
+      "market_price": 0,
+      "kill_reason": "Auto-killed: 23c spread (illiquid)",
       "tail_type": "long"
     },
     {
@@ -364,7 +364,7 @@
     "best_trade": 0
   },
   "long_tail": {
-    "total": 135,
+    "total": 136,
     "winners": 19,
     "losers": 8,
     "win_rate": 70.4,
