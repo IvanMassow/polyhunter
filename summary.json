@@ -1,7 +1,7 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-02-25T07:41:19.423686+00:00",
+  "updated_at": "2026-02-25T08:11:57.954020+00:00",
   "total_candidates": 176,
   "winners": 21,
   "losers": 19,
@@ -9,8 +9,8 @@
   "total_pnl": 0.5335,
   "avg_pnl": 0.003,
   "total_dollar_pnl": 37058.65,
-  "total_invested": 255000.0,
-  "portfolio_return_pct": 14.5,
+  "total_invested": 257000.0,
+  "portfolio_return_pct": 14.4,
   "best_trade": 176.2,
   "worst_trade": -25.4,
   "recent_positions": [
@@ -346,6 +346,22 @@
       "edge_points": 7.0,
       "status": "green",
       "state": "EXITED",
+      "house_prob": 0,
+      "market_price": 0,
+      "kill_reason": ""
+    },
+    {
+      "event": "Will the U.S./Israel target an Iranian nuclear facility by F",
+      "edge_type": "CONSENSUS",
+      "direction": "lower",
+      "rating": "A",
+      "conviction": null,
+      "entry_price": 0.127,
+      "current_price": 0.127,
+      "pnl_pct": 0.0,
+      "edge_points": 5.0,
+      "status": "green",
+      "state": "ACTIVE",
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": ""
