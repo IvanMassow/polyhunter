@@ -1,7 +1,7 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-02-26T11:32:16.919998+00:00",
+  "updated_at": "2026-02-26T11:39:44.575117+00:00",
   "total_candidates": 207,
   "winners": 32,
   "losers": 19,
@@ -119,7 +119,7 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 350
+      "source_articles": 600
     },
     {
       "event": "US seizes an Iran-linked oil tanker by Feb 28? \u25cf\u25cf\u25cf\u25cf\u25cf [B]",
@@ -136,7 +136,7 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 350
+      "source_articles": 600
     },
     {
       "event": "Israel strikes Iran by February 28, 2026? \u25cf\u25cf\u25cf\u25cf\u25cb [A]",
@@ -187,7 +187,7 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 350
+      "source_articles": 600
     },
     {
       "event": "US x Iran meeting by February 28, 2026? \u25cf\u25cf\u25cf\u25cf\u25d1 [A]",
@@ -238,7 +238,7 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 350
+      "source_articles": 600
     },
     {
       "event": "Tariff increase on Canada in effect by June 30? \u25cf\u25cf\u25cf\u25cf\u25cf [A]",
@@ -340,7 +340,7 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 350
+      "source_articles": 600
     },
     {
       "event": "Will Israel or the US target Tehran? \u25cf\u25cf\u25cf\u25d0 [B] DISCOVERY",
@@ -357,7 +357,7 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 350
+      "source_articles": 600
     },
     {
       "event": "US-Iran nuclear deal by June 30? \u25cf\u25cf\u25cf\u25cf\u25d1 [A]",
@@ -425,7 +425,7 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 350
+      "source_articles": 600
     },
     {
       "event": "US-Iran nuclear deal by June 30? \u25cf\u25cf\u25cf\u25cf\u25d0 [A]",
@@ -476,7 +476,7 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 350
+      "source_articles": 600
     },
     {
       "event": "Will 3 Fed rate cuts happen in 2026? \u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u008b [B] DIS",
@@ -629,7 +629,7 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 350
+      "source_articles": 600
     },
     {
       "event": "Will the Fed decrease interest rates by 25 bps after the Jun",
@@ -680,7 +680,7 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 350
+      "source_articles": 600
     },
     {
       "event": "Kevin Warsh confirmed as Fed Chair by May 15? \u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097",
@@ -697,7 +697,7 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 350
+      "source_articles": 600
     },
     {
       "event": "Will Trump nominate Kevin Warsh as the next Fed chair? \u00e2\u0097\u008f\u00e2\u0097",
@@ -731,7 +731,7 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 350
+      "source_articles": 600
     },
     {
       "event": "Will Trump nominate Kevin Warsh as the next Fed chair? \u00e2\u0097\u008f\u00e2\u0097",
@@ -748,7 +748,7 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 350
+      "source_articles": 600
     },
     {
       "event": "U.S. agrees to a new trade deal with \"India\" before 2027? \u25cf\u25cf",
@@ -867,7 +867,7 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 350
+      "source_articles": 600
     },
     {
       "event": "Will inflation reach more than 4% in 2026? \u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u0090\u00e2\u0097\u008b [",
@@ -884,7 +884,7 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 350
+      "source_articles": 600
     },
     {
       "event": "US strikes Iran by February 27, 2026? \u25cf\u25cf\u25cf\u25cf\u25cf [A]",
@@ -901,7 +901,7 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 350
+      "source_articles": 600
     },
     {
       "event": "Will no Fed rate cuts happen in 2026? \u25cf\u25cf\u25cf\u25d0\u25cb [B]",
@@ -935,7 +935,7 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 350
+      "source_articles": 600
     },
     {
       "event": "US strikes Iran by March 15, 2026? \u25cf\u25cf\u25cf\u25cf\u25cf [A]",
@@ -1025,7 +1025,7 @@
   ],
   "report_url": "https://ivanmassow.github.io/polyhunter/",
   "by_data_depth": {
-    "full_400": {
+    "standard_400": {
       "total_candidates": 113,
       "completed_trades": 24,
       "wins": 14,
@@ -1038,17 +1038,17 @@
         400
       ]
     },
-    "rich_350": {
-      "total_candidates": 80,
-      "completed_trades": 24,
-      "wins": 17,
-      "losses": 7,
-      "win_rate": 70.8,
-      "total_dollar_pnl": 22158.05,
-      "profit_factor": 9.9,
+    "enhanced_600": {
+      "total_candidates": 52,
+      "completed_trades": 14,
+      "wins": 8,
+      "losses": 6,
+      "win_rate": 57.1,
+      "total_dollar_pnl": 2640.5,
+      "profit_factor": 2.1,
       "avg_evidence_per_candidate": 25.0,
       "article_counts": [
-        350
+        600
       ]
     },
     "moderate_200": {
@@ -1078,6 +1078,19 @@
         150,
         158,
         171
+      ]
+    },
+    "rich_350": {
+      "total_candidates": 28,
+      "completed_trades": 10,
+      "wins": 9,
+      "losses": 1,
+      "win_rate": 90.0,
+      "total_dollar_pnl": 19517.55,
+      "profit_factor": 114.2,
+      "avg_evidence_per_candidate": 0,
+      "article_counts": [
+        350
       ]
     }
   }
