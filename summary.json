@@ -1,21 +1,21 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-02-26T10:31:06.739854+00:00",
-  "total_candidates": 206,
-  "winners": 31,
+  "updated_at": "2026-02-26T11:01:02.003509+00:00",
+  "total_candidates": 207,
+  "winners": 32,
   "losers": 19,
-  "win_rate": 62.0,
-  "profit_factor": 4.3,
+  "win_rate": 62.7,
+  "profit_factor": 4.4,
   "win_loss_ratio": 3.7,
-  "avg_win_pct": 50.7,
+  "avg_win_pct": 49.5,
   "avg_loss_pct": -13.5,
-  "ev_per_trade": 26.3,
-  "total_pnl": 1.449,
-  "avg_pnl": 0.007,
-  "total_dollar_pnl": 44948.14,
-  "total_invested": 305000.0,
-  "portfolio_return_pct": 14.7,
+  "ev_per_trade": 26.0,
+  "total_pnl": 1.434,
+  "avg_pnl": 0.0069,
+  "total_dollar_pnl": 45106.36,
+  "total_invested": 325000.0,
+  "portfolio_return_pct": 13.9,
   "best_trade": 176.2,
   "worst_trade": -25.4,
   "recent_positions": [
@@ -77,7 +77,7 @@
       "rating": "A",
       "conviction": null,
       "entry_price": 0.127,
-      "current_price": 0.072,
+      "current_price": 0.0725,
       "pnl_pct": 72.4,
       "edge_points": 5.0,
       "status": "green",
@@ -377,6 +377,23 @@
       "source_articles": 350
     },
     {
+      "event": "US strikes Iran by March 31, 2026? \u25cf\u25cf\u25cf\u25cf\u25cb [A]",
+      "edge_type": "CONSENSUS",
+      "direction": "lower",
+      "rating": "A",
+      "conviction": null,
+      "entry_price": 0.605,
+      "current_price": 0.525,
+      "pnl_pct": 13.2,
+      "edge_points": 9.0,
+      "status": "green",
+      "state": "EXITED",
+      "house_prob": 0,
+      "market_price": 0,
+      "kill_reason": "",
+      "source_articles": 400
+    },
+    {
       "event": "Israel strikes Iran by March 31, 2026? \u25cf\u25cf\u25cf\u25cf\u25cf [B]",
       "edge_type": "CONSENSUS",
       "direction": "lower",
@@ -547,23 +564,6 @@
       "source_articles": 400
     },
     {
-      "event": "US strikes Iran by March 31, 2026? \u25cf\u25cf\u25cf\u25cf\u25cb [A]",
-      "edge_type": "CONSENSUS",
-      "direction": "lower",
-      "rating": "A",
-      "conviction": null,
-      "entry_price": 0.605,
-      "current_price": 0.525,
-      "pnl_pct": 13.2,
-      "edge_points": 9.0,
-      "status": "green",
-      "state": "ACTIVE",
-      "house_prob": 0,
-      "market_price": 0,
-      "kill_reason": "",
-      "source_articles": 400
-    },
-    {
       "event": "Fed rate cut by April 2026 meeting? \u25cf\u25cf\u25cf\u25cf\u25cf [A]",
       "edge_type": "CONSENSUS",
       "direction": "higher",
@@ -598,15 +598,32 @@
       "source_articles": 400
     },
     {
-      "event": "Will there be no change in Fed interest rates after the June",
+      "event": "Will 2 Fed rate cuts happen in 2026? \u25cf\u25cf\u25cf\u25cf\u25cf [B]",
       "edge_type": "CONSENSUS",
       "direction": "lower",
-      "rating": "A",
+      "rating": "B",
       "conviction": null,
-      "entry_price": 0.495,
-      "current_price": 0.49,
-      "pnl_pct": 1.0,
-      "edge_points": null,
+      "entry_price": 0.26,
+      "current_price": 0.255,
+      "pnl_pct": 1.9,
+      "edge_points": 7.0,
+      "status": "green",
+      "state": "ACTIVE",
+      "house_prob": 0,
+      "market_price": 0,
+      "kill_reason": "",
+      "source_articles": 400
+    },
+    {
+      "event": "Will the Fed decrease interest rates by 25 bps after the Jun",
+      "edge_type": "CONSENSUS",
+      "direction": "lower",
+      "rating": "B",
+      "conviction": null,
+      "entry_price": 0.435,
+      "current_price": 0.435,
+      "pnl_pct": 0.0,
+      "edge_points": 8.0,
       "status": "green",
       "state": "ACTIVE",
       "house_prob": 0,
@@ -621,10 +638,10 @@
       "rating": "A",
       "conviction": null,
       "entry_price": 0.88,
-      "current_price": 0.88,
-      "pnl_pct": 0.0,
+      "current_price": 0.895,
+      "pnl_pct": -1.7,
       "edge_points": 5.0,
-      "status": "green",
+      "status": "red",
       "state": "ACTIVE",
       "house_prob": 0,
       "market_price": 0,
@@ -991,6 +1008,19 @@
   ],
   "report_url": "https://ivanmassow.github.io/polyhunter/",
   "by_data_depth": {
+    "full_400": {
+      "total_candidates": 113,
+      "completed_trades": 24,
+      "wins": 14,
+      "losses": 10,
+      "win_rate": 58.3,
+      "total_dollar_pnl": 16952.8,
+      "profit_factor": 3.0,
+      "avg_evidence_per_candidate": 22.0,
+      "article_counts": [
+        400
+      ]
+    },
     "rich_350": {
       "total_candidates": 80,
       "completed_trades": 24,
@@ -1002,19 +1032,6 @@
       "avg_evidence_per_candidate": 25.0,
       "article_counts": [
         350
-      ]
-    },
-    "full_400": {
-      "total_candidates": 112,
-      "completed_trades": 23,
-      "wins": 13,
-      "losses": 10,
-      "win_rate": 56.5,
-      "total_dollar_pnl": 15630.49,
-      "profit_factor": 2.8,
-      "avg_evidence_per_candidate": 8.0,
-      "article_counts": [
-        400
       ]
     },
     "moderate_200": {
