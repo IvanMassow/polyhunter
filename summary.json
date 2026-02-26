@@ -1,16 +1,21 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-02-26T08:44:29.106994+00:00",
-  "total_candidates": 187,
-  "winners": 22,
-  "losers": 18,
-  "win_rate": 55.0,
-  "total_pnl": 0.7305,
-  "avg_pnl": 0.0039,
-  "total_dollar_pnl": 38974.74,
-  "total_invested": 271000.0,
-  "portfolio_return_pct": 14.4,
+  "updated_at": "2026-02-26T08:54:14.207764+00:00",
+  "total_candidates": 202,
+  "winners": 30,
+  "losers": 19,
+  "win_rate": 61.2,
+  "profit_factor": 4.3,
+  "win_loss_ratio": 3.9,
+  "avg_win_pct": 52.3,
+  "avg_loss_pct": -13.5,
+  "ev_per_trade": 26.8,
+  "total_pnl": 1.364,
+  "avg_pnl": 0.0068,
+  "total_dollar_pnl": 43545.32,
+  "total_invested": 293000.0,
+  "portfolio_return_pct": 14.9,
   "best_trade": 176.2,
   "worst_trade": -25.4,
   "recent_positions": [
@@ -28,7 +33,8 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 400
     },
     {
       "event": "Will inflation reach more than 3% in 2026? \u25cf\u25cf\u25cf\u25cf\u25cf [A]",
@@ -44,7 +50,8 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 400
     },
     {
       "event": "Will 1 Fed rate cut happen in 2026? \u25cf\u25cf\u25cf\u25cf\u25cf [A]",
@@ -60,7 +67,8 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 400
     },
     {
       "event": "Will the U.S./Israel target an Iranian nuclear facility by F",
@@ -76,7 +84,8 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 400
     },
     {
       "event": "Will Iran close the Strait of Hormuz by March 31? \u25cf\u25cf\u25cf\u25cf\u25cc [B]",
@@ -92,7 +101,42 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 350
+    },
+    {
+      "event": "Will Iran close the Strait of Hormuz by March 31? \u25cf\u25cf\u25cf\u25d0\u25cb [B]",
+      "edge_type": "CONSENSUS",
+      "direction": "lower",
+      "rating": "B",
+      "conviction": null,
+      "entry_price": 0.35,
+      "current_price": 0.175,
+      "pnl_pct": 50.0,
+      "edge_points": 6.0,
+      "status": "green",
+      "state": "EXITED",
+      "house_prob": 0,
+      "market_price": 0,
+      "kill_reason": "",
+      "source_articles": 350
+    },
+    {
+      "event": "US seizes an Iran-linked oil tanker by Feb 28? \u25cf\u25cf\u25cf\u25cf\u25cf [B]",
+      "edge_type": "CONSENSUS",
+      "direction": "higher",
+      "rating": "B",
+      "conviction": null,
+      "entry_price": 0.31,
+      "current_price": 1.0,
+      "pnl_pct": 46.8,
+      "edge_points": null,
+      "status": "green",
+      "state": "EXITED",
+      "house_prob": 0,
+      "market_price": 0,
+      "kill_reason": "",
+      "source_articles": 350
     },
     {
       "event": "Israel strikes Iran by February 28, 2026? \u25cf\u25cf\u25cf\u25cf\u25cb [A]",
@@ -108,7 +152,8 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 350
     },
     {
       "event": "Iran Strike on Israel by February 28? \u25cf\u25cf\u25cf\u25cf\u25d0 [B]",
@@ -124,7 +169,25 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 350
+    },
+    {
+      "event": "Iran strike on US military by February 28? \u25cf\u25cf\u25cf\u25d0\u25cb [B]",
+      "edge_type": "CONSENSUS",
+      "direction": "lower",
+      "rating": "B",
+      "conviction": null,
+      "entry_price": 0.25,
+      "current_price": 0.14,
+      "pnl_pct": 36.0,
+      "edge_points": 6.0,
+      "status": "green",
+      "state": "EXITED",
+      "house_prob": 0,
+      "market_price": 0,
+      "kill_reason": "",
+      "source_articles": 350
     },
     {
       "event": "US x Iran meeting by February 28, 2026? \u25cf\u25cf\u25cf\u25cf\u25d1 [A]",
@@ -140,7 +203,8 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 350
     },
     {
       "event": "Will US or Israel strike Iran by February 28, 2026? \u25cf\u25cf\u25cf\u25cf\u25cf [A",
@@ -156,7 +220,25 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 400
+    },
+    {
+      "event": "Iran Strike on Israel by February 28? \u25cf\u25cf\u25cf\u25d0\u25cb [B]",
+      "edge_type": "CONSENSUS",
+      "direction": "lower",
+      "rating": "B",
+      "conviction": null,
+      "entry_price": 0.28,
+      "current_price": 0.155,
+      "pnl_pct": 25.0,
+      "edge_points": 6.0,
+      "status": "green",
+      "state": "EXITED",
+      "house_prob": 0,
+      "market_price": 0,
+      "kill_reason": "",
+      "source_articles": 350
     },
     {
       "event": "Tariff increase on Canada in effect by June 30? \u25cf\u25cf\u25cf\u25cf\u25cf [A]",
@@ -172,7 +254,8 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 400
     },
     {
       "event": "Will no Fed rate cuts happen in 2026? \u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u008b [A]",
@@ -188,7 +271,8 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 400
     },
     {
       "event": "Iran agrees to end enrichment of uranium by March 31? \u25cf\u25cf\u25cf\u25cf\u25cc ",
@@ -204,7 +288,8 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 350
     },
     {
       "event": "Will inflation reach more than 5% in 2026? \u25cf\u25cf\u25cf\u25cf\u25cf [B] DISCOVE",
@@ -220,7 +305,8 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 400
     },
     {
       "event": "US-Iran nuclear deal by June 30? \u25cf\u25cf\u25cf\u25cf\u25cc [A]",
@@ -236,7 +322,42 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 350
+    },
+    {
+      "event": "US-Iran nuclear deal by June 30? \u25cf\u25cf\u25cf\u25cf\u25d0 [A]",
+      "edge_type": "CONSENSUS",
+      "direction": "higher",
+      "rating": "A",
+      "conviction": null,
+      "entry_price": 0.335,
+      "current_price": 0.395,
+      "pnl_pct": 16.4,
+      "edge_points": 6.0,
+      "status": "green",
+      "state": "EXITED",
+      "house_prob": 0,
+      "market_price": 0,
+      "kill_reason": "",
+      "source_articles": 350
+    },
+    {
+      "event": "Will Israel or the US target Tehran? \u25cf\u25cf\u25cf\u25d0 [B] DISCOVERY",
+      "edge_type": "CONSENSUS",
+      "direction": "lower",
+      "rating": "B",
+      "conviction": null,
+      "entry_price": 0.206,
+      "current_price": 0.115,
+      "pnl_pct": 16.3,
+      "edge_points": 6.0,
+      "status": "green",
+      "state": "EXITED",
+      "house_prob": 0,
+      "market_price": 0,
+      "kill_reason": "",
+      "source_articles": 350
     },
     {
       "event": "US-Iran nuclear deal by June 30? \u25cf\u25cf\u25cf\u25cf\u25d1 [A]",
@@ -252,7 +373,8 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 350
     },
     {
       "event": "Israel strikes Iran by March 31, 2026? \u25cf\u25cf\u25cf\u25cf\u25cf [B]",
@@ -268,7 +390,25 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 350
+    },
+    {
+      "event": "Israel strikes Iran by March 31, 2026? \u25cf\u25cf\u25cf\u25cf\u25d0 [B]",
+      "edge_type": "CONSENSUS",
+      "direction": "lower",
+      "rating": "B",
+      "conviction": null,
+      "entry_price": 0.575,
+      "current_price": 0.515,
+      "pnl_pct": 13.0,
+      "edge_points": 8.0,
+      "status": "green",
+      "state": "EXITED",
+      "house_prob": 0,
+      "market_price": 0,
+      "kill_reason": "",
+      "source_articles": 350
     },
     {
       "event": "US-Iran nuclear deal by June 30? \u25cf\u25cf\u25cf\u25cf\u25d0 [A]",
@@ -284,7 +424,8 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 350
     },
     {
       "event": "Will the Fed decrease interest rates by 25 bps after the Jun",
@@ -300,7 +441,25 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 400
+    },
+    {
+      "event": "Trump invokes War Powers against Iran by March 31, 2026? \u25cf\u25cf\u25cf",
+      "edge_type": "CONSENSUS",
+      "direction": "lower",
+      "rating": "A",
+      "conviction": null,
+      "entry_price": 0.54,
+      "current_price": 0.605,
+      "pnl_pct": 2.8,
+      "edge_points": null,
+      "status": "green",
+      "state": "EXITED",
+      "house_prob": 0,
+      "market_price": 0,
+      "kill_reason": "",
+      "source_articles": 350
     },
     {
       "event": "U.S. agrees to a new trade deal with \"Taiwan\" before 2027? \u25cf",
@@ -316,7 +475,8 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 227
     },
     {
       "event": "Will there be no change in Fed interest rates after the June",
@@ -332,7 +492,8 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 400
     },
     {
       "event": "Will the Fed decrease interest rates by 50+ bps after the Ju",
@@ -348,7 +509,8 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 400
     },
     {
       "event": "Will Trump nominate Kevin Warsh as the next Fed chair? \u25cf\u25cf\u25cf\u25cf\u25cb",
@@ -364,7 +526,8 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 400
     },
     {
       "event": "Fed rate cut by April 2026 meeting? \u25cf\u25cf\u25cf\u25cf\u25cf [A]",
@@ -380,7 +543,8 @@
       "state": "ACTIVE",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 400
     },
     {
       "event": "US strikes Iran by March 31, 2026? \u25cf\u25cf\u25cf\u25cf\u25cb [A]",
@@ -396,7 +560,8 @@
       "state": "ACTIVE",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 400
     },
     {
       "event": "Will 3 Fed rate cuts happen in 2026? \u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u008b [B] DIS",
@@ -412,7 +577,8 @@
       "state": "ACTIVE",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 400
     },
     {
       "event": "Will U.S. tariff rate on China be between 15% and 25% on Mar",
@@ -428,7 +594,8 @@
       "state": "ACTIVE",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 400
     },
     {
       "event": "Will inflation reach more than 3% in 2026? \u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u008b [",
@@ -444,7 +611,8 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 350
     },
     {
       "event": "Kevin Warsh confirmed as Fed Chair by May 15? \u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097",
@@ -460,7 +628,8 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 350
     },
     {
       "event": "Will Trump nominate Kevin Warsh as the next Fed chair? \u00e2\u0097\u008f\u00e2\u0097",
@@ -476,7 +645,8 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 400
     },
     {
       "event": "Will the DHS shutdown last 21 days or more? \u25cf\u25cf\u25cf\u25cf\u25d0 [A]",
@@ -492,7 +662,8 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 350
     },
     {
       "event": "Will Trump nominate Kevin Warsh as the next Fed chair? \u00e2\u0097\u008f\u00e2\u0097",
@@ -508,7 +679,8 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 350
     },
     {
       "event": "U.S. agrees to a new trade deal with \"India\" before 2027? \u25cf\u25cf",
@@ -524,7 +696,8 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 227
     },
     {
       "event": "Will there be no change in Fed interest rates after the Marc",
@@ -540,7 +713,8 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 400
     },
     {
       "event": "U.S. x Iran Military Engagement by March 31, 2026? \u25cf\u25cf\u25cf\u25cf\u25d0 [B]",
@@ -556,7 +730,8 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 350
     },
     {
       "event": "Trump sued over tariff powers again by March 31? \u25cf\u25cf\u25cf\u25cf\u25ef [A]",
@@ -572,7 +747,8 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 248
     },
     {
       "event": "Israel strikes Iran by February 28, 2026? \u25cf\u25cf\u25cf\u25cf\u25cf [A]",
@@ -588,7 +764,8 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 400
     },
     {
       "event": "Will the US next strike Iran during the week of February 22-",
@@ -604,7 +781,8 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 400
     },
     {
       "event": "Will Iran close the Strait of Hormuz by March 31? \u25cf\u25cf\u25cf\u25cf\u25cf [A]",
@@ -620,7 +798,8 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 350
     },
     {
       "event": "Will inflation reach more than 4% in 2026? \u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u0090\u00e2\u0097\u008b [",
@@ -636,7 +815,25 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 350
+    },
+    {
+      "event": "US strikes Iran by February 27, 2026? \u25cf\u25cf\u25cf\u25cf\u25cf [A]",
+      "edge_type": "CONSENSUS",
+      "direction": "lower",
+      "rating": "A",
+      "conviction": null,
+      "entry_price": 0.13,
+      "current_price": 0.0355,
+      "pnl_pct": -19.2,
+      "edge_points": null,
+      "status": "red",
+      "state": "EXITED",
+      "house_prob": 0,
+      "market_price": 0,
+      "kill_reason": "",
+      "source_articles": 350
     },
     {
       "event": "Will no Fed rate cuts happen in 2026? \u25cf\u25cf\u25cf\u25d0\u25cb [B]",
@@ -652,7 +849,8 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 400
     },
     {
       "event": "Iran strike on US military by February 28? \u25cf\u25cf\u25cf\u25cf\u25cf [B]",
@@ -668,7 +866,8 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 350
     },
     {
       "event": "US strikes Iran by March 15, 2026? \u25cf\u25cf\u25cf\u25cf\u25cf [A]",
@@ -684,7 +883,8 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 400
     },
     {
       "event": "U.S. x Iran Military Engagement by March 31, 2026? \u25cf\u25cf\u25cf\u25cf\u25d0 [A]",
@@ -700,7 +900,8 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 400
     },
     {
       "event": "US-Iran nuclear deal by March 31? \u25cf\u25cf\u25cf\u25cf\u25cb [A]",
@@ -716,7 +917,8 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 400
     },
     {
       "event": "Iran agrees to end enrichment of uranium by March 31? \u25cf\u25cf\u25cf\u25cf\u25cb ",
@@ -732,7 +934,8 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 400
     },
     {
       "event": "Hezbollah strike on Israel by February 28? \u25cf\u25cf\u25cf\u25cf\u25d0 [A]",
@@ -748,8 +951,30 @@
       "state": "EXITED",
       "house_prob": 0,
       "market_price": 0,
-      "kill_reason": ""
+      "kill_reason": "",
+      "source_articles": 400
     }
   ],
-  "report_url": "https://ivanmassow.github.io/polyhunter/"
+  "report_url": "https://ivanmassow.github.io/polyhunter/",
+  "by_data_depth": {
+    "standard_400": {
+      "total_candidates": 202,
+      "completed_trades": 49,
+      "wins": 30,
+      "losses": 19,
+      "win_rate": 61.2,
+      "total_dollar_pnl": 37544.48,
+      "profit_factor": 4.3,
+      "avg_evidence_per_candidate": 0,
+      "article_counts": [
+        150,
+        158,
+        171,
+        227,
+        248,
+        350,
+        400
+      ]
+    }
+  }
 }
