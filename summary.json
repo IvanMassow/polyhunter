@@ -1,7 +1,7 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-02-27T08:12:02.086971+00:00",
+  "updated_at": "2026-02-27T08:41:41.514640+00:00",
   "total_candidates": 208,
   "winners": 33,
   "losers": 20,
@@ -14,8 +14,8 @@
   "total_pnl": 1.359,
   "avg_pnl": 0.0065,
   "total_dollar_pnl": 43133.11,
-  "total_invested": 335000.0,
-  "portfolio_return_pct": 12.9,
+  "total_invested": 345000.0,
+  "portfolio_return_pct": 12.5,
   "best_trade": 176.2,
   "worst_trade": -25.4,
   "recent_positions": [
@@ -579,6 +579,23 @@
       "market_price": 0,
       "kill_reason": "",
       "source_articles": 400
+    },
+    {
+      "event": "Will US GDP growth in Q1 2026 be greater than 3.5%? \u25cf\u25cf\u25cf\u25cf\u25d0 [B",
+      "edge_type": "CONSENSUS",
+      "direction": "lower",
+      "rating": "B",
+      "conviction": null,
+      "entry_price": 0.395,
+      "current_price": 0.395,
+      "pnl_pct": 0.0,
+      "edge_points": 13.0,
+      "status": "green",
+      "state": "ACTIVE",
+      "house_prob": 0,
+      "market_price": 0,
+      "kill_reason": "",
+      "source_articles": 500
     },
     {
       "event": "Will there be no change in Fed interest rates after the Apri",
