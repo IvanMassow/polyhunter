@@ -1,8 +1,8 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-02-28T10:04:42.500560+00:00",
-  "total_candidates": 235,
+  "updated_at": "2026-02-28T10:34:02.165117+00:00",
+  "total_candidates": 238,
   "winners": 34,
   "losers": 20,
   "win_rate": 63.0,
@@ -11,11 +11,11 @@
   "avg_win_pct": 46.9,
   "avg_loss_pct": -15.2,
   "ev_per_trade": 23.9,
-  "total_pnl": 1.514,
-  "avg_pnl": 0.0064,
-  "total_dollar_pnl": 33654.91,
-  "total_invested": 355000.0,
-  "portfolio_return_pct": 9.5,
+  "total_pnl": 1.544,
+  "avg_pnl": 0.0065,
+  "total_dollar_pnl": 34286.49,
+  "total_invested": 357000.0,
+  "portfolio_return_pct": 9.6,
   "best_trade": 176.2,
   "worst_trade": -25.4,
   "recent_positions": [
@@ -598,6 +598,23 @@
       "source_articles": 600
     },
     {
+      "event": "Will the Fed decrease interest rates by 25 bps after the Apr",
+      "edge_type": "CONSENSUS",
+      "direction": "higher",
+      "rating": "A",
+      "conviction": null,
+      "entry_price": 0.095,
+      "current_price": 0.125,
+      "pnl_pct": 31.6,
+      "edge_points": null,
+      "status": "green",
+      "state": "ACTIVE",
+      "house_prob": 0,
+      "market_price": 0,
+      "kill_reason": "",
+      "source_articles": 400
+    },
+    {
       "event": "Hezbollah strike on Israel by March 31? \u25cf\u25cf\u25cf\u25cf\u25ef [B]",
       "edge_type": "CONSENSUS",
       "direction": "higher",
@@ -1043,14 +1060,14 @@
   "report_url": "https://ivanmassow.github.io/polyhunter/",
   "by_data_depth": {
     "enhanced_600": {
-      "total_candidates": 117,
+      "total_candidates": 120,
       "completed_trades": 18,
       "wins": 10,
       "losses": 8,
       "win_rate": 55.6,
       "total_dollar_pnl": 2942.62,
       "profit_factor": 2.1,
-      "avg_evidence_per_candidate": 28.0,
+      "avg_evidence_per_candidate": 27.0,
       "article_counts": [
         500,
         600
