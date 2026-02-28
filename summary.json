@@ -1,8 +1,8 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-02-28T13:08:03.055198+00:00",
-  "total_candidates": 253,
+  "updated_at": "2026-02-28T13:37:53.958415+00:00",
+  "total_candidates": 256,
   "winners": 34,
   "losers": 22,
   "win_rate": 60.7,
@@ -12,7 +12,7 @@
   "avg_loss_pct": -14.3,
   "ev_per_trade": 22.9,
   "total_pnl": 1.619,
-  "avg_pnl": 0.0064,
+  "avg_pnl": 0.0063,
   "total_dollar_pnl": 35778.92,
   "total_invested": 367000.0,
   "portfolio_return_pct": 9.7,
@@ -1077,7 +1077,7 @@
   "report_url": "https://ivanmassow.github.io/polyhunter/",
   "by_data_depth": {
     "enhanced_600": {
-      "total_candidates": 135,
+      "total_candidates": 138,
       "completed_trades": 18,
       "wins": 10,
       "losses": 8,
