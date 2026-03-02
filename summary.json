@@ -1,8 +1,8 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-03-02T14:58:15.716668+00:00",
-  "total_candidates": 707,
+  "updated_at": "2026-03-02T15:21:46.178011+00:00",
+  "total_candidates": 712,
   "winners": 34,
   "losers": 21,
   "win_rate": 61.8,
@@ -14,8 +14,8 @@
   "total_pnl": 1.9088,
   "avg_pnl": 0.0027,
   "total_dollar_pnl": 43876.12,
-  "total_invested": 367000.0,
-  "portfolio_return_pct": 12.0,
+  "total_invested": 374000.0,
+  "portfolio_return_pct": 11.7,
   "best_trade": 88.4,
   "worst_trade": -25.4,
   "recent_positions": [
@@ -598,6 +598,40 @@
       "source_articles": 600
     },
     {
+      "event": "Will there be no change in Fed interest rates after the Apri",
+      "edge_type": "CONSENSUS",
+      "direction": "higher",
+      "rating": "A",
+      "conviction": null,
+      "entry_price": 0.85,
+      "current_price": 0.85,
+      "pnl_pct": 0.0,
+      "edge_points": 4.0,
+      "status": "green",
+      "state": "ACTIVE",
+      "house_prob": 0,
+      "market_price": 0,
+      "kill_reason": "",
+      "source_articles": 600
+    },
+    {
+      "event": "Fed rate cut by April 2026 meeting? \u25cf\u25cf\u25cf\u25cf\u25cb [A]",
+      "edge_type": "CONSENSUS",
+      "direction": "lower",
+      "rating": "A",
+      "conviction": null,
+      "entry_price": 0.195,
+      "current_price": 0.195,
+      "pnl_pct": 0.0,
+      "edge_points": 8.0,
+      "status": "green",
+      "state": "ACTIVE",
+      "house_prob": 0,
+      "market_price": 0,
+      "kill_reason": "",
+      "source_articles": 600
+    },
+    {
       "event": "Will US GDP growth in Q1 2026 be greater than 3.5%? \u25cf\u25cf\u25cf\u25cf\u25d0 [B",
       "edge_type": "CONSENSUS",
       "direction": "lower",
@@ -1009,14 +1043,14 @@
   "report_url": "https://ivanmassow.github.io/polyhunter/",
   "by_data_depth": {
     "enhanced_600": {
-      "total_candidates": 588,
+      "total_candidates": 593,
       "completed_trades": 20,
       "wins": 11,
       "losses": 9,
       "win_rate": 55.0,
       "total_dollar_pnl": 11488.12,
       "profit_factor": 4.7,
-      "avg_evidence_per_candidate": 29.0,
+      "avg_evidence_per_candidate": 30.0,
       "article_counts": [
         500,
         600
