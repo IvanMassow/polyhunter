@@ -1,8 +1,8 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-03-02T07:45:14.379700+00:00",
-  "total_candidates": 562,
+  "updated_at": "2026-03-02T07:52:10.153804+00:00",
+  "total_candidates": 567,
   "winners": 33,
   "losers": 20,
   "win_rate": 62.3,
@@ -1009,7 +1009,7 @@
   "report_url": "https://ivanmassow.github.io/polyhunter/",
   "by_data_depth": {
     "enhanced_600": {
-      "total_candidates": 443,
+      "total_candidates": 448,
       "completed_trades": 18,
       "wins": 10,
       "losses": 8,
