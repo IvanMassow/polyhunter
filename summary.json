@@ -1,8 +1,8 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-03-04T22:53:45.107604+00:00",
-  "total_candidates": 2323,
+  "updated_at": "2026-03-04T23:23:59.561363+00:00",
+  "total_candidates": 2334,
   "winners": 35,
   "losers": 21,
   "win_rate": 62.5,
@@ -12,10 +12,10 @@
   "avg_loss_pct": -12.8,
   "ev_per_trade": 25.9,
   "total_pnl": 1.9813,
-  "avg_pnl": 0.0009,
+  "avg_pnl": 0.0008,
   "total_dollar_pnl": 55028.43,
-  "total_invested": 403000.0,
-  "portfolio_return_pct": 13.7,
+  "total_invested": 405000.0,
+  "portfolio_return_pct": 13.6,
   "best_trade": 88.4,
   "worst_trade": -25.4,
   "recent_positions": [
@@ -213,7 +213,7 @@
       "rating": "A",
       "conviction": null,
       "entry_price": 0.195,
-      "current_price": 0.145,
+      "current_price": 0.14,
       "pnl_pct": 35.9,
       "edge_points": 8.0,
       "status": "green",
@@ -649,6 +649,23 @@
       "source_articles": 800
     },
     {
+      "event": "Will the US add less than 25k jobs in February? \u25cf\u25cf\u25cf\u25cf\u25cf [B]",
+      "edge_type": "CONSENSUS",
+      "direction": "lower",
+      "rating": "B",
+      "conviction": null,
+      "entry_price": 0.24,
+      "current_price": 0.24,
+      "pnl_pct": 0.0,
+      "edge_points": 8.0,
+      "status": "green",
+      "state": "ACTIVE",
+      "house_prob": 0,
+      "market_price": 0,
+      "kill_reason": "",
+      "source_articles": 700
+    },
+    {
       "event": "100% tariff on Canada in effect by June 30? \u25cf\u25cf\u25cf\u25cf\u25d0 [B]",
       "edge_type": "CONSENSUS",
       "direction": "lower",
@@ -995,7 +1012,7 @@
       "rating": "B",
       "conviction": null,
       "entry_price": 0.125,
-      "current_price": 0.095,
+      "current_price": 0.1,
       "pnl_pct": -24.0,
       "edge_points": 5.0,
       "status": "red",
@@ -1094,7 +1111,7 @@
   "report_url": "https://ivanmassow.github.io/polyhunter/",
   "by_data_depth": {
     "enhanced_600": {
-      "total_candidates": 1271,
+      "total_candidates": 1278,
       "completed_trades": 13,
       "wins": 8,
       "losses": 5,
@@ -1108,7 +1125,7 @@
       ]
     },
     "deep_800": {
-      "total_candidates": 932,
+      "total_candidates": 936,
       "completed_trades": 8,
       "wins": 4,
       "losses": 4,
