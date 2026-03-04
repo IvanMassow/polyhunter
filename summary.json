@@ -1,8 +1,8 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-03-04T12:57:04.423377+00:00",
-  "total_candidates": 2040,
+  "updated_at": "2026-03-04T13:15:53.884363+00:00",
+  "total_candidates": 2054,
   "winners": 35,
   "losers": 20,
   "win_rate": 63.6,
@@ -85,7 +85,7 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 600
+      "source_articles": 800
     },
     {
       "event": "Will the U.S./Israel target an Iranian nuclear facility by F",
@@ -221,7 +221,7 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 600
+      "source_articles": 800
     },
     {
       "event": "US x Iran meeting by February 28, 2026? \u25cf\u25cf\u25cf\u25cf\u25d1 [A]",
@@ -493,7 +493,7 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 600
+      "source_articles": 800
     },
     {
       "event": "Will the Fed decrease interest rates by 25 bps after the Jun",
@@ -612,7 +612,7 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 600
+      "source_articles": 800
     },
     {
       "event": "Will 2 Fed rate cuts happen in 2026? \u25cf\u25cf\u25cf\u25cf\u25cb [B]",
@@ -629,7 +629,7 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 600
+      "source_articles": 800
     },
     {
       "event": "Will monthly inflation increase by 0.4% or more in February?",
@@ -646,7 +646,7 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 600
+      "source_articles": 800
     },
     {
       "event": "Will US GDP growth in Q1 2026 be greater than 3.5%? \u25cf\u25cf\u25cf\u25cf\u25d0 [B",
@@ -782,7 +782,7 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 600
+      "source_articles": 800
     },
     {
       "event": "Will there be no change in Fed interest rates after the Marc",
@@ -799,7 +799,7 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 600
+      "source_articles": 800
     },
     {
       "event": "U.S. x Iran Military Engagement by March 31, 2026? \u25cf\u25cf\u25cf\u25cf\u25d0 [B]",
@@ -935,7 +935,7 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 600
+      "source_articles": 800
     },
     {
       "event": "Iran strike on US military by February 28? \u25cf\u25cf\u25cf\u25cf\u25cf [B]",
@@ -1043,17 +1043,30 @@
   "report_url": "https://ivanmassow.github.io/polyhunter/",
   "by_data_depth": {
     "enhanced_600": {
-      "total_candidates": 1921,
-      "completed_trades": 20,
-      "wins": 12,
-      "losses": 8,
-      "win_rate": 60.0,
-      "total_dollar_pnl": 12600.81,
-      "profit_factor": 5.7,
-      "avg_evidence_per_candidate": 38.0,
+      "total_candidates": 1103,
+      "completed_trades": 13,
+      "wins": 8,
+      "losses": 5,
+      "win_rate": 61.5,
+      "total_dollar_pnl": 3035.24,
+      "profit_factor": 2.6,
+      "avg_evidence_per_candidate": 32.0,
       "article_counts": [
         500,
         600
+      ]
+    },
+    "deep_800": {
+      "total_candidates": 832,
+      "completed_trades": 7,
+      "wins": 4,
+      "losses": 3,
+      "win_rate": 57.1,
+      "total_dollar_pnl": 9565.57,
+      "profit_factor": 13.3,
+      "avg_evidence_per_candidate": 50.0,
+      "article_counts": [
+        800
       ]
     },
     "standard_400": {
