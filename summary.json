@@ -1,8 +1,8 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-03-04T17:43:51.484012+00:00",
-  "total_candidates": 2197,
+  "updated_at": "2026-03-04T18:16:21.063757+00:00",
+  "total_candidates": 2213,
   "winners": 35,
   "losers": 20,
   "win_rate": 63.6,
@@ -11,11 +11,11 @@
   "avg_win_pct": 49.1,
   "avg_loss_pct": -12.3,
   "ev_per_trade": 26.8,
-  "total_pnl": 1.9788,
+  "total_pnl": 1.9588,
   "avg_pnl": 0.0009,
-  "total_dollar_pnl": 55055.12,
+  "total_dollar_pnl": 54502.97,
   "total_invested": 398000.0,
-  "portfolio_return_pct": 13.8,
+  "portfolio_return_pct": 13.7,
   "best_trade": 88.4,
   "worst_trade": -25.4,
   "recent_positions": [
@@ -213,7 +213,7 @@
       "rating": "A",
       "conviction": null,
       "entry_price": 0.195,
-      "current_price": 0.17,
+      "current_price": 0.165,
       "pnl_pct": 35.9,
       "edge_points": 8.0,
       "status": "green",
@@ -615,23 +615,6 @@
       "source_articles": 800
     },
     {
-      "event": "Will 2 Fed rate cuts happen in 2026? \u25cf\u25cf\u25cf\u25cf\u25cb [B]",
-      "edge_type": "CONSENSUS",
-      "direction": "higher",
-      "rating": "B",
-      "conviction": null,
-      "entry_price": 0.255,
-      "current_price": 0.265,
-      "pnl_pct": 3.9,
-      "edge_points": 5.0,
-      "status": "green",
-      "state": "ACTIVE",
-      "house_prob": 0,
-      "market_price": 0,
-      "kill_reason": "",
-      "source_articles": 800
-    },
-    {
       "event": "Will Crude Oil (CL) hit (HIGH) $80 by end of March? \u25cf\u25cf\u25cf\u25cf\u25d0 [B",
       "edge_type": "CONSENSUS",
       "direction": "higher",
@@ -641,6 +624,23 @@
       "current_price": 0.715,
       "pnl_pct": 0.7,
       "edge_points": 6.0,
+      "status": "green",
+      "state": "ACTIVE",
+      "house_prob": 0,
+      "market_price": 0,
+      "kill_reason": "",
+      "source_articles": 800
+    },
+    {
+      "event": "Will 2 Fed rate cuts happen in 2026? \u25cf\u25cf\u25cf\u25cf\u25cb [B]",
+      "edge_type": "CONSENSUS",
+      "direction": "higher",
+      "rating": "B",
+      "conviction": null,
+      "entry_price": 0.255,
+      "current_price": 0.255,
+      "pnl_pct": 0.0,
+      "edge_points": 5.0,
       "status": "green",
       "state": "ACTIVE",
       "house_prob": 0,
@@ -672,8 +672,8 @@
       "rating": "B",
       "conviction": null,
       "entry_price": 0.125,
-      "current_price": 0.105,
-      "pnl_pct": -16.0,
+      "current_price": 0.095,
+      "pnl_pct": -24.0,
       "edge_points": 5.0,
       "status": "red",
       "state": "ACTIVE",
@@ -1077,7 +1077,7 @@
   "report_url": "https://ivanmassow.github.io/polyhunter/",
   "by_data_depth": {
     "enhanced_600": {
-      "total_candidates": 1194,
+      "total_candidates": 1201,
       "completed_trades": 13,
       "wins": 8,
       "losses": 5,
@@ -1091,7 +1091,7 @@
       ]
     },
     "deep_800": {
-      "total_candidates": 884,
+      "total_candidates": 892,
       "completed_trades": 7,
       "wins": 4,
       "losses": 3,
@@ -1100,7 +1100,24 @@
       "profit_factor": 13.3,
       "avg_evidence_per_candidate": 50.0,
       "article_counts": [
+        700,
         800
+      ]
+    },
+    "sparse_150": {
+      "total_candidates": 10,
+      "completed_trades": 0,
+      "wins": 0,
+      "losses": 0,
+      "win_rate": 0,
+      "total_dollar_pnl": 0,
+      "profit_factor": 0,
+      "avg_evidence_per_candidate": 13.0,
+      "article_counts": [
+        100,
+        150,
+        158,
+        171
       ]
     },
     "standard_400": {
@@ -1129,21 +1146,6 @@
       "article_counts": [
         227,
         248
-      ]
-    },
-    "sparse_150": {
-      "total_candidates": 9,
-      "completed_trades": 0,
-      "wins": 0,
-      "losses": 0,
-      "win_rate": 0,
-      "total_dollar_pnl": 0,
-      "profit_factor": 0,
-      "avg_evidence_per_candidate": 0,
-      "article_counts": [
-        150,
-        158,
-        171
       ]
     },
     "rich_350": {
