@@ -1,8 +1,8 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-03-04T14:04:11.805013+00:00",
-  "total_candidates": 2087,
+  "updated_at": "2026-03-04T14:13:46.523134+00:00",
+  "total_candidates": 2098,
   "winners": 35,
   "losers": 20,
   "win_rate": 63.6,
@@ -12,10 +12,10 @@
   "avg_loss_pct": -12.3,
   "ev_per_trade": 26.8,
   "total_pnl": 1.9838,
-  "avg_pnl": 0.001,
+  "avg_pnl": 0.0009,
   "total_dollar_pnl": 55251.37,
-  "total_invested": 386000.0,
-  "portfolio_return_pct": 14.3,
+  "total_invested": 396000.0,
+  "portfolio_return_pct": 14.0,
   "best_trade": 88.4,
   "worst_trade": -25.4,
   "recent_positions": [
@@ -632,6 +632,23 @@
       "source_articles": 800
     },
     {
+      "event": "Will Crude Oil (CL) hit (HIGH) $80 by end of March? \u25cf\u25cf\u25cf\u25cf\u25d0 [B",
+      "edge_type": "CONSENSUS",
+      "direction": "higher",
+      "rating": "B",
+      "conviction": null,
+      "entry_price": 0.71,
+      "current_price": 0.71,
+      "pnl_pct": 0.0,
+      "edge_points": 6.0,
+      "status": "green",
+      "state": "ACTIVE",
+      "house_prob": 0,
+      "market_price": 0,
+      "kill_reason": "",
+      "source_articles": 800
+    },
+    {
       "event": "Will monthly inflation increase by 0.4% or more in February?",
       "edge_type": "CONSENSUS",
       "direction": "higher",
@@ -1043,7 +1060,7 @@
   "report_url": "https://ivanmassow.github.io/polyhunter/",
   "by_data_depth": {
     "enhanced_600": {
-      "total_candidates": 1124,
+      "total_candidates": 1131,
       "completed_trades": 13,
       "wins": 8,
       "losses": 5,
@@ -1057,7 +1074,7 @@
       ]
     },
     "deep_800": {
-      "total_candidates": 844,
+      "total_candidates": 848,
       "completed_trades": 7,
       "wins": 4,
       "losses": 3,
