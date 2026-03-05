@@ -1,8 +1,8 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-03-05T13:17:37.652214+00:00",
-  "total_candidates": 2653,
+  "updated_at": "2026-03-05T13:27:59.234414+00:00",
+  "total_candidates": 2661,
   "winners": 38,
   "losers": 21,
   "win_rate": 64.4,
@@ -11,10 +11,10 @@
   "avg_win_pct": 46.6,
   "avg_loss_pct": -12.8,
   "ev_per_trade": 25.4,
-  "total_pnl": 2.1343,
+  "total_pnl": 2.1493,
   "avg_pnl": 0.0008,
-  "total_dollar_pnl": 60025.52,
-  "total_invested": 440000.0,
+  "total_dollar_pnl": 60275.52,
+  "total_invested": 442000.0,
   "portfolio_return_pct": 13.6,
   "best_trade": 88.4,
   "worst_trade": -25.4,
@@ -704,6 +704,24 @@
       "polymarket_url": "https://polymarket.com/event/who-will-trump-nominate-as-fed-chair"
     },
     {
+      "event": "US x Iran ceasefire by March 15? \u25cf\u25cf\u25cf\u25cf\u25cf [B] DISCOVERY",
+      "edge_type": "CONSENSUS",
+      "direction": "lower",
+      "rating": "B",
+      "conviction": null,
+      "entry_price": 0.12,
+      "current_price": 0.105,
+      "pnl_pct": 12.5,
+      "edge_points": 7.0,
+      "status": "green",
+      "state": "ACTIVE",
+      "house_prob": 0,
+      "market_price": 0,
+      "kill_reason": "",
+      "source_articles": 400,
+      "polymarket_url": "https://polymarket.com/event/us-x-iran-ceasefire-by"
+    },
+    {
       "event": "Will no Fed rate cuts happen in 2026? \u25cf\u25cf\u25cf\u25cf\u25cb [B]",
       "edge_type": "CONSENSUS",
       "direction": "higher",
@@ -1265,7 +1283,7 @@
   "report_url": "https://noah-edge.com/predictions/index.html",
   "by_data_depth": {
     "enhanced_600": {
-      "total_candidates": 1449,
+      "total_candidates": 1453,
       "completed_trades": 13,
       "wins": 8,
       "losses": 5,
@@ -1279,7 +1297,7 @@
       ]
     },
     "deep_800": {
-      "total_candidates": 1069,
+      "total_candidates": 1073,
       "completed_trades": 10,
       "wins": 6,
       "losses": 4,
