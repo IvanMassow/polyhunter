@@ -1,8 +1,8 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-03-05T02:58:15.653781+00:00",
-  "total_candidates": 2411,
+  "updated_at": "2026-03-05T03:28:38.841812+00:00",
+  "total_candidates": 2422,
   "winners": 36,
   "losers": 21,
   "win_rate": 63.2,
@@ -11,9 +11,9 @@
   "avg_win_pct": 47.9,
   "avg_loss_pct": -12.8,
   "ev_per_trade": 25.5,
-  "total_pnl": 2.0698,
+  "total_pnl": 2.0598,
   "avg_pnl": 0.0009,
-  "total_dollar_pnl": 57222.9,
+  "total_dollar_pnl": 57139.57,
   "total_invested": 415000.0,
   "portfolio_return_pct": 13.8,
   "best_trade": 88.4,
@@ -213,7 +213,7 @@
       "rating": "A",
       "conviction": null,
       "entry_price": 0.195,
-      "current_price": 0.15,
+      "current_price": 0.145,
       "pnl_pct": 35.9,
       "edge_points": 8.0,
       "status": "green",
@@ -649,23 +649,6 @@
       "source_articles": 800
     },
     {
-      "event": "Will the US add less than 25k jobs in February? \u25cf\u25cf\u25cf\u25cf\u25cf [B]",
-      "edge_type": "CONSENSUS",
-      "direction": "lower",
-      "rating": "B",
-      "conviction": null,
-      "entry_price": 0.24,
-      "current_price": 0.23,
-      "pnl_pct": 4.2,
-      "edge_points": 8.0,
-      "status": "green",
-      "state": "ACTIVE",
-      "house_prob": 0,
-      "market_price": 0,
-      "kill_reason": "",
-      "source_articles": 700
-    },
-    {
       "event": "Will no Fed rate cuts happen in 2026? \u25cf\u25cf\u25cf\u25cf\u25cb [B]",
       "edge_type": "CONSENSUS",
       "direction": "higher",
@@ -681,6 +664,23 @@
       "market_price": 0,
       "kill_reason": "",
       "source_articles": 800
+    },
+    {
+      "event": "Will the US add less than 25k jobs in February? \u25cf\u25cf\u25cf\u25cf\u25cf [B]",
+      "edge_type": "CONSENSUS",
+      "direction": "lower",
+      "rating": "B",
+      "conviction": null,
+      "entry_price": 0.24,
+      "current_price": 0.24,
+      "pnl_pct": 0.0,
+      "edge_points": 8.0,
+      "status": "green",
+      "state": "ACTIVE",
+      "house_prob": 0,
+      "market_price": 0,
+      "kill_reason": "",
+      "source_articles": 700
     },
     {
       "event": "100% tariff on Canada in effect by June 30? \u25cf\u25cf\u25cf\u25cf\u25d0 [B]",
@@ -1128,7 +1128,7 @@
   "report_url": "https://ivanmassow.github.io/polyhunter/",
   "by_data_depth": {
     "enhanced_600": {
-      "total_candidates": 1327,
+      "total_candidates": 1334,
       "completed_trades": 13,
       "wins": 8,
       "losses": 5,
@@ -1142,7 +1142,7 @@
       ]
     },
     "deep_800": {
-      "total_candidates": 964,
+      "total_candidates": 968,
       "completed_trades": 9,
       "wins": 5,
       "losses": 4,
