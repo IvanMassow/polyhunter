@@ -1,8 +1,8 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-03-05T07:04:48.682028+00:00",
-  "total_candidates": 2509,
+  "updated_at": "2026-03-05T07:32:44.489130+00:00",
+  "total_candidates": 2517,
   "winners": 36,
   "losers": 21,
   "win_rate": 63.2,
@@ -11,11 +11,11 @@
   "avg_win_pct": 47.9,
   "avg_loss_pct": -12.8,
   "ev_per_trade": 25.5,
-  "total_pnl": 2.0708,
+  "total_pnl": 2.0758,
   "avg_pnl": 0.0008,
-  "total_dollar_pnl": 57533.97,
-  "total_invested": 415000.0,
-  "portfolio_return_pct": 13.9,
+  "total_dollar_pnl": 57575.64,
+  "total_invested": 420000.0,
+  "portfolio_return_pct": 13.7,
   "best_trade": 88.4,
   "worst_trade": -25.4,
   "recent_positions": [
@@ -672,8 +672,8 @@
       "rating": "B",
       "conviction": null,
       "entry_price": 0.24,
-      "current_price": 0.24,
-      "pnl_pct": 0.0,
+      "current_price": 0.235,
+      "pnl_pct": 2.1,
       "edge_points": 8.0,
       "status": "green",
       "state": "ACTIVE",
@@ -681,6 +681,23 @@
       "market_price": 0,
       "kill_reason": "",
       "source_articles": 700
+    },
+    {
+      "event": "Will Iran close the Strait of Hormuz by March 31? \u25cf\u25cf\u25cf\u25d0\u25cc [B]",
+      "edge_type": "CONSENSUS",
+      "direction": "lower",
+      "rating": "B",
+      "conviction": null,
+      "entry_price": 0.815,
+      "current_price": 0.815,
+      "pnl_pct": 0.0,
+      "edge_points": 7.0,
+      "status": "green",
+      "state": "ACTIVE",
+      "house_prob": 0,
+      "market_price": 0,
+      "kill_reason": "",
+      "source_articles": 600
     },
     {
       "event": "100% tariff on Canada in effect by June 30? \u25cf\u25cf\u25cf\u25cf\u25d0 [B]",
@@ -1128,7 +1145,7 @@
   "report_url": "https://ivanmassow.github.io/polyhunter/",
   "by_data_depth": {
     "enhanced_600": {
-      "total_candidates": 1376,
+      "total_candidates": 1380,
       "completed_trades": 13,
       "wins": 8,
       "losses": 5,
@@ -1142,7 +1159,7 @@
       ]
     },
     "deep_800": {
-      "total_candidates": 998,
+      "total_candidates": 1002,
       "completed_trades": 9,
       "wins": 5,
       "losses": 4,
