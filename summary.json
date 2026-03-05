@@ -1,7 +1,7 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-03-05T08:04:50.964648+00:00",
+  "updated_at": "2026-03-05T08:37:42.775564+00:00",
   "total_candidates": 2525,
   "winners": 37,
   "losers": 21,
@@ -34,7 +34,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 400
+      "source_articles": 400,
+      "polymarket_url": "https://polymarket.com/event/fed-decision-in-march-885"
     },
     {
       "event": "Will inflation reach more than 3% in 2026? \u25cf\u25cf\u25cf\u25cf\u25cf [A]",
@@ -51,7 +52,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 400
+      "source_articles": 400,
+      "polymarket_url": "https://polymarket.com/event/how-high-will-inflation-get-in-2026"
     },
     {
       "event": "Will 1 Fed rate cut happen in 2026? \u25cf\u25cf\u25cf\u25cf\u25cf [A]",
@@ -68,7 +70,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 400
+      "source_articles": 400,
+      "polymarket_url": "https://polymarket.com/event/how-many-fed-rate-cuts-in-2026"
     },
     {
       "event": "Hezbollah strike on Israel by March 31? \u25cf\u25cf\u25cf\u25cf\u25ef [B]",
@@ -85,7 +88,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 800
+      "source_articles": 800,
+      "polymarket_url": "https://polymarket.com/event/hezbollah-strike-on-israel-by-march-31"
     },
     {
       "event": "Will the U.S./Israel target an Iranian nuclear facility by F",
@@ -102,7 +106,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 400
+      "source_articles": 400,
+      "polymarket_url": "https://polymarket.com/event/what-will-the-usisrael-target-in-iran-by-february-28"
     },
     {
       "event": "Will Iran close the Strait of Hormuz by March 31? \u25cf\u25cf\u25cf\u25cf\u25cc [B]",
@@ -119,7 +124,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 350
+      "source_articles": 350,
+      "polymarket_url": "https://polymarket.com/event/will-iran-close-the-strait-of-hormuz-by-2027"
     },
     {
       "event": "Will Iran close the Strait of Hormuz by March 31? \u25cf\u25cf\u25cf\u25d0\u25cb [B]",
@@ -136,7 +142,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 600
+      "source_articles": 600,
+      "polymarket_url": "https://polymarket.com/event/will-iran-close-the-strait-of-hormuz-by-2027"
     },
     {
       "event": "US seizes an Iran-linked oil tanker by Feb 28? \u25cf\u25cf\u25cf\u25cf\u25cf [B]",
@@ -153,7 +160,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 600
+      "source_articles": 600,
+      "polymarket_url": "https://polymarket.com/event/us-seizes-an-iran-linked-oil-tanker-by-feb-28"
     },
     {
       "event": "Israel strikes Iran by February 28, 2026? \u25cf\u25cf\u25cf\u25cf\u25cb [A]",
@@ -170,7 +178,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 350
+      "source_articles": 350,
+      "polymarket_url": "https://polymarket.com/event/israel-strikes-iran-by-february-28-2026"
     },
     {
       "event": "Iran Strike on Israel by February 28? \u25cf\u25cf\u25cf\u25cf\u25d0 [B]",
@@ -187,7 +196,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 350
+      "source_articles": 350,
+      "polymarket_url": "https://polymarket.com/event/iran-strike-on-israel-by"
     },
     {
       "event": "Iran strike on US military by February 28? \u25cf\u25cf\u25cf\u25d0\u25cb [B]",
@@ -204,7 +214,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 600
+      "source_articles": 600,
+      "polymarket_url": "https://polymarket.com/event/iran-strike-on-us-military-by-february-28"
     },
     {
       "event": "Fed rate cut by April 2026 meeting? \u25cf\u25cf\u25cf\u25cf\u25cb [A]",
@@ -221,7 +232,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 800
+      "source_articles": 800,
+      "polymarket_url": "https://polymarket.com/event/fed-rate-cut-by-629"
     },
     {
       "event": "US x Iran meeting by February 28, 2026? \u25cf\u25cf\u25cf\u25cf\u25d1 [A]",
@@ -238,7 +250,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 350
+      "source_articles": 350,
+      "polymarket_url": "https://polymarket.com/event/us-x-iran-diplomatic-meeting-by-229"
     },
     {
       "event": "Will US or Israel strike Iran by February 28, 2026? \u25cf\u25cf\u25cf\u25cf\u25cf [A",
@@ -255,7 +268,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 400
+      "source_articles": 400,
+      "polymarket_url": "https://polymarket.com/event/usisrael-strikes-iran-by"
     },
     {
       "event": "Will Crude Oil (CL) hit (LOW) $65 by end of March? \u25cf\u25cf\u25cf\u25cf\u25d0 [B]",
@@ -272,7 +286,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 800
+      "source_articles": 800,
+      "polymarket_url": "https://polymarket.com/event/will-crude-oil-cl-hit-by-end-of-march"
     },
     {
       "event": "Iran Strike on Israel by February 28? \u25cf\u25cf\u25cf\u25d0\u25cb [B]",
@@ -289,7 +304,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 600
+      "source_articles": 600,
+      "polymarket_url": "https://polymarket.com/event/iran-strike-on-israel-by"
     },
     {
       "event": "Tariff increase on Canada in effect by June 30? \u25cf\u25cf\u25cf\u25cf\u25cf [A]",
@@ -306,7 +322,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 400
+      "source_articles": 400,
+      "polymarket_url": "https://polymarket.com/event/tariff-increase-on-canada-in-effect-by-june-30"
     },
     {
       "event": "Will no Fed rate cuts happen in 2026? \u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u008b [A]",
@@ -323,7 +340,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 400
+      "source_articles": 400,
+      "polymarket_url": "https://polymarket.com/event/how-many-fed-rate-cuts-in-2026"
     },
     {
       "event": "Iran agrees to end enrichment of uranium by March 31? \u25cf\u25cf\u25cf\u25cf\u25cc ",
@@ -340,7 +358,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 350
+      "source_articles": 350,
+      "polymarket_url": "https://polymarket.com/event/iran-agrees-to-end-enrichment-of-uranium-by-march-31"
     },
     {
       "event": "Will inflation reach more than 5% in 2026? \u25cf\u25cf\u25cf\u25cf\u25cf [B] DISCOVE",
@@ -357,7 +376,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 400
+      "source_articles": 400,
+      "polymarket_url": "https://polymarket.com/event/how-high-will-inflation-get-in-2026"
     },
     {
       "event": "US-Iran nuclear deal by June 30? \u25cf\u25cf\u25cf\u25cf\u25cc [A]",
@@ -374,7 +394,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 350
+      "source_articles": 350,
+      "polymarket_url": "https://polymarket.com/event/us-iran-nuclear-deal-by-june-30"
     },
     {
       "event": "US-Iran nuclear deal by June 30? \u25cf\u25cf\u25cf\u25cf\u25d0 [A]",
@@ -391,7 +412,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 600
+      "source_articles": 600,
+      "polymarket_url": "https://polymarket.com/event/us-iran-nuclear-deal-by-june-30"
     },
     {
       "event": "Will Israel or the US target Tehran? \u25cf\u25cf\u25cf\u25d0 [B] DISCOVERY",
@@ -408,7 +430,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 600
+      "source_articles": 600,
+      "polymarket_url": "https://polymarket.com/event/what-will-the-usisrael-target-in-iran-by-february-28"
     },
     {
       "event": "US-Iran nuclear deal by June 30? \u25cf\u25cf\u25cf\u25cf\u25d1 [A]",
@@ -425,7 +448,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 350
+      "source_articles": 350,
+      "polymarket_url": "https://polymarket.com/event/us-iran-nuclear-deal-by-june-30"
     },
     {
       "event": "US strikes Iran by March 31, 2026? \u25cf\u25cf\u25cf\u25cf\u25cb [A]",
@@ -442,7 +466,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 400
+      "source_articles": 400,
+      "polymarket_url": "https://polymarket.com/event/us-strikes-iran-by"
     },
     {
       "event": "Israel strikes Iran by March 31, 2026? \u25cf\u25cf\u25cf\u25cf\u25cf [B]",
@@ -459,7 +484,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 350
+      "source_articles": 350,
+      "polymarket_url": "https://polymarket.com/event/israel-strikes-iran-by-march-31-2026"
     },
     {
       "event": "Israel strikes Iran by March 31, 2026? \u25cf\u25cf\u25cf\u25cf\u25d0 [B]",
@@ -476,7 +502,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 600
+      "source_articles": 600,
+      "polymarket_url": "https://polymarket.com/event/israel-strikes-iran-by-march-31-2026"
     },
     {
       "event": "US-Iran nuclear deal by June 30? \u25cf\u25cf\u25cf\u25cf\u25d0 [A]",
@@ -493,7 +520,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 350
+      "source_articles": 350,
+      "polymarket_url": "https://polymarket.com/event/us-iran-nuclear-deal-by-june-30"
     },
     {
       "event": "Will U.S. tariff rate on China be between 15% and 25% on Mar",
@@ -510,7 +538,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 800
+      "source_articles": 800,
+      "polymarket_url": "https://polymarket.com/event/us-tariff-rate-on-china-on-march-31"
     },
     {
       "event": "Will the Fed decrease interest rates by 25 bps after the Jun",
@@ -527,7 +556,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 400
+      "source_articles": 400,
+      "polymarket_url": "https://polymarket.com/event/fed-decision-in-june-825"
     },
     {
       "event": "Will Crude Oil (CL) hit (HIGH) $80 by end of March? \u25cf\u25cf\u25cf\u25cf\u25d0 [B",
@@ -544,7 +574,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 800
+      "source_articles": 800,
+      "polymarket_url": "https://polymarket.com/event/will-crude-oil-cl-hit-by-end-of-march"
     },
     {
       "event": "Trump invokes War Powers against Iran by March 31, 2026? \u25cf\u25cf\u25cf",
@@ -561,7 +592,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 600
+      "source_articles": 600,
+      "polymarket_url": "https://polymarket.com/event/trump-invokes-war-powers-against-iran-by"
     },
     {
       "event": "Will 3 Fed rate cuts happen in 2026? \u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u008b [B] DIS",
@@ -578,7 +610,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 400
+      "source_articles": 400,
+      "polymarket_url": "https://polymarket.com/event/how-many-fed-rate-cuts-in-2026"
     },
     {
       "event": "U.S. agrees to a new trade deal with \"Taiwan\" before 2027? \u25cf",
@@ -595,7 +628,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 227
+      "source_articles": 227,
+      "polymarket_url": "https://polymarket.com/event/which-countries-will-trump-make-new-trade-deals-with-before-2027-921"
     },
     {
       "event": "Will there be no change in Fed interest rates after the June",
@@ -612,7 +646,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 400
+      "source_articles": 400,
+      "polymarket_url": "https://polymarket.com/event/fed-decision-in-june-825"
     },
     {
       "event": "Will the Fed decrease interest rates by 50+ bps after the Ju",
@@ -629,7 +664,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 400
+      "source_articles": 400,
+      "polymarket_url": "https://polymarket.com/event/fed-decision-in-june-825"
     },
     {
       "event": "Will Trump nominate Kevin Warsh as the next Fed chair? \u25cf\u25cf\u25cf\u25cf\u25cb",
@@ -646,7 +682,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 800
+      "source_articles": 800,
+      "polymarket_url": "https://polymarket.com/event/who-will-trump-nominate-as-fed-chair"
     },
     {
       "event": "Will no Fed rate cuts happen in 2026? \u25cf\u25cf\u25cf\u25cf\u25cb [B]",
@@ -663,7 +700,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 800
+      "source_articles": 800,
+      "polymarket_url": "https://polymarket.com/event/how-many-fed-rate-cuts-in-2026"
     },
     {
       "event": "Will the US add less than 25k jobs in February? \u25cf\u25cf\u25cf\u25cf\u25cf [B]",
@@ -680,7 +718,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 700
+      "source_articles": 700,
+      "polymarket_url": "https://polymarket.com/event/how-many-jobs-added-in-february-246"
     },
     {
       "event": "Will Iran close the Strait of Hormuz by March 31? \u25cf\u25cf\u25cf\u25d0\u25cc [B]",
@@ -697,7 +736,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 600
+      "source_articles": 600,
+      "polymarket_url": "https://polymarket.com/event/will-iran-close-the-strait-of-hormuz-by-2027"
     },
     {
       "event": "100% tariff on Canada in effect by June 30? \u25cf\u25cf\u25cf\u25cf\u25d0 [B]",
@@ -714,7 +754,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 400
+      "source_articles": 400,
+      "polymarket_url": "https://polymarket.com/event/100-tariff-on-canada-in-effect-by-june-30"
     },
     {
       "event": "Will 2 Fed rate cuts happen in 2026? \u25cf\u25cf\u25cf\u25cf\u25cb [B]",
@@ -731,7 +772,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 800
+      "source_articles": 800,
+      "polymarket_url": "https://polymarket.com/event/how-many-fed-rate-cuts-in-2026"
     },
     {
       "event": "Will US GDP growth in Q1 2026 be greater than 3.5%? \u25cf\u25cf\u25cf\u25cf\u25d0 [B",
@@ -748,7 +790,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 500
+      "source_articles": 500,
+      "polymarket_url": "https://polymarket.com/event/us-gdp-growth-in-q1-2026"
     },
     {
       "event": "Will inflation reach more than 3% in 2026? \u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u008b [",
@@ -765,7 +808,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 600
+      "source_articles": 600,
+      "polymarket_url": "https://polymarket.com/event/how-high-will-inflation-get-in-2026"
     },
     {
       "event": "Kevin Warsh confirmed as Fed Chair by May 15? \u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097",
@@ -782,7 +826,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 600
+      "source_articles": 600,
+      "polymarket_url": "https://polymarket.com/event/kevin-warsh-confirmed-as-fed-chair-by-may-15"
     },
     {
       "event": "Will Trump nominate Kevin Warsh as the next Fed chair? \u00e2\u0097\u008f\u00e2\u0097",
@@ -799,7 +844,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 400
+      "source_articles": 400,
+      "polymarket_url": "https://polymarket.com/event/who-will-trump-nominate-as-fed-chair"
     },
     {
       "event": "Will the DHS shutdown last 21 days or more? \u25cf\u25cf\u25cf\u25cf\u25d0 [A]",
@@ -816,7 +862,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 600
+      "source_articles": 600,
+      "polymarket_url": "https://polymarket.com/event/how-long-will-the-dhs-shutdown-last"
     },
     {
       "event": "Will Trump nominate Kevin Warsh as the next Fed chair? \u00e2\u0097\u008f\u00e2\u0097",
@@ -833,7 +880,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 600
+      "source_articles": 600,
+      "polymarket_url": "https://polymarket.com/event/who-will-trump-nominate-as-fed-chair"
     },
     {
       "event": "U.S. agrees to a new trade deal with \"India\" before 2027? \u25cf\u25cf",
@@ -850,7 +898,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 227
+      "source_articles": 227,
+      "polymarket_url": "https://polymarket.com/event/which-countries-will-trump-make-new-trade-deals-with-before-2027-921"
     },
     {
       "event": "Will there be no change in Fed interest rates after the June",
@@ -867,7 +916,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 800
+      "source_articles": 800,
+      "polymarket_url": "https://polymarket.com/event/fed-decision-in-june-825"
     },
     {
       "event": "Will there be no change in Fed interest rates after the Marc",
@@ -884,7 +934,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 800
+      "source_articles": 800,
+      "polymarket_url": "https://polymarket.com/event/fed-decision-in-march-885"
     },
     {
       "event": "U.S. x Iran Military Engagement by March 31, 2026? \u25cf\u25cf\u25cf\u25cf\u25d0 [B]",
@@ -901,7 +952,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 350
+      "source_articles": 350,
+      "polymarket_url": "https://polymarket.com/event/us-x-iran-military-engagement-by"
     },
     {
       "event": "Trump sued over tariff powers again by March 31? \u25cf\u25cf\u25cf\u25cf\u25ef [A]",
@@ -918,7 +970,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 248
+      "source_articles": 248,
+      "polymarket_url": "https://polymarket.com/event/trump-sued-over-tariff-powers-again-by-march-31"
     },
     {
       "event": "Israel strikes Iran by February 28, 2026? \u25cf\u25cf\u25cf\u25cf\u25cf [A]",
@@ -935,7 +988,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 400
+      "source_articles": 400,
+      "polymarket_url": "https://polymarket.com/event/israel-strikes-iran-by-february-28-2026"
     },
     {
       "event": "Will the US next strike Iran during the week of February 22-",
@@ -952,7 +1006,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 400
+      "source_articles": 400,
+      "polymarket_url": "https://polymarket.com/event/when-will-the-us-next-strike-iran-week"
     },
     {
       "event": "Will the Fed decrease interest rates by 25 bps after the Jun",
@@ -969,7 +1024,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 400
+      "source_articles": 400,
+      "polymarket_url": "https://polymarket.com/event/fed-decision-in-june-825"
     },
     {
       "event": "Will inflation reach more than 4% in 2026? \u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u008f\u00e2\u0097\u0090\u00e2\u0097\u008b [",
@@ -986,7 +1042,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 600
+      "source_articles": 600,
+      "polymarket_url": "https://polymarket.com/event/how-high-will-inflation-get-in-2026"
     },
     {
       "event": "US strikes Iran by February 27, 2026? \u25cf\u25cf\u25cf\u25cf\u25cf [A]",
@@ -1003,7 +1060,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 600
+      "source_articles": 600,
+      "polymarket_url": "https://polymarket.com/event/us-strikes-iran-by"
     },
     {
       "event": "Will no Fed rate cuts happen in 2026? \u25cf\u25cf\u25cf\u25d0\u25cb [B]",
@@ -1020,7 +1078,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 800
+      "source_articles": 800,
+      "polymarket_url": "https://polymarket.com/event/how-many-fed-rate-cuts-in-2026"
     },
     {
       "event": "Iran strike on US military by February 28? \u25cf\u25cf\u25cf\u25cf\u25cf [B]",
@@ -1037,7 +1096,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 600
+      "source_articles": 600,
+      "polymarket_url": "https://polymarket.com/event/iran-strike-on-us-military-by-february-28"
     },
     {
       "event": "Will monthly inflation increase by 0.4% or more in February?",
@@ -1054,7 +1114,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 800
+      "source_articles": 800,
+      "polymarket_url": "https://polymarket.com/event/february-inflation-us-monthly-231"
     },
     {
       "event": "Hezbollah strike on Israel by February 28? \u25cf\u25cf\u25cf\u25cf\u25d0 [A]",
@@ -1071,7 +1132,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 400
+      "source_articles": 400,
+      "polymarket_url": "https://polymarket.com/event/hezbollah-strike-on-israel-by-february-28"
     },
     {
       "event": "US-Iran nuclear deal by March 31? \u25cf\u25cf\u25cf\u25cf\u25cb [A]",
@@ -1088,7 +1150,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 400
+      "source_articles": 400,
+      "polymarket_url": "https://polymarket.com/event/us-iran-nuclear-deal-by-march-31"
     },
     {
       "event": "Iran agrees to end enrichment of uranium by March 31? \u25cf\u25cf\u25cf\u25cf\u25cb ",
@@ -1105,7 +1168,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 400
+      "source_articles": 400,
+      "polymarket_url": "https://polymarket.com/event/iran-agrees-to-end-enrichment-of-uranium-by-march-31"
     },
     {
       "event": "US strikes Iran by March 15, 2026? \u25cf\u25cf\u25cf\u25cf\u25cf [A]",
@@ -1122,7 +1186,8 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 400
+      "source_articles": 400,
+      "polymarket_url": "https://polymarket.com/event/us-strikes-iran-by"
     },
     {
       "event": "U.S. x Iran Military Engagement by March 31, 2026? \u25cf\u25cf\u25cf\u25cf\u25d0 [A]",
@@ -1139,10 +1204,11 @@
       "house_prob": 0,
       "market_price": 0,
       "kill_reason": "",
-      "source_articles": 400
+      "source_articles": 400,
+      "polymarket_url": "https://polymarket.com/event/us-x-iran-military-engagement-by"
     }
   ],
-  "report_url": "https://ivanmassow.github.io/polyhunter/",
+  "report_url": "https://noah-edge.com/predictions/index.html",
   "by_data_depth": {
     "enhanced_600": {
       "total_candidates": 1384,
