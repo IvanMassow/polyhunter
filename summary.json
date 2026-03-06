@@ -1,8 +1,8 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-03-06T11:26:54.520487+00:00",
-  "total_candidates": 2769,
+  "updated_at": "2026-03-06T11:41:02.064117+00:00",
+  "total_candidates": 2774,
   "winners": 43,
   "losers": 22,
   "win_rate": 66.2,
@@ -830,24 +830,6 @@
       "polymarket_url": "https://polymarket.com/event/will-iran-close-the-strait-of-hormuz-by-2027"
     },
     {
-      "event": "Will there be no change in Fed interest rates after the Apri",
-      "edge_type": "CONSENSUS",
-      "direction": "higher",
-      "rating": "A",
-      "conviction": null,
-      "entry_price": 0.885,
-      "current_price": 0.885,
-      "pnl_pct": 0.0,
-      "edge_points": 4.0,
-      "status": "green",
-      "state": "ACTIVE",
-      "house_prob": 0,
-      "market_price": 0,
-      "kill_reason": "",
-      "source_articles": 800,
-      "polymarket_url": "https://polymarket.com/event/fed-decision-in-april"
-    },
-    {
       "event": "100% tariff on Canada in effect by June 30? \u25cf\u25cf\u25cf\u25cf\u25d0 [B]",
       "edge_type": "CONSENSUS",
       "direction": "lower",
@@ -1336,22 +1318,8 @@
   ],
   "report_url": "https://noah-edge.com/predictions/index.html",
   "by_data_depth": {
-    "enhanced_600": {
-      "total_candidates": 1509,
-      "completed_trades": 13,
-      "wins": 8,
-      "losses": 5,
-      "win_rate": 61.5,
-      "total_dollar_pnl": 3035.24,
-      "profit_factor": 2.6,
-      "avg_evidence_per_candidate": 31.0,
-      "article_counts": [
-        500,
-        600
-      ]
-    },
     "deep_800": {
-      "total_candidates": 1125,
+      "total_candidates": 1128,
       "completed_trades": 13,
       "wins": 8,
       "losses": 5,
@@ -1362,6 +1330,20 @@
       "article_counts": [
         700,
         800
+      ]
+    },
+    "enhanced_600": {
+      "total_candidates": 1511,
+      "completed_trades": 13,
+      "wins": 8,
+      "losses": 5,
+      "win_rate": 61.5,
+      "total_dollar_pnl": 3035.24,
+      "profit_factor": 2.6,
+      "avg_evidence_per_candidate": 31.0,
+      "article_counts": [
+        500,
+        600
       ]
     },
     "standard_400": {
