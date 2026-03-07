@@ -1,8 +1,8 @@
 {
   "system": "polyhunter",
   "title": "PolyHunter Edge Tracker",
-  "updated_at": "2026-03-07T23:32:00.962497+00:00",
-  "total_candidates": 2975,
+  "updated_at": "2026-03-07T23:37:57.841427+00:00",
+  "total_candidates": 2978,
   "winners": 44,
   "losers": 24,
   "win_rate": 64.7,
@@ -1337,7 +1337,7 @@
   "report_url": "https://noah-edge.com/predictions/index.html",
   "by_data_depth": {
     "deep_800": {
-      "total_candidates": 1193,
+      "total_candidates": 1194,
       "completed_trades": 13,
       "wins": 8,
       "losses": 5,
@@ -1351,7 +1351,7 @@
       ]
     },
     "enhanced_600": {
-      "total_candidates": 1647,
+      "total_candidates": 1649,
       "completed_trades": 14,
       "wins": 8,
       "losses": 6,
