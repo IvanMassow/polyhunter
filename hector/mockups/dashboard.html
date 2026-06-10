@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<title>Hector — Overview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f7fa;
+    --panel: #ffffff;
+    --ink: #1a1d29;
+    --soft: #5a6072;
+    --faint: #9598a6;
+    --line: #e9eaf0;
+    --accent: #5266eb;
+    --accent-soft: #eef0fd;
+    --green: #1f9d6b;
+    --green-soft: #e7f6ef;
+    --amber: #c87f1f;
+    --amber-soft: #fdf3e3;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family:'Inter',-apple-system,sans-serif;
+    background:var(--bg); color:var(--ink);
+    font-size:13px; line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    display:flex; height:100vh; overflow:hidden;
+  }
+
+  /* sidebar */
+  aside {
+    width:216px; flex-shrink:0;
+    background:var(--panel); border-right:1px solid var(--line);
+    display:flex; flex-direction:column;
+    padding:20px 12px;
+  }
+  .brand { font-size:17px; font-weight:700; letter-spacing:-0.02em; padding:0 12px 18px; }
+  .brand span { color:var(--accent); }
+  .nav-group { margin-bottom:6px; }
+  .nav-item {
+    display:flex; align-items:center; gap:10px;
+    padding:8px 12px; border-radius:8px;
+    color:var(--soft); font-weight:500; font-size:13px;
+  }
+  .nav-item svg { width:15px; height:15px; stroke:currentColor; stroke-width:1.6; fill:none; }
+  .nav-item.active { background:var(--accent-soft); color:var(--accent); font-weight:600; }
+  .nav-item .badge {
+    margin-left:auto; background:var(--accent); color:#fff;
+    font-size:10px; font-weight:600; padding:1px 7px; border-radius:100px;
+  }
+  .firm {
+    margin-top:auto; border-top:1px solid var(--line); padding:14px 12px 0;
+    display:flex; align-items:center; gap:10px;
+  }
+  .firm .avatar {
+    width:28px; height:28px; border-radius:8px; background:var(--ink); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:600;
+  }
+  .firm .n { font-weight:600; font-size:12.5px; }
+  .firm .r { font-size:11px; color:var(--faint); }
+
+  /* main */
+  main { flex:1; overflow:auto; }
+  .topbar {
+    height:58px; background:var(--panel); border-bottom:1px solid var(--line);
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 28px;
+  }
+  .topbar h1 { font-size:15px; font-weight:600; letter-spacing:-0.01em; }
+  .top-right { display:flex; align-items:center; gap:14px; }
+  .season {
+    font-size:12px; font-weight:600; color:var(--amber);
+    background:var(--amber-soft); padding:5px 12px; border-radius:100px;
+  }
+  .btn-sm {
+    font-size:12.5px; font-weight:600; color:#fff; background:var(--ink);
+    padding:7px 14px; border-radius:8px;
+  }
+
+  .content { padding:26px 28px 40px; max-width:1080px; }
+  .greeting { margin-bottom:22px; }
+  .greeting h2 { font-size:21px; font-weight:600; letter-spacing:-0.02em; }
+  .greeting p { color:var(--soft); font-size:13px; margin-top:2px; }
+
+  /* stat row */
+  .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:18px; }
+  .stat {
+    background:var(--panel); border:1px solid var(--line); border-radius:12px;
+    padding:16px 18px;
+  }
+  .stat .l { font-size:11.5px; font-weight:500; color:var(--faint); text-transform:uppercase; letter-spacing:.06em; }
+  .stat .v { font-size:24px; font-weight:600; letter-spacing:-0.02em; margin-top:6px; display:flex; align-items:baseline; gap:8px; }
+  .stat .d { font-size:11.5px; font-weight:600; }
+  .stat .d.up { color:var(--green); }
+  .stat .d.warn { color:var(--amber); }
+  .ring { position:relative; width:40px; height:40px; float:right; margin-top:-4px; }
+  .ring svg { transform:rotate(-90deg); }
+  .ring .num { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; color:var(--green); }
+
+  .cols { display:grid; grid-template-columns:1.55fr 1fr; gap:14px; }
+  .panel {
+    background:var(--panel); border:1px solid var(--line); border-radius:12px;
+    padding:20px; margin-bottom:14px;
+  }
+  .panel-head { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:16px; }
+  .panel-head h3 { font-size:13.5px; font-weight:600; }
+  .panel-head a { font-size:12px; color:var(--accent); font-weight:600; text-decoration:none; }
+
+  /* outcomes */
+  .outcome { display:flex; align-items:center; gap:14px; padding:11px 0; border-top:1px solid var(--line); }
+  .outcome:first-of-type { border-top:none; }
+  .outcome .name { width:190px; font-weight:500; font-size:13px; }
+  .outcome .bar { flex:1; height:6px; background:var(--bg); border-radius:4px; overflow:hidden; }
+  .outcome .bar i { display:block; height:100%; border-radius:4px; background:var(--green); }
+  .outcome .pct { width:36px; text-align:right; font-size:12px; font-weight:600; color:var(--soft); }
+  .chip { font-size:11px; font-weight:600; padding:3px 10px; border-radius:100px; white-space:nowrap; }
+  .chip.ok { color:var(--green); background:var(--green-soft); }
+  .chip.gap { color:var(--amber); background:var(--amber-soft); }
+
+  /* report progress */
+  .report-row { display:flex; align-items:center; gap:18px; }
+  .report-row .meta { flex:1; }
+  .report-row .meta .t { font-weight:600; font-size:13.5px; }
+  .report-row .meta .s { font-size:12px; color:var(--soft); margin-top:2px; }
+  .progress { flex:1.4; height:8px; background:var(--bg); border-radius:4px; overflow:hidden; }
+  .progress i { display:block; height:100%; width:78%; background:var(--accent); border-radius:4px; }
+  .report-row .count { font-size:12.5px; font-weight:600; color:var(--accent); white-space:nowrap; }
+
+  /* feed */
+  .feed-item { display:flex; gap:12px; padding:12px 0; border-top:1px solid var(--line); }
+  .feed-item:first-of-type { border-top:none; padding-top:0; }
+  .feed-dot { width:7px; height:7px; border-radius:50%; margin-top:6px; flex-shrink:0; }
+  .feed-item .t { font-weight:500; font-size:12.5px; line-height:1.45; }
+  .feed-item .m { font-size:11.5px; color:var(--faint); margin-top:3px; }
+  .feed-item .act { font-size:11.5px; color:var(--accent); font-weight:600; margin-top:3px; }
+
+  /* prompt card */
+  .prompt { background:var(--accent-soft); border:1px solid #dde2fb; }
+  .prompt .q { font-weight:600; font-size:13.5px; margin-bottom:4px; }
+  .prompt p { font-size:12.5px; color:var(--soft); margin-bottom:14px; }
+  .prompt .row { display:flex; gap:8px; }
+  .pbtn { font-size:12px; font-weight:600; padding:7px 16px; border-radius:8px; }
+  .pbtn.yes { background:var(--accent); color:#fff; }
+  .pbtn.no { background:#fff; color:var(--ink); border:1px solid var(--line); }
+</style>
+</head>
+<body>
+
+<aside>
+  <div class="brand">Hector<span>.</span></div>
+  <div class="nav-group">
+    <div class="nav-item active"><svg viewBox="0 0 24 24"><path d="M3 12l9-8 9 8v8a2 2 0 01-2 2h-4v-6h-6v6H5a2 2 0 01-2-2z"/></svg>Overview</div>
+    <div class="nav-item"><svg viewBox="0 0 24 24"><path d="M4 19V5m5 14V9m5 10v-7m5 7V7"/></svg>Outcomes</div>
+    <div class="nav-item"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 6v12a2 2 0 002 2h12a2 2 0 002-2V6M9 3h6l1 3H8z"/></svg>Evidence vault</div>
+    <div class="nav-item"><svg viewBox="0 0 24 24"><path d="M7 3h8l4 4v14H7zM15 3v4h4M10 12h6m-6 4h6"/></svg>Board report<span class="badge">7/9</span></div>
+    <div class="nav-item"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M17 4.5a3.5 3.5 0 010 7M21 20c0-2.8-1.9-5.1-4.5-5.8"/></svg>SM&amp;CR</div>
+    <div class="nav-item"><svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 10-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21a2 2 0 004 0"/></svg>FCA watch<span class="badge" style="background:#c87f1f">2</span></div>
+    <div class="nav-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 01-.1 1.2l2 1.6-2 3.4-2.4-1a7 7 0 01-2 1.2L14 21h-4l-.4-2.6a7 7 0 01-2-1.2l-2.5 1-2-3.4 2-1.6A7 7 0 015 12c0-.4 0-.8.1-1.2l-2-1.6 2-3.4 2.4 1a7 7 0 012-1.2L10 3h4l.4 2.6a7 7 0 012 1.2l2.5-1 2 3.4-2 1.6c0 .4.1.8.1 1.2z"/></svg>Settings</div>
+  </div>
+  <div class="firm">
+    <div class="avatar">WH</div>
+    <div>
+      <div class="n">Whitmore &amp; Hale</div>
+      <div class="r">FRN 482916 · 4 advisers</div>
+    </div>
+  </div>
+</aside>
+
+<main>
+  <div class="topbar">
+    <h1>Overview</h1>
+    <div class="top-right">
+      <span class="season">Report season in 74 days</span>
+      <span class="btn-sm">Ask Hector</span>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="greeting">
+      <h2>Good morning, Margaret</h2>
+      <p>Your file is current to 31 May 2026. Two FCA items need a decision; everything else is quiet.</p>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="ring">
+          <svg width="40" height="40"><circle cx="20" cy="20" r="16" stroke="#e9eaf0" stroke-width="4" fill="none"/><circle cx="20" cy="20" r="16" stroke="#1f9d6b" stroke-width="4" fill="none" stroke-dasharray="100.5" stroke-dashoffset="14" stroke-linecap="round"/></svg>
+          <div class="num">86</div>
+        </div>
+        <div class="l">Readiness score</div>
+        <div class="v">86<span class="d up">+4 this quarter</span></div>
+      </div>
+      <div class="stat">
+        <div class="l">Evidence items</div>
+        <div class="v">147<span class="d up">+12 in May</span></div>
+      </div>
+      <div class="stat">
+        <div class="l">Open actions</div>
+        <div class="v">3<span class="d warn">1 due this week</span></div>
+      </div>
+      <div class="stat">
+        <div class="l">MI current to</div>
+        <div class="v">May ’26<span class="d up">on schedule</span></div>
+      </div>
+    </div>
+
+    <div class="cols">
+      <div>
+        <div class="panel">
+          <div class="panel-head"><h3>Consumer Duty outcomes</h3><a href="#">View evidence →</a></div>
+          <div class="outcome">
+            <span class="name">Products &amp; services</span>
+            <div class="bar"><i style="width:92%"></i></div>
+            <span class="pct">92%</span>
+            <span class="chip ok">Strong</span>
+          </div>
+          <div class="outcome">
+            <span class="name">Price &amp; value</span>
+            <div class="bar"><i style="width:71%; background:#c87f1f"></i></div>
+            <span class="pct">71%</span>
+            <span class="chip gap">1 gap</span>
+          </div>
+          <div class="outcome">
+            <span class="name">Consumer understanding</span>
+            <div class="bar"><i style="width:88%"></i></div>
+            <span class="pct">88%</span>
+            <span class="chip ok">Strong</span>
+          </div>
+          <div class="outcome">
+            <span class="name">Consumer support</span>
+            <div class="bar"><i style="width:84%"></i></div>
+            <span class="pct">84%</span>
+            <span class="chip ok">Review due Jul</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><h3>Annual board report</h3><a href="#">Open draft →</a></div>
+          <div class="report-row">
+            <div class="meta">
+              <div class="t">FY 2026 — drafting from your evidence</div>
+              <div class="s">Every section footnoted to source documents in your vault.</div>
+            </div>
+            <div class="progress"><i></i></div>
+            <div class="count">7 of 9 sections</div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><h3>Fitness &amp; propriety — annual certification</h3><a href="#">All staff →</a></div>
+          <div class="outcome">
+            <span class="name">M. Whitmore (SMF16)</span>
+            <div class="bar"><i style="width:100%"></i></div>
+            <span class="pct">✓</span>
+            <span class="chip ok">Certified Mar ’26</span>
+          </div>
+          <div class="outcome">
+            <span class="name">D. Hale (SMF3)</span>
+            <div class="bar"><i style="width:100%"></i></div>
+            <span class="pct">✓</span>
+            <span class="chip ok">Certified Mar ’26</span>
+          </div>
+          <div class="outcome">
+            <span class="name">P. Osei (CF — adviser)</span>
+            <div class="bar"><i style="width:60%; background:#c87f1f"></i></div>
+            <span class="pct">60%</span>
+            <span class="chip gap">CPD log due</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="panel prompt">
+          <div class="q">This month’s prompt</div>
+          <p>Any complaints, expressions of dissatisfaction, or vulnerable-client cases in May? Hector will file your answer as outcome evidence.</p>
+          <div class="row"><span class="pbtn yes">Nothing to report</span><span class="pbtn no">Add an item</span></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><h3>FCA watch</h3><a href="#">All items →</a></div>
+          <div class="feed-item">
+            <span class="feed-dot" style="background:#c87f1f"></span>
+            <div>
+              <div class="t">PS26/6 — SM&amp;CR reforms now in force</div>
+              <div class="m">22 Apr 2026 · Applies to your firm</div>
+              <div class="act">2 actions suggested — review</div>
+            </div>
+          </div>
+          <div class="feed-item">
+            <span class="feed-dot" style="background:#c87f1f"></span>
+            <div>
+              <div class="t">Consumer Duty board reports — updated guidance for smaller firms</div>
+              <div class="m">12 Feb 2026 · Affects your report template</div>
+              <div class="act">Template updated — confirm</div>
+            </div>
+          </div>
+          <div class="feed-item">
+            <span class="feed-dot" style="background:#1f9d6b"></span>
+            <div>
+              <div class="t">Quarterly consultation round-up</div>
+              <div class="m">31 May 2026 · Nothing applies to your permissions</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><h3>Recent evidence</h3><a href="#">Vault →</a></div>
+          <div class="feed-item">
+            <span class="feed-dot" style="background:#5266eb"></span>
+            <div>
+              <div class="t">Fee schedule annual review</div>
+              <div class="m">E-147 · filed to Price &amp; value · 28 May</div>
+            </div>
+          </div>
+          <div class="feed-item">
+            <span class="feed-dot" style="background:#5266eb"></span>
+            <div>
+              <div class="t">Client letter readability check — Q2 batch</div>
+              <div class="m">E-146 · filed to Consumer understanding · 24 May</div>
+            </div>
+          </div>
+          <div class="feed-item">
+            <span class="feed-dot" style="background:#5266eb"></span>
+            <div>
+              <div class="t">File review — pension transfer (DH-2204)</div>
+              <div class="m">E-145 · filed to Products &amp; services · 19 May</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>

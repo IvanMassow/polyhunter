@@ -80,6 +80,16 @@ position and the positioning vs. consultancies (partner, don't fight).
    people the industry overlooked — now for the firms the compliance
    industry overlooks.
 
+## Design direction
+
+Mercury-style (chosen over SeedLegals/FreeAgent/consumer-warm references):
+near-white, ink text, single periwinkle accent, tight-tracked sans
+headlines, thin rules instead of cards, no emoji — and the design *is* the
+product screenshot. The hero and feature rows use real screenshots of
+high-fidelity product mockups (`mockups/dashboard.html`,
+`mockups/report.html`, captured to `assets/`). The mockups double as the
+v1 product spec: what's on those screens is what gets built.
+
 ## Known risks
 
 - Directly-authorised firm base shrinking (~15% since 2021, consolidation).

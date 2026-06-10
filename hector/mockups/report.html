@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<title>Hector — Board report</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f7fa; --panel: #fff; --ink: #1a1d29; --soft: #5a6072; --faint: #9598a6;
+    --line: #e9eaf0; --accent: #5266eb; --accent-soft: #eef0fd;
+    --green: #1f9d6b; --green-soft: #e7f6ef; --amber: #c87f1f; --amber-soft: #fdf3e3;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family:'Inter',-apple-system,sans-serif; background:var(--bg); color:var(--ink);
+    font-size:13px; line-height:1.5; -webkit-font-smoothing:antialiased;
+    height:100vh; overflow:hidden; display:flex; flex-direction:column;
+  }
+  .topbar {
+    height:58px; background:var(--panel); border-bottom:1px solid var(--line);
+    display:flex; align-items:center; justify-content:space-between; padding:0 24px; flex-shrink:0;
+  }
+  .crumb { display:flex; align-items:center; gap:8px; font-size:13.5px; }
+  .crumb .brand { font-weight:700; }
+  .crumb .brand span { color:var(--accent); }
+  .crumb .sep { color:var(--faint); }
+  .crumb .here { font-weight:600; }
+  .crumb .draft {
+    font-size:11px; font-weight:600; color:var(--amber); background:var(--amber-soft);
+    padding:3px 10px; border-radius:100px; margin-left:6px;
+  }
+  .top-actions { display:flex; gap:10px; align-items:center; }
+  .ghost { font-size:12.5px; font-weight:600; color:var(--soft); border:1px solid var(--line); padding:7px 14px; border-radius:8px; background:#fff; }
+  .primary { font-size:12.5px; font-weight:600; color:#fff; background:var(--ink); padding:7px 16px; border-radius:8px; }
+
+  .body { flex:1; display:flex; overflow:hidden; }
+
+  /* sections rail */
+  .rail { width:230px; flex-shrink:0; border-right:1px solid var(--line); background:var(--panel); padding:18px 12px; overflow:auto; }
+  .rail .h { font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--faint); padding:0 10px 12px; }
+  .sec { display:flex; align-items:center; gap:9px; padding:8px 10px; border-radius:8px; font-size:12.5px; font-weight:500; color:var(--soft); }
+  .sec .st { width:16px; height:16px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:9px; color:#fff; }
+  .sec .st.done { background:var(--green); }
+  .sec .st.now { background:var(--accent); }
+  .sec .st.todo { background:#fff; border:1.5px solid var(--line); }
+  .sec.active { background:var(--accent-soft); color:var(--accent); font-weight:600; }
+
+  /* document */
+  .doc-area { flex:1; overflow:auto; padding:28px 36px; }
+  .doc {
+    max-width:660px; margin:0 auto; background:var(--panel);
+    border:1px solid var(--line); border-radius:12px; padding:46px 54px;
+    box-shadow:0 1px 3px rgba(26,29,41,.04);
+    font-family:'Source Serif 4', Georgia, serif; font-size:14.5px; line-height:1.75;
+  }
+  .doc .doc-eyebrow { font-family:'Inter',sans-serif; font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--faint); margin-bottom:8px; }
+  .doc h1 { font-size:21px; font-weight:600; letter-spacing:-0.01em; margin-bottom:26px; }
+  .doc p { margin-bottom:16px; color:#2a2e3d; }
+  .cite {
+    font-family:'Inter',sans-serif; font-size:10.5px; font-weight:600;
+    color:var(--accent); background:var(--accent-soft);
+    padding:1.5px 7px; border-radius:5px; white-space:nowrap; cursor:pointer;
+  }
+  .cite.hl { background:var(--accent); color:#fff; }
+  .doc .gap-note {
+    font-family:'Inter',sans-serif; font-size:12.5px;
+    background:var(--amber-soft); border:1px solid #f3e2c0; border-radius:8px;
+    padding:12px 16px; color:#7a5113; margin:18px 0;
+  }
+  .doc .gap-note b { font-weight:600; }
+
+  /* evidence rail */
+  .evid { width:296px; flex-shrink:0; border-left:1px solid var(--line); background:var(--panel); padding:20px 18px; overflow:auto; }
+  .evid .h { font-size:13px; font-weight:600; margin-bottom:4px; }
+  .evid .sub { font-size:11.5px; color:var(--faint); margin-bottom:16px; }
+  .ecard { border:1px solid var(--line); border-radius:10px; padding:12px 14px; margin-bottom:10px; }
+  .ecard.linked { border-color:#c6cdf8; background:#fbfbff; }
+  .ecard .id { font-size:10.5px; font-weight:700; color:var(--accent); letter-spacing:.04em; }
+  .ecard .t { font-size:12.5px; font-weight:600; margin:3px 0 2px; }
+  .ecard .m { font-size:11px; color:var(--faint); }
+  .ecard .tag { display:inline-block; margin-top:7px; font-size:10.5px; font-weight:600; color:var(--green); background:var(--green-soft); padding:2px 8px; border-radius:100px; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="crumb">
+    <span class="brand">Hector<span>.</span></span>
+    <span class="sep">/</span>
+    <span>Board report FY 2026</span>
+    <span class="sep">/</span>
+    <span class="here">Price &amp; value</span>
+    <span class="draft">Draft — awaiting your review</span>
+  </div>
+  <div class="top-actions">
+    <span class="ghost">Regenerate section</span>
+    <span class="ghost">Export DOCX</span>
+    <span class="primary">Approve section</span>
+  </div>
+</div>
+
+<div class="body">
+  <div class="rail">
+    <div class="h">Sections — 7 of 9 drafted</div>
+    <div class="sec"><span class="st done">✓</span>Executive summary</div>
+    <div class="sec"><span class="st done">✓</span>Firm &amp; client base</div>
+    <div class="sec"><span class="st done">✓</span>Products &amp; services</div>
+    <div class="sec active"><span class="st now">●</span>Price &amp; value</div>
+    <div class="sec"><span class="st done">✓</span>Consumer understanding</div>
+    <div class="sec"><span class="st done">✓</span>Consumer support</div>
+    <div class="sec"><span class="st done">✓</span>Vulnerable customers</div>
+    <div class="sec"><span class="st todo"></span>Culture &amp; governance</div>
+    <div class="sec"><span class="st todo"></span>Board attestation</div>
+  </div>
+
+  <div class="doc-area">
+    <div class="doc">
+      <div class="doc-eyebrow">Consumer Duty annual board report · FY 2026 · Whitmore &amp; Hale Ltd</div>
+      <h1>4. Price and value outcome</h1>
+      <p>The firm completed its annual fee schedule review on 28 May 2026 <span class="cite">E-147</span>, benchmarking ongoing advice charges against published peer data for firms of comparable size and permissions. Charges for the core advice proposition remain within the second quartile of the comparator set <span class="cite">E-147</span>, and no client segment was identified as receiving materially lower value relative to the fees paid.</p>
+      <p>Ongoing service delivery was evidenced through completion of 96% of scheduled annual reviews in the period <span class="cite hl">E-112</span>, against 91% in the prior year. The four reviews not completed related to clients who deferred at their own request; each deferral is documented with a follow-up date <span class="cite">E-113</span>.</p>
+      <p>One instance was identified in which a legacy client remained on a fee basis withdrawn in 2023 <span class="cite">E-129</span>. The client was migrated to current terms with a refund of the difference, and a vault-wide check confirmed no further clients on withdrawn terms <span class="cite">E-131</span>.</p>
+      <div class="gap-note"><b>Hector flagged one gap:</b> no documented assessment of value for clients holding only protection products. Suggested action created — a short protection-book value review (est. 2 hours). This section will update when filed.</div>
+      <p>On the basis of the evidence above, the board is invited to conclude that the firm’s services continue to provide fair value, subject to completion of the protection-book review noted.</p>
+    </div>
+  </div>
+
+  <div class="evid">
+    <div class="h">Evidence in this section</div>
+    <div class="sub">5 items linked · click any citation to open the source</div>
+    <div class="ecard linked">
+      <div class="id">E-112</div>
+      <div class="t">Annual review completion log</div>
+      <div class="m">CRM export · 12 months to May 2026</div>
+      <span class="tag">Verified 31 May</span>
+    </div>
+    <div class="ecard">
+      <div class="id">E-147</div>
+      <div class="t">Fee schedule annual review</div>
+      <div class="m">Internal review · benchmarked 28 May</div>
+      <span class="tag">Verified 28 May</span>
+    </div>
+    <div class="ecard">
+      <div class="id">E-129</div>
+      <div class="t">Legacy fee basis — case note</div>
+      <div class="m">Client file DH-1187 · resolved Apr 2026</div>
+      <span class="tag">Verified 14 Apr</span>
+    </div>
+    <div class="ecard">
+      <div class="id">E-131</div>
+      <div class="t">Withdrawn-terms vault check</div>
+      <div class="m">Hector automated sweep · Apr 2026</div>
+      <span class="tag">Verified 16 Apr</span>
+    </div>
+    <div class="ecard">
+      <div class="id">E-113</div>
+      <div class="t">Deferred review follow-ups</div>
+      <div class="m">4 clients · diarised with consent notes</div>
+      <span class="tag">Verified 31 May</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
