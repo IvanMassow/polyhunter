@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hector — Consumer Duty &amp; SM&amp;CR, handled. For small FCA-regulated firms.</title>
+<meta name="description" content="Hector turns Consumer Duty and SM&CR from an annual panic into a quiet monthly habit. Evidence collected all year, your board report drafted in an afternoon. From £149/month.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #10202f;
+    --ink-soft: #3d5468;
+    --cream: #faf6ee;
+    --cream-deep: #f3ecdd;
+    --paper: #fffdf8;
+    --gold: #b8893a;
+    --gold-soft: #d9b97e;
+    --teal: #1b6d62;
+    --rule: rgba(16, 32, 47, 0.14);
+    --max: 1120px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--ink);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, .serif { font-family: 'Fraunces', Georgia, serif; font-weight: 500; letter-spacing: -0.01em; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
+  .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+  section { padding: 96px 0; }
+  .btn {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 15.5px; font-weight: 600;
+    padding: 15px 30px;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    cursor: pointer; border: none;
+  }
+  .btn-primary { background: var(--ink); color: var(--cream); box-shadow: 0 2px 14px rgba(16,32,47,.22); }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 22px rgba(16,32,47,.3); }
+  .btn-gold { background: var(--gold); color: #fff; }
+  .btn-gold:hover { background: #a87a2e; transform: translateY(-1px); }
+  .btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--rule); }
+  .btn-ghost:hover { border-color: var(--ink); }
+
+  /* ---------- Nav ---------- */
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(250, 246, 238, 0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .logo { display: flex; align-items: baseline; gap: 2px; text-decoration: none; color: var(--ink); }
+  .logo .mark {
+    font-family: 'Fraunces', serif; font-weight: 600; font-size: 27px;
+  }
+  .logo .dot { color: var(--gold); font-size: 27px; font-family: 'Fraunces', serif; font-weight: 600; }
+  .nav-links { display: flex; gap: 34px; align-items: center; }
+  .nav-links a { text-decoration: none; color: var(--ink-soft); font-size: 14.5px; font-weight: 500; }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta { font-size: 14px !important; padding: 10px 20px !important; }
+  @media (max-width: 860px) { .nav-links a:not(.btn) { display: none; } }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: 110px 0 90px; position: relative; overflow: hidden; }
+  .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 70px; align-items: center; }
+  .hero h1 { font-size: clamp(42px, 5.4vw, 64px); line-height: 1.08; margin-bottom: 28px; }
+  .hero h1 em { font-style: italic; color: var(--teal); }
+  .hero .lede { font-size: 19.5px; color: var(--ink-soft); margin-bottom: 36px; max-width: 32em; }
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+  .hero-note { font-size: 13.5px; color: var(--ink-soft); margin-top: 18px; }
+  .hero-note strong { color: var(--ink); }
+
+  /* document mock */
+  .doc-stack { position: relative; perspective: 1200px; }
+  .doc {
+    background: var(--paper);
+    border: 1px solid rgba(16,32,47,.1);
+    border-radius: 10px;
+    box-shadow: 0 24px 60px -18px rgba(16,32,47,.28);
+    padding: 36px 34px;
+    transform: rotate(1.4deg);
+  }
+  .doc-behind {
+    position: absolute; inset: 14px -16px -14px 16px;
+    background: var(--cream-deep);
+    border-radius: 10px;
+    border: 1px solid rgba(16,32,47,.08);
+    z-index: -1;
+    transform: rotate(-1.2deg);
+  }
+  .doc-head { display:flex; justify-content: space-between; align-items: baseline; border-bottom: 2px solid var(--ink); padding-bottom: 14px; margin-bottom: 20px; }
+  .doc-head .t { font-family:'Fraunces',serif; font-size: 17px; font-weight: 600; }
+  .doc-head .d { font-size: 11px; color: var(--ink-soft); letter-spacing: .08em; text-transform: uppercase; }
+  .doc-line { height: 9px; border-radius: 4px; background: var(--cream-deep); margin-bottom: 11px; }
+  .doc-line.w80 { width: 80%; } .doc-line.w60 { width: 60%; } .doc-line.w90 { width: 90%; }
+  .doc-section { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin: 22px 0 12px; }
+  .doc-badges { display: flex; gap: 8px; margin-top: 24px; flex-wrap: wrap; }
+  .doc-badge {
+    font-size: 11.5px; font-weight: 600; padding: 6px 12px; border-radius: 100px;
+    background: rgba(27,109,98,.1); color: var(--teal);
+  }
+  .doc-stamp {
+    position: absolute; right: 18px; top: -16px;
+    background: var(--teal); color: #fff;
+    font-size: 12px; font-weight: 600; letter-spacing: .06em;
+    padding: 9px 16px; border-radius: 100px;
+    box-shadow: 0 8px 20px -6px rgba(27,109,98,.5);
+    transform: rotate(3deg);
+  }
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 56px; }
+    .doc-stack { max-width: 480px; }
+  }
+
+  /* ---------- Logos strip / stat band ---------- */
+  .statband { background: var(--ink); color: var(--cream); padding: 64px 0; }
+  .statband .wrap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; }
+  .stat .n { font-family: 'Fraunces', serif; font-size: 44px; font-weight: 500; color: var(--gold-soft); line-height: 1.1; }
+  .stat .l { font-size: 14.5px; color: rgba(250,246,238,.75); margin-top: 8px; max-width: 24em; }
+  .stat .s { font-size: 11.5px; color: rgba(250,246,238,.45); margin-top: 6px; }
+  @media (max-width: 860px) { .statband .wrap { grid-template-columns: 1fr; gap: 32px; } }
+
+  /* ---------- Problem ---------- */
+  .problem h2 { font-size: clamp(32px, 4vw, 44px); line-height: 1.15; max-width: 18em; margin-bottom: 24px; }
+  .problem .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 48px; }
+  .problem .cols p { color: var(--ink-soft); margin-bottom: 18px; }
+  .pull {
+    border-left: 3px solid var(--gold);
+    padding: 6px 0 6px 26px;
+    margin: 28px 0;
+  }
+  .pull .q { font-family: 'Fraunces', serif; font-size: 21px; font-style: italic; line-height: 1.45; }
+  .pull .a { font-size: 13px; color: var(--ink-soft); margin-top: 10px; letter-spacing: .04em; }
+  @media (max-width: 860px) { .problem .cols { grid-template-columns: 1fr; gap: 8px; } }
+
+  /* ---------- How it works ---------- */
+  .how { background: var(--paper); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .how h2 { font-size: clamp(32px, 4vw, 44px); margin-bottom: 16px; }
+  .how .sub { color: var(--ink-soft); max-width: 36em; margin-bottom: 56px; }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
+  .step {
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    padding: 34px 30px;
+    position: relative;
+  }
+  .step .num {
+    font-family: 'Fraunces', serif; font-size: 15px; font-weight: 600;
+    width: 38px; height: 38px; border-radius: 50%;
+    background: var(--ink); color: var(--cream);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 22px;
+  }
+  .step h3 { font-size: 22px; margin-bottom: 12px; }
+  .step p { font-size: 15.5px; color: var(--ink-soft); }
+  .step .time { display: inline-block; margin-top: 18px; font-size: 12.5px; font-weight: 600; color: var(--teal); background: rgba(27,109,98,.09); padding: 5px 12px; border-radius: 100px; }
+  @media (max-width: 860px) { .steps { grid-template-columns: 1fr; } }
+
+  /* ---------- Deliverables ---------- */
+  .get h2 { font-size: clamp(32px, 4vw, 44px); margin-bottom: 16px; }
+  .get .sub { color: var(--ink-soft); max-width: 36em; margin-bottom: 52px; }
+  .grid-get { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .card {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    padding: 30px 28px;
+  }
+  .card .ico {
+    width: 42px; height: 42px; border-radius: 11px;
+    background: var(--cream-deep);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 18px;
+    font-size: 19px;
+  }
+  .card h3 { font-size: 19px; margin-bottom: 9px; }
+  .card p { font-size: 14.5px; color: var(--ink-soft); }
+  @media (max-width: 960px) { .grid-get { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 640px) { .grid-get { grid-template-columns: 1fr; } }
+
+  /* ---------- Compare ---------- */
+  .compare { background: var(--ink); color: var(--cream); }
+  .compare h2 { font-size: clamp(30px, 3.6vw, 40px); margin-bottom: 14px; }
+  .compare .sub { color: rgba(250,246,238,.7); margin-bottom: 52px; max-width: 38em; }
+  .comp-table { width: 100%; border-collapse: collapse; }
+  .comp-table th, .comp-table td { padding: 18px 20px; text-align: left; border-bottom: 1px solid rgba(250,246,238,.14); font-size: 15.5px; }
+  .comp-table th { font-family: 'Fraunces', serif; font-size: 17px; font-weight: 600; }
+  .comp-table .hl { color: var(--gold-soft); }
+  .comp-table td:first-child { color: rgba(250,246,238,.72); }
+  .comp-note { font-size: 12.5px; color: rgba(250,246,238,.45); margin-top: 18px; }
+
+  /* ---------- Pricing ---------- */
+  .pricing { background: var(--cream); }
+  .pricing h2 { font-size: clamp(32px, 4vw, 44px); margin-bottom: 14px; }
+  .pricing .sub { color: var(--ink-soft); margin-bottom: 56px; max-width: 36em; }
+  .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; align-items: stretch; }
+  .tier {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 18px;
+    padding: 38px 32px;
+    display: flex; flex-direction: column;
+    position: relative;
+  }
+  .tier.popular { border: 2px solid var(--ink); box-shadow: 0 22px 50px -22px rgba(16,32,47,.3); }
+  .tier .flag {
+    position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+    background: var(--gold); color: #fff;
+    font-size: 11.5px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+    padding: 6px 16px; border-radius: 100px; white-space: nowrap;
+  }
+  .tier h3 { font-size: 23px; margin-bottom: 6px; }
+  .tier .who { font-size: 13.5px; color: var(--ink-soft); margin-bottom: 24px; min-height: 2.6em; }
+  .tier .price { font-family: 'Fraunces', serif; font-size: 46px; font-weight: 500; line-height: 1; }
+  .tier .price span { font-family: 'Inter', sans-serif; font-size: 14.5px; color: var(--ink-soft); font-weight: 400; }
+  .tier .per { font-size: 12.5px; color: var(--ink-soft); margin: 6px 0 26px; }
+  .tier ul { list-style: none; margin-bottom: 30px; flex-grow: 1; }
+  .tier ul li { font-size: 14.5px; color: var(--ink-soft); padding: 8px 0 8px 28px; position: relative; border-bottom: 1px dashed rgba(16,32,47,.08); }
+  .tier ul li::before { content: "✓"; position: absolute; left: 2px; color: var(--teal); font-weight: 700; }
+  .tier .btn { text-align: center; }
+  .lock {
+    margin-top: 44px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 16px;
+    padding: 30px 36px;
+    display: flex; gap: 24px; align-items: flex-start;
+  }
+  .lock .ico { font-size: 30px; line-height: 1; }
+  .lock h4 { font-family: 'Fraunces', serif; font-size: 20px; margin-bottom: 6px; }
+  .lock p { font-size: 15px; color: var(--ink-soft); max-width: 56em; }
+  @media (max-width: 960px) { .tiers { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; } }
+
+  /* ---------- Founder ---------- */
+  .founder { background: var(--cream-deep); border-top: 1px solid var(--rule); }
+  .founder-grid { display: grid; grid-template-columns: 0.38fr 0.62fr; gap: 70px; align-items: start; }
+  .founder .portrait {
+    aspect-ratio: 4/4.6;
+    border-radius: 14px;
+    background: linear-gradient(160deg, #2a4255, var(--ink));
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(250,246,238,.35);
+    font-family: 'Fraunces', serif; font-size: 70px; font-weight: 600;
+    box-shadow: 0 24px 50px -20px rgba(16,32,47,.4);
+  }
+  .founder h2 { font-size: clamp(28px, 3.4vw, 38px); margin-bottom: 26px; }
+  .founder p { color: var(--ink-soft); margin-bottom: 18px; font-size: 17px; }
+  .founder p strong { color: var(--ink); }
+  .founder .sig { font-family: 'Fraunces', serif; font-style: italic; font-size: 26px; color: var(--ink); margin-top: 28px; }
+  .founder .sig-role { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); margin-top: 4px; }
+  @media (max-width: 860px) { .founder-grid { grid-template-columns: 1fr; gap: 40px; } .founder .portrait { max-width: 320px; } }
+
+  /* ---------- FAQ ---------- */
+  .faq h2 { font-size: clamp(32px, 4vw, 44px); margin-bottom: 48px; }
+  .faq-list { max-width: 800px; }
+  details {
+    border-bottom: 1px solid var(--rule);
+    padding: 6px 0;
+  }
+  details summary {
+    font-family: 'Fraunces', serif;
+    font-size: 20px; font-weight: 500;
+    padding: 20px 40px 20px 0;
+    cursor: pointer; list-style: none; position: relative;
+  }
+  details summary::-webkit-details-marker { display: none; }
+  details summary::after {
+    content: "+"; position: absolute; right: 4px; top: 50%; transform: translateY(-50%);
+    font-size: 26px; color: var(--gold); font-family: 'Inter', sans-serif; font-weight: 400;
+    transition: transform .2s ease;
+  }
+  details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+  details p { color: var(--ink-soft); padding: 0 40px 24px 0; font-size: 16px; }
+
+  /* ---------- Final CTA ---------- */
+  .final { background: var(--ink); color: var(--cream); text-align: center; padding: 110px 0; }
+  .final h2 { font-size: clamp(34px, 4.4vw, 52px); margin-bottom: 20px; }
+  .final h2 em { font-style: italic; color: var(--gold-soft); }
+  .final p { color: rgba(250,246,238,.72); max-width: 34em; margin: 0 auto 40px; font-size: 18px; }
+  .score-form { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; max-width: 560px; margin: 0 auto; }
+  .score-form input {
+    flex: 1; min-width: 260px;
+    font-family: 'Inter', sans-serif; font-size: 15.5px;
+    padding: 15px 22px; border-radius: 100px;
+    border: 1.5px solid rgba(250,246,238,.25);
+    background: rgba(250,246,238,.06); color: var(--cream);
+    outline: none;
+  }
+  .score-form input::placeholder { color: rgba(250,246,238,.45); }
+  .score-form input:focus { border-color: var(--gold-soft); }
+  .final .fine { font-size: 12.5px; color: rgba(250,246,238,.4); margin-top: 22px; }
+
+  /* ---------- Footer ---------- */
+  footer { background: #0b1722; color: rgba(250,246,238,.55); padding: 56px 0 44px; font-size: 13.5px; }
+  footer .wrap { display: flex; flex-direction: column; gap: 26px; }
+  footer .frow { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 18px; }
+  footer .logo .mark, footer .logo .dot { font-size: 22px; color: var(--cream); }
+  footer .logo .dot { color: var(--gold); }
+  footer .disclaimer { font-size: 12px; line-height: 1.7; color: rgba(250,246,238,.38); border-top: 1px solid rgba(250,246,238,.1); padding-top: 26px; max-width: 70em; }
+  footer a { color: rgba(250,246,238,.65); text-decoration: none; }
+
+  .fade { animation: fadeUp .7s ease both; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="logo" href="#"><span class="mark">Hector</span><span class="dot">.</span></a>
+    <div class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#get">What you get</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#founder">Founder’s note</a>
+      <a href="#score" class="btn btn-gold nav-cta">Get your readiness score</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div class="fade">
+      <div class="eyebrow">For small FCA-regulated firms</div>
+      <h1>The compliance file that <em>keeps itself.</em></h1>
+      <p class="lede">Hector turns Consumer Duty and SM&amp;CR from an annual panic into a quiet monthly habit. Evidence collected all year. Your board report drafted in an afternoon — from your own data, in your own voice.</p>
+      <div class="hero-ctas">
+        <a href="#score" class="btn btn-primary">Get your free readiness score</a>
+        <a href="#how" class="btn btn-ghost">See how it works</a>
+      </div>
+      <p class="hero-note">From <strong>£149 a month</strong> — under half the cheapest consultancy retainer. No sales calls. Cancel any time.</p>
+    </div>
+    <div class="doc-stack fade" style="animation-delay:.15s">
+      <div class="doc-behind"></div>
+      <div class="doc-stamp">Board-ready ✓</div>
+      <div class="doc">
+        <div class="doc-head">
+          <span class="t">Consumer Duty — Annual Board Report</span>
+          <span class="d">FY 2026</span>
+        </div>
+        <div class="doc-section">1 · Products &amp; Services Outcome</div>
+        <div class="doc-line w90"></div>
+        <div class="doc-line w80"></div>
+        <div class="doc-line w60"></div>
+        <div class="doc-section">2 · Price &amp; Value Outcome</div>
+        <div class="doc-line w80"></div>
+        <div class="doc-line w90"></div>
+        <div class="doc-section">3 · Consumer Understanding</div>
+        <div class="doc-line w60"></div>
+        <div class="doc-line w80"></div>
+        <div class="doc-badges">
+          <span class="doc-badge">147 evidence items attached</span>
+          <span class="doc-badge">12 months of MI</span>
+          <span class="doc-badge">SM&amp;CR map current</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="statband">
+  <div class="wrap">
+    <div class="stat">
+      <div class="n">87%</div>
+      <div class="l">of UK advice firms have five or fewer advisers. The Duty applies to them in full.</div>
+      <div class="s">FCA advice market survey, 2025</div>
+    </div>
+    <div class="stat">
+      <div class="n">180</div>
+      <div class="l">firms had their board reports reviewed by the FCA — and data quality was the most common failing.</div>
+      <div class="s">FCA Consumer Duty board reports review</div>
+    </div>
+    <div class="stat">
+      <div class="n">£8,000+</div>
+      <div class="l">what a small firm typically pays each year for compliance support that still leaves the writing to you.</div>
+      <div class="s">Typical consultancy retainers, 2025–26</div>
+    </div>
+  </div>
+</div>
+
+<section class="problem">
+  <div class="wrap">
+    <div class="eyebrow">The problem</div>
+    <h2>The Duty wasn’t written with firms like yours in mind. The work still landed on your desk.</h2>
+    <div class="cols">
+      <div>
+        <p>If you run a small advice firm or brokerage, you already know the shape of it. You are the SMF holder, the data analyst, the MI department and the report author — after client hours.</p>
+        <p>Consumer Duty asks for ongoing outcomes monitoring, an annual board report and an annual confirmation of compliance. SM&amp;CR asks for responsibility maps, fitness-and-propriety records and certification evidence. None of it is optional, and none of it cares that your “compliance function” is you, on a Sunday.</p>
+      </div>
+      <div>
+        <div class="pull">
+          <p class="q">“Smaller firms have different challenges… limited management information, no dedicated compliance or audit function.”</p>
+          <p class="a">— FCA, Consumer Duty board reports review</p>
+        </div>
+        <p>The regulator’s own answer was to suggest small firms find a “critical friend.” Hector is that friend — one who never sleeps, reads every FCA publication the day it lands, and keeps your evidence file ready for the day the email arrives.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="eyebrow">How it works</div>
+    <h2>Three steps. One afternoon a month.</h2>
+    <p class="sub">Hector doesn’t give advice and doesn’t replace your judgement. It does the collecting, organising, chasing and drafting — the 90% of compliance that is administration, not opinion.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <h3>Tell Hector about your firm</h3>
+        <p>A guided intake, in plain English. Upload what you already have — policies, complaints log, file reviews, client letters. Hector reads it all and builds your firm’s compliance profile against the four Duty outcomes and your SM&amp;CR responsibilities.</p>
+        <span class="time">About 40 minutes</span>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h3>Hector keeps the file</h3>
+        <p>Each month, a short prompt: anything changed? New complaints, new products, new staff? Hector files the evidence, updates your MI, and watches FCA publications — when guidance changes, your file changes with it.</p>
+        <span class="time">10 minutes a month</span>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h3>Press the button in report season</h3>
+        <p>Your annual Consumer Duty board report, drafted from twelve months of your own evidence — every assertion footnoted to a real document. Review it, amend it, approve it. What took a fortnight takes an afternoon.</p>
+        <span class="time">One afternoon a year</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="get" id="get">
+  <div class="wrap">
+    <div class="eyebrow">What you get</div>
+    <h2>Everything the regulator expects to see. Nothing you don’t need.</h2>
+    <p class="sub">One subscription, one evidence vault, regulator-ready outputs all year round.</p>
+    <div class="grid-get">
+      <div class="card">
+        <div class="ico">📋</div>
+        <h3>Annual board report, drafted</h3>
+        <p>Your Consumer Duty board report written from your own evidence — structured around the four outcomes, with every claim traceable to a source document.</p>
+      </div>
+      <div class="card">
+        <div class="ico">📊</div>
+        <h3>Outcomes monitoring dashboard</h3>
+        <p>Complaints, FOS data, file-review results and client feedback tracked monthly against each Duty outcome — the MI the FCA found most firms couldn’t produce.</p>
+      </div>
+      <div class="card">
+        <div class="ico">🗺️</div>
+        <h3>SM&amp;CR, kept current</h3>
+        <p>Responsibilities maps, Statements of Responsibilities and annual fitness-and-propriety certification records that update when your people do.</p>
+      </div>
+      <div class="card">
+        <div class="ico">🔔</div>
+        <h3>Regulatory change, translated</h3>
+        <p>When the FCA publishes new guidance, Hector tells you what it means for a firm your size — and what, if anything, you actually need to do.</p>
+      </div>
+      <div class="card">
+        <div class="ico">🗄️</div>
+        <h3>The evidence vault</h3>
+        <p>Every policy, attestation, register and review in one place, date-stamped and audit-trailed. If the FCA writes to you, your answer is already filed.</p>
+      </div>
+      <div class="card">
+        <div class="ico">🤝</div>
+        <h3>Plays well with your consultant</h3>
+        <p>Keep your compliance consultant for judgement calls — and hand them a perfect file instead of a shoebox. Many firms cut consultancy hours, not the relationship.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="compare">
+  <div class="wrap">
+    <div class="eyebrow" style="color: var(--gold-soft);">The honest comparison</div>
+    <h2>What small firms pay today</h2>
+    <p class="sub">Compliance consultancies are good at judgement. They are expensive at administration — and administration is most of the job.</p>
+    <table class="comp-table">
+      <tr>
+        <th></th>
+        <th>Compliance consultancy</th>
+        <th>Do it yourself</th>
+        <th class="hl">Hector</th>
+      </tr>
+      <tr>
+        <td>Typical cost</td>
+        <td>£230–£790 / month</td>
+        <td>Your evenings &amp; weekends</td>
+        <td class="hl">From £149 / month</td>
+      </tr>
+      <tr>
+        <td>Evidence collection</td>
+        <td>Still mostly you</td>
+        <td>All you</td>
+        <td class="hl">Continuous, automatic prompts</td>
+      </tr>
+      <tr>
+        <td>Board report drafting</td>
+        <td>Template + your fortnight</td>
+        <td>Blank page</td>
+        <td class="hl">Drafted from your own evidence</td>
+      </tr>
+      <tr>
+        <td>Watches FCA publications</td>
+        <td>Quarterly newsletter</td>
+        <td>If you have time</td>
+        <td class="hl">Daily, translated for your firm</td>
+      </tr>
+      <tr>
+        <td>Price at renewal</td>
+        <td>Annual uplift, 5%+ or inflation</td>
+        <td>—</td>
+        <td class="hl">Locked. Capped at CPI, forever</td>
+      </tr>
+    </table>
+    <p class="comp-note">Consultancy figures based on published retainer ranges for small directly-authorised firms, 2025–26. Hector complements, and does not replace, regulated compliance advice.</p>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <div class="eyebrow">Pricing</div>
+    <h2>Priced for firms the industry forgot.</h2>
+    <p class="sub">Every plan is self-serve. No demos you have to book, no quotes you have to chase, no surprises at renewal. VAT added at checkout; two months free if you pay annually.</p>
+    <div class="tiers">
+      <div class="tier">
+        <h3>Solo</h3>
+        <p class="who">For directly-authorised sole traders and one-adviser firms.</p>
+        <div class="price">£149 <span>/ month</span></div>
+        <p class="per">One regulated individual · one SMF holder</p>
+        <ul>
+          <li>Full Consumer Duty evidence vault</li>
+          <li>Annual board report, drafted</li>
+          <li>Outcomes monitoring dashboard</li>
+          <li>SM&amp;CR records for one SMF</li>
+          <li>FCA publication alerts, translated</li>
+          <li>Email support from real humans</li>
+        </ul>
+        <a href="#score" class="btn btn-ghost">Start with your readiness score</a>
+      </div>
+      <div class="tier popular">
+        <div class="flag">Most firms choose this</div>
+        <h3>Firm</h3>
+        <p class="who">For firms with up to five advisers or certified staff.</p>
+        <div class="price">£249 <span>/ month</span></div>
+        <p class="per">Up to 5 regulated individuals · unlimited documents</p>
+        <ul>
+          <li>Everything in Solo</li>
+          <li>Full SM&amp;CR responsibilities map</li>
+          <li>Annual F&amp;P certification workflow</li>
+          <li>Complaints &amp; FOS register</li>
+          <li>Multi-user access with audit trail</li>
+          <li>Priority support · onboarding call</li>
+        </ul>
+        <a href="#score" class="btn btn-primary">Start with your readiness score</a>
+      </div>
+      <div class="tier">
+        <h3>Principal</h3>
+        <p class="who">For networks and principals overseeing appointed representatives.</p>
+        <div class="price">from £499 <span>/ month</span></div>
+        <p class="per">Multi-firm dashboard · per-AR pricing</p>
+        <ul>
+          <li>Everything in Firm, per AR</li>
+          <li>Network-wide oversight dashboard</li>
+          <li>AR onboarding &amp; monitoring packs</li>
+          <li>Consolidated board reporting</li>
+          <li>White-label option for your members</li>
+          <li>Dedicated account manager</li>
+        </ul>
+        <a href="#score" class="btn btn-ghost">Talk to us about your network</a>
+      </div>
+    </div>
+    <div class="lock">
+      <div class="ico">🔒</div>
+      <div>
+        <h4>The price-lock promise</h4>
+        <p>The compliance industry has a renewal habit: sign you cheap, then raise the price 30–50% once you’re settled. We think that’s why you’ll leave them for us — so we put the opposite in writing. <strong>Your price never rises mid-term, and renewal increases are capped at CPI. Forever.</strong> It’s in the contract, not the marketing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="founder" id="founder">
+  <div class="wrap founder-grid">
+    <div class="portrait">IM</div>
+    <div>
+      <div class="eyebrow">A note from the founder</div>
+      <h2>I’ve sat where you sit — same regulator, same Sunday nights.</h2>
+      <p>I spent my career in regulated financial services. I built my first firm to serve people the industry had decided weren’t worth serving — and I learned that the rules, however well-intentioned, are written for firms with compliance departments, then applied to firms with none.</p>
+      <p>I was the regulated individual. I signed the forms. I know the particular dread of a brown envelope from the regulator, and the quiet absurdity of paying a consultancy more than your office rent to be told the writing is still, somehow, your job.</p>
+      <p><strong>Hector exists for the firms the compliance industry overlooks</strong> — the five-adviser practices and one-person firms who do right by their clients every day and shouldn’t need a department to prove it. Good advice deserves good evidence. The evidence shouldn’t cost you your weekends.</p>
+      <p class="sig">Ivan Massow</p>
+      <p class="sig-role">Founder · formerly a regulated principal</p>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap">
+    <div class="eyebrow">Questions, answered straight</div>
+    <h2>The things you’d ask us at a conference bar.</h2>
+    <div class="faq-list">
+      <details>
+        <summary>Is this compliance advice?</summary>
+        <p>No — and we’re glad you asked, because the distinction matters. Hector assembles, organises and drafts from <em>your</em> evidence and <em>your</em> decisions. It doesn’t tell you whether a product is suitable or a practice is compliant; that judgement stays with you and, if you have one, your compliance consultant. Think of Hector as the world’s most diligent compliance administrator, not a compliance officer.</p>
+      </details>
+      <details>
+        <summary>What happens when the FCA changes the rules?</summary>
+        <p>That’s rather the point. Hector reads FCA publications as they land, works out what applies to a firm of your size and permissions, updates the relevant parts of your file, and tells you in plain English what changed and what (if anything) you need to do. Static policy libraries go stale; Hector rewrites itself.</p>
+      </details>
+      <details>
+        <summary>I already pay a compliance consultancy. Why would I need this?</summary>
+        <p>Keep them — for judgement. Most retainers still leave the evidence-gathering, MI and report-writing to you. Firms use Hector to do that administration continuously, then spend fewer consultancy hours on higher-value review. Some firms replace the retainer entirely; that’s your call, not our pitch.</p>
+      </details>
+      <details>
+        <summary>Where does my data live, and who can see it?</summary>
+        <p>UK-hosted, encrypted at rest and in transit, with a full audit trail of every access. Your client data is yours: we don’t train models on it, we don’t share it, and you can export or delete everything at any time. We’ll publish our full security documentation before launch — and we’ll hold ourselves to the standard we help you evidence.</p>
+      </details>
+      <details>
+        <summary>How long does it take to get set up?</summary>
+        <p>The guided intake takes about 40 minutes, and most firms have a working evidence vault the same day. There’s no integration project and no consultant on site — if you can upload a PDF and answer plain-English questions about your firm, you can set up Hector.</p>
+      </details>
+      <details>
+        <summary>What does the free readiness score involve?</summary>
+        <p>Fifteen questions, five minutes, no credit card. You’ll get a scored assessment of how your firm currently stands against the Consumer Duty evidence expectations the FCA set out in its board-report review — and exactly which gaps to close first, whether or not you ever pay us a penny.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="score">
+  <div class="wrap">
+    <h2>Find out where you stand. <em>Before the FCA asks.</em></h2>
+    <p>Get your free Consumer Duty readiness score — fifteen plain-English questions, a scored report on your evidence gaps, and first access when Hector opens its doors.</p>
+    <form class="score-form" onsubmit="event.preventDefault(); this.innerHTML='<p style=\'font-size:17px;color:var(--gold-soft);font-weight:600;\'>Thank you — you’re on the list. Your readiness questionnaire is on its way.</p>';">
+      <input type="email" required placeholder="you@yourfirm.co.uk" aria-label="Email address">
+      <button type="submit" class="btn btn-gold">Get my readiness score</button>
+    </form>
+    <p class="fine">Free forever · No credit card · We will never sell or share your details</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="frow">
+      <a class="logo" href="#"><span class="mark">Hector</span><span class="dot">.</span></a>
+      <div>hello@hectorcompliance.co.uk</div>
+    </div>
+    <p class="disclaimer">Hector is a software tool that assists FCA-regulated firms in organising and presenting their own compliance evidence. Hector is not a law firm, a compliance consultancy or an appointed representative, and nothing produced by Hector constitutes legal advice, regulated advice or a guarantee of regulatory compliance. Responsibility for compliance with FCA rules, including the Consumer Duty and the Senior Managers &amp; Certification Regime, remains at all times with the authorised firm and its senior managers. Statistics cited are drawn from FCA publications including the 2025 advice market survey and the Consumer Duty board reports review. © 2026 Hector. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
