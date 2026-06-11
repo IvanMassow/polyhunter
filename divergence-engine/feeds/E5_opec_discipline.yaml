@@ -1,0 +1,14 @@
+feed_id: E5_opec_discipline
+theatre: energy
+mechanism: "OPEC+ quota discipline, cheating, and surprise supply decisions"
+keyword_universe: [OPEC, quota, compliance, overproduction, Saudi, output cut,
+  unwind, barrels per day, JMMC, production target, cheating, compensation plan]
+semantic_brief: >
+  Paragraphs about OPEC+ production policy and member compliance: quota changes,
+  cheating evidence, compensation schedules, ministerial signalling before
+  meetings. NOT downstream demand commentary or price commentary itself.
+lanes_expected: [policy_decision, compliance_evidence, ministerial_signalling]
+instruments: {BRENT: -0.8, WTI: -0.8, GASOIL: -0.5}
+horizon_days_typical: 10
+invalidators:
+  - "Formal OPEC+ decision published that settles the contested supply question"

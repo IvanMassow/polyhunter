@@ -1,0 +1,15 @@
+feed_id: E1_hormuz_friction
+theatre: energy
+mechanism: "Physical/insurance friction on Strait of Hormuz transits"
+keyword_universe: [Hormuz, tanker, transit, IRGC, seizure, escort, AIS, war risk premium,
+  minelaying, naval drill, convoy, VLCC, chokepoint, Gulf shipping]
+semantic_brief: >
+  Paragraphs describing actual or threatened interference with Gulf shipping:
+  seizures, drills, escorts, insurance loadings, rerouting decisions, AIS gaps.
+  NOT general Iran diplomacy (that is E3's tunnel).
+lanes_expected: [direct_incident, capability, insurance_pricing, counter_deescalation]
+instruments: {BRENT: 0.9, WTI: 0.7, TTF: 0.3, GASOIL: 0.6, FRO: 0.8, STNG: 0.8}
+horizon_days_typical: 5
+invalidators:
+  - "Confirmed reopening/normalisation statement from US 5th Fleet or UKMTO with transit counts recovering"
+  - "War-risk premium for Gulf loadings falls back below pre-event level"

@@ -1,0 +1,14 @@
+feed_id: C3_exchange_stress
+theatre: crypto
+mechanism: "Exchange/stablecoin stress: custody failures, depegs, insolvency rumours"
+keyword_universe: [depeg, insolvency, withdrawals paused, proof of reserves, USDT,
+  USDC, exchange outage, bank run, custodian, attestation, redemption halt]
+semantic_brief: >
+  Paragraphs about solvency or operational stress at exchanges, custodians and
+  stablecoin issuers: paused withdrawals, peg deviations, reserve doubts,
+  regulator interventions in a failing venue. NOT routine maintenance windows.
+lanes_expected: [solvency_doubt, peg_deviation, withdrawal_friction, official_response]
+instruments: {BTC: -0.7, ETH: -0.7, ALT_BASKET: -0.9}
+horizon_days_typical: 3
+invalidators:
+  - "Credible proof of reserves / peg restored and withdrawals normal for 72h"

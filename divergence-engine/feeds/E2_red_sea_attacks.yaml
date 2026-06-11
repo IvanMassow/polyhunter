@@ -1,0 +1,15 @@
+feed_id: E2_red_sea_attacks
+theatre: energy
+mechanism: "Houthi/Red Sea maritime attack tempo and rerouting around Bab el-Mandeb"
+keyword_universe: [Houthi, Red Sea, Bab el-Mandeb, drone, anti-ship missile, USS,
+  Suez transit, rerouting, Cape of Good Hope, CENTCOM, merchant vessel, hit, struck]
+semantic_brief: >
+  Paragraphs describing attacks or credible attack threats on commercial shipping
+  in the Red Sea / Gulf of Aden, naval interdictions, carrier decisions to reroute,
+  and Suez transit volume changes. NOT Yemen domestic politics or aid coverage.
+lanes_expected: [direct_incident, capability, rerouting_decisions, counter_deescalation]
+instruments: {BRENT: 0.6, WTI: 0.4, GASOIL: 0.7, TTF: 0.2, FRO: 0.7, STNG: 0.9}
+horizon_days_typical: 5
+invalidators:
+  - "Verified ceasefire/standdown with major carriers publicly resuming Suez routings"
+  - "Attack tempo at zero for 14 days with insurance rates normalising"

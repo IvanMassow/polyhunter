@@ -1,0 +1,14 @@
+feed_id: C2_etf_flows
+theatre: crypto
+mechanism: "ETF and institutional flow narrative (allocation announcements, creations/redemptions)"
+keyword_universe: [bitcoin ETF, ether ETF, inflows, outflows, BlackRock, Fidelity,
+  pension allocation, corporate treasury, basis trade, AUM, creations, redemptions]
+semantic_brief: >
+  Paragraphs about institutional capital moving into or out of crypto products:
+  ETF flow runs, new product approvals, treasury allocations, large mandates.
+  NOT retail sentiment or influencer commentary.
+lanes_expected: [fund_flows, product_launches, institutional_mandates]
+instruments: {BTC: 0.9, ETH: 0.8, ALT_BASKET: 0.4}
+horizon_days_typical: 7
+invalidators:
+  - "Flow direction reverses for five consecutive sessions against the story"

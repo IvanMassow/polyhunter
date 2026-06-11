@@ -1,0 +1,14 @@
+feed_id: E6_supply_disruption
+theatre: energy
+mechanism: "Unplanned supply outages in fragile producers (Libya, Nigeria, and similar)"
+keyword_universe: [Libya, Nigeria, force majeure, pipeline, blockade, El Sharara,
+  Forcados, Bonny Light, militia, oilfield shut, export terminal, NNPC, NOC]
+semantic_brief: >
+  Paragraphs about physical supply interruptions: field shut-ins, terminal
+  blockades, force majeure declarations, pipeline sabotage, and their reversals.
+  NOT long-run investment/capacity stories.
+lanes_expected: [outage_event, restoration, political_trigger]
+instruments: {BRENT: 0.7, WTI: 0.5, GASOIL: 0.4}
+horizon_days_typical: 5
+invalidators:
+  - "Force majeure lifted / exports confirmed resuming at the affected terminal"

@@ -1,0 +1,15 @@
+feed_id: E4_war_risk_insurance
+theatre: energy
+mechanism: "Marine war-risk insurance pricing as a leading indicator of realised shipping risk"
+keyword_universe: [war risk premium, Joint War Committee, JWC, listed areas, AP rate,
+  hull insurance, P&I, breach cover, additional premium, underwriter, Lloyd's]
+semantic_brief: >
+  Paragraphs about marine war-risk insurance pricing and coverage decisions:
+  JWC listed-area changes, additional-premium rate moves for Gulf/Red Sea calls,
+  underwriters pulling cover. Insurance chatter is itself a leading indicator.
+  NOT generic insurance-industry news.
+lanes_expected: [insurance_pricing, coverage_withdrawal, listed_area_changes]
+instruments: {BRENT: 0.5, GASOIL: 0.4, FRO: 0.9, STNG: 0.9, WTI: 0.3}
+horizon_days_typical: 7
+invalidators:
+  - "JWC delisting or AP rates falling for two consecutive weekly fixings"

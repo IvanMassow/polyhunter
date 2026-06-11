@@ -1,0 +1,15 @@
+feed_id: E7_eu_gas_lng
+theatre: energy
+mechanism: "EU gas storage adequacy and LNG cargo diversion economics"
+keyword_universe: [TTF, gas storage, injection, withdrawal, LNG cargo, diversion,
+  JKM, freeport, Norwegian maintenance, cold snap, wind lull, curtailment]
+semantic_brief: >
+  Paragraphs about European gas balance drivers: storage fill trajectories, LNG
+  supply interruptions or diversions to Asia, Norwegian flow outages, weather
+  driven demand swings. NOT power-market or electricity-pricing stories except
+  where they pull gas burn.
+lanes_expected: [storage_trajectory, lng_supply, norwegian_flows, weather_demand]
+instruments: {TTF: 0.9, GASOIL: 0.2, BRENT: 0.1}
+horizon_days_typical: 10
+invalidators:
+  - "Storage fill returns inside the 5-year seasonal band with LNG arrivals normalising"

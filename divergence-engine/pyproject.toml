@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "divergence-engine"
+version = "0.1.0"
+description = "Narrative-vs-price trading system on Noah signal + Kronos (paper trading)"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=1.26",
+    "pandas>=2.1",
+    "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+# Heavy runtime deps are optional so the funnel logic is testable anywhere.
+market = ["ccxt>=4.0"]
+kronos = ["torch>=2.1", "huggingface-hub>=0.20"]
+db = ["psycopg[binary]>=3.1"]
+dev = ["pytest>=7.4"]
+
+[project.scripts]
+de-hourly-scan = "divergence_engine.jobs.hourly_scan:main"
+de-forecast-cycle = "divergence_engine.jobs.forecast_cycle:main"
+de-tracker = "divergence_engine.tracker.generate:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
