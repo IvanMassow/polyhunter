@@ -1,0 +1,14 @@
+feed_id: C4_crime_security
+theatre: crypto
+mechanism: "Crypto crime and security wave: hacks, exploits, seizures, ransomware cycles"
+keyword_universe: [hack, exploit, bridge, drained, stolen funds, Lazarus, mixer,
+  seizure, ransomware, private key, vulnerability, white hat, on-chain forensics]
+semantic_brief: >
+  Paragraphs about realised security failures and crime enforcement in crypto:
+  protocol exploits, exchange hacks, state-actor thefts, large seizures and
+  laundering waves. NOT abstract security research without an incident.
+lanes_expected: [incident, attribution, enforcement, recovery]
+instruments: {BTC: -0.4, ETH: -0.6, ALT_BASKET: -0.8}
+horizon_days_typical: 3
+invalidators:
+  - "Funds recovered/returned or exploit shown to be contained to one venue with no contagion"

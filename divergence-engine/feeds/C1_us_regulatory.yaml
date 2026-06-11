@@ -1,0 +1,15 @@
+feed_id: C1_us_regulatory
+theatre: crypto
+mechanism: "US regulatory temperature for crypto (SEC/CFTC/legislation)"
+keyword_universe: [SEC, CFTC, crypto bill, stablecoin act, enforcement, Wells notice,
+  market structure bill, custody rule, ETF approval, congressional hearing, rulemaking]
+semantic_brief: >
+  Paragraphs about US regulatory and legislative action on crypto: enforcement
+  cases opened or dropped, bill progress, agency guidance, court rulings on
+  jurisdiction. NOT price commentary and NOT non-US regulation unless it moves
+  the US debate.
+lanes_expected: [enforcement, legislation, court_rulings, agency_guidance]
+instruments: {BTC: 0.6, ETH: 0.7, ALT_BASKET: 0.8}
+horizon_days_typical: 7
+invalidators:
+  - "The specific bill/case driving the story is resolved (passed, dismissed, settled)"

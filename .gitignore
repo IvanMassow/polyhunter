@@ -1,2 +1,7 @@
 polyhunter_report_*.html
 latest.html
+__pycache__/
+*.egg-info/
+.pytest_cache/
+divergence-engine/noah_packages/
+divergence-engine/futures_data/

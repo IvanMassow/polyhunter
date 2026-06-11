@@ -1,0 +1,14 @@
+feed_id: E8_russia_sanctions
+theatre: energy
+mechanism: "Russia oil sanctions enforcement and shadow-fleet disruption"
+keyword_universe: [shadow fleet, price cap, OFAC, designation, sanctioned tanker,
+  Sovcomflot, ESPO, Urals, insurance attestation, secondary sanctions, seizure]
+semantic_brief: >
+  Paragraphs about enforcement actions against Russian oil logistics: vessel
+  designations, port refusals, price-cap tightening, shadow-fleet insurance
+  failures, and any enforcement retreat. NOT battlefield coverage of the war.
+lanes_expected: [enforcement_action, fleet_disruption, policy_change, evasion_adaptation]
+instruments: {BRENT: 0.6, WTI: 0.4, GASOIL: 0.6, FRO: 0.7, STNG: 0.6}
+horizon_days_typical: 10
+invalidators:
+  - "Enforcement wave ends: designated cargoes clearing and freight rates for sanctioned routes renormalising"

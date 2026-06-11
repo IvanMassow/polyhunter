@@ -1,0 +1,15 @@
+feed_id: E3_us_iran_posture
+theatre: energy
+mechanism: "US-Iran military/diplomatic escalation-deescalation cycle"
+keyword_universe: [Iran, strike, retaliation, enrichment, IAEA, sanctions snapback,
+  carrier group, negotiation, backchannel, proxy, Israel, nuclear facility]
+semantic_brief: >
+  Paragraphs about state-level US/Israel-Iran military posture and diplomacy:
+  strikes and threats of strikes, force movements, nuclear-programme milestones,
+  negotiation signals. NOT shipping-level incidents (E1) or Houthi activity (E2).
+lanes_expected: [military_action, force_posture, diplomacy, nuclear_program]
+instruments: {BRENT: 0.8, WTI: 0.7, TTF: 0.4, GASOIL: 0.5}
+horizon_days_typical: 7
+invalidators:
+  - "Signed/announced framework agreement with sanctions-relief specifics"
+  - "Public mutual standdown after a retaliation round completes the cycle"
