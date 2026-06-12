@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Consumer Duty readiness score — Hector</title>
+<meta name="description" content="Fifteen plain-English questions. A scored assessment of how your firm stands against the FCA's Consumer Duty evidence expectations — free, no credit card.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#fcfcfd; --panel:#fff; --ink:#1a1d29; --soft:#5a6072; --faint:#9598a6;
+    --line:#e9eaf0; --accent:#5266eb; --accent-deep:#3d4fd0; --accent-soft:#eef0fd;
+    --green:#1f9d6b; --green-soft:#e7f6ef; --amber:#c87f1f; --amber-soft:#fdf3e3;
+    --red:#c0392b; --red-soft:#fdeeec;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family:'Inter',-apple-system,sans-serif; font-size:16px; line-height:1.6; font-weight:450;
+    color:var(--ink); background:var(--bg); -webkit-font-smoothing:antialiased;
+    min-height:100vh; display:flex; flex-direction:column;
+  }
+  nav { border-bottom:1px solid var(--line); background:rgba(252,252,253,.85); backdrop-filter:blur(14px); }
+  .nav-inner { max-width:1140px; margin:0 auto; padding:0 28px; display:flex; align-items:center; justify-content:space-between; height:64px; }
+  .logo { font-size:19px; font-weight:700; letter-spacing:-0.02em; color:var(--ink); text-decoration:none; }
+  .logo span { color:var(--accent); }
+  .nav-note { font-size:13px; color:var(--faint); }
+
+  main { flex:1; display:flex; align-items:flex-start; justify-content:center; padding:56px 24px 80px; }
+  .stage { width:100%; max-width:660px; }
+
+  .progress-rail { height:4px; background:var(--line); border-radius:2px; margin-bottom:36px; overflow:hidden; }
+  .progress-rail i { display:block; height:100%; width:0%; background:var(--accent); border-radius:2px; transition:width .35s ease; }
+  .step-label { font-size:12.5px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); margin-bottom:14px; }
+
+  .qcard { animation:fade .35s ease; }
+  @keyframes fade { from { opacity:0; transform:translateY(10px);} to { opacity:1; transform:none; } }
+  .qcard h1 { font-size:clamp(24px,3.4vw,32px); font-weight:600; letter-spacing:-0.03em; line-height:1.25; margin-bottom:10px; }
+  .qcard .why { font-size:14px; color:var(--faint); margin-bottom:30px; }
+  .opts { display:flex; flex-direction:column; gap:12px; }
+  .opt {
+    text-align:left; font-family:'Inter',sans-serif; font-size:15.5px; font-weight:500;
+    background:var(--panel); border:1px solid var(--line); border-radius:12px;
+    padding:17px 20px; cursor:pointer; transition:all .12s ease; color:var(--ink);
+  }
+  .opt:hover { border-color:var(--accent); background:var(--accent-soft); }
+  .opt small { display:block; font-size:13px; font-weight:450; color:var(--soft); margin-top:2px; }
+  .backrow { margin-top:26px; }
+  .back { font-size:13.5px; color:var(--faint); background:none; border:none; cursor:pointer; font-family:'Inter',sans-serif; }
+  .back:hover { color:var(--ink); }
+
+  /* intro & results shared */
+  .panelbox { background:var(--panel); border:1px solid var(--line); border-radius:18px; padding:44px 46px; }
+  @media (max-width:600px) { .panelbox { padding:30px 24px; } }
+  .kicker { font-size:12.5px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); margin-bottom:16px; }
+  .panelbox h1 { font-size:clamp(26px,3.6vw,36px); font-weight:600; letter-spacing:-0.03em; line-height:1.15; margin-bottom:16px; }
+  .panelbox .lede { color:var(--soft); margin-bottom:28px; }
+  .btn {
+    display:inline-block; font-family:'Inter',sans-serif; font-size:15px; font-weight:600;
+    padding:13px 26px; border-radius:10px; border:none; cursor:pointer; text-decoration:none;
+    transition:all .15s ease;
+  }
+  .btn-accent { background:var(--accent); color:#fff; }
+  .btn-accent:hover { background:var(--accent-deep); transform:translateY(-1px); }
+  .meta-row { display:flex; gap:22px; margin-top:22px; font-size:13px; color:var(--faint); flex-wrap:wrap; }
+
+  /* results */
+  .score-head { display:flex; align-items:center; gap:30px; margin-bottom:8px; flex-wrap:wrap; }
+  .big-ring { position:relative; width:120px; height:120px; flex-shrink:0; }
+  .big-ring svg { transform:rotate(-90deg); }
+  .big-ring .num { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+  .big-ring .num b { font-size:34px; font-weight:700; letter-spacing:-0.03em; line-height:1; }
+  .big-ring .num span { font-size:10.5px; color:var(--faint); text-transform:uppercase; letter-spacing:.08em; margin-top:3px; }
+  .band { font-size:13px; font-weight:600; padding:5px 14px; border-radius:100px; display:inline-block; margin-bottom:10px; }
+  .verdict { font-size:15.5px; color:var(--soft); }
+  .areas { margin:34px 0 8px; }
+  .area { display:flex; align-items:center; gap:14px; padding:13px 0; border-top:1px solid var(--line); }
+  .area .nm { width:215px; font-size:13.5px; font-weight:500; }
+  .area .bar { flex:1; height:7px; background:var(--bg); border:1px solid var(--line); border-radius:4px; overflow:hidden; }
+  .area .bar i { display:block; height:100%; border-radius:4px; transition:width .8s ease; }
+  .area .pc { width:40px; text-align:right; font-size:12.5px; font-weight:600; color:var(--soft); }
+  @media (max-width:600px) { .area .nm { width:140px; } }
+
+  .actions-h { font-size:15px; font-weight:600; margin:30px 0 6px; }
+  .actions-s { font-size:13px; color:var(--faint); margin-bottom:14px; }
+  .action { display:flex; gap:12px; padding:12px 0; border-top:1px solid var(--line); font-size:14px; color:var(--soft); }
+  .action .pri { font-size:11px; font-weight:700; letter-spacing:.06em; padding:3px 9px; border-radius:6px; height:fit-content; white-space:nowrap; margin-top:1px; }
+  .action b { color:var(--ink); font-weight:600; }
+
+  .gate { margin-top:34px; background:var(--accent-soft); border:1px solid #dde2fb; border-radius:14px; padding:26px 28px; }
+  .gate h2 { font-size:17px; font-weight:600; letter-spacing:-0.01em; margin-bottom:6px; }
+  .gate p { font-size:13.5px; color:var(--soft); margin-bottom:16px; }
+  .gate form { display:flex; gap:10px; flex-wrap:wrap; }
+  .gate input {
+    flex:1; min-width:220px; font-family:'Inter',sans-serif; font-size:14.5px;
+    padding:12px 16px; border-radius:10px; border:1px solid #c9d0f7; background:#fff; outline:none;
+  }
+  .gate input:focus { border-color:var(--accent); }
+  .gate .fine { font-size:11.5px; color:var(--faint); margin-top:12px; margin-bottom:0; }
+  .gate .done { font-size:14.5px; font-weight:600; color:var(--green); padding:8px 0; }
+
+  footer { border-top:1px solid var(--line); padding:28px; text-align:center; font-size:12px; color:var(--faint); }
+  footer a { color:var(--soft); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="../">Hector<span>.</span></a>
+    <span class="nav-note">Consumer Duty readiness score</span>
+  </div>
+</nav>
+
+<main>
+  <div class="stage" id="stage"></div>
+</main>
+
+<footer>
+  This assessment is indicative and is not regulated advice. Scoring reflects the evidence expectations described in the FCA’s Consumer Duty board reports review. <a href="../">About Hector</a>
+</footer>
+
+<script>
+const AREAS = [
+  { id:"board",   name:"Board report & governance" },
+  { id:"mi",      name:"Outcomes monitoring & MI" },
+  { id:"value",   name:"Fair value & products" },
+  { id:"smcr",    name:"SM&CR & people" },
+  { id:"file",    name:"Horizon scanning & the file" },
+];
+
+const QUESTIONS = [
+  // Board report & governance
+  { area:"board", q:"Did your firm produce a Consumer Duty board report in the last 12 months?",
+    why:"Required annually for every firm — the FCA reviewed 180 of them and found most wanting.",
+    opts:[["Yes — evidenced and complete",2],["Yes — but thinner than it should be",1],["Not yet, or not sure it counts",0]] },
+  { area:"board", q:"Was that report formally approved — board minutes or a sole-director sign-off on record?",
+    why:"The FCA looks for governance around the report, not just the document.",
+    opts:[["Yes, minuted and filed",2],["Approved informally",1],["No formal approval",0]] },
+  { area:"board", q:"If the FCA asked tomorrow, could you produce the evidence behind each conclusion within a day?",
+    why:"The most common failing in the FCA's review: conclusions without data behind them.",
+    opts:[["Yes — it's organised and to hand",2],["Most of it, with some digging",1],["Honestly, no",0]] },
+
+  // Outcomes monitoring & MI
+  { area:"mi", q:"Do you track management information against each of the four Duty outcomes at least quarterly?",
+    why:"Ongoing outcomes monitoring is a continuing obligation, not a year-end exercise.",
+    opts:[["Yes, all four, on a schedule",2],["Some outcomes, irregularly",1],["No regular tracking",0]] },
+  { area:"mi", q:"Are complaints and expressions of dissatisfaction logged centrally, with root causes?",
+    why:"Complaints data is the FCA's first proxy for customer outcomes.",
+    opts:[["Yes — central log with root cause",2],["Logged, but no root-cause analysis",1],["No central log",0]] },
+  { area:"mi", q:"Do you review FOS decisions and data relevant to firms like yours?",
+    why:"Good practice firms benchmark against ombudsman outcomes, per the FCA review.",
+    opts:[["Yes, periodically",2],["Occasionally, ad hoc",1],["Never",0]] },
+
+  // Fair value & products
+  { area:"value", q:"Is there a documented fair value assessment, under 12 months old, for each ongoing service you charge for?",
+    why:"Price & value is the outcome where the FCA found the weakest evidence.",
+    opts:[["Yes, for every service",2],["For some services",1],["Not documented",0]] },
+  { area:"value", q:"Do you check that no clients remain on withdrawn or legacy terms?",
+    why:"Legacy fee bases are a recurring fair-value failure in supervisory work.",
+    opts:[["Yes — checked within the year",2],["Checked, but a while ago",1],["Never checked",0]] },
+  { area:"value", q:"Is your annual review completion rate for ongoing-service clients tracked and evidenced?",
+    why:"Ongoing service delivery is under active FCA scrutiny across the advice sector.",
+    opts:[["Yes — tracked with reasons for misses",2],["Roughly tracked",1],["Not tracked",0]] },
+
+  // SM&CR & people
+  { area:"smcr", q:"Are Statements of Responsibilities current for every senior manager?",
+    why:"SoRs must reflect today's reality, not the firm as it was at authorisation.",
+    opts:[["Yes, reviewed this year",2],["Exist, but possibly stale",1],["Not sure where they are",0]] },
+  { area:"smcr", q:"Was annual fitness & propriety certification completed and documented for all certified staff?",
+    why:"Annual certification is mandatory — and must be evidenced, not assumed.",
+    opts:[["Yes, all staff, documented",2],["Done, patchily documented",1],["Not completed",0]] },
+  { area:"smcr", q:"Would your training and CPD records survive an audit?",
+    why:"Competence evidence underpins both SM&CR and the Duty's understanding outcome.",
+    opts:[["Yes — complete and current",2],["Mostly, with gaps",1],["No",0]] },
+
+  // Horizon scanning & the file
+  { area:"file", q:"Do you have a process for reviewing FCA publications and deciding what applies to your firm?",
+    why:"Firms are expected to respond to guidance as it lands — like Feb 2026's board-report update.",
+    opts:[["Yes — reviewed and logged",2],["I skim the headlines",1],["No process",0]] },
+  { area:"file", q:"Does all your compliance evidence live in one organised place?",
+    why:"Scattered evidence is the practical root of most board-report failures.",
+    opts:[["Yes — one organised system",2],["Spread across a few places",1],["Inbox, drawers and memory",0]] },
+  { area:"file", q:"Is your approach to identifying and monitoring vulnerable customers documented, with outcomes tracked?",
+    why:"Vulnerability treatment is an FCA priority woven through every outcome.",
+    opts:[["Yes — documented and monitored",2],["Informal but real",1],["Not documented",0]] },
+];
+
+const stage = document.getElementById("stage");
+let answers = [];
+
+function intro() {
+  stage.innerHTML = `
+    <div class="panelbox qcard">
+      <div class="kicker">Free · 15 questions · about 5 minutes</div>
+      <h1>How would your firm look if the FCA asked today?</h1>
+      <p class="lede">Fifteen plain-English questions, scored against the evidence expectations the FCA set out in its Consumer Duty board reports review. You'll get your score and gap breakdown immediately — no email needed to see it.</p>
+      <button class="btn btn-accent" onclick="ask(0)">Start the assessment</button>
+      <div class="meta-row"><span>No credit card</span><span>Answers stay on your device</span><span>Built on FCA published guidance</span></div>
+    </div>`;
+}
+
+function ask(i) {
+  if (i >= QUESTIONS.length) return results();
+  const q = QUESTIONS[i];
+  const area = AREAS.find(a => a.id === q.area).name;
+  stage.innerHTML = `
+    <div class="progress-rail"><i style="width:${(i / QUESTIONS.length) * 100}%"></i></div>
+    <div class="qcard">
+      <div class="step-label">${area} · Question ${i + 1} of ${QUESTIONS.length}</div>
+      <h1>${q.q}</h1>
+      <p class="why">${q.why}</p>
+      <div class="opts">
+        ${q.opts.map((o, j) => `<button class="opt" onclick="answer(${i},${j})">${o[0]}</button>`).join("")}
+      </div>
+      <div class="backrow">${i > 0 ? `<button class="back" onclick="ask(${i - 1})">← Back</button>` : ""}</div>
+    </div>`;
+  requestAnimationFrame(() => { stage.querySelector(".progress-rail i").style.width = ((i) / QUESTIONS.length) * 100 + "%"; });
+}
+
+function answer(i, j) {
+  answers[i] = QUESTIONS[i].opts[j][1];
+  ask(i + 1);
+}
+
+function results() {
+  const total = answers.reduce((a, b) => a + b, 0);
+  const pct = Math.round((total / (QUESTIONS.length * 2)) * 100);
+
+  const areaScores = AREAS.map(a => {
+    const idx = QUESTIONS.map((q, i) => q.area === a.id ? i : -1).filter(i => i >= 0);
+    const got = idx.reduce((s, i) => s + answers[i], 0);
+    return { ...a, pct: Math.round((got / (idx.length * 2)) * 100) };
+  });
+
+  let band, bandCls, verdict;
+  if (pct >= 80) { band = "Audit-ready, broadly"; bandCls = "background:var(--green-soft);color:var(--green)";
+    verdict = "Your evidence position is stronger than most of the firms in the FCA's review. The risk now is drift — keeping this current is exactly the work that slips in busy months."; }
+  else if (pct >= 55) { band = "Gaps to close"; bandCls = "background:var(--amber-soft);color:var(--amber)";
+    verdict = "You're doing the work — but if the FCA asked today, you'd be assembling evidence under pressure rather than handing over a file. The gaps below are specific and closable."; }
+  else { band = "Exposed"; bandCls = "background:var(--red-soft);color:var(--red)";
+    verdict = "On the FCA's published expectations, your firm would struggle to evidence compliance today. That's fixable — but it needs a system, not a heroic weekend."; }
+
+  const ACTION_TEXT = {
+    board: ["<b>Stand up this year's board report early.</b> Set the structure now (four outcomes + governance), so evidence files against it all year instead of being archaeology in report season."],
+    mi:    ["<b>Start a central outcomes log this week.</b> One place for complaints, dissatisfaction and review outcomes, tagged to the four Duty outcomes — even a disciplined spreadsheet beats nothing."],
+    value: ["<b>Diarise a fair value assessment per service.</b> Benchmark fees, document the conclusion, and sweep for clients on withdrawn terms — the FCA's most-cited fair-value failure."],
+    smcr:  ["<b>Refresh SoRs and certification records.</b> An afternoon's work now; an uncomfortable s166 conversation later."],
+    file:  ["<b>Consolidate the evidence into one home.</b> Scattered evidence is the root cause of most board-report failures — pick one system and migrate as you go."],
+  };
+  const weakest = [...areaScores].sort((a, b) => a.pct - b.pct).slice(0, 3).filter(a => a.pct < 85);
+
+  const r = 52, circ = 2 * Math.PI * r;
+  const ringColor = pct >= 80 ? "var(--green)" : pct >= 55 ? "#c87f1f" : "var(--red)";
+
+  stage.innerHTML = `
+    <div class="panelbox qcard">
+      <div class="kicker">Your result</div>
+      <div class="score-head">
+        <div class="big-ring">
+          <svg width="120" height="120"><circle cx="60" cy="60" r="${r}" stroke="var(--line)" stroke-width="9" fill="none"/>
+          <circle cx="60" cy="60" r="${r}" stroke="${ringColor}" stroke-width="9" fill="none" stroke-linecap="round"
+            stroke-dasharray="${circ}" stroke-dashoffset="${circ * (1 - pct / 100)}"/></svg>
+          <div class="num"><b>${pct}</b><span>out of 100</span></div>
+        </div>
+        <div style="flex:1; min-width:240px;">
+          <span class="band" style="${bandCls}">${band}</span>
+          <p class="verdict">${verdict}</p>
+        </div>
+      </div>
+      <div class="areas">
+        ${areaScores.map(a => `
+          <div class="area">
+            <span class="nm">${a.name}</span>
+            <div class="bar"><i style="width:${a.pct}%; background:${a.pct >= 80 ? "var(--green)" : a.pct >= 50 ? "#c87f1f" : "var(--red)"}"></i></div>
+            <span class="pc">${a.pct}%</span>
+          </div>`).join("")}
+      </div>
+      ${weakest.length ? `
+        <div class="actions-h">Close these first</div>
+        <div class="actions-s">Prioritised by gap size and FCA attention.</div>
+        ${weakest.map((a, i) => `
+          <div class="action">
+            <span class="pri" style="${i === 0 ? "background:var(--red-soft);color:var(--red)" : "background:var(--amber-soft);color:var(--amber)"}">${i === 0 ? "FIRST" : "THEN"}</span>
+            <span>${ACTION_TEXT[a.id][0]} <em style="color:var(--faint); font-style:normal;">(${a.name} — ${a.pct}%)</em></span>
+          </div>`).join("")}` : ""}
+      <div class="gate" id="gate">
+        <h2>Get the written version — and keep the score from slipping</h2>
+        <p>We'll send your full report with the reasoning behind each gap, plus first access when Hector opens. One email, no spam, unsubscribe forever in one click.</p>
+        <form onsubmit="return submitLead(event, ${pct})">
+          <input type="email" required placeholder="you@yourfirm.co.uk" id="lead-email" aria-label="Email address">
+          <button type="submit" class="btn btn-accent">Send my report</button>
+        </form>
+        <p class="fine">Your answers stay on this device — only your email and headline score are sent.</p>
+      </div>
+      <div class="backrow" style="margin-top:22px;"><button class="back" onclick="restart()">Start again</button></div>
+    </div>`;
+  window._areaScores = areaScores;
+}
+
+function restart() { answers = []; intro(); window.scrollTo(0, 0); }
+
+async function submitLead(e, score) {
+  e.preventDefault();
+  const email = document.getElementById("lead-email").value;
+  const gate = document.getElementById("gate");
+  try {
+    await fetch("/api/lead", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, score, areas: window._areaScores?.map(a => ({ id: a.id, pct: a.pct })), ts: new Date().toISOString() }),
+    });
+  } catch (err) { /* offline/local preview — still confirm */ }
+  gate.innerHTML = `<h2>Thank you — you're on the list.</h2><p class="done">Your written report is on its way to ${email}.</p>`;
+  return false;
+}
+
+intro();
+</script>
+</body>
+</html>
