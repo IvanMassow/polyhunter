@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Noah Signal Physics — Why Noah Is Different</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300&display=swap');
+
+:root {
+  --ink: #262a33; --ink-light: #3d424d; --ink-mid: #55596a; --ink-subtle: #73788a;
+  --grey-400: #9ea2b0; --grey-300: #c4c7d0; --grey-200: #dfe1e6; --grey-100: #eef0f3;
+  --paper: #FFF1E5; --paper-light: #FFF7F0; --white: #ffffff;
+  --teal: #0d7680; --teal-dark: #0a5a62; --salmon: #FFA089;
+  --green: #16a34a; --orange: #f59e0b; --red: #cc0000;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+@page {
+  size: A4 landscape;
+  margin: 0;
+}
+
+body {
+  font-family: 'Lato', Arial, sans-serif;
+  color: var(--ink);
+  background: white;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.slide {
+  width: 297mm;
+  height: 210mm;
+  background: var(--paper);
+  page-break-after: always;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 14mm 16mm 12mm;
+}
+
+.slide:last-child { page-break-after: avoid; }
+
+/* top accent rule */
+.slide::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 5pt;
+  background: linear-gradient(90deg, var(--teal) 0%, var(--teal) 62%, var(--salmon) 62%, var(--salmon) 100%);
+}
+
+/* topbar */
+.topbar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6mm;
+  padding-top: 3mm;
+}
+.logo {
+  font-family: 'Montserrat', 'Arial Black', sans-serif;
+  font-weight: 700;
+  font-size: 10pt;
+  letter-spacing: 0.18em;
+  color: var(--ink);
+  text-transform: uppercase;
+}
+.logo b { color: var(--teal); }
+.kicker {
+  margin-left: auto;
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #d4754f;
+}
+
+/* slide inner */
+.inner { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+
+/* eyebrow */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 6pt;
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 5mm;
+}
+.eyebrow .num {
+  display: inline-block;
+  background: var(--teal);
+  color: white;
+  padding: 1pt 4pt;
+  border-radius: 2pt;
+  font-size: 6.5pt;
+}
+
+/* headings */
+h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 600;
+  font-size: 22pt;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 5mm;
+  letter-spacing: -0.01em;
+}
+h1 .hl { color: var(--teal); font-style: italic; }
+h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 16pt;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 4mm;
+}
+
+.lead {
+  font-size: 11pt;
+  color: var(--ink-mid);
+  font-weight: 300;
+  line-height: 1.5;
+  margin-bottom: 4mm;
+}
+.body-copy { font-size: 9.5pt; color: var(--ink-light); line-height: 1.55; }
+
+/* cover */
+.cover { background: var(--paper); justify-content: center; }
+.cover .inner { justify-content: center; align-items: flex-start; }
+.cover .brand {
+  font-family: 'Montserrat', 'Arial Black', sans-serif;
+  font-weight: 700;
+  font-size: 9pt;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 7mm;
+}
+.cover h1 {
+  font-size: 36pt;
+  margin-bottom: 4mm;
+}
+.cover .sub {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 14pt;
+  color: var(--ink-mid);
+  margin-bottom: 8mm;
+  font-weight: 400;
+}
+.cover .rule { width: 22mm; height: 3pt; background: var(--salmon); margin-bottom: 6mm; }
+.cover .tagline {
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-subtle);
+}
+
+/* pills */
+.pill-grid { display: flex; flex-wrap: wrap; gap: 4pt; margin-bottom: 5mm; }
+.pill {
+  font-size: 8.5pt;
+  font-weight: 700;
+  color: var(--ink-light);
+  background: var(--white);
+  border: 1pt solid var(--grey-200);
+  border-left: 2.5pt solid var(--teal);
+  padding: 3pt 7pt;
+  border-radius: 3pt;
+}
+.punch {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 12pt;
+  line-height: 1.4;
+  color: var(--ink);
+  border-left: 3pt solid var(--salmon);
+  padding-left: 8pt;
+  margin-top: 3mm;
+}
+.punch b { font-style: normal; color: var(--teal); }
+
+/* two columns */
+.cols { display: flex; gap: 5mm; }
+.col-card {
+  flex: 1;
+  background: var(--white);
+  border: 1pt solid var(--grey-200);
+  border-radius: 5pt;
+  padding: 8pt 10pt;
+}
+.col-card.teal-top { border-top: 3pt solid var(--teal); }
+.col-card.salmon-top { border-top: 3pt solid var(--salmon); }
+.col-card h3 {
+  font-family: 'Lato', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 7pt;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-subtle);
+  margin-bottom: 5pt;
+}
+ul.ticks { list-style: none; }
+ul.ticks li {
+  position: relative;
+  padding-left: 12pt;
+  margin-bottom: 4pt;
+  font-size: 9pt;
+  color: var(--ink-light);
+  line-height: 1.35;
+}
+ul.ticks li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--teal);
+  font-weight: 700;
+}
+ul.ticks.neg li::before { color: var(--salmon); }
+ul.ticks.cross li::before { content: "✕"; color: var(--red); font-size: 7pt; top: 1pt; }
+ul.ticks.check li::before { content: "✓"; color: var(--green); }
+
+/* flow pipeline */
+.flow {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 5mm;
+  flex-wrap: nowrap;
+}
+.flow-step {
+  flex: 1;
+  background: var(--white);
+  border: 1pt solid var(--grey-200);
+  border-radius: 4pt;
+  padding: 5pt 4pt;
+  text-align: center;
+  font-size: 8pt;
+  font-weight: 700;
+  color: var(--ink-light);
+  line-height: 1.25;
+}
+.flow-step.start { background: var(--ink); color: white; border-color: var(--ink); }
+.flow-step.final { background: var(--teal); color: white; border-color: var(--teal); }
+.flow-step.measure { border-left: 2pt solid var(--teal); }
+.flow-arrow { padding: 0 3pt; color: var(--grey-400); font-size: 9pt; font-weight: 700; }
+
+.flow-note {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 11pt;
+  color: var(--ink);
+}
+.flow-note b { font-style: normal; color: var(--teal); }
+
+/* vert flow */
+.flow-vert { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
+.flow-vert .flow-step { flex: none; padding: 4pt 8pt; text-align: center; margin-bottom: 2pt; }
+.flow-vert .flow-arrow { text-align: center; padding: 0; font-size: 8pt; }
+
+/* chips */
+.chips { display: flex; flex-wrap: wrap; gap: 4pt; margin: 4pt 0 6pt; }
+.chip {
+  font-size: 8pt;
+  font-weight: 700;
+  color: var(--teal-dark);
+  background: rgba(13,118,128,0.08);
+  border: 1pt solid rgba(13,118,128,0.25);
+  padding: 2pt 7pt;
+  border-radius: 12pt;
+}
+
+/* two-panel layout */
+.two-panel { display: flex; gap: 6mm; align-items: flex-start; }
+.panel-left { flex: 3; }
+.panel-right { flex: 2; }
+
+/* conviction */
+.conv-grid { display: flex; gap: 5mm; }
+.conv-card {
+  flex: 1;
+  background: var(--white);
+  border: 1pt solid var(--grey-200);
+  border-radius: 5pt;
+  padding: 8pt 10pt;
+}
+.conv-card .conv-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 5pt; }
+.conv-card .t { font-family: 'Playfair Display', Georgia, serif; font-size: 13pt; font-weight: 600; }
+.conv-card.high .t { color: var(--green); }
+.conv-card.low .t { color: var(--orange); }
+.conv-badge {
+  font-size: 6pt;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 1.5pt 4pt;
+  border-radius: 2pt;
+  color: white;
+}
+.conv-card.high .conv-badge { background: var(--green); }
+.conv-card.low .conv-badge { background: var(--orange); }
+.eq-term {
+  background: var(--paper-light);
+  border: 1pt solid var(--grey-200);
+  border-radius: 3pt;
+  padding: 3pt 7pt;
+  font-weight: 700;
+  font-size: 8.5pt;
+  color: var(--ink-light);
+  margin-bottom: 3pt;
+}
+.eq-term.pos { border-left: 2.5pt solid var(--green); }
+.eq-term.neg { border-left: 2.5pt solid var(--red); }
+.eq-op { text-align: center; font-size: 8pt; font-weight: 700; color: var(--ink-subtle); margin-bottom: 3pt; }
+.eq-op.but { color: var(--red); }
+.eq-result {
+  margin-top: 5pt;
+  padding-top: 5pt;
+  border-top: 1pt dashed var(--grey-300);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 10pt;
+  font-weight: 600;
+}
+.conv-card.high .eq-result { color: var(--green); }
+.conv-card.low .eq-result { color: var(--orange); }
+
+/* verdict */
+.verdict-wrap { display: flex; gap: 7mm; align-items: center; }
+.verdict-badge {
+  background: var(--white);
+  border: 1pt solid var(--grey-200);
+  border-top: 4pt solid var(--orange);
+  border-radius: 6pt;
+  padding: 10mm 12mm;
+  text-align: center;
+  min-width: 42mm;
+}
+.verdict-badge .big {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  font-size: 34pt;
+  color: var(--orange);
+  line-height: 1;
+}
+.verdict-badge .vsub {
+  margin-top: 4pt;
+  font-size: 7pt;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-subtle);
+  font-weight: 700;
+}
+.scale { display: flex; align-items: center; gap: 5pt; margin-top: 5mm; }
+.scale .pan {
+  flex: 1;
+  text-align: center;
+  padding: 5pt 4pt;
+  border-radius: 4pt;
+  font-size: 8pt;
+  font-weight: 700;
+}
+.scale .pan.l { background: rgba(22,163,74,0.1); color: var(--green); border: 1pt solid rgba(22,163,74,0.3); }
+.scale .pan.r { background: rgba(204,0,0,0.08); color: var(--red); border: 1pt solid rgba(204,0,0,0.25); }
+.scale .fulcrum { font-size: 12pt; color: var(--ink-subtle); }
+
+/* questions */
+.q-stack { display: flex; flex-wrap: wrap; gap: 5pt 8mm; margin-top: 5mm; }
+.q-item {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 11pt;
+  color: var(--ink);
+  padding: 4pt 0 4pt 8pt;
+  border-left: 2.5pt solid var(--teal);
+  width: calc(50% - 4mm);
+}
+
+/* month tracking */
+.month-grid { display: flex; gap: 5mm; align-items: center; }
+.month-card {
+  flex: 1;
+  background: var(--white);
+  border: 1pt solid var(--grey-200);
+  border-radius: 5pt;
+  padding: 8pt 10pt;
+}
+.month-card h4 {
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-subtle);
+  margin-bottom: 6pt;
+}
+.metric { margin-bottom: 7pt; }
+.metric:last-child { margin-bottom: 0; }
+.metric .ml { display: flex; justify-content: space-between; font-size: 8.5pt; font-weight: 700; color: var(--ink-light); margin-bottom: 3pt; }
+.bar { height: 7pt; background: var(--grey-100); border-radius: 4pt; overflow: hidden; }
+.bar span { display: block; height: 100%; border-radius: 4pt; }
+.bar .teal { background: var(--teal); }
+.bar .salmon { background: var(--salmon); }
+.bar .rise { background: var(--red); }
+.month-arrow { font-size: 16pt; color: var(--grey-400); font-weight: 700; }
+.delta-flag { font-size: 7pt; font-weight: 700; color: var(--red); background: rgba(204,0,0,0.08); padding: 0.5pt 3pt; border-radius: 2pt; margin-left: 3pt; }
+
+/* closing */
+.one-liner {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 500;
+  font-size: 18pt;
+  line-height: 1.3;
+  color: var(--ink);
+  margin-bottom: 4mm;
+  max-width: 200mm;
+}
+.one-liner .grey { color: var(--ink-subtle); }
+.one-liner .tl { color: var(--teal); }
+.divider-or { display: flex; align-items: center; gap: 5mm; margin: 5mm 0; max-width: 160mm; }
+.divider-or .line { flex: 1; height: 0.75pt; background: var(--grey-300); }
+.divider-or .vs { font-size: 7pt; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #d4754f; }
+
+/* inline helper */
+.accent-text { color: var(--teal); font-weight: 700; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="slide cover">
+  <div class="inner">
+    <div class="brand">NOAH · Signal Physics</div>
+    <h1>Why Noah Is <span class="hl">Different</span></h1>
+    <div class="sub">Measuring the forces behind a decision — before forming an opinion.</div>
+    <div class="rule"></div>
+    <div class="tagline">Narrative Signal · Force Measurement · Reconciled Conviction</div>
+  </div>
+</div>
+
+<!-- SLIDE 1 -->
+<div class="slide">
+  <div class="topbar"><span class="logo">N<b>O</b>AH</span><span class="kicker">Signal Physics</span></div>
+  <div class="inner">
+    <div class="eyebrow"><span class="num">01</span> The Question</div>
+    <h1>A trader asks: <span class="hl">"Should I buy BP?"</span></h1>
+    <p class="lead">At first glance this sounds simple. In reality it is a combination of competing forces:</p>
+    <div class="pill-grid">
+      <span class="pill">Company performance</span><span class="pill">Oil prices</span>
+      <span class="pill">Regulation</span><span class="pill">Litigation</span>
+      <span class="pill">Dividends</span><span class="pill">Investor sentiment</span>
+      <span class="pill">Competitor performance</span><span class="pill">Market conditions</span>
+    </div>
+    <div class="punch">The challenge is not finding information.<br>The challenge is <b>measuring which forces matter most.</b></div>
+  </div>
+</div>
+
+<!-- SLIDE 2 -->
+<div class="slide">
+  <div class="topbar"><span class="logo">N<b>O</b>AH</span><span class="kicker">Signal Physics</span></div>
+  <div class="inner">
+    <div class="eyebrow"><span class="num">02</span> How Most AI Systems Approach The Problem</div>
+    <div class="flow">
+      <div class="flow-step start">Question</div>
+      <div class="flow-arrow">›</div>
+      <div class="flow-step">Search web</div>
+      <div class="flow-arrow">›</div>
+      <div class="flow-step">Retrieve articles</div>
+      <div class="flow-arrow">›</div>
+      <div class="flow-step">Read articles</div>
+      <div class="flow-arrow">›</div>
+      <div class="flow-step">Generate summary</div>
+      <div class="flow-arrow">›</div>
+      <div class="flow-step final">Produce opinion</div>
+    </div>
+    <p class="body-copy" style="margin-bottom:4mm;"><em>"BP looks reasonably attractive because…"</em></p>
+    <div class="cols">
+      <div class="col-card teal-top">
+        <h3>Strengths</h3>
+        <ul class="ticks check"><li>Fast</li><li>Impressive</li><li>Better than traditional search</li></ul>
+      </div>
+      <div class="col-card salmon-top">
+        <h3>Limitations</h3>
+        <ul class="ticks cross">
+          <li>No measurement layer</li>
+          <li>No explicit contradiction testing</li>
+          <li>Hard to explain why the answer changed</li>
+          <li>Hard to compare month-on-month</li>
+          <li>Confidence reflects language, not evidence</li>
+        </ul>
+      </div>
+    </div>
+    <div class="flow-note" style="margin-top:4mm;">The answer is ultimately <b>an opinion generated from retrieved information.</b></div>
+  </div>
+</div>
+
+<!-- SLIDE 3 -->
+<div class="slide">
+  <div class="topbar"><span class="logo">N<b>O</b>AH</span><span class="kicker">Signal Physics</span></div>
+  <div class="inner">
+    <div class="eyebrow"><span class="num">03</span> How Noah Approaches The Same Problem</div>
+    <div class="two-panel">
+      <div class="panel-left">
+        <div class="flow-vert" style="max-width:80mm;">
+          <div class="flow-step start">Question</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step measure">Break into investigative lanes</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step measure">Measure each lane independently</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step measure">Test for contradiction</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step measure">Reconcile competing forces</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step final">Generate narrative</div>
+        </div>
+      </div>
+      <div class="panel-right">
+        <p class="body-copy" style="margin-bottom:5mm;">Between measurement and reconciliation, Noah quantifies each force along four dimensions:</p>
+        <div class="chips">
+          <span class="chip">Velocity</span>
+          <span class="chip">Persistence</span>
+          <span class="chip">Breadth</span>
+          <span class="chip">Direction</span>
+        </div>
+        <div class="flow-note" style="margin-top:6mm;">The narrative is the <b>final stage</b>, not the analysis.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 4 -->
+<div class="slide">
+  <div class="topbar"><span class="logo">N<b>O</b>AH</span><span class="kicker">Signal Physics</span></div>
+  <div class="inner">
+    <div class="eyebrow"><span class="num">04</span> What Actually Happened In The BP Example</div>
+    <h2>Noah created multiple investigative lanes — <span style="color:var(--teal); font-style:italic;">each measured separately</span> before any conclusion.</h2>
+    <div class="cols">
+      <div class="col-card teal-top">
+        <h3>Positive forces</h3>
+        <ul class="ticks">
+          <li>Capital returns</li><li>Dividend sustainability</li>
+          <li>Buybacks</li><li>Operational delivery</li><li>Analyst upgrades</li>
+        </ul>
+      </div>
+      <div class="col-card salmon-top">
+        <h3>Negative forces</h3>
+        <ul class="ticks neg">
+          <li>Regulatory pressure</li><li>Litigation</li>
+          <li>Windfall taxes</li><li>Oil-price sensitivity</li><li>Sector headwinds</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 5 -->
+<div class="slide">
+  <div class="topbar"><span class="logo">N<b>O</b>AH</span><span class="kicker">Signal Physics</span></div>
+  <div class="inner">
+    <div class="eyebrow"><span class="num">05</span> What Creates Conviction?</div>
+    <div class="conv-grid">
+      <div class="conv-card high">
+        <div class="conv-head"><span class="t">High conviction</span><span class="conv-badge">Aligned</span></div>
+        <p class="body-copy" style="margin-bottom:5pt;">All major forces point in the same direction.</p>
+        <div class="eq-term pos">Strong operations</div>
+        <div class="eq-op">+</div>
+        <div class="eq-term pos">Strong analyst support</div>
+        <div class="eq-op">+</div>
+        <div class="eq-term pos">Strong market backdrop</div>
+        <div class="eq-op">+</div>
+        <div class="eq-term pos">No regulatory pressure</div>
+        <div class="eq-result">↓ High conviction outcome</div>
+      </div>
+      <div class="conv-card low">
+        <div class="conv-head"><span class="t">Low conviction</span><span class="conv-badge">Contradictory</span></div>
+        <p class="body-copy" style="margin-bottom:5pt;">Positive and negative forces both exist.</p>
+        <div class="eq-term pos">Strong dividends</div>
+        <div class="eq-op">+</div>
+        <div class="eq-term pos">Strong operations</div>
+        <div class="eq-op but">BUT</div>
+        <div class="eq-term neg">Weak oil market</div>
+        <div class="eq-op">+</div>
+        <div class="eq-term neg">Regulatory pressure</div>
+        <div class="eq-result">↓ Mixed outcome → Lower conviction</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 6 -->
+<div class="slide">
+  <div class="topbar"><span class="logo">N<b>O</b>AH</span><span class="kicker">Signal Physics</span></div>
+  <div class="inner">
+    <div class="eyebrow"><span class="num">06</span> Why BP Was A Hold</div>
+    <div class="verdict-wrap">
+      <div style="flex:2;">
+        <p class="lead">The company itself looked relatively healthy. However, three forces remained active drags:</p>
+        <ul class="ticks neg" style="margin-bottom:5mm;">
+          <li>Oil sensitivity remained a drag</li>
+          <li>Regulatory pressure remained elevated</li>
+          <li>Litigation and tax concerns remained active</li>
+        </ul>
+        <div class="scale">
+          <div class="pan l">Positive forces</div>
+          <div class="fulcrum">⟂</div>
+          <div class="pan r">Negative forces</div>
+        </div>
+        <div class="punch" style="margin-top:5mm;">Not because Noah was uncertain — because the <b>measured forces were contradictory.</b></div>
+      </div>
+      <div class="verdict-badge">
+        <div class="big">HOLD</div>
+        <div class="vsub">Forces largely offset</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 7 -->
+<div class="slide">
+  <div class="topbar"><span class="logo">N<b>O</b>AH</span><span class="kicker">Signal Physics</span></div>
+  <div class="inner">
+    <div class="eyebrow"><span class="num">07</span> Why This Matters</div>
+    <div class="cols" style="margin-bottom:5mm;">
+      <div class="col-card salmon-top">
+        <h3>Traditional AI tells you</h3>
+        <p style="font-family:'Playfair Display',Georgia,serif; font-style:italic; font-size:14pt; color:var(--ink); margin-top:4pt;">"What do we think?"</p>
+      </div>
+      <div class="col-card teal-top">
+        <h3>Noah tells you</h3>
+        <p style="font-family:'Playfair Display',Georgia,serif; font-style:italic; font-size:11pt; color:var(--teal); line-height:1.4; margin-top:4pt;">"What forces are acting on the situation?"</p>
+      </div>
+    </div>
+    <div class="q-stack">
+      <div class="q-item">What is strengthening?</div>
+      <div class="q-item">What is weakening?</div>
+      <div class="q-item">What is accelerating?</div>
+      <div class="q-item">What is contradictory?</div>
+      <div class="q-item" style="border-left-color:var(--salmon);">What would change the answer?</div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 8 -->
+<div class="slide">
+  <div class="topbar"><span class="logo">N<b>O</b>AH</span><span class="kicker">Signal Physics</span></div>
+  <div class="inner">
+    <div class="eyebrow"><span class="num">08</span> Month-On-Month Tracking</div>
+    <p class="lead">Rather than tracking a single score, Noah tracks the <span class="accent-text">movement of the underlying forces.</span></p>
+    <div class="month-grid" style="margin-bottom:4mm;">
+      <div class="month-card">
+        <h4>Month 1</h4>
+        <div class="metric">
+          <div class="ml"><span>Regulatory pressure</span><span>40</span></div>
+          <div class="bar"><span class="salmon" style="width:40%"></span></div>
+        </div>
+        <div class="metric">
+          <div class="ml"><span>Capital returns</span><span>70</span></div>
+          <div class="bar"><span class="teal" style="width:70%"></span></div>
+        </div>
+      </div>
+      <div class="month-arrow">→</div>
+      <div class="month-card">
+        <h4>Month 2</h4>
+        <div class="metric">
+          <div class="ml"><span>Regulatory pressure <span class="delta-flag">+25 ▲</span></span><span>65</span></div>
+          <div class="bar"><span class="rise" style="width:65%"></span></div>
+        </div>
+        <div class="metric">
+          <div class="ml"><span>Capital returns</span><span>70</span></div>
+          <div class="bar"><span class="teal" style="width:70%"></span></div>
+        </div>
+      </div>
+    </div>
+    <p class="body-copy">The final score changes because a <strong>specific force moved.</strong> Clients can see <span class="accent-text">what changed</span>, <span class="accent-text">why it changed</span>, and <span class="accent-text">which evidence moved it</span> — rather than simply being told a score increased.</p>
+  </div>
+</div>
+
+<!-- SLIDE 9 -->
+<div class="slide">
+  <div class="topbar"><span class="logo">N<b>O</b>AH</span><span class="kicker">Signal Physics</span></div>
+  <div class="inner">
+    <div class="eyebrow"><span class="num">09</span> The Difference In One Sentence</div>
+    <div class="one-liner"><span class="grey">Most AI systems generate an opinion from information.</span></div>
+    <div class="divider-or"><span class="line"></span><span class="vs">Noah</span><span class="line"></span></div>
+    <div class="one-liner">Noah measures the <span class="tl">competing forces acting on a decision</span> — before generating an opinion.</div>
+  </div>
+</div>
+
+</body>
+</html>
