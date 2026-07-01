@@ -2,244 +2,651 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Physics First — A Briefing</title>
+<title>LLM-First vs Physics-First — A Briefing</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap');
 
 :root {
-  --ink: #1e2129; --ink-mid: #4a4f5e; --ink-subtle: #7a8094;
-  --grey-300: #c8cbd4; --grey-200: #dee0e6; --grey-100: #f0f1f4;
-  --paper: #fdfcfa; --white: #ffffff;
-  --teal: #0d7680;
+  --ink:       #1e2129;
+  --ink-mid:   #4a4f5e;
+  --ink-sub:   #7a8094;
+  --g300:      #c8cbd4;
+  --g200:      #dee0e6;
+  --g100:      #f0f1f4;
+  --paper:     #fdfcfa;
+  --white:     #ffffff;
+  --teal:      #0d7680;
+  --teal-lt:   rgba(13,118,128,0.10);
+  --red:       #b84040;
+  --red-lt:    rgba(184,64,64,0.08);
   --fn: 'Lato', Arial, sans-serif;
   --fh: 'Playfair Display', Georgia, serif;
 }
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 @page { size: A4 landscape; margin: 0; }
+
 body {
-  font-family: var(--fn); color: var(--ink); background: white;
-  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  font-family: var(--fn);
+  color: var(--ink);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
 }
 
+/* ── SLIDE SHELL ──────────────────────────────── */
 .slide {
-  width: 297mm; height: 210mm;
+  width: 297mm;
+  height: 210mm;
   background: var(--paper);
   page-break-after: always;
-  position: relative; overflow: hidden;
-  display: flex; flex-direction: column;
+  overflow: hidden;
+  position: relative;
 }
 .slide:last-child { page-break-after: avoid; }
-.slide::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3pt; background: var(--teal); }
 
-/* header */
-.hdr { padding: 5pt 14mm 0; display: flex; align-items: baseline; justify-content: space-between; flex-shrink: 0; }
-.logo { font-family: var(--fn); font-weight: 700; font-size: 8pt; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-subtle); }
-.logo b { color: var(--teal); }
-.snum { font-size: 7pt; font-weight: 700; letter-spacing: 0.12em; color: var(--ink-subtle); }
+/* teal top rule */
+.slide::before {
+  content: "";
+  display: block;
+  height: 4pt;
+  background: var(--teal);
+}
 
-/* body */
-.body { flex: 1; padding: 6pt 14mm 9mm; display: flex; flex-direction: column; justify-content: center; }
-.body.top { justify-content: flex-start; }
+/* ── HEADER ───────────────────────────────────── */
+.hdr {
+  padding: 5pt 14mm 5pt;
+  overflow: hidden; /* clearfix */
+}
+.hdr .logo {
+  float: left;
+  font-family: var(--fn);
+  font-weight: 700;
+  font-size: 8pt;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-sub);
+}
+.hdr .logo b { color: var(--teal); }
+.hdr .pnum {
+  float: right;
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--ink-sub);
+}
 
-h2 { font-family: var(--fh); font-weight: 500; font-size: 18pt; line-height: 1.1; color: var(--ink); margin-bottom: 4pt; letter-spacing: -0.01em; }
-.rule { width: 20mm; height: 2pt; background: var(--teal); margin: 5pt 0 7pt; }
-.question { font-family: var(--fh); font-weight: 700; font-style: italic; font-size: 13pt; color: var(--ink); border-left: 2.5pt solid var(--teal); padding: 3pt 0 3pt 8pt; margin-bottom: 8pt; display: inline-block; }
-.label { font-size: 6.5pt; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); margin-bottom: 5pt; }
-.body-text { font-size: 9.5pt; color: var(--ink-mid); line-height: 1.55; margin-bottom: 6pt; }
-.body-text b { color: var(--ink); font-weight: 700; }
-.body-text em { font-style: italic; color: var(--ink); }
+/* ── CONTENT AREA ─────────────────────────────── */
+.body {
+  padding: 7mm 14mm 10mm;
+}
 
-/* cover */
-.cover-body { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 8mm 18mm; }
-.cover-body .kicker { font-size: 7pt; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal); margin-bottom: 8pt; }
-.cover-body h1 { font-family: var(--fh); font-weight: 500; font-size: 28pt; line-height: 1.08; color: var(--ink); margin-bottom: 6pt; letter-spacing: -0.01em; }
-.cover-body h1 em { font-style: italic; color: var(--teal); }
-.cover-body .sub { font-family: var(--fh); font-style: italic; font-size: 13pt; color: var(--ink-mid); line-height: 1.5; margin-bottom: 10pt; }
-.cover-body .byline { font-size: 7.5pt; color: var(--ink-subtle); letter-spacing: 0.06em; }
-
-/* compare */
-.compare { display: flex; flex: 1; border-top: 1pt solid var(--grey-300); }
-.col { flex: 1; padding: 7pt 12pt; display: flex; flex-direction: column; }
-.col:first-child { border-right: 1pt solid var(--grey-300); }
-.col h3 { font-family: var(--fh); font-weight: 600; font-size: 12pt; color: var(--ink); margin-bottom: 7pt; }
-ol.steps { list-style: none; counter-reset: s; }
-ol.steps li { counter-increment: s; padding-left: 17pt; position: relative; margin-bottom: 5pt; font-size: 9pt; color: var(--ink-mid); line-height: 1.4; }
-ol.steps li::before { content: counter(s); position: absolute; left: 0; top: 0.5pt; width: 11pt; height: 11pt; border-radius: 50%; background: var(--grey-100); font-size: 6pt; font-weight: 700; color: var(--ink-subtle); display: flex; align-items: center; justify-content: center; }
-ol.steps.teal li::before { background: rgba(13,118,128,0.1); color: var(--teal); }
-.strap { margin-top: auto; padding-top: 6pt; font-family: var(--fh); font-style: italic; font-size: 10pt; color: var(--ink-mid); line-height: 1.45; }
-.strap b { font-style: normal; color: var(--ink); }
-
-/* distinction bar */
-.dist { border-top: 1pt solid var(--grey-300); padding: 5pt 12pt; display: flex; gap: 0; align-items: center; flex-shrink: 0; }
-.di { flex: 1; text-align: center; }
-.di .dt { font-family: var(--fh); font-style: italic; font-size: 10pt; color: var(--ink-mid); }
-.di .dt b { font-style: normal; color: var(--ink); }
-.dsep { width: 1pt; background: var(--grey-300); align-self: stretch; }
-
-/* two-col */
-.two-col { display: flex; gap: 10mm; align-items: flex-start; }
-
-/* panel */
-.panel { border: 1pt solid var(--grey-200); border-radius: 3pt; background: var(--white); overflow: hidden; margin-bottom: 6pt; }
-.panel h4 { padding: 4pt 8pt; background: var(--grey-100); font-size: 6.5pt; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-subtle); border-bottom: 1pt solid var(--grey-200); }
-.panel ul { list-style: none; padding: 5pt 8pt; }
-.panel ul li { padding: 2pt 0; font-size: 9pt; color: var(--ink-mid); border-bottom: 1pt solid var(--grey-100); display: flex; align-items: center; gap: 5pt; }
-.panel ul li:last-child { border-bottom: none; }
-.panel ul li.has::before { content: "✓"; color: var(--teal); font-weight: 700; flex-shrink: 0; }
-.panel ul li.missing { text-decoration: line-through; color: var(--ink-subtle); }
-.panel ul li.missing::before { content: "—"; color: var(--grey-300); font-weight: 700; flex-shrink: 0; }
-
-.note { font-family: var(--fh); font-style: italic; font-size: 10pt; color: var(--ink-mid); border-left: 2.5pt solid var(--grey-300); padding: 3pt 0 3pt 8pt; margin-top: 5pt; }
+/* ── TYPE SCALE ───────────────────────────────── */
+h2 {
+  font-family: var(--fh);
+  font-weight: 500;
+  font-size: 22pt;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 4mm;
+  letter-spacing: -0.01em;
+}
+.eyebrow {
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 3mm;
+}
+.pull-q {
+  font-family: var(--fh);
+  font-weight: 700;
+  font-style: italic;
+  font-size: 13pt;
+  color: var(--ink);
+  border-left: 3pt solid var(--teal);
+  padding: 2pt 0 2pt 8pt;
+  margin-bottom: 5mm;
+  display: block;
+}
+.body-copy {
+  font-size: 10pt;
+  color: var(--ink-mid);
+  line-height: 1.55;
+  margin-bottom: 4mm;
+}
+.body-copy b { color: var(--ink); font-weight: 700; }
+.body-copy em { font-style: italic; color: var(--ink); }
+.note {
+  font-family: var(--fh);
+  font-style: italic;
+  font-size: 10.5pt;
+  color: var(--ink-mid);
+  border-left: 3pt solid var(--g300);
+  padding: 3pt 0 3pt 8pt;
+  margin-top: 5mm;
+}
 .note b { font-style: normal; color: var(--ink); }
 
-/* forces table */
-table.forces { width: 100%; border-collapse: collapse; margin: 5pt 0; }
-table.forces thead th { text-align: left; font-size: 6.5pt; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-subtle); padding: 4pt 7pt; border-bottom: 1.5pt solid var(--grey-300); background: var(--grey-100); }
-table.forces tbody td { padding: 4pt 7pt; border-bottom: 1pt solid var(--grey-100); font-size: 9.5pt; color: var(--ink-mid); }
-table.forces tbody tr:last-child td { border-bottom: none; }
-table.forces .pos { color: var(--teal); font-weight: 700; }
-table.forces .neg { color: #b84040; font-weight: 700; }
+/* ── TWO-COLUMN: CSS TABLE ────────────────────── */
+.tc { display: table; width: 100%; table-layout: fixed; }
+.tc-row { display: table-row; }
+.tc-cell { display: table-cell; vertical-align: top; }
+.tc-cell + .tc-cell { padding-left: 8mm; }
 
-.aside { font-family: var(--fh); font-style: italic; font-size: 11pt; color: var(--ink); margin-top: 5pt; line-height: 1.45; }
+/* ── LABEL + H3 ───────────────────────────────── */
+.col-label {
+  font-size: 6.5pt;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 4pt;
+}
+h3 {
+  font-family: var(--fh);
+  font-weight: 600;
+  font-size: 14pt;
+  color: var(--ink);
+  margin-bottom: 5mm;
+}
+
+/* ── NUMBERED STEPS ───────────────────────────── */
+ol.steps { list-style: none; }
+ol.steps li {
+  display: block;
+  padding: 4pt 0 4pt 22pt;
+  position: relative;
+  font-size: 10pt;
+  color: var(--ink-mid);
+  line-height: 1.45;
+  border-bottom: 1pt solid var(--g100);
+}
+ol.steps li:first-child { border-top: 1pt solid var(--g100); }
+ol.steps li::before {
+  content: counter(step);
+  counter-increment: step;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -7pt;
+  width: 14pt;
+  height: 14pt;
+  border-radius: 50%;
+  background: var(--g100);
+  font-size: 6pt;
+  font-weight: 700;
+  color: var(--ink-sub);
+  text-align: center;
+  line-height: 14pt;
+}
+ol.steps { counter-reset: step; }
+ol.steps.teal li::before { background: var(--teal-lt); color: var(--teal); }
+
+.strap {
+  margin-top: 5mm;
+  font-family: var(--fh);
+  font-style: italic;
+  font-size: 10pt;
+  color: var(--ink-mid);
+  line-height: 1.5;
+}
+.strap b { font-style: normal; color: var(--ink); }
+
+/* divider between columns on page 1 */
+.col-divider {
+  display: table-cell;
+  width: 1pt;
+  background: var(--g300);
+  padding: 0;
+}
+
+/* ── DISTINCTION BAR ──────────────────────────── */
+.dist-bar {
+  border-top: 1pt solid var(--g300);
+  margin-top: 6mm;
+  padding-top: 4mm;
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+.dist-bar .dc {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  padding: 0 4mm;
+}
+.dist-bar .dc + .dc { border-left: 1pt solid var(--g300); }
+.dist-bar .dc p {
+  font-family: var(--fh);
+  font-style: italic;
+  font-size: 10.5pt;
+  color: var(--ink-mid);
+}
+.dist-bar .dc p b { font-style: normal; color: var(--ink); }
+.dist-bar .dc p.plain { font-family: var(--fn); font-style: normal; font-size: 8.5pt; color: var(--ink-sub); }
+
+/* ── PANEL BOXES ──────────────────────────────── */
+.panel {
+  border: 1pt solid var(--g200);
+  border-radius: 3pt;
+  background: var(--white);
+  margin-bottom: 4mm;
+  overflow: hidden;
+}
+.panel-head {
+  padding: 4pt 9pt;
+  background: var(--g100);
+  border-bottom: 1pt solid var(--g200);
+  font-size: 6.5pt;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-sub);
+}
+.panel ul { list-style: none; padding: 3pt 9pt; }
+.panel ul li {
+  padding: 4pt 0 4pt 18pt;
+  font-size: 10pt;
+  color: var(--ink-mid);
+  border-bottom: 1pt solid var(--g100);
+  position: relative;
+}
+.panel ul li:last-child { border-bottom: none; }
+.panel ul li::before { position: absolute; left: 0; top: 4pt; font-weight: 700; }
+.panel ul li.has::before { content: "✓"; color: var(--teal); }
+.panel ul li.no { text-decoration: line-through; color: var(--ink-sub); }
+.panel ul li.no::before { content: "—"; color: var(--g300); }
+
+/* ── FORCES TABLE ─────────────────────────────── */
+table.forces {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 4mm 0;
+  font-size: 10pt;
+}
+table.forces thead th {
+  text-align: left;
+  font-size: 6.5pt;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-sub);
+  padding: 4pt 8pt;
+  border-bottom: 2pt solid var(--g300);
+  background: var(--g100);
+}
+table.forces tbody td {
+  padding: 5pt 8pt;
+  border-bottom: 1pt solid var(--g100);
+  color: var(--ink-mid);
+}
+table.forces tbody tr:last-child td { border-bottom: none; }
+.pos { color: var(--teal); font-weight: 700; }
+.neg { color: var(--red); font-weight: 700; }
+
+.aside {
+  font-family: var(--fh);
+  font-style: italic;
+  font-size: 11.5pt;
+  color: var(--ink);
+  margin-top: 5mm;
+  line-height: 1.5;
+}
 .aside b { font-style: normal; color: var(--teal); }
 
-/* conviction */
-.ex-grid { display: flex; gap: 8pt; margin: 5pt 0; }
-.ex-card { flex: 1; border: 1pt solid var(--grey-200); border-radius: 3pt; background: var(--white); overflow: hidden; }
-.ex-card .ex-head { padding: 4pt 8pt; background: var(--grey-100); border-bottom: 1pt solid var(--grey-200); font-size: 6.5pt; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-subtle); }
-.ex-card .ex-body { padding: 6pt 8pt; }
-.ex-row { display: flex; justify-content: space-between; padding: 2pt 0; border-bottom: 1pt solid var(--grey-100); font-size: 8.5pt; }
+/* ── CONVICTION CARDS ─────────────────────────── */
+.ex-card {
+  border: 1pt solid var(--g200);
+  border-radius: 3pt;
+  background: var(--white);
+  overflow: hidden;
+}
+.ex-head {
+  padding: 4pt 9pt;
+  background: var(--g100);
+  border-bottom: 1pt solid var(--g200);
+  font-size: 6.5pt;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-sub);
+}
+.ex-body { padding: 5mm 9pt; }
+.ex-row {
+  overflow: hidden;
+  padding: 3pt 0;
+  border-bottom: 1pt solid var(--g100);
+  font-size: 10pt;
+}
 .ex-row:last-child { border-bottom: none; }
-.ex-row .lbl { color: var(--ink-mid); }
-.ex-row .val { font-weight: 700; }
+.ex-row .lbl { float: left; color: var(--ink-mid); }
+.ex-row .val { float: right; font-weight: 700; }
 .ex-row .val.hi { color: var(--teal); }
-.ex-row .val.lo { color: #b84040; }
-.ex-result { margin-top: 5pt; padding: 4pt 7pt; border-radius: 2pt; font-family: var(--fh); font-weight: 600; font-size: 9.5pt; }
-.ex-result.high { background: rgba(13,118,128,0.08); color: var(--teal); }
-.ex-result.low { background: rgba(184,64,64,0.07); color: #b84040; }
+.ex-row .val.lo { color: var(--red); }
+.ex-result {
+  margin-top: 5mm;
+  padding: 4pt 8pt;
+  border-radius: 3pt;
+  font-family: var(--fh);
+  font-weight: 600;
+  font-size: 11pt;
+  clear: both;
+}
+.ex-result.high { background: var(--teal-lt); color: var(--teal); }
+.ex-result.low { background: var(--red-lt); color: var(--red); }
 
-.insight { border: 1pt solid var(--grey-200); border-radius: 3pt; background: var(--grey-100); padding: 7pt 10pt; margin-top: 5pt; font-family: var(--fh); font-style: italic; font-size: 10pt; color: var(--ink); line-height: 1.5; }
+.insight {
+  border: 1pt solid var(--g200);
+  border-radius: 3pt;
+  background: var(--g100);
+  padding: 5mm 9pt;
+  margin-top: 5mm;
+  font-family: var(--fh);
+  font-style: italic;
+  font-size: 11pt;
+  color: var(--ink);
+  line-height: 1.5;
+}
 .insight b { font-style: normal; color: var(--teal); }
 
-/* tracking */
-.track-grid { display: flex; gap: 8pt; margin: 5pt 0; }
-.track-period { flex: 1; border: 1pt solid var(--grey-200); border-radius: 3pt; background: var(--white); overflow: hidden; }
-.track-period .tp-head { padding: 3.5pt 8pt; background: var(--grey-100); border-bottom: 1pt solid var(--grey-200); font-size: 6.5pt; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-subtle); }
-.track-period .tp-body { padding: 5pt 8pt; }
-.tm { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4pt; font-size: 8.5pt; }
-.tm:last-child { margin-bottom: 0; }
-.tm .lbl { color: var(--ink-mid); }
-.tm-tag { font-size: 6pt; font-weight: 700; padding: 1pt 4pt; border-radius: 2pt; }
-.tm-tag.low-g { background: rgba(13,118,128,0.1); color: var(--teal); }
-.tm-tag.high-r { background: rgba(184,64,64,0.1); color: #b84040; }
+/* ── TRACKING CARDS ───────────────────────────── */
+.track-card {
+  border: 1pt solid var(--g200);
+  border-radius: 3pt;
+  background: var(--white);
+  overflow: hidden;
+  margin-bottom: 3mm;
+}
+.track-head {
+  padding: 3.5pt 9pt;
+  background: var(--g100);
+  border-bottom: 1pt solid var(--g200);
+  font-size: 6.5pt;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-sub);
+}
+.track-body { padding: 4pt 9pt; }
+.tm {
+  overflow: hidden;
+  padding: 4pt 0;
+  border-bottom: 1pt solid var(--g100);
+  font-size: 9.5pt;
+}
+.tm:last-child { border-bottom: none; }
+.tm .tl { float: left; color: var(--ink-mid); }
+.tm .tv { float: right; }
+.tag {
+  display: inline-block;
+  font-size: 6.5pt;
+  font-weight: 700;
+  padding: 1.5pt 5pt;
+  border-radius: 2pt;
+}
+.tag-g { background: var(--teal-lt); color: var(--teal); }
+.tag-r { background: var(--red-lt); color: var(--red); }
 
-.explains { border: 1pt solid var(--grey-200); border-radius: 3pt; background: var(--white); padding: 7pt 10pt; }
-.explains h4 { font-size: 6.5pt; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-subtle); margin-bottom: 5pt; }
-.explains ul { list-style: none; }
-.explains ul li { font-size: 8.5pt; color: var(--ink-mid); padding: 2pt 0 2pt 14pt; position: relative; border-bottom: 1pt solid var(--grey-100); }
+.explains {
+  border: 1pt solid var(--g200);
+  border-radius: 3pt;
+  background: var(--white);
+  overflow: hidden;
+  margin-bottom: 4mm;
+}
+.explains ul { list-style: none; padding: 3pt 9pt; }
+.explains ul li {
+  padding: 4pt 0 4pt 18pt;
+  position: relative;
+  font-size: 10pt;
+  color: var(--ink-mid);
+  border-bottom: 1pt solid var(--g100);
+}
 .explains ul li:last-child { border-bottom: none; }
 .explains ul li::before { content: "→"; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
+
+/* ─────────────────────────────────────────────── */
+/*  COVER                                          */
+/* ─────────────────────────────────────────────── */
+.cover .cover-body {
+  padding: 8mm 14mm 10mm;
+}
+.cover .cover-kicker {
+  font-family: var(--fn);
+  font-weight: 700;
+  font-size: 8pt;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 3mm;
+}
+.cover h1 {
+  font-family: var(--fh);
+  font-weight: 500;
+  font-size: 30pt;
+  line-height: 1.08;
+  color: var(--ink);
+  margin-bottom: 3mm;
+  letter-spacing: -0.015em;
+}
+.cover h1 em { font-style: italic; color: var(--teal); }
+.cover .cover-rule { width: 18mm; height: 2.5pt; background: var(--teal); margin: 4mm 0; }
+.cover .cover-sub {
+  font-family: var(--fh);
+  font-style: italic;
+  font-size: 12pt;
+  color: var(--ink-mid);
+  margin-bottom: 6mm;
+}
+
+/* cover two-panel comparison */
+.cover-compare {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  margin-bottom: 5mm;
+}
+.cover-compare .cc {
+  display: table-cell;
+  vertical-align: top;
+  border: 1pt solid var(--g200);
+  border-radius: 3pt;
+  padding: 5mm 6mm;
+  background: var(--white);
+}
+.cover-compare .cc + .cc {
+  border-left: none;
+  border-left: 1pt solid var(--g200);
+  background: rgba(13,118,128,0.04);
+}
+.cover-compare .cc-label {
+  font-size: 6.5pt;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-sub);
+  margin-bottom: 4pt;
+}
+.cover-compare .cc-label.tl { color: var(--teal); }
+.cover-compare .cc-h {
+  font-family: var(--fh);
+  font-weight: 600;
+  font-size: 13pt;
+  color: var(--ink);
+  margin-bottom: 4mm;
+}
+.cover-compare .cc-steps {
+  font-size: 9.5pt;
+  color: var(--ink-mid);
+  line-height: 1.6;
+}
+.cover-compare .cc-steps span {
+  display: block;
+  padding: 2pt 0;
+  border-bottom: 1pt solid var(--g100);
+}
+.cover-compare .cc-steps span:last-child { border-bottom: none; }
+.cover-compare .cc .cc-close {
+  margin-top: 4mm;
+  font-family: var(--fh);
+  font-style: italic;
+  font-size: 9.5pt;
+  color: var(--ink-sub);
+}
+.cover-compare .cc.right .cc-close { color: var(--teal); }
+
+.cover-closing {
+  font-family: var(--fh);
+  font-style: italic;
+  font-size: 11pt;
+  color: var(--ink-mid);
+  border-left: 3pt solid var(--teal);
+  padding: 2pt 0 2pt 8pt;
+}
 </style>
 </head>
 <body>
 
-<!-- COVER -->
-<div class="slide">
+<!-- ═══════════════ COVER ═══════════════ -->
+<div class="slide cover">
   <div class="hdr"><span class="logo">N<b>O</b>AH</span></div>
   <div class="cover-body">
-    <div class="kicker">A Briefing</div>
-    <h1>There are two ways to answer a question.<br><em>They produce different kinds of answers.</em></h1>
-    <div class="rule"></div>
-    <p class="sub">One begins with interpretation.<br>The other begins with measurement.</p>
-    <p class="byline">LLM-First vs Physics-First — five pages</p>
+    <div class="cover-kicker">LLM-First vs Physics-First</div>
+    <h1>There are two ways to<br>answer a question.<br><em>They are not the same.</em></h1>
+    <div class="cover-rule"></div>
+    <div class="cover-compare">
+      <div class="cc">
+        <div class="cc-label">Approach 1 — LLM First</div>
+        <div class="cc-h">Read, interpret, conclude.</div>
+        <div class="cc-steps">
+          <span>Search for information</span>
+          <span>Read and interpret articles</span>
+          <span>Build a representation of the situation</span>
+          <span>Produce an answer</span>
+        </div>
+        <div class="cc-close">Starts with interpretation.</div>
+      </div>
+      <div class="cc right">
+        <div class="cc-label tl">Approach 2 — Physics First</div>
+        <div class="cc-h">Measure, then conclude.</div>
+        <div class="cc-steps">
+          <span>Identify the forces acting on the question</span>
+          <span>Measure each force independently</span>
+          <span>Determine direction, velocity and breadth</span>
+          <span>Reconcile competing forces</span>
+          <span>Then produce an answer</span>
+        </div>
+        <div class="cc-close">Starts with measurement.</div>
+      </div>
+    </div>
+    <div class="cover-closing">The difference is subtle. The consequences for risk tracking are not.</div>
   </div>
 </div>
 
-<!-- PAGE 1 -->
+<!-- ═══════════════ PAGE 1 ═══════════════ -->
 <div class="slide">
-  <div class="hdr"><span class="logo">N<b>O</b>AH</span><span class="snum">01 / 05</span></div>
-  <div class="body top" style="padding-bottom:0; padding-top:5pt;">
+  <div class="hdr"><span class="logo">N<b>O</b>AH</span><span class="pnum">01 / 05</span></div>
+  <div class="body">
     <h2>There Are Two Ways To Answer A Question</h2>
-    <div class="question">"Should I buy BP?"</div>
-  </div>
-  <div class="compare">
-    <div class="col">
-      <div class="label">Approach 1 — LLM First</div>
-      <h3>Read, interpret, conclude.</h3>
-      <ol class="steps">
-        <li>Read a collection of articles.</li>
-        <li>Interpret them.</li>
-        <li>Generate a narrative.</li>
-        <li>Reach a conclusion.</li>
-      </ol>
-      <p class="strap">The model is deciding what matters.<br>The conclusion is built from <b>interpretation.</b></p>
+    <span class="pull-q">"Should I buy BP?"</span>
+
+    <div class="tc">
+      <div class="tc-row">
+
+        <div class="tc-cell" style="padding-right: 7mm;">
+          <div class="col-label">Approach 1 — LLM First</div>
+          <h3>Read, interpret, conclude.</h3>
+          <ol class="steps">
+            <li>Read a collection of articles.</li>
+            <li>Interpret them.</li>
+            <li>Generate a narrative.</li>
+            <li>Reach a conclusion.</li>
+          </ol>
+          <p class="strap">The model is deciding what matters.<br>The conclusion is built from <b>interpretation.</b></p>
+        </div>
+
+        <div class="col-divider"></div>
+
+        <div class="tc-cell" style="padding-left: 7mm;">
+          <div class="col-label">Approach 2 — Physics First</div>
+          <h3>Measure, then conclude.</h3>
+          <ol class="steps teal">
+            <li>Identify the forces acting on BP.</li>
+            <li>Measure each force.</li>
+            <li>Determine which forces are strengthening or weakening.</li>
+            <li>Determine which forces matter most.</li>
+            <li>Then generate a narrative.</li>
+          </ol>
+          <p class="strap">The conclusion is derived from <b>measurement.</b></p>
+        </div>
+
+      </div>
     </div>
-    <div class="col">
-      <div class="label">Approach 2 — Physics First</div>
-      <h3>Measure, then conclude.</h3>
-      <ol class="steps teal">
-        <li>Identify the forces acting on BP.</li>
-        <li>Measure each force.</li>
-        <li>Determine which forces are strengthening or weakening.</li>
-        <li>Determine which forces matter most.</li>
-        <li>Then generate a narrative.</li>
-      </ol>
-      <p class="strap">The conclusion is derived from <b>measurement.</b></p>
+
+    <div class="dist-bar">
+      <div class="dc"><p>One starts with <b>interpretation.</b></p></div>
+      <div class="dc"><p>The other starts with <b>measurement.</b></p></div>
+      <div class="dc"><p class="plain">The difference is subtle but important.</p></div>
     </div>
-  </div>
-  <div class="dist">
-    <div class="di"><div class="dt">One starts with <b>interpretation.</b></div></div>
-    <div class="dsep"></div>
-    <div class="di"><div class="dt">The other starts with <b>measurement.</b></div></div>
-    <div class="dsep"></div>
-    <div class="di"><div class="dt" style="font-style:normal; font-size:8pt; color:var(--ink-subtle);">The difference is subtle but important.</div></div>
   </div>
 </div>
 
-<!-- PAGE 2 -->
+<!-- ═══════════════ PAGE 2 ═══════════════ -->
 <div class="slide">
-  <div class="hdr"><span class="logo">N<b>O</b>AH</span><span class="snum">02 / 05</span></div>
+  <div class="hdr"><span class="logo">N<b>O</b>AH</span><span class="pnum">02 / 05</span></div>
   <div class="body">
     <h2>What Does An LLM Actually Do?</h2>
-    <div class="question">"Should I buy BP?"</div>
-    <div class="two-col">
-      <div style="flex:1.1;">
-        <p class="body-text">The model searches for information, reads a subset of articles, builds a representation of the situation, and produces an answer.</p>
-        <p class="body-text">The answer may be excellent. However, the process is fundamentally <em>interpretive.</em> The model is deciding what matters.</p>
-        <div class="panel">
-          <h4>What you see</h4>
-          <ul>
-            <li class="has">Answer</li>
-            <li class="has">Reasoning</li>
-          </ul>
+    <span class="pull-q">"Should I buy BP?"</span>
+
+    <div class="tc">
+      <div class="tc-row">
+
+        <div class="tc-cell" style="width:52%; padding-right:8mm;">
+          <p class="body-copy">The model searches for information, reads a subset of articles, builds a representation of the situation, and produces an answer.</p>
+          <p class="body-copy">The answer may be excellent. However, the process is fundamentally <em>interpretive.</em> The model is deciding what matters.</p>
+
+          <div class="panel">
+            <div class="panel-head">What you see</div>
+            <ul>
+              <li class="has">Answer</li>
+              <li class="has">Reasoning</li>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div style="flex:1;">
-        <div class="panel">
-          <h4>What you don't see</h4>
-          <ul>
-            <li class="missing">What was ignored</li>
-            <li class="missing">What contradicted the answer</li>
-            <li class="missing">Which factors mattered most</li>
-            <li class="missing">How much each factor contributed</li>
-          </ul>
+
+        <div class="tc-cell" style="width:48%;">
+          <div class="panel">
+            <div class="panel-head">What you don't see</div>
+            <ul>
+              <li class="no">What was ignored</li>
+              <li class="no">What contradicted the answer</li>
+              <li class="no">Which factors mattered most</li>
+              <li class="no">How much each factor contributed</li>
+            </ul>
+          </div>
+          <div class="note">The answer is produced. But the <b>forces behind it</b> remain invisible.</div>
         </div>
-        <div class="note">The answer is produced. But the <b>forces behind it</b> remain invisible.</div>
+
       </div>
     </div>
   </div>
 </div>
 
-<!-- PAGE 3 -->
+<!-- ═══════════════ PAGE 3 ═══════════════ -->
 <div class="slide">
-  <div class="hdr"><span class="logo">N<b>O</b>AH</span><span class="snum">03 / 05</span></div>
+  <div class="hdr"><span class="logo">N<b>O</b>AH</span><span class="pnum">03 / 05</span></div>
   <div class="body">
     <h2>What Does Noah Do Differently?</h2>
-    <div class="question">"Should I buy BP?"</div>
-    <p class="body-text">Instead of immediately forming an opinion, the first question is: <em>what are the forces acting on BP?</em></p>
+    <span class="pull-q">"Should I buy BP?"</span>
+
+    <p class="body-copy">Instead of immediately forming an opinion, the first question is: <em>what are the forces acting on BP?</em></p>
+
     <table class="forces">
-      <thead><tr><th>Force</th><th>Direction</th></tr></thead>
+      <thead>
+        <tr><th style="width:70%">Force</th><th>Direction</th></tr>
+      </thead>
       <tbody>
         <tr><td>Dividends</td><td class="pos">Positive</td></tr>
         <tr><td>Buybacks</td><td class="pos">Positive</td></tr>
@@ -249,75 +656,98 @@ table.forces .neg { color: #b84040; font-weight: 700; }
         <tr><td>Litigation</td><td class="neg">Negative</td></tr>
       </tbody>
     </table>
+
     <div class="aside">Only after measuring these forces does Noah attempt to form a view.<br>The narrative comes <b>last.</b> Not first.</div>
   </div>
 </div>
 
-<!-- PAGE 4 -->
+<!-- ═══════════════ PAGE 4 ═══════════════ -->
 <div class="slide">
-  <div class="hdr"><span class="logo">N<b>O</b>AH</span><span class="snum">04 / 05</span></div>
+  <div class="hdr"><span class="logo">N<b>O</b>AH</span><span class="pnum">04 / 05</span></div>
   <div class="body">
     <h2>Where Does Conviction Come From?</h2>
-    <p class="body-text">Most systems produce <em>confidence.</em> The approach described here attempts to measure <em>conviction.</em></p>
-    <div class="ex-grid">
-      <div class="ex-card">
-        <div class="ex-head">Example A</div>
-        <div class="ex-body">
-          <div class="ex-row"><span class="lbl">Positive forces</span><span class="val hi">8</span></div>
-          <div class="ex-row"><span class="lbl">Negative forces</span><span class="val lo">1</span></div>
-          <div class="ex-result high">High conviction.</div>
+    <p class="body-copy">Most systems produce <em>confidence.</em> The approach described here attempts to measure <em>conviction.</em></p>
+
+    <div class="tc">
+      <div class="tc-row">
+
+        <div class="tc-cell" style="padding-right:6mm;">
+          <div class="ex-card">
+            <div class="ex-head">Example A</div>
+            <div class="ex-body">
+              <div class="ex-row"><span class="lbl">Positive forces</span><span class="val hi">8</span></div>
+              <div class="ex-row"><span class="lbl">Negative forces</span><span class="val lo">1</span></div>
+              <div class="ex-result high">High conviction.</div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="ex-card">
-        <div class="ex-head">Example B</div>
-        <div class="ex-body">
-          <div class="ex-row"><span class="lbl">Positive forces</span><span class="val hi">5</span></div>
-          <div class="ex-row"><span class="lbl">Negative forces</span><span class="val lo">5</span></div>
-          <div class="ex-result low">Low conviction.</div>
+
+        <div class="tc-cell">
+          <div class="ex-card">
+            <div class="ex-head">Example B</div>
+            <div class="ex-body">
+              <div class="ex-row"><span class="lbl">Positive forces</span><span class="val hi">5</span></div>
+              <div class="ex-row"><span class="lbl">Negative forces</span><span class="val lo">5</span></div>
+              <div class="ex-result low">Low conviction.</div>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
-    <div class="insight">In Example B, the answer is not "uncertain."<br>The answer is: <b>reality is contradictory.</b> That distinction matters enormously.</div>
+
+    <div class="insight">
+      In Example B, the answer is not "uncertain."<br>
+      The answer is: <b>reality is contradictory.</b><br>
+      That distinction matters enormously.
+    </div>
   </div>
 </div>
 
-<!-- PAGE 5 -->
+<!-- ═══════════════ PAGE 5 ═══════════════ -->
 <div class="slide">
-  <div class="hdr"><span class="logo">N<b>O</b>AH</span><span class="snum">05 / 05</span></div>
+  <div class="hdr"><span class="logo">N<b>O</b>AH</span><span class="pnum">05 / 05</span></div>
   <div class="body">
     <h2>Why This Matters For Risk Tracking</h2>
-    <div class="two-col" style="gap:10mm;">
-      <div style="flex:1.1;">
-        <p class="body-text"><b>Most systems tell you what they think.</b> This approach tries to tell you <b>what changed</b> — and why.</p>
-        <div class="track-grid">
-          <div class="track-period">
-            <div class="tp-head">January</div>
-            <div class="tp-body">
-              <div class="tm"><span class="lbl">Regulatory pressure</span><span class="tm-tag low-g">Low</span></div>
-              <div class="tm"><span class="lbl">Capital returns</span><span class="tm-tag low-g">Strong</span></div>
+
+    <div class="tc">
+      <div class="tc-row">
+
+        <div class="tc-cell" style="width:54%; padding-right:8mm;">
+          <p class="body-copy"><b>Most systems tell you what they think.</b> This approach tries to tell you <b>what changed</b> — and why.</p>
+
+          <div class="track-card">
+            <div class="track-head">January</div>
+            <div class="track-body">
+              <div class="tm"><span class="tl">Regulatory pressure</span><span class="tv"><span class="tag tag-g">Low</span></span></div>
+              <div class="tm"><span class="tl">Capital returns</span><span class="tv"><span class="tag tag-g">Strong</span></span></div>
             </div>
           </div>
-          <div class="track-period">
-            <div class="tp-head">March</div>
-            <div class="tp-body">
-              <div class="tm"><span class="lbl">Regulatory pressure</span><span class="tm-tag high-r">High ▲</span></div>
-              <div class="tm"><span class="lbl">Capital returns</span><span class="tm-tag low-g">Strong</span></div>
+
+          <div class="track-card">
+            <div class="track-head">March</div>
+            <div class="track-body">
+              <div class="tm"><span class="tl">Regulatory pressure</span><span class="tv"><span class="tag tag-r">High ▲</span></span></div>
+              <div class="tm"><span class="tl">Capital returns</span><span class="tv"><span class="tag tag-g">Strong</span></span></div>
             </div>
           </div>
+
+          <div class="note">The important question is <b>what changed</b> — not what the score is.</div>
         </div>
-        <div class="note" style="margin-top:6pt;">The important question is <b>what changed</b> — not what the score is.</div>
-      </div>
-      <div style="flex:1;">
-        <div class="explains">
-          <h4>This makes it possible to explain</h4>
-          <ul>
-            <li>Why a score moved</li>
-            <li>Which force moved it</li>
-            <li>Whether the change is accelerating</li>
-            <li>Whether contradictory evidence exists</li>
-          </ul>
+
+        <div class="tc-cell" style="width:46%;">
+          <div class="explains">
+            <div class="panel-head">This makes it possible to explain</div>
+            <ul>
+              <li>Why a score moved</li>
+              <li>Which force moved it</li>
+              <li>Whether the change is accelerating</li>
+              <li>Whether contradictory evidence exists</li>
+            </ul>
+          </div>
+          <p class="body-copy" style="margin-top:4mm;">Which is ultimately what clients, boards and communications teams need.</p>
         </div>
-        <p class="body-text" style="margin-top:7pt;">Which is ultimately what clients, boards and communications teams need.</p>
+
       </div>
     </div>
   </div>
