@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Physics First — A Briefing</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1e2129; --ink-mid: #4a4f5e; --ink-subtle: #7a8094;
+    --grey-300: #c8cbd4; --grey-100: #f0f1f4;
+    --paper: #fdfcfa; --white: #ffffff;
+    --teal: #0d7680; --rule: #0d7680;
+    --font-h: 'Playfair Display', Georgia, serif;
+    --font-b: 'Lato', system-ui, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; overflow: hidden; }
+  body { background: #e8e6e1; font-family: var(--font-b); -webkit-font-smoothing: antialiased; }
+
+  /* ---- DECK ---- */
+  .deck { width: 100vw; height: 100vh; position: relative; }
+  .slide {
+    position: absolute; inset: 0;
+    background: var(--paper);
+    display: flex; flex-direction: column;
+    padding: 0;
+    opacity: 0; visibility: hidden; transition: opacity 0.35s;
+  }
+  .slide.active { opacity: 1; visibility: visible; z-index: 2; }
+
+  /* thin top rule in teal */
+  .slide::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--rule); }
+
+  /* ---- SLIDE HEADER ---- */
+  .s-header {
+    padding: 1.6vh 5vw 0;
+    display: flex; align-items: baseline; justify-content: space-between;
+    flex-shrink: 0; padding-top: calc(0.9vh + 3px);
+  }
+  .s-logo { font-family: var(--font-b); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-subtle); }
+  .s-logo b { color: var(--teal); }
+  .s-num { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; color: var(--ink-subtle); }
+
+  /* ---- SLIDE BODY ---- */
+  .s-body { flex: 1; padding: 3vh 5vw 5vh; display: flex; flex-direction: column; justify-content: center; }
+  .s-body.top { justify-content: flex-start; padding-top: 1.5vh; }
+
+  h2.s-title {
+    font-family: var(--font-h); font-weight: 500; line-height: 1.12;
+    font-size: clamp(1.55rem, 3.2vw, 2.55rem);
+    color: var(--ink); margin-bottom: 0.4rem; letter-spacing: -0.01em;
+  }
+  .rule { width: 40px; height: 2px; background: var(--teal); margin: 1.1rem 0 1.5rem; }
+  .question {
+    display: inline-block; font-family: var(--font-h); font-weight: 700; font-style: italic;
+    font-size: clamp(1.05rem, 1.9vw, 1.5rem); color: var(--ink);
+    border-left: 3px solid var(--teal); padding: 0.4rem 0 0.4rem 1rem;
+    margin-bottom: 1.8rem;
+  }
+  .label {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--teal); margin-bottom: 0.6rem;
+  }
+
+  /* ---- TWO COLUMNS (page 1) ---- */
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 0; flex: 1; }
+  .col { padding: 2.5vmin 3vw; display: flex; flex-direction: column; border-top: 1px solid var(--grey-300); }
+  .col:first-child { border-right: 1px solid var(--grey-300); }
+  .col h3 {
+    font-family: var(--font-h); font-weight: 600;
+    font-size: clamp(1.05rem, 2vw, 1.5rem); color: var(--ink); margin-bottom: 1.2rem;
+  }
+  ol.steps { list-style: none; counter-reset: s; }
+  ol.steps li {
+    counter-increment: s; padding-left: 2rem; position: relative;
+    margin-bottom: 0.65rem; font-size: clamp(0.9rem, 1.3vw, 1.05rem);
+    color: var(--ink-mid); line-height: 1.45;
+  }
+  ol.steps li::before {
+    content: counter(s); position: absolute; left: 0; top: 0;
+    width: 1.3rem; height: 1.3rem; border-radius: 50%; background: var(--grey-100);
+    font-size: 0.68rem; font-weight: 700; color: var(--ink-subtle);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-b);
+  }
+  ol.steps.teal li::before { background: rgba(13,118,128,0.1); color: var(--teal); }
+
+  .strap {
+    margin-top: auto; padding-top: 1.4rem;
+    font-family: var(--font-h); font-style: italic;
+    font-size: clamp(0.95rem, 1.55vw, 1.25rem); color: var(--ink-mid); line-height: 1.5;
+  }
+  .strap b { font-style: normal; color: var(--ink); font-weight: 600; }
+
+  /* bottom banner on page 1 */
+  .distinction {
+    border-top: 1px solid var(--grey-300);
+    padding: 1.4vh 5vw;
+    display: flex; gap: 3vw; align-items: center; flex-shrink: 0;
+  }
+  .dist-item { flex: 1; text-align: center; }
+  .dist-item .dt { font-family: var(--font-h); font-style: italic; font-size: clamp(0.9rem, 1.6vw, 1.3rem); color: var(--ink-mid); }
+  .dist-item .dt b { font-style: normal; color: var(--ink); font-weight: 600; }
+  .dist-sep { width: 1px; background: var(--grey-300); align-self: stretch; }
+
+  /* ---- PAGE 2 LAYOUT ---- */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4vw; align-items: start; }
+  .body-text { font-size: clamp(0.92rem, 1.35vw, 1.05rem); color: var(--ink-mid); line-height: 1.65; margin-bottom: 0.9rem; }
+  .body-text b { color: var(--ink); font-weight: 700; }
+  .body-text em { font-style: italic; color: var(--ink); }
+
+  .panel {
+    border: 1px solid var(--grey-300); border-radius: 4px;
+    background: var(--white); overflow: hidden;
+  }
+  .panel h4 {
+    padding: 0.7rem 1rem; background: var(--grey-100);
+    font-family: var(--font-b); font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-subtle);
+    border-bottom: 1px solid var(--grey-300);
+  }
+  .panel ul { list-style: none; padding: 0.8rem 1rem; }
+  .panel ul li { padding: 0.35rem 0; font-size: 0.95rem; color: var(--ink-mid); border-bottom: 1px solid var(--grey-100); display: flex; align-items: center; gap: 0.5rem; }
+  .panel ul li:last-child { border-bottom: none; }
+  .panel ul li.has::before { content: "✓"; color: var(--teal); font-weight: 700; flex-shrink: 0; }
+  .panel ul li.missing { text-decoration: line-through; color: var(--ink-subtle); }
+  .panel ul li.missing::before { content: "—"; color: var(--grey-300); font-weight: 700; flex-shrink: 0; }
+
+  /* note block */
+  .note {
+    font-family: var(--font-h); font-style: italic;
+    font-size: clamp(0.95rem, 1.5vw, 1.2rem); line-height: 1.5;
+    color: var(--ink-mid); border-left: 3px solid var(--grey-300);
+    padding: 0.6rem 0 0.6rem 1rem; margin-top: 1.2rem;
+  }
+  .note b { font-style: normal; color: var(--ink); }
+
+  /* ---- PAGE 3 — TABLE ---- */
+  table.forces {
+    width: 100%; border-collapse: collapse; margin: 1.2rem 0;
+    font-size: clamp(0.88rem, 1.3vw, 1rem);
+  }
+  table.forces thead th {
+    text-align: left; font-family: var(--font-b); font-weight: 700; font-size: 0.68rem;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-subtle);
+    padding: 0.5rem 0.8rem; border-bottom: 2px solid var(--grey-300); background: var(--grey-100);
+  }
+  table.forces tbody td {
+    padding: 0.55rem 0.8rem; border-bottom: 1px solid var(--grey-100);
+    color: var(--ink-mid); line-height: 1.4;
+  }
+  table.forces tbody tr:last-child td { border-bottom: none; }
+  table.forces .pos { color: var(--teal); font-weight: 700; }
+  table.forces .neg { color: #b84040; font-weight: 700; }
+  table.forces tbody tr:hover td { background: rgba(13,118,128,0.03); }
+
+  .aside {
+    font-family: var(--font-h); font-style: italic;
+    font-size: clamp(1rem, 1.7vw, 1.3rem); color: var(--ink);
+    margin-top: 1.4rem; line-height: 1.5;
+  }
+  .aside b { font-style: normal; color: var(--teal); }
+
+  /* ---- PAGE 4 — CONVICTION ---- */
+  .ex-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1rem 0; }
+  .ex-card { border: 1px solid var(--grey-300); border-radius: 4px; overflow: hidden; background: var(--white); }
+  .ex-card .ex-head {
+    padding: 0.7rem 1.1rem; border-bottom: 1px solid var(--grey-300);
+    background: var(--grey-100);
+    font-family: var(--font-b); font-weight: 700; font-size: 0.72rem;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-subtle);
+  }
+  .ex-card .ex-body { padding: 1rem 1.1rem; }
+  .ex-row { display: flex; justify-content: space-between; padding: 0.3rem 0; border-bottom: 1px solid var(--grey-100); font-size: 0.94rem; }
+  .ex-row:last-child { border-bottom: none; }
+  .ex-row .lbl { color: var(--ink-mid); }
+  .ex-row .val { font-weight: 700; font-variant-numeric: tabular-nums; }
+  .ex-row .val.hi { color: var(--teal); }
+  .ex-row .val.lo { color: #b84040; }
+  .ex-result {
+    margin-top: 0.9rem; padding: 0.65rem 0.9rem; border-radius: 3px;
+    font-family: var(--font-h); font-weight: 600; font-size: 1.05rem; line-height: 1.3;
+  }
+  .ex-result.high { background: rgba(13,118,128,0.08); color: var(--teal); }
+  .ex-result.low { background: rgba(184,64,64,0.07); color: #b84040; }
+
+  .insight {
+    grid-column: 1 / -1; background: var(--grey-100); border: 1px solid var(--grey-300);
+    border-radius: 4px; padding: 0.9rem 1.2rem;
+    font-family: var(--font-h); font-style: italic;
+    font-size: clamp(0.95rem, 1.55vw, 1.2rem); color: var(--ink); line-height: 1.5;
+  }
+  .insight b { font-style: normal; color: var(--teal); }
+
+  /* ---- PAGE 5 — TRACKING ---- */
+  .track-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.2rem 0; }
+  .track-period { border: 1px solid var(--grey-300); border-radius: 4px; background: var(--white); overflow: hidden; }
+  .track-period .tp-head {
+    padding: 0.55rem 1rem; background: var(--grey-100); border-bottom: 1px solid var(--grey-300);
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-subtle);
+  }
+  .track-period .tp-body { padding: 0.8rem 1rem; }
+  .track-metric { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; font-size: 0.92rem; }
+  .track-metric:last-child { margin-bottom: 0; }
+  .tm-lbl { color: var(--ink-mid); }
+  .tm-val { font-weight: 700; font-variant-numeric: tabular-nums; display: flex; align-items: center; gap: 0.4rem; }
+  .tm-tag { font-size: 0.65rem; font-weight: 700; padding: 1px 5px; border-radius: 2px; }
+  .tm-tag.low { background: rgba(13,118,128,0.1); color: var(--teal); }
+  .tm-tag.high { background: rgba(184,64,64,0.1); color: #b84040; }
+  .tm-tag.up { background: rgba(184,64,64,0.12); color: #b84040; }
+
+  .explains {
+    border: 1px solid var(--grey-300); border-radius: 4px; background: var(--white);
+    padding: 1rem 1.2rem; margin-top: 0.8rem;
+  }
+  .explains h4 {
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-subtle); margin-bottom: 0.7rem;
+  }
+  .explains ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.3rem 1.5rem; }
+  .explains ul li { font-size: 0.9rem; color: var(--ink-mid); padding-left: 1.1rem; position: relative; }
+  .explains ul li::before { content: "→"; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
+
+  /* ---- COVER ---- */
+  .cover { justify-content: center; align-items: center; }
+  .cover .s-body { align-items: flex-start; justify-content: center; }
+  .cover .kicker { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal); margin-bottom: 1.5rem; }
+  .cover h1 {
+    font-family: var(--font-h); font-weight: 500; line-height: 1.05;
+    font-size: clamp(2rem, 5.5vw, 4.2rem);
+    color: var(--ink); margin-bottom: 1.4rem; letter-spacing: -0.015em; max-width: 16em;
+  }
+  .cover h1 em { font-style: italic; color: var(--teal); }
+  .cover .sub {
+    font-family: var(--font-h); font-style: italic; font-weight: 400;
+    font-size: clamp(1rem, 2vw, 1.55rem); color: var(--ink-mid); line-height: 1.5; max-width: 38em;
+  }
+  .cover .byline { margin-top: 2.5rem; font-size: 0.76rem; color: var(--ink-subtle); letter-spacing: 0.06em; }
+
+  /* ---- NAV ---- */
+  .nav { position: fixed; bottom: 1.6vh; right: 4vw; z-index: 50; display: flex; align-items: center; gap: 0.6rem; }
+  .nav button {
+    width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--grey-300);
+    background: var(--white); color: var(--ink); font-size: 1rem; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; transition: all 0.15s;
+  }
+  .nav button:hover:not(:disabled) { background: var(--teal); color: white; border-color: var(--teal); }
+  .nav button:disabled { opacity: 0.3; cursor: default; }
+  .counter { position: fixed; bottom: 2vh; left: 4vw; z-index: 50; font-size: 0.72rem; font-weight: 700; color: var(--ink-subtle); letter-spacing: 0.06em; }
+  .counter b { color: var(--teal); }
+  .progress { position: fixed; bottom: 0; left: 0; height: 2px; background: var(--teal); z-index: 60; transition: width 0.35s; }
+  .hint { position: fixed; bottom: 2vh; left: 50%; transform: translateX(-50%); z-index: 50; font-size: 0.65rem; color: var(--grey-300); letter-spacing: 0.05em; }
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+<!-- ========== COVER ========== -->
+<div class="slide">
+  <div class="s-header"><span class="s-logo">N<b>O</b>AH</span></div>
+  <div class="s-body">
+    <div class="kicker">A Briefing</div>
+    <h1>There are two ways to answer a question.<br><em>They produce different kinds of answers.</em></h1>
+    <div class="rule"></div>
+    <p class="sub">One begins with interpretation.<br>The other begins with measurement.</p>
+    <p class="byline">LLM-First vs Physics-First — five pages</p>
+  </div>
+</div>
+
+<!-- ========== PAGE 1 ========== -->
+<div class="slide">
+  <div class="s-header"><span class="s-logo">N<b>O</b>AH</span><span class="s-num">01 / 05</span></div>
+  <div class="s-body top" style="padding-bottom:0;">
+    <h2 class="s-title">There Are Two Ways To Answer A Question</h2>
+    <div class="question">"Should I buy BP?"</div>
+  </div>
+  <div class="compare">
+    <div class="col">
+      <div class="label">Approach 1 — LLM First</div>
+      <h3>Read, interpret, conclude.</h3>
+      <ol class="steps">
+        <li>Read a collection of articles.</li>
+        <li>Interpret them.</li>
+        <li>Generate a narrative.</li>
+        <li>Reach a conclusion.</li>
+      </ol>
+      <p class="strap">The model is deciding what matters.<br>The conclusion is built from <b>interpretation.</b></p>
+    </div>
+    <div class="col">
+      <div class="label">Approach 2 — Physics First</div>
+      <h3>Measure, then conclude.</h3>
+      <ol class="steps teal">
+        <li>Identify the forces acting on BP.</li>
+        <li>Measure each force.</li>
+        <li>Determine which forces are strengthening or weakening.</li>
+        <li>Determine which forces matter most.</li>
+        <li>Then generate a narrative.</li>
+      </ol>
+      <p class="strap">The conclusion is derived from <b>measurement.</b></p>
+    </div>
+  </div>
+  <div class="distinction">
+    <div class="dist-item"><div class="dt">One starts with <b>interpretation.</b></div></div>
+    <div class="dist-sep"></div>
+    <div class="dist-item"><div class="dt">The other starts with <b>measurement.</b></div></div>
+    <div class="dist-sep"></div>
+    <div class="dist-item"><div class="dt" style="font-style:normal; font-size:0.82rem; color:var(--ink-subtle);">The difference is subtle but important.</div></div>
+  </div>
+</div>
+
+<!-- ========== PAGE 2 ========== -->
+<div class="slide">
+  <div class="s-header"><span class="s-logo">N<b>O</b>AH</span><span class="s-num">02 / 05</span></div>
+  <div class="s-body">
+    <h2 class="s-title">What Does An LLM Actually Do?</h2>
+    <div class="question">"Should I buy BP?"</div>
+    <div class="two-col">
+      <div>
+        <p class="body-text">The model searches for information, reads a subset of articles, builds a representation of the situation, and produces an answer.</p>
+        <p class="body-text">The answer may be excellent. However, the process is fundamentally <em>interpretive.</em> The model is deciding what matters.</p>
+        <div class="panel" style="margin-top:1rem;">
+          <h4>What you see</h4>
+          <ul>
+            <li class="has">Answer</li>
+            <li class="has">Reasoning</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="panel">
+          <h4>What you don't see</h4>
+          <ul>
+            <li class="missing">What was ignored</li>
+            <li class="missing">What contradicted the answer</li>
+            <li class="missing">Which factors mattered most</li>
+            <li class="missing">How much each factor contributed</li>
+          </ul>
+        </div>
+        <div class="note">The answer is produced. But the <b>forces behind it</b> remain invisible.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== PAGE 3 ========== -->
+<div class="slide">
+  <div class="s-header"><span class="s-logo">N<b>O</b>AH</span><span class="s-num">03 / 05</span></div>
+  <div class="s-body">
+    <h2 class="s-title">What Does Noah Do Differently?</h2>
+    <div class="question">"Should I buy BP?"</div>
+    <p class="body-text">Instead of immediately forming an opinion, the first question is: <em>what are the forces acting on BP?</em></p>
+    <table class="forces">
+      <thead>
+        <tr><th>Force</th><th>Direction</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Dividends</td><td class="pos">Positive</td></tr>
+        <tr><td>Buybacks</td><td class="pos">Positive</td></tr>
+        <tr><td>Operational performance</td><td class="pos">Positive</td></tr>
+        <tr><td>Oil-price sensitivity</td><td class="neg">Negative</td></tr>
+        <tr><td>Regulatory pressure</td><td class="neg">Negative</td></tr>
+        <tr><td>Litigation</td><td class="neg">Negative</td></tr>
+      </tbody>
+    </table>
+    <div class="aside">Only after measuring these forces does Noah attempt to form a view.<br>The narrative comes <b>last</b>. Not first.</div>
+  </div>
+</div>
+
+<!-- ========== PAGE 4 ========== -->
+<div class="slide">
+  <div class="s-header"><span class="s-logo">N<b>O</b>AH</span><span class="s-num">04 / 05</span></div>
+  <div class="s-body">
+    <h2 class="s-title">Where Does Conviction Come From?</h2>
+    <p class="body-text">Most systems produce <em>confidence.</em> The approach described here attempts to measure <em>conviction.</em></p>
+    <div class="ex-grid">
+      <div class="ex-card">
+        <div class="ex-head">Example A</div>
+        <div class="ex-body">
+          <div class="ex-row"><span class="lbl">Positive forces</span><span class="val hi">8</span></div>
+          <div class="ex-row"><span class="lbl">Negative forces</span><span class="val lo">1</span></div>
+          <div class="ex-result high">High conviction.</div>
+        </div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-head">Example B</div>
+        <div class="ex-body">
+          <div class="ex-row"><span class="lbl">Positive forces</span><span class="val hi">5</span></div>
+          <div class="ex-row"><span class="lbl">Negative forces</span><span class="val lo">5</span></div>
+          <div class="ex-result low">Low conviction.</div>
+        </div>
+      </div>
+      <div class="insight">
+        In Example B, the answer is not "uncertain."<br>
+        The answer is: <b>reality is contradictory.</b><br>
+        That distinction matters enormously.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== PAGE 5 ========== -->
+<div class="slide">
+  <div class="s-header"><span class="s-logo">N<b>O</b>AH</span><span class="s-num">05 / 05</span></div>
+  <div class="s-body">
+    <h2 class="s-title">Why This Matters For Risk Tracking</h2>
+    <div class="two-col" style="gap:3vw; margin-bottom:0.8rem;">
+      <div>
+        <p class="body-text" style="margin-bottom:0.4rem;"><b>Most systems tell you what they think.</b></p>
+        <p class="body-text">This approach tries to tell you <b>what changed</b> — and why.</p>
+        <div class="track-grid" style="margin-top:1rem;">
+          <div class="track-period">
+            <div class="tp-head">January</div>
+            <div class="tp-body">
+              <div class="track-metric"><span class="tm-lbl">Regulatory pressure</span><span class="tm-val"><span class="tm-tag low">Low</span></span></div>
+              <div class="track-metric"><span class="tm-lbl">Capital returns</span><span class="tm-val"><span class="tm-tag low" style="background:rgba(13,118,128,0.1); color:var(--teal);">Strong</span></span></div>
+            </div>
+          </div>
+          <div class="track-period">
+            <div class="tp-head">March</div>
+            <div class="tp-body">
+              <div class="track-metric"><span class="tm-lbl">Regulatory pressure</span><span class="tm-val"><span class="tm-tag high">High</span> <span class="tm-tag up">▲</span></span></div>
+              <div class="track-metric"><span class="tm-lbl">Capital returns</span><span class="tm-val"><span class="tm-tag low" style="background:rgba(13,118,128,0.1); color:var(--teal);">Strong</span></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="note" style="margin-top:1rem;">The important question is <b>what changed</b> — not what the score is.</div>
+      </div>
+      <div>
+        <div class="explains">
+          <h4>This makes it possible to explain</h4>
+          <ul>
+            <li>Why a score moved</li>
+            <li>Which force moved it</li>
+            <li>Whether the change is accelerating</li>
+            <li>Whether contradictory evidence exists</li>
+          </ul>
+        </div>
+        <p class="body-text" style="margin-top:1.1rem;">Which is ultimately what clients, boards and communications teams need.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /deck -->
+
+<div class="counter"><b id="cur">01</b> / <span id="tot">06</span></div>
+<div class="hint">← → or Space</div>
+<div class="nav">
+  <button id="prev">‹</button>
+  <button id="next">›</button>
+</div>
+<div class="progress" id="prog"></div>
+
+<script>
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const n = slides.length;
+  let i = 0;
+  document.getElementById('tot').textContent = String(n).padStart(2,'0');
+  const cur = document.getElementById('cur');
+  const prog = document.getElementById('prog');
+  const prev = document.getElementById('prev');
+  const next = document.getElementById('next');
+
+  function show(x) {
+    i = Math.max(0, Math.min(n-1, x));
+    slides.forEach((s,j) => s.classList.toggle('active', j===i));
+    cur.textContent = String(i+1).padStart(2,'0');
+    prog.style.width = ((i+1)/n*100)+'%';
+    prev.disabled = i===0; next.disabled = i===n-1;
+  }
+
+  next.addEventListener('click', ()=>show(i+1));
+  prev.addEventListener('click', ()=>show(i-1));
+  document.addEventListener('keydown', e=>{
+    if(['ArrowRight','Space','PageDown'].includes(e.code)){e.preventDefault();show(i+1);}
+    else if(['ArrowLeft','PageUp'].includes(e.code)){e.preventDefault();show(i-1);}
+    else if(e.key==='Home') show(0);
+    else if(e.key==='End') show(n-1);
+  });
+  let tx=0;
+  document.addEventListener('touchstart', e=>tx=e.changedTouches[0].clientX,{passive:true});
+  document.addEventListener('touchend', e=>{const d=e.changedTouches[0].clientX-tx; if(Math.abs(d)>50) d<0?show(i+1):show(i-1);},{passive:true});
+
+  show(0);
+</script>
+</body>
+</html>

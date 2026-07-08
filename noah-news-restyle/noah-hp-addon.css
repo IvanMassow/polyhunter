@@ -1,0 +1,227 @@
+/* ============================================================
+   NOAH HOMEPAGE — BROADSHEET STANDARDISATION (2026-07 redesign)
+   Paste into the <style> block of templates/homepage.html.
+   Restyles the below-the-fold sections to match the new
+   top-of-page print-bureau design. Markup changes required:
+     1. bs-adslot inner HTML  -> see noah-skyscraper.html
+     2. hp-desk-label gains   data-desk="risk|geo|poly|wires"
+   Everything else is CSS-only against existing classes.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   0.  DESK UNIVERSES — one accent per desk, one variable.
+       The label band and every kicker below it pick up --desk.
+   ------------------------------------------------------------ */
+:root{
+  --desk-risk:#6e5810;          /* burnished gold  — underwriting   */
+  --desk-geo:#1d5c45;           /* chart green     — geopolitics    */
+  --desk-poly:#1F3D80;          /* market navy     — predictions    */
+  --desk-wires:#E02236;         /* signal red      — news wires     */
+}
+section.hp-desk-label[data-desk="risk"]  { --desk:var(--desk-risk)  }
+section.hp-desk-label[data-desk="geo"]   { --desk:var(--desk-geo)   }
+section.hp-desk-label[data-desk="poly"]  { --desk:var(--desk-poly)  }
+section.hp-desk-label[data-desk="wires"] { --desk:var(--desk-wires) }
+/* fallback while builders don't emit data-desk yet */
+section.hp-desk-label{ --desk:var(--accent) }
+
+/* Desk label -> a proper newspaper section front: double rule,
+   desk-coloured eyebrow, Baskerville titling. */
+section.hp-desk-label{
+  max-width:var(--max);margin:0 auto;padding:34px var(--pad) 6px;
+  border-top:3px double var(--rule-strong);
+  border-bottom:0;background:#fff;text-align:left;
+  position:relative;
+}
+section.hp-desk-label::before{
+  content:"";position:absolute;top:3px;left:var(--pad);right:var(--pad);
+  border-top:1px solid var(--rule-strong);
+}
+section.hp-desk-label .hp-desk-label-eye{content:none}
+section.hp-desk-label .hp-desk-label-eye::before{content:none !important}
+section.hp-desk-label .hp-desk-label-eye{
+  font-family:var(--mono);font-size:10px;font-weight:600;
+  letter-spacing:.26em;text-transform:uppercase;color:var(--desk);
+  margin:10px 0 8px;
+}
+section.hp-desk-label .hp-desk-label-h{
+  font-family:var(--titling);font-weight:400;
+  font-size:clamp(24px,2.6vw,34px);line-height:1.12;
+  color:var(--ink);margin:0 0 2px;letter-spacing:.01em;
+}
+section.hp-desk-label .hp-desk-label-h em{font-style:italic;color:var(--desk)}
+
+/* ------------------------------------------------------------
+   1.  BSHEET RIGHT RAIL — skyscraper house ad fills the gap.
+       bs-right becomes a flex column; the ad slot grows to
+       absorb whatever height the centre column produces.
+   ------------------------------------------------------------ */
+.bs-right{display:flex;flex-direction:column}
+.bs-adslot{
+  flex:1;display:flex;flex-direction:column;margin-top:18px;
+  border:0;padding:0;background:none;text-align:left;
+}
+.bs-adslot .lbl{
+  font-family:var(--mono);font-size:9px;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--ink-3);display:block;
+  margin-bottom:8px;text-align:center;
+}
+.sky-ad{
+  flex:1;display:flex;flex-direction:column;
+  background:var(--accent);color:#fff;
+  padding:30px 26px 24px;min-height:520px;
+}
+.sky-ad .sky-kick{
+  font-family:var(--mono);font-size:9.5px;font-weight:600;
+  letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.55);
+  padding-bottom:14px;margin-bottom:18px;
+  border-bottom:1px solid rgba(255,255,255,.22);
+}
+.sky-ad h3{
+  font-family:var(--titling);font-weight:400;font-size:30px;
+  line-height:1.15;margin:0 0 6px;color:#fff;
+}
+.sky-ad h3 em{font-style:italic;color:#9db8ea}
+.sky-ad .sky-dek{
+  font-family:"Source Serif 4",Georgia,serif;font-size:14.5px;
+  line-height:1.55;color:rgba(255,255,255,.82);margin:12px 0 0;
+}
+.sky-ad .sky-dek b{color:#fff;font-weight:600}
+.sky-ad ul{
+  list-style:none;margin:22px 0 0;padding:0;
+}
+.sky-ad ul li{
+  font-family:var(--mono);font-size:11px;font-weight:500;
+  letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.85);
+  padding:9px 0;border-top:1px solid rgba(255,255,255,.16);
+}
+.sky-ad ul li::before{content:"→";margin-right:10px;color:#9db8ea}
+.sky-ad .sky-cta{
+  margin-top:auto;padding-top:22px;
+}
+.sky-ad .sky-cta a{
+  display:block;text-align:center;background:#fff;color:var(--accent);
+  font-family:var(--mono);font-size:11px;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;text-decoration:none;
+  padding:13px 10px;border:0;
+}
+.sky-ad .sky-cta a:hover{background:#e8edf8}
+.sky-ad .sky-foot{
+  font-family:var(--mono);font-size:8.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:rgba(255,255,255,.4);
+  text-align:center;margin-top:12px;
+}
+
+/* ------------------------------------------------------------
+   2.  TODAY'S RISK READ — out of the grey box, onto the sheet.
+   ------------------------------------------------------------ */
+.risk-hp-strip{
+  max-width:var(--max);margin:0 auto;padding:0 var(--pad) 8px;
+  background:#fff;
+}
+.risk-hp-strip-inner{
+  max-width:none;margin:0;padding:22px 0 26px;
+  background:none;border:0;border-top:2px solid var(--rule-strong);
+  box-shadow:none;
+}
+.risk-hp-eyebrow,.risk-hp-kicker{font-family:var(--mono) !important}
+.risk-hp-eyebrow{color:var(--desk-risk) !important}
+/* the flagship headline in titling face, like the lead story */
+.risk-hp-h{
+  font-family:var(--titling) !important;font-weight:400 !important;
+  letter-spacing:0 !important;
+}
+/* decision rail becomes a navy panel — echoes the hero data strip */
+.risk-hp-decision{
+  background:var(--accent);border:0;border-radius:0;
+  padding:24px 22px;
+}
+.risk-hp-decision .risk-hp-stat-lab{color:rgba(255,255,255,.55)}
+.risk-hp-decision .risk-hp-edge-sub{color:rgba(255,255,255,.65)}
+.risk-hp-decision .risk-hp-posture{color:#ffd98a}
+.risk-hp-decision .risk-hp-edge .pct,
+.risk-hp-decision .risk-hp-edge .arr{color:#ff9d8f}
+.risk-hp-decision .risk-hp-bar .num{color:#fff}
+.risk-hp-decision .risk-hp-bar .num small{color:rgba(255,255,255,.6)}
+.risk-hp-decision .risk-hp-bar .track{background:rgba(255,255,255,.25)}
+.risk-hp-cta{
+  background:#fff !important;color:var(--accent) !important;
+  border:0 !important;font-weight:600 !important;
+}
+/* dashboard card: hairline instead of tinted panel */
+.risk-hp-dash{border:1px solid var(--rule);background:#fff}
+
+/* ------------------------------------------------------------
+   3.  DAILY SIGNAL SCREENS — ruled columns, not floating cards.
+   ------------------------------------------------------------ */
+.risk-hp-grid-strip{background:#fff;padding:0}
+.risk-hp-grid-inner{
+  max-width:var(--max);margin:0 auto;padding:6px var(--pad) 30px;
+}
+.risk-hp-grid-head{
+  border-bottom:2px solid var(--rule-strong);
+  margin-bottom:0;padding-bottom:14px;
+}
+.risk-hp-grid-head .label{font-family:var(--mono);color:var(--desk-risk)}
+.risk-hp-grid-head h2{font-family:var(--titling);font-weight:400}
+.risk-hp-grid-head h2 b{color:var(--desk-risk)}
+.risk-hp-grid{
+  gap:0;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+}
+.risk-hp-grid{overflow:hidden}
+.risk-hp-grid > *{
+  background:none !important;border:0 !important;box-shadow:none !important;
+  padding:18px 22px !important;margin:0 0 0 -1px !important;
+  border-left:1px solid var(--rule) !important;
+  border-bottom:1px solid var(--rule) !important;
+}
+
+/* ------------------------------------------------------------
+   4.  SHERLOCK — beige pills become a movers board.
+   ------------------------------------------------------------ */
+section.sherlock-rail{
+  max-width:var(--max);margin:0 auto;padding:20px var(--pad) 26px;
+  border-top:2px solid var(--rule-strong);background:#fff;
+}
+section.sherlock-rail .sr-eyebrow{
+  font-family:var(--mono);font-size:10px;font-weight:600;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--desk-poly);
+  margin-bottom:4px;
+}
+section.sherlock-rail .sr-list{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
+  gap:0 36px;margin:0;
+}
+section.sherlock-rail .sr-pill{
+  display:flex;align-items:baseline;gap:14px;
+  background:none;border:0;border-radius:0;padding:11px 0;
+  border-bottom:1px solid var(--rule);
+  font-family:"Source Serif 4",Georgia,serif;font-size:14.5px;
+  color:var(--ink);line-height:1.35;
+}
+section.sherlock-rail .sr-pill strong{
+  font-family:var(--display);font-weight:700;font-size:15px;
+  color:#0f7b3d;min-width:74px;text-align:right;
+  font-variant-numeric:tabular-nums;flex-shrink:0;
+}
+section.sherlock-rail .sr-cta{
+  display:inline-block;margin-top:16px;
+  font-family:var(--mono);font-size:11px;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--desk-poly);
+  text-decoration:none;border-bottom:1px solid var(--desk-poly);
+  padding-bottom:2px;
+}
+section.sherlock-rail .sr-cta:hover{color:var(--accent-hover)}
+
+/* ------------------------------------------------------------
+   5.  Mobile guards — nothing may scroll sideways at 375px.
+   ------------------------------------------------------------ */
+@media (max-width:760px){
+  .sky-ad{min-height:0;padding:24px 20px}
+  .sky-ad h3{font-size:24px}
+  .risk-hp-grid > *{border-right:0 !important;padding-left:0 !important}
+  .sr-list{grid-template-columns:1fr}
+  .sr-pill strong{min-width:60px}
+  section.hp-desk-label{padding-top:26px}
+}
